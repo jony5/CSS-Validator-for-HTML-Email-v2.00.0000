@@ -825,7 +825,7 @@ class crnrstn_image_v_html_content_manager {
             case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
             case CRNRSTN_UI_IMG_URI_HTML_WRAPPED:
 
-                return '<link rel="shortcut icon" href="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/favicon.ico?v=420" />';
+                return '<link rel="shortcut icon" type="image/x-icon" href="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/favicon.ico?v=420.00" />';
 
             break;
             default:

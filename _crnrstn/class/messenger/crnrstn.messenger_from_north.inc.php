@@ -9341,7 +9341,26 @@ Formally, the display property sets an element\'s inner and outer display types.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'
-        <title>Email Client CSS Validator</title>
+        <meta http-equiv="Content-Language" content="en-us" />
+        <meta name="distribution" content="Global" />
+        <meta name="ROBOTS" content="index" />
+        <meta name="ROBOTS" content="follow" />
+        <meta name="msvalidate.01" content="FE0FE9054422153BDD7BBF130A022370" />
+        <meta property="og:url" content="http://css.validate.jony5.com/"/>
+        <meta property="og:site_name" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
+        <meta property="og:title" content="Only email pros can score over 92.5%. The CRNRSTN :: CSS Validator will assess the use of CSS within HTML email code and score the situation from a high level and then down to each email client."/>
+        <meta property="og:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta property="og:description" content="Only email pros can score over 92.5%.  Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
+        <meta property="og:type" content="website"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
+        <meta name="twitter:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta name="twitter:description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support!" />
+        <meta name="description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
+        <meta name="keywords" content="jesus, christ, jesus christ, gospel, j5, jonathan, harris, jonathan harris, johnny 5, jony5, atlanta, moxie, agency, web, christian, web services, email, web programming, marketing, CSS, XHTML, php, ajax" />
+
+        <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
+       
     </head>
     <body>
     <div style="width:100%; text-align:center; margin:0 auto; font-family:Arial, Helvetica, sans-serif; background-color: #FFF;">
@@ -9468,7 +9487,16 @@ Formally, the display property sets an element\'s inner and outer display types.
         
 
     </div>
-
+    <script>
+      (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,\'script\',\'https://www.google-analytics.com/analytics.js\',\'ga\');
+    
+      ga(\'create\', \'UA-2181418-32\', \'auto\');
+      ga(\'send\', \'pageview\');
+    
+    </script>
     </body>
     </html>';
 
@@ -9486,7 +9514,26 @@ Formally, the display property sets an element\'s inner and outer display types.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
-        <title>Email Client CSS Validator</title>
+        <meta http-equiv="Content-Language" content="en-us" />
+        <meta name="distribution" content="Global" />
+        <meta name="ROBOTS" content="index" />
+        <meta name="ROBOTS" content="follow" />
+        <meta name="msvalidate.01" content="FE0FE9054422153BDD7BBF130A022370" />
+        <meta property="og:url" content="http://css.validate.jony5.com/"/>
+        <meta property="og:site_name" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
+        <meta property="og:title" content="Only email pros can score over 92.5%. The CRNRSTN :: CSS Validator will assess the use of CSS within HTML email code and score the situation from a high level and then down to each email client."/>
+        <meta property="og:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta property="og:description" content="Only email pros can score over 92.5%.  Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
+        <meta property="og:type" content="website"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
+        <meta name="twitter:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta name="twitter:description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support!" />
+        <meta name="description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
+        <meta name="keywords" content="jesus, christ, jesus christ, gospel, j5, jonathan, harris, jonathan harris, johnny 5, jony5, atlanta, moxie, agency, web, christian, web services, email, web programming, marketing, CSS, XHTML, php, ajax" />
+
+        <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
+        
     </head>
     <body>
     <div style="width:100%; text-align:center; margin:0 auto; font-family:Arial, Helvetica, sans-serif; background-color: #FFF;">
@@ -9612,7 +9659,16 @@ Formally, the display property sets an element\'s inner and outer display types.
         <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
     </div>
-
+    <script>
+      (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,\'script\',\'https://www.google-analytics.com/analytics.js\',\'ga\');
+    
+      ga(\'create\', \'UA-2181418-32\', \'auto\');
+      ga(\'send\', \'pageview\');
+    
+    </script>
     </body>
     </html>';
 
