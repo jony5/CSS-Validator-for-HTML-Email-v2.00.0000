@@ -9429,7 +9429,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                         <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
                                             <strong>Note:</strong> Special thanks to the folks  at <a href="http://webstandards.org/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="http://www.campaignmonitor.com/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
                                             for  their <a href="http://www.campaignmonitor.com/css/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
-                                             respect to CSS support for all of the  most popular mobile, web, and email  
+                                             respect to CSS support for many popular mobile, web, and desktop email  
                                             clients and for their creation of  the <a href="http://www.email-standards.org/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
         
                                             <br><br>  The strength, accuracy, and thorough  consideration baked into the
@@ -9574,7 +9574,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                         <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
                                             <strong>Note:</strong> Special thanks to the folks  at <a href="http://webstandards.org/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="http://www.campaignmonitor.com/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
                                             for  their <a href="http://www.campaignmonitor.com/css/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
-                                             respect to CSS support for all of the  most popular mobile, web, and email  
+                                             respect to CSS support for many popular mobile, web, and desktop email 
                                             clients and for their creation of  the <a href="http://www.email-standards.org/" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
         
                                             <br><br>  The strength, accuracy, and thorough  consideration baked into the
