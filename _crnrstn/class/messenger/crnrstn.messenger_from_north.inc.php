@@ -10198,6 +10198,8 @@ Formally, the display property sets an element\'s inner and outer display types.
         switch($output_format){
             case 'HTML':
 
+                $tmp_walltime = $this->oCRNRSTN_USR->wallTime();
+                $this->oCRNRSTN_USR->setSessionParam('WALLTIME', $tmp_walltime);
                 $tmp_str = '
                                     <table cellspacing="0" cellpadding="0" border="0">
                                     <tr>
@@ -10211,7 +10213,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                                         <table cellspacing="0" cellpadding="0" border="0">
                                                         <tr>
                                                             <td style="vertical-align: top; width:240px;">
-                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-top: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Operation Runtime: '.$this->oCRNRSTN_USR->wallTime().' secs</div>
+                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-top: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Operation Runtime: '.$tmp_walltime.' secs</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Total Packet Size: '.$this->oCRNRSTN_USR->formatBytes(strlen($this->raw_data)).'</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>IP: '.$this->oCRNRSTN_USR->returnClientIP().'</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; \'>Timestamp: '.date('G:i:s').'.'.$try_harder.' '.date('T').'</div>
@@ -11174,6 +11176,7 @@ CSS Support Within Message';
                     $tmp_score = $this->calculate_numerical_score($tmp_agg_x, $tmp_agg_success, $tmp_agg_bang);
 
                     $this->email_client_score_ARRAY['NUMERIC'] = $tmp_score;
+                    $this->oCRNRSTN_USR->setSessionParam('SCORE_NUMERIC_RAW', $tmp_score);
 
                 }
 
