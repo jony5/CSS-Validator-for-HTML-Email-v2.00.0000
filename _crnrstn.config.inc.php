@@ -98,7 +98,7 @@ require( CRNRSTN_ROOT . '/_crnrstn/_crnrstn.classdefinitions.inc.php' );
  *
  * @var int
 */
-$CRNRSTN_debugMode = 2;
+$CRNRSTN_debugMode = 0;
 
 /**
  * $PHPMAILER_debugMode
@@ -139,7 +139,7 @@ $PHPMAILER_debugMode = 0;   // !!NEVER PROMOTE 4 TO PRODUCTION IP!! BEST NOT TO 
  *
  * @var string
  */
-$CRNRSTN_configSerial = 'hesdfdwlR42h3';
+$CRNRSTN_configSerial = 'hesd123456789fie2h3';
 
 /**
  * $CRNRSTN_log_silo_profile
@@ -181,7 +181,7 @@ $oCRNRSTN = new crnrstn(__FILE__, $CRNRSTN_configSerial, $CRNRSTN_debugMode, $PH
 $oCRNRSTN->set_developer_output_mode(CRNRSTN_UI_PHPNIGHT);       // 'CRNRSTN_PHP', 'CRNRSTN_HTML' or 'CRNRSTN_UI_PHPNIGHT'
 
 $oCRNRSTN->ini_set('max_execution_time', 60);
-//$oCRNRSTN->ini_set('memory_limit', '250M');
+//$oCRNRSTN->ini_set('memory_limit', '300M');
 
 //
 // SET EMBRYONIC LOGGING PROFILE - JUST FOR "PRE ENVIRONMENTAL-DETECTION" ERROR LOGGING
@@ -236,39 +236,39 @@ $oCRNRSTN->ini_set('max_execution_time', 60);
  */
 // embryonic
 // NEW WILD CARD RESOURCE - SMTP
-// THIS WILL ALL BE FORGOTTEN AND REPLACED WITH PROPERLY PROFILED AND
-// ENVIRONMENTALLY SPECIFIC LOG PROFILE.
+//
 //$CRNRSTN_EMBRYONIC_oWCR = $oCRNRSTN->define_wildcard_resource('CRNRSTN_SMTP_COMM_PROFILE');
 //
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_AUTH_KEY', ';TN:nn8Q{Uc$1c$1c$1c$1c$1k$;cs=fFO~u}DI2FKP');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_USERNAME', '007372865465645293879240');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', 'PASSWORD1234567T');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_AUTH_KEY', ';TN:nn8Q{U0Pvbduy|D>4}z!2L-<aJNBza?!#bLQf{wc$1k$;cs=fFO~u}DI2FKP');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_USERNAME', '00737289745665293879240');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', 'jl*&%$jjlj#ET');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
 //
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_ENVIRONMENT', 'for_a_stcs=fFO~u}DIs=fFO~u}DIs=f$1i0n-key');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_CONNECTION', 'hi, this-Is-the_soap-encrypti0n-key-k$;cs=fFO~u}DI2Fders');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_ENVIRONMENT', 'hello_encryption_key23456');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_CONNECTION', 'hello_encryption_key0987654');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_CIPHER', 'sm4');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_OPTIONS', OPENSSL_RAW_DATA);
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_HMAC_ALG', 'haval256,5');
 //
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('EMAIL_PROTOCOL', 'SENDMAIL');     //SMTP, MAIL, QMAIL, SENDMAIL
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('EMAIL_PROTOCOL', 'SMTP');     //SMTP, MAIL, QMAIL, SENDMAIL
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_AUTH', true);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SERVER', 'email.com;email.com');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SERVER', 'v2.crnrstn.evifweb.com;v2.crnrstn.evifweb.com');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PORT_OUTGOING', '587');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_USERNAME', 'no_reply@vemail.com');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PASSWORD', 'Qpassword123L');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_USERNAME', 'email@v.email.com');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PASSWORD', 'password123');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_KEEPALIVE', false);
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SECURE', '');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_AUTOTLS', true);
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_TIMEOUT', 5);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_EMAIL', 'email@email.com');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_EMAIL', 'email@v2email.com');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_NAME', 'CRNRSTN v2.0.0 Mailer');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_EMAIL_PIPED', 'no_reply@email.com|no_reply01@email.com');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_EMAIL_PIPED', 'email01@email.com|email02@email.com');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_NAME_PIPED', '1_CRNRSTN v2.0.0 :: Lead Developer|2_CRNRSTN v2.0.0 :: Lead Developer');
-//
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris emaildev00@email.com|emaildev01@email.com|emaildev03@email.com');
+
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris email@email.com|jharris@email.com|j5@email.com');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris email@email.com');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_NAME_PIPED', '');
-//
+
 //$oCRNRSTN->save_wildcard_resource($CRNRSTN_EMBRYONIC_oWCR);
 //unset($CRNRSTN_EMBRYONIC_oWCR);
 
@@ -304,8 +304,8 @@ $oCRNRSTN->init_logging_embryonic(CRNRSTN_LOG_EMAIL, 'DEFAULT');
 $oCRNRSTN->init_logging_embryonic_HTTP_DIR('http://css.validate.jony5.com/_crnrstn/ui/');
 
 //$oCRNRSTN->init_logging_embryonic({{EMAIL|DEFAULT|FILE}}}, 'Website Administrator jharris@evifweb.com||/var/www/html/_debug_output/error.log');
-# ABOVE (1 LINE) AND BELOW (3 LINES) ARE THE SAME
-//$oCRNRSTN->init_logging_embryonic({{EMAIL_PROXY}}, 'Website Administrator no_reply@v2.crnrstn.evifweb.com|j5@jony5.com');
+# ABOVE AND BELOW ARE EQUAL
+//$oCRNRSTN->init_logging_embryonic({{EMAIL_PROXY}}, 'Website Administrator no_reply@email.com|j5@email.com');
 //$oCRNRSTN->init_logging_embryonic({{FILE}}, '/var/www/html/_debug_output/error.log');
 //$oCRNRSTN->init_logging_embryonic({{DEFAULT}});
 
@@ -403,20 +403,16 @@ $oCRNRSTN->add_environment('LOCALHOST_MACBOOKTERMINAL', E_ALL);
  * The above gives E_NOTICE, E_STRICT, AND E_DEPRECATED throws to native PHP for handling. All else
  * will go through CRNRSTN :: and can be sent as CRNRSTN :: system EMAIL notification if desired.
  */
-$oCRNRSTN->set_CRNRSTN_asErrorHandler('BLUEHOST', true);
-$oCRNRSTN->set_CRNRSTN_asErrorHandler('LOCALHOST_MACBOOKTERMINAL', true);
+$oCRNRSTN->set_CRNRSTN_asErrorHandler('BLUEHOST',true);
+$oCRNRSTN->set_CRNRSTN_asErrorHandler('LOCALHOST_MACBOOKTERMINAL',true);
 
 /**
- * $oCRNRSTN->init_sys_imgs_transport_format()
+ * $oCRNRSTN->init_sys_assets_transport_mode()
  * DESCRIPTION :: Configure the HTML email image handling profile for CRNRSTN :: system notifications.
  * OPTIONS ::
- * case 'CRNRSTN_IMG_BASE64_EMBEDDED':
- * case CRNRSTN_IMG_HTTP_SRC
- *
- *
- * * ALL_IMAGE = Inject all creative within HTML system messages as <img> with hosted URI src.
- * * ALL_IMAGE_LOGO_OFF = Load all (but not the CRNRSTN :: logo) creative within HTML system
- *   messages as proper <img> with hosted URI src.
+ * case 'CRNRSTN_ASSET_MODE_BASE64':
+ * case CRNRSTN_ASSET_MODE_HTTP
+ * case CRNRSTN_ASSET_MODE_HTTPS
  *
  * @param   string $mode will indicate what kind of creative (image or HTML) is to
  * be loaded within CRNRSTN :: system notifications. Use of any images should be
@@ -426,12 +422,12 @@ $oCRNRSTN->set_CRNRSTN_asErrorHandler('LOCALHOST_MACBOOKTERMINAL', true);
  * @return	boolean TRUE
  *
  * Example ::
- * $oCRNRSTN->init_sys_imgs_transport_format('ALL_HTML');
+ * $oCRNRSTN->init_sys_assets_transport_mode('ALL_HTML');
  * The above example will remove all images (and thus, will remove application requirements
  * for any image hosting) from CRNRSTN :: system notifications.
  * // ALL_IMAGE
  */
-$oCRNRSTN->init_sys_imgs_transport_format('ALL_IMAGE'); // CRNRSTN_IMG_HTTP_SRC
+$oCRNRSTN->init_sys_assets_transport_mode(CRNRSTN_ASSET_MODE_HTTP);
 
 /**
  * $oCRNRSTN->initSystemNotices_imgHTTP_DIR()
@@ -557,10 +553,10 @@ $oCRNRSTN->init_resource_wildcards('BLUEHOST', CRNRSTN_ROOT . '/_crnrstn/_config
  * Example ::
  * $oCRNRSTN->init_logging('BLUEHOST', CRNRSTN_LOG_FILE & CRNRSTN_LOG_DEFAULT & CRNRSTN_LOG_FILE_FTP & CRNRSTN_LOG_SCREEN,'email01@email.com,email02@email.com||/var/log/_dev_debug_output/custom_error.log|','CRNRSTN_SMTP_COMM_PROFILE|||');
  */
-$oCRNRSTN->init_logging('BLUEHOST', CRNRSTN_LOG_EMAIL & CRNRSTN_LOG_FILE & CRNRSTN_LOG_SCREEN_HTML_HIDDEN,'j5@email.com');
-$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_EMAIL,'j5@email.com, email@email.com');  //
-$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_EMAIL,'CRNRSTN_SMTP_COMM_PROFILE');
-$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_FILE, CRNRSTN_ROOT . '/_backup_test/_tmp/');  // PUBLIC DIR!
+$oCRNRSTN->init_logging('BLUEHOST', CRNRSTN_LOG_EMAIL,'email@email.com');
+$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_EMAIL,'email@email.com, email@email.com');
+$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_EMAIL,'CRNRSTN_SMTP_COMM_PROFILE');
+$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_FILE, CRNRSTN_ROOT . '/_backup_test/_tmp/');  // NOTE: PUBLICLY ACCESSIBLE DIR
 
 //
 // INITIALIZE CRNRSTN :: SOAP SERVICES LAYER RESOURCE ACCESS
@@ -782,8 +778,8 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
      * Example ::
      * $oCRNRSTN->initSessionEncryption('LOCALHOST_MACBOOKPRO', 'AES-192-OFB', 'this-Is-the-s3cret-encrypti0n-key', OPENSSL_RAW_DATA, 'sha256');
      */
-    $oCRNRSTN->init_session_encryption('BLUEHOST', 'AES-256-CTR', 'this-Is-the-encrypti00n-key', OPENSSL_RAW_DATA, 'ripemd256');
-	$oCRNRSTN->init_session_encryption('LOCALHOST_MACBOOKTERMINAL', 'AES-192-OFB', 'this-Is-the-encrypti0000n-key', OPENSSL_RAW_DATA, 'sha256');
+    $oCRNRSTN->init_session_encryption('BLUEHOST', 'AES-256-CTR', 'this-Is-the-encryption-key', OPENSSL_RAW_DATA, 'ripemd256');
+	$oCRNRSTN->init_session_encryption('LOCALHOST_MACBOOKTERMINAL', 'AES-192-OFB', 'this-Is-the-encrypti0n-key', OPENSSL_RAW_DATA, 'sha256');
 
 	//
 	// INITIALIZATION FOR ENCRYPTION :: CRNRSTN :: COOKIE DATA :: ADVANCED CONFIGURATION PARAMETERS
@@ -845,9 +841,9 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
      * Example ::
      * $oCRNRSTN->init_cookie_encryption('LOCALHOST_MACBOOKPRO', 'AES-192-OFB', 'this-Is-the-s3cret-encrypti0n-key', OPENSSL_RAW_DATA, 'sha256');
      */
-	#$oCRNRSTN->init_cookie_encryption('LOCALHOST_MACBOOKTERMINAL', 'AES-256-CTR', 'this-Is-the-encryption-key', OPENSSL_RAW_DATA, 'gost');
-	#$oCRNRSTN->init_cookie_encryption('LOCALHOST_PC', 'AES-192-OFB', 'this-Is-the-encryption-key', OPENSSL_RAW_DATA, 'sha256');
-	$oCRNRSTN->init_cookie_encryption('BLUEHOST', 'AES-256-CTR', 'this-Is-the-encryption123-key', OPENSSL_RAW_DATA, 'ripemd256');
+	#$oCRNRSTN->init_cookie_encryption('LOCALHOST_MACBOOKTERMINAL', 'AES-256-CTR', 'encryption-key65432', OPENSSL_RAW_DATA, 'gost');
+	#$oCRNRSTN->init_cookie_encryption('LOCALHOST_PC', 'AES-192-OFB', 'encryption-key123456', OPENSSL_RAW_DATA, 'sha256');
+	$oCRNRSTN->init_cookie_encryption('BLUEHOST', 'AES-256-CTR', 'encryption-key23456', OPENSSL_RAW_DATA, 'ripemd256');
 
     //
     // INITIALIZATION FOR ENCRYPTION :: CRNRSTN :: TUNNELLED DATA :: ADVANCED CONFIGURATION PARAMETERS
@@ -906,10 +902,10 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
      * will depend on the installation and compilation options used for OpenSSL in your machine(s).
      *
      * Example ::
-     * $oCRNRSTN->init_tunnel_encryption('LOCALHOST_MACBOOKPRO', 'AES-192-OFB', 'this-Is-the-s3cret-encrypti0n-key', OPENSSL_RAW_DATA, 'sha256');
+     * $oCRNRSTN->init_tunnel_encryption('LOCALHOST_MACBOOKPRO', 'AES-192-OFB', 'encryption-key2345678654', OPENSSL_RAW_DATA, 'sha256');
      */
-    $oCRNRSTN->init_tunnel_encryption('LOCALHOST_MACBOOKTERMINAL', 'AES-192-OFB', 'hello-there-mr-encryption32-key', OPENSSL_RAW_DATA, 'sha256');
-    $oCRNRSTN->init_tunnel_encryption('BLUEHOST', 'AES-256-CTR', 'this-Is-the-encryption321-key', OPENSSL_RAW_DATA, 'ripemd256');
+    $oCRNRSTN->init_tunnel_encryption('LOCALHOST_MACBOOKTERMINAL', 'AES-192-OFB', 'encryption-key1234567', OPENSSL_RAW_DATA, 'sha256');
+    $oCRNRSTN->init_tunnel_encryption('BLUEHOST', 'AES-256-CTR', '2345encryption-key2345', OPENSSL_RAW_DATA, 'ripemd256');
 
     //
 	// TO ACHIEVE SLIGHT OPTIMIZATION AT FIRST RUNTIME, PASS AN APPROPRIATE INTEGER VALUE TO required_detection_matches(). ONLY AND PRECISELY WHEN THAT QUANTITY OF PROVIDED $_SERVER PARAMETERS MATCH FOR ANY GIVEN
@@ -1047,9 +1043,9 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
 
     //
     // FOR ALL ENVIRONMENTS :: AS DESIGNATED BY PASSING '*' AS ENV KEY PARAMETER
-    $oCRNRSTN->define_env_resource('*','SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-    $oCRNRSTN->define_env_resource('*','WSDL_CACHE_TTL', '80');
-    $oCRNRSTN->define_env_resource('*','NUSOAP_USECURL', true);
+    $oCRNRSTN->define_env_resource('*','SOA_NAMESPACE','http://www.w3.org/2003/05/soap-encoding');
+    $oCRNRSTN->define_env_resource('*','WSDL_CACHE_TTL','80');
+    $oCRNRSTN->define_env_resource('*','NUSOAP_USECURL',true);
 
     //
     //
