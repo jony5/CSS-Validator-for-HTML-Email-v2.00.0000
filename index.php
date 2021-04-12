@@ -15,18 +15,56 @@ if($oCRNRSTN_USR->receiveFormIntegrationPacket()) {
 
     }
 
-    header( 'Content-type: text/html; charset=utf-8' );
-    echo $oCRNRSTN_USR->validate_css($raw_html_data);
+    $tmp_validation_results = $oCRNRSTN_USR->validate_css($raw_html_data);
+
+    $tmp_key = $oCRNRSTN_USR->generateNewKey(50);
+
+    $oCRNRSTN_USR->setSessionParam('DISPLAY_AUTH_KEY', $tmp_key);
+    $oCRNRSTN_USR->setSessionParam('RAW_VALIDATION_DATA', $tmp_validation_results);
+
+    $tmp_SCORE_NUMERIC_RAW = $oCRNRSTN_USR->getSessionParam('SCORE_NUMERIC_RAW');
+    $tmp_run_time = $oCRNRSTN_USR->getSessionParam('WALLTIME');
+    $tmp_run_time = $tmp_run_time.'secs';
+    $tmp_post_uri = $oCRNRSTN_USR->get_resource('ROOT_PATH_CLIENT_HTTP').$oCRNRSTN_USR->get_resource('ROOT_PATH_CLIENT_HTTP_DIR');
+    $tmp_post_uri = $tmp_post_uri . '?rtime='.$tmp_run_time.'&score='.$tmp_SCORE_NUMERIC_RAW;
+
+    //
+    // I WOULD LIKE TO SEE GOOGLE ANALYTICS DATA WITH CSS SCORES AND PERFORMANCE OF THE SYSTEM.
+    header("Location: ".$tmp_post_uri);
+    exit();
 
 }else{
 
-    if($oCRNRSTN_USR->isset_HTTP_Param('css_valptrn', 'GET')){
+    if($oCRNRSTN_USR->isset_HTTP_Param('rtime','GET')){
 
-        echo $oCRNRSTN_USR->output_css_algorithm_profile();
+        $tmp_validation_results = $oCRNRSTN_USR->getSessionParam('RAW_VALIDATION_DATA');
+
+        if(strlen($tmp_validation_results) > 1){
+
+            $oCRNRSTN_USR->setSessionParam('RAW_VALIDATION_DATA','0');
+
+            header( 'Content-type: text/html; charset=utf-8' );
+            echo $tmp_validation_results;
+
+        }else{
+
+            //
+            // HOME PAGE
+            echo $oCRNRSTN_USR->return_form_html('CSS_VALIDATION_EMAIL_HTML_INPUT');
+
+        }
 
     }else{
 
-        echo $oCRNRSTN_USR->return_form_html('CSS_VALIDATION_EMAIL_HTML_INPUT');
+        if($oCRNRSTN_USR->isset_HTTP_Param('css_valptrn', 'GET')){
+
+            echo $oCRNRSTN_USR->output_css_algorithm_profile();
+
+        }else{
+
+            echo $oCRNRSTN_USR->return_form_html('CSS_VALIDATION_EMAIL_HTML_INPUT');
+
+        }
 
     }
 

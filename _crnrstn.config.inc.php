@@ -177,8 +177,7 @@ $CRNRSTN_loggingProfile = CRNRSTN_LOG_NONE;
 //
 // INSTANTIATE AN INSTANCE OF CRNRSTN ::
 $oCRNRSTN = new crnrstn(__FILE__, $CRNRSTN_configSerial, $CRNRSTN_debugMode, $PHPMAILER_debugMode, $CRNRSTN_loggingProfile);
-
-$oCRNRSTN->set_developer_output_mode(CRNRSTN_UI_PHPNIGHT);       // 'CRNRSTN_PHP', 'CRNRSTN_HTML' or 'CRNRSTN_UI_PHPNIGHT'
+$oCRNRSTN->set_developer_output_mode(CRNRSTN_UI_PHPNIGHT);       // 'CRNRSTN_UI_PHP', 'CRNRSTN_UI_HTML' or 'CRNRSTN_UI_PHPNIGHT'
 
 $oCRNRSTN->ini_set('max_execution_time', 60);
 //$oCRNRSTN->ini_set('memory_limit', '300M');
@@ -241,7 +240,7 @@ $oCRNRSTN->ini_set('max_execution_time', 60);
 //
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_AUTH_KEY', ';TN:nn8Q{U0Pvbduy|D>4}z!2L-<aJNBza?!#bLQf{wc$1k$;cs=fFO~u}DI2FKP');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_USERNAME', '00737289745665293879240');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', 'jl*&%$jjlj#ET');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', 'password1232345654');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
 //
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_ENVIRONMENT', 'hello_encryption_key23456');
