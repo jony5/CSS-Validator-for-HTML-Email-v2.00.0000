@@ -69,21 +69,21 @@ class crnrstn_image_v_html_content_manager {
 
             //self::$image_output_mode = '';
             $this->sys_asset_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED;
-            error_log(__LINE__.' img sys_asset_mode=HTTPS'.CRNRSTN_UI_IMG_URI_HTML_WRAPPED.']');
+            //error_log(__LINE__.' img sys_asset_mode=HTTPS'.CRNRSTN_UI_IMG_URI_HTML_WRAPPED.']');
 
         }else{
 
             if(self::$oCRNRSTN_n->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTP)){
 
                 $this->sys_asset_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED;
-                error_log(__LINE__.' img sys_asset_mode=HTTP['.CRNRSTN_UI_IMG_URI_HTML_WRAPPED.']');
+                //error_log(__LINE__.' img sys_asset_mode=HTTP['.CRNRSTN_UI_IMG_URI_HTML_WRAPPED.']');
 
             }else{
 
                 //
                 // BASE64
                 $this->sys_asset_mode = CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED;
-                error_log(__LINE__.' img sys_asset_mode=BASE64['.CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED.']');
+                //error_log(__LINE__.' img sys_asset_mode=BASE64['.CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED.']');
 
             }
 
