@@ -137,7 +137,7 @@ class crnrstn {
 	public $oLog_output_ARRAY = array();
 	public $oWildCardResource_ARRAY = array();
 	public $wildCardResource_filePath_ARRAY = array();
-	public $sys_notices_creative_mode = 'ALL_HTML';
+	public $sys_notices_creative_mode = 'ALL_IMAGE';
     public $sys_notice_creative_http_path;
     private static $encryptableDataTypes = array();
     public $creativeElementsKeys = array();
@@ -159,7 +159,7 @@ class crnrstn {
     public $version_php;
     public $version_mysqli;
 
-    public function __construct($config_filepath, $CRNRSTN_configSerial, $CRNRSTN_debugMode = 0, $PHPMAILER_debugMode = 0, $CRNRSTN_loggingProfile = CRNRSTN_LOG_DEFAULT){
+    public function __construct($config_filepath, $CRNRSTN_configSerial, $CRNRSTN_debugMode=0, $PHPMAILER_debugMode = 0, $CRNRSTN_loggingProfile = CRNRSTN_LOG_DEFAULT){
 
         $this->starttime = $_SERVER['REQUEST_TIME_FLOAT'];
 
@@ -629,24 +629,12 @@ class crnrstn {
 
     }
 
-	public function init_sys_imgs_transport_format($mode='ALL_HTML'){
+	public function init_sys_assets_transport_mode($integer_constant = CRNRSTN_ASSET_MODE_BASE64){
 
-        try{
+        $this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->set($integer_constant, true);
 
-            $this->sys_notices_creative_mode = $mode;
+        return true;
 
-            return true;
-
-
-        }catch( Exception $e ) {
-
-            $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
-
-            //
-            // RETURN FALSE
-            return false;
-
-        }
     }
 
     public function initSystemNotices_imgHTTP_DIR($envKey, $crnrstn_images_http_dir){
@@ -2635,7 +2623,7 @@ class crnrstn {
 
     }
 
-    public function return_email_creative($creative_element_key, $image_output_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED, $creative_mode = NULL){
+    public function return_email_creative($creative_element_key, $image_output_mode = NULL, $creative_mode = NULL){
 
         //
         // INSTANTIATE CRNRSTN SYSTEM EMAIL CONTENT HELPER CLASS
