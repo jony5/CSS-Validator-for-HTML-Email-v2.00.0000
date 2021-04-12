@@ -356,7 +356,7 @@ class crnrstn_results_paginator{
 
         $tmp_form_html = '<form action="'.$tmp_endpoint.'" method="'.$tmp_transport_protocol.'" name="'.$tmp_form_serial.'" id="'.$tmp_form_serial.'"  enctype="multipart/form-data" >
         <input type="hidden" name="'.$tmp_form_input.'" id="'.$tmp_form_input.'" value="">
-        '.self::$oCRNRSTN_USR->injectInputSerialization($tmp_form_serial).'
+        '.self::$oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_FORM_INTEGRATION_PACKET, $tmp_form_serial).'
         </form>
         <script>
         //<!--
