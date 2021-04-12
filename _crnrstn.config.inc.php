@@ -446,7 +446,7 @@ $oCRNRSTN->init_sys_assets_transport_mode(CRNRSTN_ASSET_MODE_HTTP);
  * All images ship with CRNRSTN :: and can be found within '/_crnrstn/creative/'
  *
  * Example ::
- * $oCRNRSTN->initSystemNotices_imgHTTP_DIR('CYEXX_SOLUTIONS', 'http://v2.crnrstn.evifweb.com/_crnrstn/creative/');
+ * $oCRNRSTN->initSystemNotices_imgHTTP_DIR('CYEXX_SOLUTIONS', 'http://v2.crnrstn.evifweb.com/_crnrstn/ui/');
  * The above example will allow email generated from the environment keyed as 'CYEXX_SOLUTIONS'
  * to generate system emails using the $crnrstn_images_http_dir parameter to build image URI
  * in support of the HTML versions of system email messages. Also text versions are available

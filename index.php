@@ -22,11 +22,12 @@ if($oCRNRSTN_USR->receiveFormIntegrationPacket()) {
     $oCRNRSTN_USR->setSessionParam('DISPLAY_AUTH_KEY', $tmp_key);
     $oCRNRSTN_USR->setSessionParam('RAW_VALIDATION_DATA', $tmp_validation_results);
 
-    $tmp_SCORE_NUMERIC_RAW = $oCRNRSTN_USR->getSessionParam('SCORE_NUMERIC_RAW');
+    $tmp_score_numeric_raw = $oCRNRSTN_USR->getSessionParam('SCORE_NUMERIC_RAW');
+    $tmp_packet_size = $oCRNRSTN_USR->getSessionParam('PACKET_BYTES_SIZE');
     $tmp_run_time = $oCRNRSTN_USR->getSessionParam('WALLTIME');
     $tmp_run_time = $tmp_run_time.'secs';
     $tmp_post_uri = $oCRNRSTN_USR->get_resource('ROOT_PATH_CLIENT_HTTP').$oCRNRSTN_USR->get_resource('ROOT_PATH_CLIENT_HTTP_DIR');
-    $tmp_post_uri = $tmp_post_uri . '?rtime='.$tmp_run_time.'&score='.$tmp_SCORE_NUMERIC_RAW;
+    $tmp_post_uri = $tmp_post_uri . '?rtime='.urlencode($tmp_run_time).'&bytes='.urlencode($tmp_packet_size).'&score='.urlencode($tmp_score_numeric_raw);
 
     //
     // I WOULD LIKE TO SEE GOOGLE ANALYTICS DATA WITH CSS SCORES AND PERFORMANCE OF THE SYSTEM.
