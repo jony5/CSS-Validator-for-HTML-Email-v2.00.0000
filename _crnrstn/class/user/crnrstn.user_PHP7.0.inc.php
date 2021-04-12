@@ -9639,9 +9639,10 @@ class crnrstn_user{
                 CURLOPT_HEADER => 0,
                 CURLOPT_URL => $url,
                 CURLOPT_FRESH_CONNECT => 1,
-                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_FORBID_REUSE => 1,
-                CURLOPT_TIMEOUT => 4,
+                CURLOPT_TIMEOUT => 25,
+                CURLOPT_CONNECTTIMEOUT => 25,
                 CURLOPT_POSTFIELDS => http_build_query($post)
             );
 
