@@ -9377,7 +9377,7 @@ Formally, the display property sets an element\'s inner and outer display types.
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
         
         '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
-        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
               
     </head>
     <body>
@@ -9507,7 +9507,16 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
    
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
-   
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(\'js\', new Date());
+    
+      gtag(\'config\', \'G-G28EC03WLZ\');
+    </script>
     </body>
     </html>';
 
@@ -9521,7 +9530,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         //error_log(__LINE__.' (int) '.CRNRSTN_UI_JS_JQUERY.' css return_css_validator_content_HTML len='.strlen($html_content_injection));
         //die();
-         //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
+        //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
 
         //error_log(__LINE__.' css CRNRSTN_UI_CSS_MAIN len = '.strlen($tmp).' | return_css_validator_content_HTML len='.strlen($html_content_injection));
         //die();
@@ -9553,7 +9562,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
         '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
-        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
         
     </head>
     <body>
@@ -9683,6 +9692,16 @@ Formally, the display property sets an element\'s inner and outer display types.
     
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(\'js\', new Date());
+    
+      gtag(\'config\', \'G-G28EC03WLZ\');
+      
+    </script>
     </body>
     </html>';
 
@@ -10180,7 +10199,10 @@ Formally, the display property sets an element\'s inner and outer display types.
             case 'HTML':
 
                 $tmp_walltime = $this->oCRNRSTN_USR->wallTime();
+                $packet_size = $this->oCRNRSTN_USR->formatBytes(strlen($this->raw_data));
                 $this->oCRNRSTN_USR->setSessionParam('WALLTIME', $tmp_walltime);
+                $this->oCRNRSTN_USR->setSessionParam('PACKET_BYTES_SIZE', $packet_size);
+
                 $tmp_str = '
                                     <table cellspacing="0" cellpadding="0" border="0">
                                     <tr>
@@ -10195,7 +10217,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                                         <tr>
                                                             <td style="vertical-align: top; width:240px;">
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-top: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Operation Runtime: '.$tmp_walltime.' secs</div>
-                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Total Packet Size: '.$this->oCRNRSTN_USR->formatBytes(strlen($this->raw_data)).'</div>
+                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Total Packet Size: '.$packet_size.'</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>IP: '.$this->oCRNRSTN_USR->returnClientIP().'</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; \'>Timestamp: '.date('G:i:s').'.'.$try_harder.' '.date('T').'</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; border-left: 10px solid #FFF; border-bottom: 5px solid #FFF; color: #6885C3;\'>Date: '.date('D, F j, Y').'</div>
