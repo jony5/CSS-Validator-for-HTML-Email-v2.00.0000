@@ -9508,15 +9508,6 @@ Formally, the display property sets an element\'s inner and outer display types.
    
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag(\'js\', new Date());
-    
-      gtag(\'config\', \'G-G28EC03WLZ\');
-    </script>
     </body>
     </html>';
 
@@ -9691,17 +9682,7 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
     
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag(\'js\', new Date());
-    
-      gtag(\'config\', \'G-G28EC03WLZ\');
-      
-    </script>
+
     </body>
     </html>';
 
