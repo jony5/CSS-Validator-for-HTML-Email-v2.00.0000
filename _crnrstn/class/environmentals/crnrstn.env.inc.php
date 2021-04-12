@@ -377,6 +377,297 @@ class crnrstn_environment {
 
     }
 
+    public function ui_content_module_out($integer_constant, $meta_profile_data){
+
+        //
+        // MODES OF OUTPUT
+        // IMG
+        //    - BASE64
+        //    - PNG
+        //    - SVG
+        // JS/XML/CSS
+        //
+        if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTPS)){
+
+            $asset_mode = 'HTTPS';
+
+            switch($integer_constant){
+                case CRNRSTN_UI_JS_JQUERY:
+                case CRNRSTN_UI_JS_JQUERY_UI:
+                case CRNRSTN_UI_JS_JQUERY_MOBILE:
+                case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+
+                    return $this->return_output_CRNRSTN_UI_JS($integer_constant, $meta_profile_data, $asset_mode);
+
+                    break;
+                case CRNRSTN_UI_CSS_MAIN:
+                case CRNRSTN_UI_CSS_MOBILE:
+                case CRNRSTN_UI_CSS_TABLET:
+                case CRNRSTN_UI_CSS_DESKTOP:
+
+                    return $this->return_output_CRNRSTN_UI_CSS_MAIN($integer_constant, $meta_profile_data, $asset_mode);
+
+                    break;
+                case CRNRSTN_UI_TAG_ANALYTICS:
+
+                    return $this->return_output_CRNRSTN_UI_TAG_ANALYTICS($integer_constant, $meta_profile_data, $asset_mode);
+
+                    break;
+                case CRNRSTN_UI_TAG_ENGAGEMENT:
+
+                    return $this->return_output_CRNRSTN_UI_TAG_ENGAGEMENT($integer_constant, $meta_profile_data, $asset_mode);
+
+                    break;
+                default:
+
+                    $this->error_log('The requested UI content module...honoring the provided integer constant,  "'.$integer_constant.'", could not be found.', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY);
+                    return '';
+
+                    break;
+
+            }
+
+        }else{
+
+            if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTP)){
+
+                $asset_mode = 'HTTP';
+
+                switch($integer_constant){
+                    case CRNRSTN_UI_JS_JQUERY:
+                    case CRNRSTN_UI_JS_JQUERY_UI:
+                    case CRNRSTN_UI_JS_JQUERY_MOBILE:
+                    case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+
+                        return $this->return_output_CRNRSTN_UI_JS($integer_constant, $meta_profile_data, $asset_mode);
+
+                    break;
+                    case CRNRSTN_UI_CSS_MAIN:
+                    case CRNRSTN_UI_CSS_MOBILE:
+                    case CRNRSTN_UI_CSS_TABLET:
+                    case CRNRSTN_UI_CSS_DESKTOP:
+
+                        return $this->return_output_CRNRSTN_UI_CSS_MAIN($integer_constant, $meta_profile_data, $asset_mode);
+
+                        break;
+                    case CRNRSTN_UI_TAG_ANALYTICS:
+
+                        return $this->return_output_CRNRSTN_UI_TAG_ANALYTICS($integer_constant, $meta_profile_data, $asset_mode);
+
+                        break;
+                    case CRNRSTN_UI_TAG_ENGAGEMENT:
+
+                        return $this->return_output_CRNRSTN_UI_TAG_ENGAGEMENT($integer_constant, $meta_profile_data, $asset_mode);
+
+                        break;
+                    default:
+
+                        $this->error_log('The requested UI content module...honoring the provided integer constant,  "'.$integer_constant.'", could not be found.', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY);
+                        return '';
+
+                        break;
+
+                }
+
+
+            }else{
+
+                //
+                // CRNRSTN_ASSET_MODE_BASE64
+                //error_log(__LINE__.' env CRNRSTN_ASSET_MODE_BASE64');
+
+
+                switch($integer_constant){
+                    case CRNRSTN_UI_JS_JQUERY:
+                    case CRNRSTN_UI_JS_JQUERY_UI:
+                    case CRNRSTN_UI_JS_JQUERY_MOBILE:
+                    case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+
+                        return $this->return_output_CRNRSTN_UI_JS($integer_constant, $meta_profile_data);
+
+                        break;
+                    case CRNRSTN_UI_CSS_MAIN:
+                    case CRNRSTN_UI_CSS_MOBILE:
+                    case CRNRSTN_UI_CSS_TABLET:
+                    case CRNRSTN_UI_CSS_DESKTOP:
+
+                        return $this->return_output_CRNRSTN_UI_CSS_MAIN($integer_constant, $meta_profile_data);
+
+                        break;
+                    case CRNRSTN_UI_TAG_ANALYTICS:
+
+                        return $this->return_output_CRNRSTN_UI_TAG_ANALYTICS($integer_constant, $meta_profile_data);
+
+                        break;
+                    case CRNRSTN_UI_TAG_ENGAGEMENT:
+
+                        return $this->return_output_CRNRSTN_UI_TAG_ENGAGEMENT($integer_constant, $meta_profile_data);
+
+                        break;
+                    default:
+
+                        $this->error_log('The requested UI content module...honoring the provided integer constant,  "'.$integer_constant.'", could not be found.', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY);
+                        return '';
+
+                        break;
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+    private function return_output_CRNRSTN_UI_JS($integer_constant, $meta_profile_data, $asset_mode = 'BASE64'){
+
+        switch($asset_mode){
+            case 'HTTPS':
+            case 'HTTP':
+
+                $tmp_str = '
+<!-- BEGIN CRNRSTN :: '.$this->oCRNRSTN_USR->version_crnrstn.' UI JS/CSS MODULE OUTPUT -->';
+
+                switch ($integer_constant){
+                    case CRNRSTN_UI_JS_JQUERY:
+
+                        $tmp_str = $tmp_str .'
+<!-- jquery 3.6.0 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0"></script>';
+
+                    break;
+                    case CRNRSTN_UI_JS_JQUERY_UI:
+
+                        $tmp_str = $tmp_str .'
+<!-- jquery 3.6.0 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0"></script>';
+
+                        $tmp_str = $tmp_str .'
+<!-- jquery ui 1.12.1 --><style type="text/css" rel="stylesheet" href="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css?v=420.00.' . filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css') .'.0" ></style>';
+
+                    break;
+                    case CRNRSTN_UI_JS_JQUERY & CRNRSTN_UI_JS_JQUERY_UI:
+
+                        $tmp_str = $tmp_str .'
+<!-- jquery 3.6.0 --><script src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js"></script>';
+
+                    break;
+                    case CRNRSTN_UI_JS_JQUERY_MOBILE:
+                        $tmp_str = $tmp_str .'
+<!-- jquery.mobile 1.4.5 --><style type="text/css" rel="stylesheet" href="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css?v=420.00.' . filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css') .'.0" ></style>
+
+<!-- jquery 3.6.0 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0" ></script>
+<!-- jquery mobile helpmate --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') .'.0" ></script>
+<!-- jquery.mobile 1.4.5 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') .'.0" ></script>
+';
+
+                        break;
+                    case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+                        $tmp_str = $tmp_str .'
+<!-- lightbox 2.11.3 --><style type="text/css" rel="stylesheet" href="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/css/lightbox.min.css?v=420.00.' . filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/css/lightbox.min.css') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/css/lightbox.min.css') .'.0" ></style>
+<!-- lightbox 2.11.3 plus jquery.min.js --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/js/lightbox-plus-jquery.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/js/lightbox-plus-jquery.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/js/lightbox-plus-jquery.min.js') .'.0" ></script>
+';
+
+                        break;
+
+                }
+
+                $tmp_str = $tmp_str . '
+<!-- END CRNRSTN :: '.$this->oCRNRSTN_USR->version_crnrstn.' UI JS MODULE OUTPUT -->
+
+';
+
+            break;
+            default:
+
+                //
+                // BASE64
+                $tmp_str = '
+<!-- BEGIN CRNRSTN :: '.$this->oCRNRSTN_USR->version_crnrstn.' UI JS/CSS MODULE OUTPUT -->';
+
+                switch ($integer_constant){
+                    case CRNRSTN_UI_JS_JQUERY:
+
+                        $tmp_str = $tmp_str .'
+<!-- jquery 3.6.0 --><script type="application/javascript">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
+</script>';
+
+                    break;
+                    case CRNRSTN_UI_JS_JQUERY_UI:
+
+                        $tmp_str = $tmp_str .'
+<!-- jquery 3.6.0 --><script type="application/javascript">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
+</script>';
+                        $tmp_str = $tmp_str .'
+<!-- jquery ui 1.12.1 --><style type="application/javascript">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css') . '
+</style>';
+
+                    break;
+                    case CRNRSTN_UI_JS_JQUERY & CRNRSTN_UI_JS_JQUERY_UI:
+                        $tmp_str = $tmp_str .'
+<script type="application/javascript">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
+</script>';
+                    break;
+                    case CRNRSTN_UI_JS_JQUERY_MOBILE:
+                        $tmp_str = $tmp_str .'
+<!-- jquery.mobile 1.4.5 --><style type="text/css">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css') . '
+</style>
+
+
+<!-- jquery 3.6.0 - jquery helpmate - jquery.mobile 1.4.5 --><script type="application/javascript">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
+
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') . '
+
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') . '
+</script>';
+
+                    break;
+                    case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+                        $tmp_str = $tmp_str .'
+<!-- lightbox 2.11.3 --><style type="text/css">
+'.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/lightbox.js/2.11.3/lightbox-2.11.3/css/lightbox.min.css') . '
+</style>';
+
+                    break;
+
+                }
+
+                $tmp_str = $tmp_str . '
+<!-- END CRNRSTN :: '.$this->oCRNRSTN_USR->version_crnrstn.' UI JS MODULE OUTPUT -->
+';
+
+            break;
+
+        }
+
+        return $tmp_str;
+
+    }
+
+    private function return_output_CRNRSTN_UI_CSS_MAIN($integer_constant, $meta_profile_data, $asset_mode = 'BASE64'){
+
+        return '<!-- '.__METHOD__.' -->';
+
+    }
+
+    private function return_output_CRNRSTN_UI_TAG_ANALYTICS($integer_constant, $meta_profile_data, $asset_mode = 'BASE64'){
+
+        return '<!-- '.__METHOD__.' -->';
+
+    }
+
+    private function return_output_CRNRSTN_UI_TAG_ENGAGEMENT($integer_constant, $meta_profile_data, $asset_mode = 'BASE64'){
+
+        return '<!-- '.__METHOD__.' -->';
+
+    }
+
+
     public function return_sys_logging_profile(){
 
         return self::$sys_logging_profile_ARRAY;
@@ -2624,7 +2915,7 @@ class crnrstn_environment {
 
             }else{
 
-                $creative = '<span style="font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_email_creative($tmp_weighted_elements_keys_ARRAY[$tmp_int], $output_mode).'</span>';
+                $creative = '<span style="font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_email_creative($tmp_weighted_elements_keys_ARRAY[$tmp_int]).'</span>';
 
             }
 
@@ -2636,7 +2927,7 @@ class crnrstn_environment {
 
             }else{
 
-                $creative = '<div style="float:left; padding:4px 0 5px 5px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_email_creative($tmp_weighted_elements_keys_ARRAY[$tmp_int], $output_mode).'</div>';
+                $creative = '<div style="float:left; padding:4px 0 5px 5px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_email_creative($tmp_weighted_elements_keys_ARRAY[$tmp_int]).'</div>';
 
             }
 
@@ -2687,7 +2978,7 @@ class crnrstn_environment {
 
     }
 
-    public function return_email_creative($creative_element_key, $image_output_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED){
+    public function return_email_creative($creative_element_key, $image_output_mode = NULL){
 
         return self::$oCommRichMediaProvider->return_creative($creative_element_key, $image_output_mode);
 
