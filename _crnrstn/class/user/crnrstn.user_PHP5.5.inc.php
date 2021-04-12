@@ -47,12 +47,11 @@
 #  VERSION :: 2.00.0000
 #  DATE :: September 11, 2012 1720hrs
 #  AUTHOR :: Jonathan 'J5' Harris, jharris@eVifweb.com
-#  URI :: 
+#  URI ::
 #  DESCRIPTION :: We put a hood on CRNRSTN ::,...complete with seats and a steering wheel...for the user.
 #  LICENSE :: MIT | http://crnrstn.evifweb.com/licensing/
 #
 class crnrstn_user{
-
 
     protected $oLogger;
     private static $oCRNRSTN_ENV;
@@ -67,7 +66,7 @@ class crnrstn_user{
     private static $oCRNRSTN_CSS_VALIDATOR;
     public $oCRNRSTN_BITFLIP_MGR;
     protected $ini_set_ARRAY = array();
-    
+
     public $configSerial;
     private static $resourceKey;
 
@@ -239,12 +238,12 @@ class crnrstn_user{
 
                 $this->print_r($active_log_silo_flag_ARRAY, '', NULL, __LINE__, __METHOD__, __FILE__);
 
-            break;
+                break;
             case 'array':
 
                 return $active_log_silo_flag_ARRAY;
 
-            break;
+                break;
             default:
 
                 $tmp_str = '';
@@ -259,7 +258,7 @@ class crnrstn_user{
 
                 return $tmp_str;
 
-            break;
+                break;
 
         }
 
@@ -338,65 +337,65 @@ class crnrstn_user{
 
     private function set_CRNRSTN_asErrorHandler($envKey_crc){
 
-            if(isset(self::$oCRNRSTN_ENV->crnrstn_as_error_handler_constants_ARRAY[crc32($this->configSerial)][$envKey_crc])){
+        if(isset(self::$oCRNRSTN_ENV->crnrstn_as_error_handler_constants_ARRAY[crc32($this->configSerial)][$envKey_crc])){
 
-                //
-                // SOURCE :: https://stackoverflow.com/questions/1241728/can-i-try-catch-a-warning
-                // AUTHOR :: https://stackoverflow.com/users/117260/philippe-gerber
-                // SET TO THE USER DEFINED ERROR HANDLER
-                $old_error_handler = set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
+            //
+            // SOURCE :: https://stackoverflow.com/questions/1241728/can-i-try-catch-a-warning
+            // AUTHOR :: https://stackoverflow.com/users/117260/philippe-gerber
+            // SET TO THE USER DEFINED ERROR HANDLER
+            $old_error_handler = set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
 
-                    try{
+                try{
 
-                        // error was suppressed with the @-operator
-                        if (0 === error_reporting()) {
-                            return false;
-                        }
-
-                        $errstr = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'].$errstr;
-                        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'] = '';
-                        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-
-                    } catch (Exception $e) {
-
-                        //
-                        // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
-                        $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
-
+                    // error was suppressed with the @-operator
+                    if (0 === error_reporting()) {
                         return false;
-
                     }
 
-                }, (int) self::$oCRNRSTN_ENV->crnrstn_as_error_handler_constants_ARRAY[crc32($this->configSerial)][$envKey_crc]);
+                    $errstr = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'].$errstr;
+                    $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'] = '';
+                    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 
-            }else{
+                } catch (Exception $e) {
 
-                $old_error_handler = set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
+                    //
+                    // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
+                    $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
-                    try{
+                    return false;
 
-                        // error was suppressed with the @-operator
-                        if (0 === error_reporting()) {
-                            return false;
-                        }
+                }
 
-                        $errstr = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'].$errstr;
-                        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'] = '';
-                        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+            }, (int) self::$oCRNRSTN_ENV->crnrstn_as_error_handler_constants_ARRAY[crc32($this->configSerial)][$envKey_crc]);
 
-                    } catch (Exception $e) {
+        }else{
 
-                        //
-                        // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
-                        $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
+            $old_error_handler = set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
 
+                try{
+
+                    // error was suppressed with the @-operator
+                    if (0 === error_reporting()) {
                         return false;
-
                     }
 
-                });
+                    $errstr = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'].$errstr;
+                    $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_EXCEPTION_PREFIX'] = '';
+                    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 
-            }
+                } catch (Exception $e) {
+
+                    //
+                    // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
+                    $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
+
+                    return false;
+
+                }
+
+            });
+
+        }
 
         return true;
 
@@ -559,7 +558,7 @@ class crnrstn_user{
                     array_push($tmp_email_ARRAY, array(
                         'EMAIL_PROXY_SERIAL' => $this->paramTunnelEncrypt(md5($email_pipe_delim), $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override),
                         'EMAILADDRESS' => $this->paramTunnelEncrypt($email_pipe_delim, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override)
-                      ));
+                    ));
 
                 }else{
 
@@ -624,7 +623,7 @@ class crnrstn_user{
                         array_push($tmp_email_ARRAY, array(
                             'EMAIL_PROXY_SERIAL' => $this->paramTunnelEncrypt(md5($tmp_name_email_ARRAY[$i]), $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override),
                             'EMAILADDRESS' => $this->paramTunnelEncrypt($tmp_name_email_ARRAY[$i], $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override)
-                             ));
+                        ));
 
                     }else{
 
@@ -1180,6 +1179,38 @@ class crnrstn_user{
     public function save_wildcard_resource($oWildCardResource){
 
         self::$oCRNRSTN_ENV->augmentWCR_array($oWildCardResource);
+
+    }
+
+    public function ui_content_module_out($integer_constant, $meta_profile_data = NULL){
+
+        /*
+        injectInputSerialization('crnrstn_validate_css'){
+        */
+
+        switch($integer_constant){
+            case CRNRSTN_UI_FORM_INTEGRATION_PACKET:
+
+                return $this->injectInputSerialization($meta_profile_data);
+
+                break;
+            case CRNRSTN_UI_JS_JQUERY:
+            case CRNRSTN_UI_JS_JQUERY_UI:
+            case CRNRSTN_UI_JS_JQUERY_MOBILE:
+            case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+
+                return self::$oCRNRSTN_ENV->ui_content_module_out($integer_constant, $meta_profile_data);
+
+                break;
+            case CRNRSTN_UI_CSS_MAIN:
+            case CRNRSTN_UI_TAG_ANALYTICS:
+            case CRNRSTN_UI_TAG_ENGAGEMENT:
+
+                return '';
+
+                break;
+
+        }
 
     }
 
@@ -1979,7 +2010,7 @@ class crnrstn_user{
     }
 
     public function return_SOAP_svc_oClient_meta($param_key, $CRNRSTN_SOAP_SVC_USERNAME, $CRNRSTN_SOAP_SVC_PASSWORD){
-        
+
         return self::$oCRNRSTN_ENV->return_SOAP_svc_oClient_meta($param_key, $CRNRSTN_SOAP_SVC_USERNAME, $CRNRSTN_SOAP_SVC_PASSWORD);
 
     }
@@ -5620,7 +5651,7 @@ class crnrstn_user{
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function initFormHandling($crnrstn_form_handle, $transport_protocol = 'POST'){
+    public function initFormHandling($crnrstn_form_handle, $transport_protocol = 'POST', $tunnel_encrypt_hidden_input_data = NULL){
 
         try {
 
@@ -5647,6 +5678,7 @@ class crnrstn_user{
 
                         if ($http_transport_protocol != self::$form_handle_ARRAY[$crnrstn_form_handle]) {
 
+
                             //
                             // HOOOSTON...VE HAF PROBLEM!
                             throw new Exception('CRNRSTN_USR->initFormHandling() configuration error :: duplicate CRNRSTN :: form handle detected upon receiving the provided value of ' . $crnrstn_form_handle . '.');
@@ -5662,6 +5694,14 @@ class crnrstn_user{
                         self::$form_handle_ARRAY[$crnrstn_form_handle] = $http_transport_protocol;
 
                     }
+
+                }
+
+                if(isset($tunnel_encrypt_hidden_input_data)){
+
+                    error_log(__LINE__.' user enter  initFormHandling()...die();');
+                    die();
+                    self::$form_handle_ARRAY[$crnrstn_form_handle]['tunnel_encrypt'] = $tunnel_encrypt_hidden_input_data;
 
                 }
 
@@ -5888,7 +5928,15 @@ class crnrstn_user{
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function injectInputSerialization($crnrstn_form_handle = NULL, $tunnel_encrypt_hidden_input_data = true){
+    private function injectInputSerialization($crnrstn_form_handle = NULL){
+
+        $tunnel_encrypt_hidden_input_data = true;
+
+        if(isset(self::$form_handle_ARRAY[$crnrstn_form_handle]['tunnel_encrypt'])){
+
+            $tunnel_encrypt_hidden_input_data = self::$form_handle_ARRAY[$crnrstn_form_handle]['tunnel_encrypt'];
+
+        }
 
         $tmp_input_name_ARRAY = array();
         $tmp_input_id_ARRAY = array();
@@ -7454,12 +7502,12 @@ class crnrstn_user{
 
                 $this->elapsed_from_current($secs);
 
-            break;
+                break;
             case 'ELAPSED_VERBOSE':
 
                 $tmp_output = $this->elapsed_verbose_from_current($secs);
 
-            break;
+                break;
 
         }
 
@@ -7475,12 +7523,12 @@ class crnrstn_user{
 
                 $tmp_output = $this->elapsed($delta_secs, $microsecs);
 
-            break;
+                break;
             case 'ELAPSED_VERBOSE':
 
                 $tmp_output = $this->elapsed_verbose($delta_secs, $microsecs);
 
-            break;
+                break;
 
         }
 
@@ -8196,7 +8244,7 @@ class crnrstn_user{
         } catch (Exception $e) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -8239,7 +8287,7 @@ class crnrstn_user{
         } catch (Exception $e) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
             //$this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__, CRNRSTN_LOG_EMAIL, 'j5@jony5.com');
 
@@ -8284,7 +8332,7 @@ class crnrstn_user{
         } catch (Exception $e) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -8329,7 +8377,7 @@ class crnrstn_user{
         } catch (Exception $e) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -8372,7 +8420,7 @@ class crnrstn_user{
         } catch (Exception $e) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -8414,7 +8462,7 @@ class crnrstn_user{
         } catch (Exception $e) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -8999,14 +9047,14 @@ class crnrstn_user{
                         case CRNRSTN_LOG_SCREEN_HTML:
                         case CRNRSTN_LOG_SCREEN_HTML_HIDDEN:
                         case CRNRSTN_LOG_DEFAULT:
-                        break;
+                            break;
                         default:
 
                             //
                             // HOOOSTON...VE HAF PROBLEM!
                             throw new Exception('The provided logging output profile, "'.$output_profile.'", is not supported by CRNRSTN ::. Please choose between the following options :: [EMAIL, FILE, SCREEN_TEXT, SCREEN, SCREEN_HTML, SCREEN_HTML_HIDDEN, DEFAULT]');
 
-                        break;
+                            break;
 
                     }
 
@@ -9019,7 +9067,7 @@ class crnrstn_user{
         } catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -9041,7 +9089,7 @@ class crnrstn_user{
                 case 0:
                     $tmp_priority_const = 'LOG_EMERG';
                     $tmp_priority_msg = ':: system is unusable.';
-                break;
+                    break;
                 case 1:
                     $tmp_priority_const = 'LOG_ALERT';
                     $tmp_priority_msg = ':: action must be taken immediately.';
@@ -9235,7 +9283,7 @@ class crnrstn_user{
 
     }
 
-    public function return_email_creative($creative_element_key, $image_output_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED){
+    public function return_email_creative($creative_element_key, $image_output_mode = NULL){
 
         return self::$oCommRichMediaProvider->return_creative($creative_element_key, $image_output_mode);
 
@@ -9411,7 +9459,7 @@ class crnrstn_user{
                     $replacements[2] = '';
                     $replacements[3] = '';
 
-                break;
+                    break;
                 case 'email_private':
                     $tmp_new_post_at_ARRAY = array();
                     $clean_str = '';
@@ -9464,7 +9512,7 @@ class crnrstn_user{
 
                     return $clean_str;
 
-                break;
+                    break;
                 case 'custom_mobi_detect_alg':
 
                     $patterns[0] = '(';
@@ -9472,7 +9520,7 @@ class crnrstn_user{
                     $replacements[0] = '';
                     $replacements[1] = '';
 
-                break;
+                    break;
                 case 'http_protocol_simple':
 
                     $patterns[0] = '_';
@@ -9482,13 +9530,13 @@ class crnrstn_user{
                     $replacements[1] = '';
                     $replacements[2] = '';
 
-                break;
+                    break;
                 case 'select_statement':
 
                     $patterns[0] = "`";
                     $replacements[0] = '';
 
-                break;
+                    break;
                 case 'select_field_name':
 
                     $patterns[0] = "
@@ -9531,14 +9579,14 @@ class crnrstn_user{
                     $replacements[16] = '';
                     $replacements[17] = '';
 
-                break;
+                    break;
                 default:
 
                     //
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('Unable to determine string sanitization algorithm [' . $type . '] for the content[' . $str . '].');
 
-                break;
+                    break;
             }
 
             $str = str_replace($patterns, $replacements, $str);
@@ -9836,7 +9884,7 @@ class crnrstn_user{
                 <div style="background-color:#CCC; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
                 <code>';
 
-            break;
+                break;
             case CRNRSTN_HTML:
 
                 $tmp_out = '
@@ -9847,7 +9895,7 @@ class crnrstn_user{
                 <div style="background-color:#FFF; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
                 <code>';
 
-            break;
+                break;
             case CRNRSTN_PHPNIGHT:
 
                 $tmp_out = '
@@ -9858,7 +9906,7 @@ class crnrstn_user{
                 <div style="background-color:#000; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
                 <code>';
 
-            break;
+                break;
             default:
 
                 $tmp_out = '
@@ -9869,7 +9917,7 @@ class crnrstn_user{
                 <div style="background-color:#E6E6E6; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
                 <code>';
 
-            break;
+                break;
 
         }
 
@@ -10015,20 +10063,20 @@ class crnrstn_user{
                 $exception_obj_trace_str = $this->properReplace('
 ', '<br>', $exception_obj_trace_str);
 
-            break;
+                break;
             case 'TEXT':
 
                 $exception_obj_trace_str = $this->properReplace('\n', '
 ', $exception_obj_trace_str);
 
-            break;
+                break;
             default:
 
                 //
                 // DO NOTHING :: STRAIGHT UNPROCESSED PHP NATIVE OUT
 
 
-            break;
+                break;
 
         }
 
@@ -10355,19 +10403,22 @@ C:::::C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
 
                     }
 
-                    //return_css_validator_input_form_HTML
                     $tmp_html_output = self::$oCRNRSTN_CSS_VALIDATOR->return_css_validator_input_form_HTML();
 
                     return $tmp_html_output;
 
-                break;
+                    break;
+                case 'CRNRSTN_ADMIN_LOGIN_FLAGSHIP':
+                case 'CRNRSTN_ADMIN_LOGIN_MINIMAL':
+
+                    break;
                 default:
 
                     //
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('An unknown form HTML key "'.$form_key.'" has been provided. The options which are available currently include: CSS_VALIDATION_EMAIL_MESSAGE.');
 
-                break;
+                    break;
 
             }
 

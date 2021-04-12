@@ -47,12 +47,11 @@
 #  VERSION :: 2.00.0000
 #  DATE :: September 11, 2012 1720hrs
 #  AUTHOR :: Jonathan 'J5' Harris, jharris@eVifweb.com
-#  URI :: 
+#  URI ::
 #  DESCRIPTION :: We put a hood on CRNRSTN ::,...complete with seats and a steering wheel...for the user.
 #  LICENSE :: MIT | http://crnrstn.evifweb.com/licensing/
 #
 class crnrstn_user{
-
 
     protected $oLogger;
     private static $oCRNRSTN_ENV;
@@ -1180,6 +1179,38 @@ class crnrstn_user{
     public function save_wildcard_resource($oWildCardResource){
 
         self::$oCRNRSTN_ENV->augmentWCR_array($oWildCardResource);
+
+    }
+
+    public function ui_content_module_out($integer_constant, $meta_profile_data = NULL){
+
+        /*
+        injectInputSerialization('crnrstn_validate_css'){
+        */
+
+        switch($integer_constant){
+            case CRNRSTN_UI_FORM_INTEGRATION_PACKET:
+
+                return $this->injectInputSerialization($meta_profile_data);
+
+                break;
+            case CRNRSTN_UI_JS_JQUERY:
+            case CRNRSTN_UI_JS_JQUERY_UI:
+            case CRNRSTN_UI_JS_JQUERY_MOBILE:
+            case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
+
+                return self::$oCRNRSTN_ENV->ui_content_module_out($integer_constant, $meta_profile_data);
+
+                break;
+            case CRNRSTN_UI_CSS_MAIN:
+            case CRNRSTN_UI_TAG_ANALYTICS:
+            case CRNRSTN_UI_TAG_ENGAGEMENT:
+
+                return '';
+
+                break;
+
+        }
 
     }
 
@@ -5620,7 +5651,7 @@ class crnrstn_user{
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function initFormHandling($crnrstn_form_handle, $transport_protocol = 'POST'){
+    public function initFormHandling($crnrstn_form_handle, $transport_protocol = 'POST', $tunnel_encrypt_hidden_input_data = NULL){
 
         try {
 
@@ -5647,6 +5678,7 @@ class crnrstn_user{
 
                         if ($http_transport_protocol != self::$form_handle_ARRAY[$crnrstn_form_handle]) {
 
+
                             //
                             // HOOOSTON...VE HAF PROBLEM!
                             throw new Exception('CRNRSTN_USR->initFormHandling() configuration error :: duplicate CRNRSTN :: form handle detected upon receiving the provided value of ' . $crnrstn_form_handle . '.');
@@ -5662,6 +5694,14 @@ class crnrstn_user{
                         self::$form_handle_ARRAY[$crnrstn_form_handle] = $http_transport_protocol;
 
                     }
+
+                }
+
+                if(isset($tunnel_encrypt_hidden_input_data)){
+
+                    error_log(__LINE__.' user enter  initFormHandling()...die();');
+                    die();
+                    self::$form_handle_ARRAY[$crnrstn_form_handle]['tunnel_encrypt'] = $tunnel_encrypt_hidden_input_data;
 
                 }
 
@@ -5888,7 +5928,15 @@ class crnrstn_user{
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function injectInputSerialization($crnrstn_form_handle = NULL, $tunnel_encrypt_hidden_input_data = true){
+    private function injectInputSerialization($crnrstn_form_handle = NULL){
+
+        $tunnel_encrypt_hidden_input_data = true;
+
+        if(isset(self::$form_handle_ARRAY[$crnrstn_form_handle]['tunnel_encrypt'])){
+
+            $tunnel_encrypt_hidden_input_data = self::$form_handle_ARRAY[$crnrstn_form_handle]['tunnel_encrypt'];
+
+        }
 
         $tmp_input_name_ARRAY = array();
         $tmp_input_id_ARRAY = array();
@@ -9235,7 +9283,7 @@ class crnrstn_user{
 
     }
 
-    public function return_email_creative($creative_element_key, $image_output_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED){
+    public function return_email_creative($creative_element_key, $image_output_mode = NULL){
 
         return self::$oCommRichMediaProvider->return_creative($creative_element_key, $image_output_mode);
 
@@ -10355,10 +10403,13 @@ C:::::C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
 
                     }
 
-                    //return_css_validator_input_form_HTML
                     $tmp_html_output = self::$oCRNRSTN_CSS_VALIDATOR->return_css_validator_input_form_HTML();
 
                     return $tmp_html_output;
+
+                    break;
+                case 'CRNRSTN_ADMIN_LOGIN_FLAGSHIP':
+                case 'CRNRSTN_ADMIN_LOGIN_MINIMAL':
 
                     break;
                 default:
