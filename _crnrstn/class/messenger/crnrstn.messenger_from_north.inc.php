@@ -47,17 +47,17 @@
 #  VERSION :: 1.00.0000
 #  DATE :: September 4, 2020 @ 2056hrs
 #  AUTHOR :: Jonathan 'J5' Harris, jharris@eVifweb.com
-#  URI :: 
+#  URI ::
 #  DESCRIPTION :: A faithful messenger. What more could one desire?
 #  LICENSE :: MIT | http://crnrstn.evifweb.com/licensing/
 #
 class crnrstn_messenger_from_north {
 
-	protected $oLogger;
-	private static $oCRNRSTN_n;
+    protected $oLogger;
+    private static $oCRNRSTN_n;
 
-	private static $oCRNRSTN_PHPMailer_ARRAY = array();
-	private static $oCRNRSTN_PROXYMailer_ARRAY = array();
+    private static $oCRNRSTN_PHPMailer_ARRAY = array();
+    private static $oCRNRSTN_PROXYMailer_ARRAY = array();
 
     protected $PHPMailer_experience_tracker_ARRAY = array();
     protected $PHPMailer_single_or_bulk_ARRAY = array();
@@ -66,7 +66,7 @@ class crnrstn_messenger_from_north {
 
     public $messenger_serial;
     protected $messenger_serial_raw;
-	protected $mail_protocol;
+    protected $mail_protocol;
     protected $username;
     protected $password;
     protected $port;
@@ -116,9 +116,9 @@ class crnrstn_messenger_from_north {
 
     protected $flag_PHPMailer_send_serial = array();
 
-	public function __construct($messenger_serial, $mail_protocol, $username, $password, $port, $oCRNRSTN_n) {
+    public function __construct($messenger_serial, $mail_protocol, $username, $password, $port, $oCRNRSTN_n) {
 
-	    /*
+        /*
         CONSIDERATIONS ::
         - SUPPORT FOR DATABASE DRIVEN MULTI-BATCH AND BLAST
             * SINGLE MESSAGE TO MANY EMAIL
@@ -129,7 +129,7 @@ class crnrstn_messenger_from_north {
             * SERIALIZED PER RECIPIENT EMAIL FOR SEND SUCCESS/ERR FEEDBACK
         - SUPPORT FOR ONE-OFF-EMAIL MULTI-PART MESSAGE WITH ON-ERR-BACKUP TEXT ONLY
         - END GAME SUPPORT = UNIVERSAL PROXY ENDPOINT WITHIN CRNRSTN FOR MESSAGE TRIGGER VIA HTTP POST (OR SOAP REQUEST)
-	    */
+        */
 
         try{
 
@@ -155,43 +155,43 @@ class crnrstn_messenger_from_north {
                     $this->password = $password;
                     $this->port = $port;
 
-                break;
+                    break;
                 case 'CRNRSTN_PROXY':
                     //
                     //
 
-                break;
+                    break;
                 default:
 
                     //
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('Unknown mail protocol of "'.$mail_protocol.'" has been provided. The options which are available include "SMTP", "MAIL", "SENDMAIL" and "QMAIL".');
 
-                break;
+                    break;
 
             }
 
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
-	}
+    }
 
-	public function return_CRNRSTN_SysMsgBody($msgFormat='TEXT', $msgType='EXCEPTION_NOTIFICATION'){
+    public function return_CRNRSTN_SysMsgBody($msgFormat='TEXT', $msgType='EXCEPTION_NOTIFICATION'){
 
-	    $tmp_format = trim(strtoupper($msgFormat));
+        $tmp_format = trim(strtoupper($msgFormat));
 
-	    switch($tmp_format){
+        switch($tmp_format){
             case 'HTML':
                 return $this->return_CRNRSTN_SysMsgHTMLBody($msgType);
 
-            break;
+                break;
             default:
                 return $this->return_CRNRSTN_SysMsgTEXTBody($msgType);
-            break;
+                break;
 
         }
 
@@ -287,7 +287,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -317,7 +317,7 @@ class crnrstn_messenger_from_north {
 
     public function setPriority($priority){
 
-	    try{
+        try{
 
             $tmp_priority = trim(strtoupper($priority));
 
@@ -326,17 +326,17 @@ class crnrstn_messenger_from_north {
                 case 1:
                 case 'HIGH':
                     $this->priority = 1;
-                break;
+                    break;
                 case '3':
                 case 3:
                 case 'NORMAL':
                     $this->priority = 3;
-                break;
+                    break;
                 case '5':
                 case 5:
                 case 'LOW':
                     $this->priority = 5;
-                break;
+                    break;
                 default:
 
                     $this->priority = 3;
@@ -345,14 +345,14 @@ class crnrstn_messenger_from_north {
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('The provided priority level of "'.$priority.'" is invalid; NORMAL priority has been applied. Options include, "HIGH" or (int) 1, "NORMAL" or (int) 3 and "LOW" or (int) 5.');
 
-                break;
+                    break;
 
             }
 
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -393,7 +393,7 @@ class crnrstn_messenger_from_north {
 
         $email_experience_tracker = self::$oCRNRSTN_n->generateNewKey(70);
 
-	    try {
+        try {
 
             //
             // CHECK FOR COMMA DELIMITED
@@ -487,7 +487,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -580,7 +580,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -672,7 +672,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -699,7 +699,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -708,11 +708,11 @@ class crnrstn_messenger_from_north {
 
     public function addDynamicContent_HTML($email_experience_tracker, $content_place_holder, $dynamic_content){
 
-	    try{
+        try{
 
-	        if(isset($this->to_email_ARRAY['experience_tracker_flag'][$email_experience_tracker])){
+            if(isset($this->to_email_ARRAY['experience_tracker_flag'][$email_experience_tracker])){
 
-	            $this->dynamic_content_HTML_ARRAY[$email_experience_tracker]['placeholder'][] = $content_place_holder;
+                $this->dynamic_content_HTML_ARRAY[$email_experience_tracker]['placeholder'][] = $content_place_holder;
                 $this->dynamic_content_HTML_ARRAY[$email_experience_tracker]['content'][] = $dynamic_content;
 
             }else{
@@ -726,7 +726,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -753,7 +753,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -782,7 +782,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -791,7 +791,7 @@ class crnrstn_messenger_from_north {
 
     public function isHTMLBulk($email_experience_tracker, $bool_isHTML){
 
-	    try{
+        try{
 
             if(isset($this->to_email_ARRAY['experience_tracker_flag'][$email_experience_tracker])){
 
@@ -808,7 +808,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -830,15 +830,15 @@ class crnrstn_messenger_from_north {
                     case 1:
                     case 'HIGH':
                         $this->priorityBulk[$email_experience_tracker] = 1;
-                    break;
+                        break;
                     case 3:
                     case 'NORMAL':
                         $this->priorityBulk[$email_experience_tracker] = 3;
-                    break;
+                        break;
                     case 5:
                     case 'LOW':
                         $this->priorityBulk[$email_experience_tracker] = 5;
-                    break;
+                        break;
                     default:
 
                         $this->priorityBulk[$email_experience_tracker] = 3;
@@ -847,7 +847,7 @@ class crnrstn_messenger_from_north {
                         // HOOOSTON...VE HAF PROBLEM!
                         throw new Exception('The provided priority level of "'.$priority.'" is invalid; NORMAL priority has been applied for this recipient experience. Options include, "HIGH" or 1, "NORMAL" or 3 and "LOW" or 5.');
 
-                    break;
+                        break;
 
                 }
 
@@ -862,7 +862,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -889,7 +889,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -995,7 +995,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -1087,7 +1087,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -1179,7 +1179,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -1286,7 +1286,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -1312,7 +1312,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -1341,7 +1341,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -1371,7 +1371,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -1383,13 +1383,13 @@ class crnrstn_messenger_from_north {
 
     public function batchReadyToSend($max_batch_count){
 
-	    if(sizeof($this->to_email_ARRAY) > $max_batch_count){
+        if(sizeof($this->to_email_ARRAY) > $max_batch_count){
 
             return true;
 
         }else{
 
-	        return false;
+            return false;
 
         }
 
@@ -1437,7 +1437,7 @@ class crnrstn_messenger_from_north {
 
     public function proxySend(){
 
-	    try{
+        try{
 
             $tmp_email_experience_cnt = sizeof($this->to_email_ARRAY['experience_tracker']);
             if($tmp_email_experience_cnt>0){
@@ -1471,7 +1471,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -1484,7 +1484,7 @@ class crnrstn_messenger_from_north {
 
     public function send(){
 
-	    try{
+        try{
 
             $tmp_email_experience_cnt = sizeof($this->to_email_ARRAY['experience_tracker']);
             if($tmp_email_experience_cnt>0){
@@ -1530,7 +1530,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -1557,7 +1557,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -1569,7 +1569,7 @@ class crnrstn_messenger_from_north {
 
     private function spool_message(){
 
-	    try{
+        try{
 
             //
             // SENDER AND RECIPIENT DATA (TO, CC, BCC, REPLYTO, FROM)
@@ -1587,7 +1587,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -2234,29 +2234,29 @@ class crnrstn_messenger_from_north {
                                 )
                             );
 
-                        break;
+                            break;
                         case 'MAIL':
                             self::$oCRNRSTN_n->error_log('oGabriel isMail()', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
                             $oCRNRSTN_PHPMailer->isMail();
 
-                        break;
+                            break;
                         case 'SENDMAIL':
                             self::$oCRNRSTN_n->error_log('oGabriel isSendmail()', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
                             $oCRNRSTN_PHPMailer->isSendmail();
 
-                        break;
+                            break;
                         case 'QMAIL':
                             self::$oCRNRSTN_n->error_log('oGabriel isQmail()', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
                             $oCRNRSTN_PHPMailer->isQmail();
 
-                        break;
+                            break;
                         default:
 
                             //
                             // HOOOSTON...VE HAF PROBLEM!
                             throw new Exception('Unknown mail protocol of "'.$this->mail_protocol.'" has been provided. The options which are available include "SMTP", "MAIL", "SENDMAIL" and "QMAIL".');
 
-                        break;
+                            break;
 
                     }
 
@@ -2275,7 +2275,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -2430,7 +2430,7 @@ class crnrstn_messenger_from_north {
 
                             }
 
-                        break;
+                            break;
                         case 'bulk':
 
                             //self::$oCRNRSTN_n->error_log('oGabriel SWITCH() ENTRY CASE="bulk"', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
@@ -2586,7 +2586,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -2740,7 +2740,7 @@ class crnrstn_messenger_from_north {
 
                             }
 
-                        break;
+                            break;
                         case 'bulk':
 
                             //self::$oCRNRSTN_n->error_log('oGabriel SWITCH() ENTRY CASE="bulk"', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
@@ -2870,14 +2870,14 @@ class crnrstn_messenger_from_north {
 
                             }
 
-                        break;
+                            break;
                         default:
 
                             //
                             // HOOOSTON...VE HAF PROBLEM!
                             throw new Exception('Unknown bulk or single indicator,"'.$bulk_single_indicator.'" received.');
 
-                        break;
+                            break;
                     }
 
                     self::$oCRNRSTN_n->error_log('['.$i.'] oGabriel BULK - Returning FULLY EMAIL, CONNECTION and CONTENT CHARGED oCRNRSTN_PHPMailer to the oArray().', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
@@ -2896,7 +2896,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
             return false;
@@ -2908,15 +2908,15 @@ class crnrstn_messenger_from_north {
 
     public function sendStatusReportEmail($recipient_email, $recipient_name){
 
-	    self::$oCRNRSTN_n->error_log('Trigger status report email to '.$recipient_name.' at '.self::$oCRNRSTN_n->stringSanitize($recipient_email, 'email_private').'.', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+        self::$oCRNRSTN_n->error_log('Trigger status report email to '.$recipient_name.' at '.self::$oCRNRSTN_n->stringSanitize($recipient_email, 'email_private').'.', __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
 
-	}
+    }
 
     private function clean_system_email($email_str){
 
         $email_str = trim(strtolower($email_str));
 
-	    return $email_str;
+        return $email_str;
 
     }
 
@@ -2981,7 +2981,7 @@ class crnrstn_messenger_from_north {
 
     public function return_CRNRSTN_SysMsgHTMLBody($msgType){
 
-	    try{
+        try{
 
             switch($msgType){
                 case 'ELECTRUM_PERFORMANCE_REPORT':
@@ -3213,7 +3213,7 @@ class crnrstn_messenger_from_north {
 </body>
 </html>';
 
-                break;
+                    break;
                 case 'EXCEPTION_NOTIFICATION':
 
                     $tmp_body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -3385,10 +3385,10 @@ class crnrstn_messenger_from_north {
 </body>
 </html>';
 
-                break;
+                    break;
                 case 'EXCEPTION_NOTIFICATION::SOAP_TRANSPORT':
 
-                $tmp_body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                    $tmp_body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -3556,14 +3556,14 @@ class crnrstn_messenger_from_north {
 </table>
 </body>
 </html>';
-                break;
+                    break;
                 default:
 
                     //
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('Unknown HTML message body, "'.$msgType.'", requested.');
 
-                break;
+                    break;
             }
 
             return $tmp_body;
@@ -3571,7 +3571,7 @@ class crnrstn_messenger_from_north {
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -3581,9 +3581,9 @@ class crnrstn_messenger_from_north {
 
     public function return_CRNRSTN_SysMsgTEXTBody($msgType){
 
-	    try{
-	        
-	        switch($msgType){
+        try{
+
+            switch($msgType){
                 case 'ELECTRUM_PERFORMANCE_REPORT':
 
                     $tmp_body = '{SYS_MESSAGE_TITLE_TEXT}
@@ -3648,7 +3648,7 @@ system notifications, please contact the
 website administrator.
 ';
 
-                break;
+                    break;
                 case 'EXCEPTION_NOTIFICATION':
 
                     $tmp_body = 'CRNRSTN :: Exception Notification
@@ -3700,7 +3700,7 @@ LOG TRACE
 ';
 
 
-                break;
+                    break;
                 case 'EXCEPTION_NOTIFICATION::SOAP_TRANSPORT':
 
                     $tmp_body = 'CRNRSTN :: Exception Notification
@@ -3750,14 +3750,14 @@ LOG TRACE
 {LOG_TRACE}
 
 ';
-                break;
+                    break;
                 default:
 
                     //
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('Unknown TEXT message body, "'.$msgType.'", requested.');
 
-                break;
+                    break;
 
             }
 
@@ -3766,7 +3766,7 @@ LOG TRACE
         }catch( Exception $e ) {
 
             //
-            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
         }
@@ -3857,9 +3857,9 @@ LOG TRACE
 
     }
 
-	public function __destruct() {
+    public function __destruct() {
 
-	}
+    }
 }
 
 # # C # R # N # R # S # T # N # : : # # ##
@@ -3868,7 +3868,7 @@ LOG TRACE
 #  VERSION :: 1.00.0000
 #  DATE :: September 21, 2020 @ 2230hrs
 #  AUTHOR :: Jonathan 'J5' Harris, jharris@eVifweb.com
-#  URI :: 
+#  URI ::
 #  DESCRIPTION :: The straightest path to email delivery (make someone else send it)!
 #  LICENSE :: MIT | http://crnrstn.evifweb.com/licensing/
 #
@@ -4108,7 +4108,7 @@ class crnrstn_communications_css_standard{
     protected $desktop_mail_CONST_ARRAY = array();
     protected $web_mail_CONST_ARRAY = array();
     protected $mobile_mail_CONST_ARRAY = array();
-    
+
     protected $redundant_css_nom_ARRAY = array();
     protected $validation_results_ARRAY = array();
     protected $results_count_aggregation_ARRAY = array();
@@ -4123,7 +4123,7 @@ class crnrstn_communications_css_standard{
         //
         // INSTANTIATE LOGGER
         $this->oLogger = new crnrstn_logging($this->oCRNRSTN_USR->CRNRSTN_debugMode, __CLASS__, $this->oCRNRSTN_USR->log_silo_profile, $this->oCRNRSTN_USR);
-        
+
         //
         // ITEMS WITH MORE THAN ONE OCCURRENCE
         $this->redundant_css_nom_ARRAY[] = 'max-height';
@@ -4135,7 +4135,7 @@ class crnrstn_communications_css_standard{
         $this->redundant_css_nom_ARRAY[] = 'align-self';
         $this->redundant_css_nom_ARRAY[] = 'align-content';
         $this->redundant_css_nom_ARRAY[] = 'justify-content';
-        
+
         $this->output_mode = $output_mode;
         $this->raw_data = $raw_html_data;
         $this->raw_data_LOWER = strtolower($raw_html_data);
@@ -4228,43 +4228,43 @@ class crnrstn_communications_css_standard{
 
                         $this->css_validate_STYLE_IN_HEAD($css_string_nomination, $key_css_species);
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_LINK_IN_HEAD:
 
                         $this->css_validate_LINK_IN_HEAD($css_string_nomination, $key_css_species);
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_STYLE_IN_BODY:
 
                         $this->css_validate_STYLE_IN_BODY($css_string_nomination, $key_css_species);
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_LINK_IN_BODY;
 
                         $this->css_validate_LINK_IN_BODY($css_string_nomination, $key_css_species);
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_STANDARD_USE:
 
                         $this->css_validate_STANDARD($css_string_nomination, $key_css_species);
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_RGB:
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_RGBA:
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_HSLA:
 
-                    break;
+                        break;
                     case CRNRSTN_CSS_VALIDATE_CURRENTCOLOR:
 
-                    break;
+                        break;
                     default:
                         //
                         // CRNRSTN_CSS_VALIDATE_NONE
-                    break;
+                        break;
 
                 }
 
@@ -4312,7 +4312,6 @@ class crnrstn_communications_css_standard{
         //$oCRNRSTN_USR->addHiddenFormInputParamListener('crnrstn_validate_css', 'crnrstn_country_iso_code', 'crnrstn_country_iso_code', true, 'EN');
         //$oCRNRSTN_USR->addHiddenFormInputParamListener('crnrstn_validate_css', 'crnrstn_php_sessionid', 'crnrstn_php_sessionid', true, session_id());
 
-
         $crnrstn_css_validator_output = '
                         <form id="crnrstn_validate_css_'.$tmp_form_serial.'" name="crnrstn_validate_css" action="#" method="post" enctype="multipart/form-data">
 
@@ -4356,8 +4355,8 @@ class crnrstn_communications_css_standard{
 
                                     <div style="text-align: center; margin:0 auto;">
 
-                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_BASE64).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:35px; height:19px;">&nbsp;<a href="http://validator.w3.org/check?uri=referer" target="_blank">XHTML</a></div>
-                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_BASE64).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:25px; height:19px;">&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a></div>
+                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:35px; height:19px;">&nbsp;<a href="http://validator.w3.org/check?uri=referer" target="_blank">XHTML</a></div>
+                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:25px; height:19px;">&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a></div>
 
                                         <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
@@ -4369,8 +4368,7 @@ class crnrstn_communications_css_standard{
 
                             </div>
                             <button type="submit" id="submit_'.$tmp_form_serial.'" style="display: none;">validate</button>
-
-                            '.$this->oCRNRSTN_USR->injectInputSerialization('crnrstn_validate_css').'
+                            '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_FORM_INTEGRATION_PACKET, 'crnrstn_validate_css').'
 
                             <script>
 
@@ -6433,7 +6431,7 @@ class crnrstn_communications_css_standard{
 
                     self::$email_rendering_client_ARRAY[$client_type]['name'][] = $client_name;
 
-                break;
+                    break;
                 case CRNRSTN_MAIL_CLIENT_MOBILE:
                     //error_log(__LINE__.' '.__METHOD__.' $index='.$index.' |mobi CONST='.$this->mobile_mail_CONST_ARRAY[$index]);
 
@@ -6441,7 +6439,7 @@ class crnrstn_communications_css_standard{
 
                     self::$email_rendering_client_ARRAY[$client_type]['name'][] = $client_name;
 
-                break;
+                    break;
                 case CRNRSTN_MAIL_CLIENT_WEB:
                     //error_log(__LINE__.' '.__METHOD__.' $index='.$index.' |web CONST='.$this->web_mail_CONST_ARRAY[$index]);
 
@@ -6449,14 +6447,14 @@ class crnrstn_communications_css_standard{
 
                     self::$email_rendering_client_ARRAY[$client_type]['name'][] = $client_name;
 
-                break;
+                    break;
                 default:
 
                     //
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('Unknown CSS validation channel integer CONSTANT ['.$client_type.'].');
 
-                break;
+                    break;
 
             }
 
@@ -6471,7 +6469,7 @@ class crnrstn_communications_css_standard{
         }
 
     }
-    
+
     private function css_to_client_normalization(){
 
         //
@@ -6760,18 +6758,18 @@ class crnrstn_communications_css_standard{
 
                 return 'integer return will be CSS checked!';
 
-            break;
+                break;
             case CRNRSTN_CSS_RESULTS_BOOLEAN:
 
                 return 'boolean return will be CSS checked!';
 
-            break;
+                break;
             case CRNRSTN_CSS_RESULTS_HTML:
             default:
 
                 return 'html return will be CSS checked!';
 
-            break;
+                break;
 
         }
 
@@ -9314,7 +9312,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                     // HOOOSTON...VE HAF PROBLEM!
                     throw new Exception('Unknown HTML CSS string nomination pattern provided, '.$css_pattern_nom.'.');
 
-                break;
+                    break;
 
             }
 
@@ -9333,6 +9331,23 @@ Formally, the display property sets an element\'s inner and outer display types.
     }
 
     private function return_validation_results_HTML($html_content_injection, $r_tblcol_top_padding = 117){
+
+        /*
+        'CRNRSTN_UI_JS_JQUERY',
+        'CRNRSTN_UI_JS_JQUERY_UI',
+        'CRNRSTN_UI_JS_JQUERY_MOBILE',
+        'CRNRSTN_UI_JS_LIGHTBOX_DOT_JS',
+        'CRNRSTN_UI_TAG_ANALYTICS',
+        'CRNRSTN_UI_TAG_ENGAGEMENT',
+        'CRNRSTN_UI_FORM_INTEGRATION_PACKET',
+        'CRNRSTN_UI_COOKIE_PREFERENCE',
+        'CRNRSTN_UI_COOKIE_YESNO',
+        'CRNRSTN_UI_COOKIE_NOTICE',
+        'CRNRSTN_UI_COOKIE_THEME_DARKNIGHT',
+        'CRNRSTN_UI_COOKIE_THEME_FEATHER',
+        'CRNRSTN_UI_COOKIE_THEME_DAYLIGHT',
+        'CRNRSTN_UI_COOKIE_THEME_GREYSKYS'
+         * */
 
         $tmp_form_serial = $this->oCRNRSTN_USR->generateNewKey(7);
 
@@ -9360,7 +9375,10 @@ Formally, the display property sets an element\'s inner and outer display types.
         <meta name="keywords" content="jesus, christ, jesus christ, gospel, j5, jonathan, harris, jonathan harris, johnny 5, jony5, atlanta, moxie, agency, web, christian, web services, email, web programming, marketing, CSS, XHTML, php, ajax" />
 
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
-       
+        
+        '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
+        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+              
     </head>
     <body>
     <div style="width:100%; text-align:center; margin:0 auto; font-family:Arial, Helvetica, sans-serif; background-color: #FFF;">
@@ -9460,7 +9478,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                     </tr>
                                     <tr>
                                         <td style="text-align: right;">
-                                            <div style="border-right:20px solid #FFF; border-top:20px solid #FFF;">'.$this->oCRNRSTN_USR->return_email_creative('ICON_EMAIL_INBOX_REFLECT', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'</div>
+                                            <div style="border-right:20px solid #FFF; border-top:20px solid #FFF;">'.$this->oCRNRSTN_USR->return_email_creative('ICON_EMAIL_INBOX_REFLECT', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</div>
                                         </td>
                                     </tr>
                                     </table>
@@ -9487,6 +9505,18 @@ Formally, the display property sets an element\'s inner and outer display types.
         
 
     </div>
+   
+    '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(\'js\', new Date());
+    
+      gtag(\'config\', \'G-G28EC03WLZ\');
+    </script>
     </body>
     </html>';
 
@@ -9497,13 +9527,21 @@ Formally, the display property sets an element\'s inner and outer display types.
 
     private function return_css_validator_content_HTML($html_content_injection, $r_tblcol_top_padding = 117){
 
+
+        //error_log(__LINE__.' (int) '.CRNRSTN_UI_JS_JQUERY.' css return_css_validator_content_HTML len='.strlen($html_content_injection));
+        //die();
+         //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
+
+        //error_log(__LINE__.' css CRNRSTN_UI_CSS_MAIN len = '.strlen($tmp).' | return_css_validator_content_HTML len='.strlen($html_content_injection));
+        //die();
+
         $tmp_form_serial = $this->oCRNRSTN_USR->generateNewKey(7);
 
         $tmp_str = '<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
+        '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON').'
         <meta http-equiv="Content-Language" content="en-us" />
         <meta name="distribution" content="Global" />
         <meta name="ROBOTS" content="index" />
@@ -9523,6 +9561,8 @@ Formally, the display property sets an element\'s inner and outer display types.
         <meta name="keywords" content="jesus, christ, jesus christ, gospel, j5, jonathan, harris, jonathan harris, johnny 5, jony5, atlanta, moxie, agency, web, christian, web services, email, web programming, marketing, CSS, XHTML, php, ajax" />
 
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
+        '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
+        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
         
     </head>
     <body>
@@ -9623,7 +9663,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                     </tr>
                                     <tr>
                                         <td style="text-align: right;">
-                                            <div style="border-right:20px solid #FFF; border-top:20px solid #FFF;">'.$this->oCRNRSTN_USR->return_email_creative('ICON_EMAIL_INBOX_REFLECT', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'</div>
+                                            <div style="border-right:20px solid #FFF; border-top:20px solid #FFF;">'.$this->oCRNRSTN_USR->return_email_creative('ICON_EMAIL_INBOX_REFLECT').'</div>
                                         </td>
                                     </tr>
                                     </table>
@@ -9642,13 +9682,26 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <div style="float:right; padding:420px 0 0 0; margin:0; width:100%;">
             <div style="position: absolute; width:100%; text-align: right; background-color: #FFF; padding-top: 20px;">
-                '.$this->oCRNRSTN_USR->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
+                '.$this->oCRNRSTN_USR->return_email_creative('J5_WOLF_PUP').'
             </div>
         </div>
 
         <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
     </div>
+    
+    '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(\'js\', new Date());
+    
+      gtag(\'config\', \'G-G28EC03WLZ\');
+      
+    </script>
     </body>
     </html>';
 
@@ -9815,10 +9868,10 @@ Formally, the display property sets an element\'s inner and outer display types.
                                 </table>
                                                                                                                         
                                 </div>';
-                
+
                 return $tmp_str;
 
-            break;
+                break;
             case 'VALIDATOR_LOGIC_CSS_HEADER':
 
                 //
@@ -9851,17 +9904,17 @@ Formally, the display property sets an element\'s inner and outer display types.
                         $tmp_str = '<div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; line-height:25px; font-weight: bold; text-align: left; border-top: 20px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'><a href="'.$tmp_css_uri.'" target="_blank" style=\'font-family:"Courier New", Courier, monospace; font-size: 17px;text-decoration:none; color: #6885C3; text-decoration: underline; \'>'.htmlentities($css_str_pattern_TITLE).'</a></div>  
 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 0px solid #FFF;  border-right: 10px solid #FFF; border-bottom: 20px solid #FFF; color: #6885C3; line-height:16px; text-align:left;\'>'.htmlentities($tmp_css_description).' '.$tmp_deprecated_indicator.'</div>';
 
-                    break;
+                        break;
                     default:
                         //
                         // TEXT VERSION EMAIL, GETS NOT THIS CONTENT.
 
-                    break;
+                        break;
                 }
 
                 return $tmp_str;
 
-            break;
+                break;
             case 'VALIDATOR_LOGIC_DESKTOP_CLIENT_SUPPORT':
 
                 //
@@ -9883,7 +9936,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 $tmp_email_client_ARRAY = $this->desktop_mail_client_ARRAY;
                 $tmp_email_client_CONST_ARRAY = $this->desktop_mail_CONST_ARRAY;
 
-            break;
+                break;
             case 'VALIDATOR_LOGIC_MOBILE_CLIENT_SUPPORT':
 
                 //
@@ -9905,7 +9958,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 $tmp_email_client_ARRAY = $this->mobile_mail_client_ARRAY;
                 $tmp_email_client_CONST_ARRAY = $this->mobile_mail_CONST_ARRAY;
 
-            break;
+                break;
             case 'VALIDATOR_LOGIC_WEB_CLIENT_SUPPORT':
 
                 //
@@ -9928,13 +9981,13 @@ Formally, the display property sets an element\'s inner and outer display types.
                 $tmp_email_client_ARRAY = $this->web_mail_client_ARRAY;
                 $tmp_email_client_CONST_ARRAY = $this->web_mail_CONST_ARRAY;
 
-            break;
+                break;
             default:
 
                 //
                 // SILENCE IS GOLDEN.
 
-            break;
+                break;
 
         }
 
@@ -10055,12 +10108,12 @@ Formally, the display property sets an element\'s inner and outer display types.
 
                 }
 
-            break;
+                break;
             default:
                 //
                 // DO NOTHING
 
-            break;
+                break;
 
         }
 
@@ -10083,16 +10136,16 @@ Formally, the display property sets an element\'s inner and outer display types.
                 //
                 // FOR STORAGE OF DATA IN DATABASE
 
-            break;
+                break;
             case 'PAGE_URI':
                 //
                 // A LINK TO THE VALIDATOR RESULTS PAGE. USE AS 'VIEW ONLINE' LINK IN SHARE/FTAF EMAIL.
 
 
-            break;
+                break;
             case 'HTML_EMAIL':
 
-            break;
+                break;
             default:
 
                 //
@@ -10129,7 +10182,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
                 return $tmp_html_out;
 
-            break;
+                break;
 
         }
 
@@ -10296,7 +10349,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                                                 a working prototype,...here we are in production. There are some bugs here and there, but
                                                                 once testing is complete, this brief status report will be updated to an 
                                                                 overview of the tool. <br><br>At some point, I would also like to implement share via 
-                                                                email/FTAF for this report. This project is <a href="http://crnrstn.evifweb.com/licensing/" target="_blank">MIT Licensed</a>, and it will be pushed to <a href="https://github.com/jony5" target="_blank">gitHub</a> soon.</div>
+                                                                email/FTAF for this report. This project is <a href="http://crnrstn.evifweb.com/licensing/" target="_blank">MIT Licensed</a>, and it has been pushed to <a href="https://github.com/jony5/CSS-Validator-for-HTML-Email-v2.00.0000" target="_blank">GitHub</a>.</div>
                                                                 
                                                             </td>
                                                         </tr>
@@ -10311,14 +10364,14 @@ Formally, the display property sets an element\'s inner and outer display types.
                             
                             </table>';
 
-            break;
+                break;
             default:
 
                 //
                 // TEXT VERSION EMAIL, GETS NOT THIS CONTENT.
                 $tmp_str = 'Email Client CSS  Compatibility Report';
 
-            break;
+                break;
 
         }
 
@@ -10339,14 +10392,14 @@ Formally, the display property sets an element\'s inner and outer display types.
                                 Email Client Support for CSS
                                 </div>';
 
-            break;
+                break;
             default:
                 //
                 // TEXT VERSION EMAIL, GETS NOT THIS CONTENT.
                 $tmp_str = 'Message Validation Reporting for 
                         Email Client Support of CSS';
 
-            break;
+                break;
 
         }
 
@@ -10830,15 +10883,15 @@ CSS Support Within Message';
 
                 $formatted_str = strtolower($this->oCRNRSTN_USR->properReplace(' ', '_', $str));
 
-            break;
+                break;
             default:
-                
+
                 //
                 // NOTE
                 $formatted_str = $this->oCRNRSTN_USR->properReplace('<code>', '<code style=\'border:2px solid #D9DEEB; border-radius: 5px; border-bottom-right-radius: 0; border-top-left-radius: 0; padding:1px 0 1px 0; line-height:17px; color:#FFF;\'><code style=\'background-color: #6886C3; border:1px solid #FFF; border-radius: 5px; border-bottom-right-radius: 0; border-top-left-radius: 0; padding:1px 3px 1px 3px; color:#FFF; font-family:"Courier New", Courier, monospace; font-size: 11px; font-weight: normal; line-height:17px; \'>', $str);
                 $formatted_str = $this->oCRNRSTN_USR->properReplace('</code>', '</code></code>', $formatted_str);
 
-            break;
+                break;
 
         }
 
@@ -11097,7 +11150,7 @@ CSS Support Within Message';
 
                 return $this->numeric_to_alpha($this->email_client_score_ARRAY['NUMERIC']);
 
-            break;
+                break;
             case 'NUMERIC_RAW':
 
                 if(!isset($this->email_client_score_ARRAY['NUMERIC'])){
@@ -11126,7 +11179,7 @@ CSS Support Within Message';
 
                 return $this->email_client_score_ARRAY['NUMERIC'];
 
-            break;
+                break;
             case 'NUMERIC':
 
                 if(!isset($this->email_client_score_ARRAY['NUMERIC'])){
@@ -11155,12 +11208,12 @@ CSS Support Within Message';
 
                 return (int) $this->email_client_score_ARRAY['NUMERIC'];
 
-            break;
+                break;
             case 'GRAPHIC_DOT_CHANNEL_CLIENT':
 
                 return $this->numeric_to_dot_graphic($this->email_client_score_ARRAY[$client_const], $index_z);
 
-            break;
+                break;
             case 'GRAPHIC_DOT_CHANNEL_DESKTOP':
 
                 if(!isset($this->email_client_score_ARRAY['GRAPHIC_DOT_CHANNEL_DESKTOP'])){
@@ -11180,7 +11233,7 @@ CSS Support Within Message';
 
                 return $this->numeric_to_dot_graphic($this->email_client_score_ARRAY['GRAPHIC_DOT_CHANNEL_DESKTOP'], $index_z);
 
-            break;
+                break;
             case 'GRAPHIC_DOT_CHANNEL_MOBILE':
 
                 if(!isset($this->email_client_score_ARRAY['GRAPHIC_DOT_CHANNEL_MOBILE'])) {
@@ -11200,7 +11253,7 @@ CSS Support Within Message';
 
                 return $this->numeric_to_dot_graphic($this->email_client_score_ARRAY['GRAPHIC_DOT_CHANNEL_MOBILE'], $index_z);
 
-            break;
+                break;
             case 'GRAPHIC_DOT_CHANNEL_WEB':
 
                 if(!isset($this->email_client_score_ARRAY['GRAPHIC_DOT_CHANNEL_WEB'])) {
@@ -11220,13 +11273,13 @@ CSS Support Within Message';
 
                 return $this->numeric_to_dot_graphic($this->email_client_score_ARRAY['GRAPHIC_DOT_CHANNEL_WEB'], $index_z);
 
-            break;
+                break;
             default:
                 //
                 // NOTHING
                 return '';
 
-            break;
+                break;
 
         }
 
@@ -11280,6 +11333,12 @@ CSS Support Within Message';
         if($tmp > 0){
 
             $tmp = (double) ($err_cnt / $tmp);
+
+            if($tmp<0){
+
+                return 92;
+
+            }
 
             $tmp = (double) 100 * $tmp;
 

@@ -57,11 +57,37 @@ class crnrstn_image_v_html_content_manager {
     protected $oLogger;
     private static $oCRNRSTN_n;
 
+    public $sys_asset_mode;
+    private static $method_request_mode;
     private static $image_output_mode;
 
     public function __construct($oCRNRSTN_n){
 
         self::$oCRNRSTN_n = $oCRNRSTN_n;
+
+        if(self::$oCRNRSTN_n->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTPS)){
+
+            //self::$image_output_mode = '';
+            $this->sys_asset_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED;
+            error_log(__LINE__.' img sys_asset_mode=HTTPS'.CRNRSTN_UI_IMG_URI_HTML_WRAPPED.']');
+
+        }else{
+
+            if(self::$oCRNRSTN_n->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTP)){
+
+                $this->sys_asset_mode = CRNRSTN_UI_IMG_URI_HTML_WRAPPED;
+                error_log(__LINE__.' img sys_asset_mode=HTTP['.CRNRSTN_UI_IMG_URI_HTML_WRAPPED.']');
+
+            }else{
+
+                //
+                // BASE64
+                $this->sys_asset_mode = CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED;
+                error_log(__LINE__.' img sys_asset_mode=BASE64['.CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED.']');
+
+            }
+
+        }
 
         //
         // INSTANTIATE LOGGER
@@ -74,10 +100,36 @@ class crnrstn_image_v_html_content_manager {
 
     }
 
-    public function return_creative($creative_element_key, $image_output_mode = CRNRSTN_UI_IMG_BASE64, $creative_mode=NULL){
+    public function return_creative($creative_element_key, $image_output_mode = NULL, $creative_mode=NULL){
 
-        self::$image_output_mode = $image_output_mode;
+        if(!isset($image_output_mode)){
 
+            self::$image_output_mode = $this->sys_asset_mode;
+
+        }else{
+
+            if($image_output_mode == CRNRSTN_UI_IMG_BASE64 && $this->sys_asset_mode == CRNRSTN_UI_IMG_URI_HTML_WRAPPED){
+
+                self::$image_output_mode = CRNRSTN_UI_IMG_BASE64;
+
+            }else{
+
+                if($image_output_mode == CRNRSTN_UI_IMG_URI && $this->sys_asset_mode == CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED){
+
+                    self::$image_output_mode = CRNRSTN_UI_IMG_URI;
+
+                }else{
+
+                    self::$image_output_mode = $image_output_mode;
+
+                }
+
+            }
+
+        }
+
+        //
+        // USE THIS TO SUPPORT WHITE LABELING
         if(isset($creative_mode)){
 
             $tmp_sys_notices_creative_mode = $creative_mode;
@@ -85,7 +137,11 @@ class crnrstn_image_v_html_content_manager {
         }else{
 
             $tmp_sys_notices_creative_mode = self::$oCRNRSTN_n->sys_notices_creative_mode;
+
         }
+
+        //error_log(__LINE__.' img $tmp_sys_notices_creative_mode=['.$tmp_sys_notices_creative_mode.'] self::$image_output_mode=['.self::$image_output_mode.']');
+
 
         //
         // ALL_IMAGE, ALL_HTML, ALL_IMAGE_LOGO_OFF, ALL_HTML_LOGO_OFF
@@ -892,6 +948,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/success_chk.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -925,6 +986,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/err_x.png';
 
             break;
             default:
@@ -962,6 +1028,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png';
+
+            break;
             default:
 
                 // CRNRSTN_UI_IMG_URI_HTML_WRAPPED
@@ -995,6 +1066,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_logo_md.png';
 
             break;
             default:
@@ -1032,6 +1108,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_R_md.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1065,6 +1146,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_R_md_plus_wall.png';
 
             break;
             default:
@@ -1142,6 +1228,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/php_logo.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1175,6 +1266,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_php.png';
 
             break;
             default:
@@ -1212,6 +1308,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_logo.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1245,6 +1346,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework.png';
 
             break;
             default:
@@ -1282,13 +1388,18 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework_3.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework_3" width="224" height="35" alt="ZEND FRAMEWORK 3" title="CRNRSTN :: ZEND FRAMEWORK 3" style="border: 0;" border="0" /></a>';
+                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework_3.png" width="224" height="35" alt="ZEND FRAMEWORK 3" title="CRNRSTN :: ZEND FRAMEWORK 3" style="border: 0;" border="0" /></a>';
 
             break;
 
@@ -1315,6 +1426,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/linux_penguin_sm.png';
 
             break;
             default:
@@ -1353,13 +1469,18 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mysql_logo.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.mysql.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mysql_logo.png" width="212" height="35" alt="ZEND FRAMEWORK" title="CRNRSTN :: ZEND FRAMEWORK" width="66" height="35" alt="MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" title="CRNRSTN :: MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.mysql.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mysql_logo.png" width="66" height="35" alt="MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" title="CRNRSTN :: MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" style="border: 0;" border="0"></a>';
 
             break;
 
@@ -1386,6 +1507,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_redhat.png';
 
             break;
             default:
@@ -1423,6 +1549,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/redhat_bar.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1456,6 +1587,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/redhat_circle.png';
 
             break;
             default:
@@ -1528,6 +1664,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2_4.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1561,6 +1702,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2_2.png';
 
             break;
             default:
@@ -1598,6 +1744,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1633,6 +1784,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_1_3.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1666,6 +1822,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache.png';
 
             break;
             default:
@@ -1783,6 +1944,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_grn.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1816,6 +1982,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_red.png';
 
             break;
             default:
@@ -1853,6 +2024,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_grey.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1886,6 +2062,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/triangle_alert.png';
 
             break;
             default:
@@ -1923,6 +2104,11 @@ class crnrstn_image_v_html_content_manager {
                 return $tmp_str;
 
             break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mag_glass_search.png';
+
+            break;
             default:
 
                 // HTML_DOM_WRAPPED_URI
@@ -1938,7 +2124,9 @@ class crnrstn_image_v_html_content_manager {
     }
 
     private function ICON_EMAIL_INBOX_REFLECT(){
-        
+
+        //error_log(__LINE__.' img ICON_EMAIL_INBOX_REFLECT='.self::$image_output_mode);
+
         switch(self::$image_output_mode){
             case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
 
@@ -1956,6 +2144,11 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // BASE64
                 return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/email_inbox_icon.png';
 
             break;
             default:
