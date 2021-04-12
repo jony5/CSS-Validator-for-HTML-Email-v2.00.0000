@@ -9377,7 +9377,7 @@ Formally, the display property sets an element\'s inner and outer display types.
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
         
         '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
-            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
               
     </head>
     <body>
@@ -9508,6 +9508,15 @@ Formally, the display property sets an element\'s inner and outer display types.
    
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(\'js\', new Date());
+    
+      gtag(\'config\', \'G-G28EC03WLZ\');
+    </script>
     </body>
     </html>';
 
@@ -9521,7 +9530,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         //error_log(__LINE__.' (int) '.CRNRSTN_UI_JS_JQUERY.' css return_css_validator_content_HTML len='.strlen($html_content_injection));
         //die();
-        //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
+         //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
 
         //error_log(__LINE__.' css CRNRSTN_UI_CSS_MAIN len = '.strlen($tmp).' | return_css_validator_content_HTML len='.strlen($html_content_injection));
         //die();
@@ -9553,7 +9562,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
         '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
-            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
         
     </head>
     <body>
@@ -9682,7 +9691,17 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
     
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
-
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(\'js\', new Date());
+    
+      gtag(\'config\', \'G-G28EC03WLZ\');
+      
+    </script>
     </body>
     </html>';
 
@@ -9883,7 +9902,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                     case 'HTML':
 
                         $tmp_str = '<div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; line-height:25px; font-weight: bold; text-align: left; border-top: 20px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'><a href="'.$tmp_css_uri.'" target="_blank" style=\'font-family:"Courier New", Courier, monospace; font-size: 17px;text-decoration:none; color: #6885C3; text-decoration: underline; \'>'.htmlentities($css_str_pattern_TITLE).'</a></div>  
-<div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 0px solid #FFF;  border-right: 10px solid #FFF; border-bottom: 20px solid #FFF; color: #6885C3; line-height:16px; text-align:left;\'>'.htmlentities($tmp_css_description).' '.$tmp_deprecated_indicator.'</div>';
+<div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 0px solid #FFF;  border-right: 10px solid #FFF; border-bottom: 20px solid #FFF; color: #6885C3; line-height:16px; text-align:left;\'>'.$tmp_css_description.' '.$tmp_deprecated_indicator.'</div>';
 
                         break;
                     default:
