@@ -533,13 +533,13 @@ class crnrstn_environment {
                     case CRNRSTN_UI_JS_JQUERY:
 
                         $tmp_str = $tmp_str .'
-<!-- jquery 3.6.0 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0"></script>';
+<!-- jquery 3.6.0 --><script src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0"></script>';
 
                     break;
                     case CRNRSTN_UI_JS_JQUERY_UI:
 
                         $tmp_str = $tmp_str .'
-<!-- jquery 3.6.0 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0"></script>';
+<!-- jquery 3.6.0 --><script src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0"></script>';
 
                         $tmp_str = $tmp_str .'
 <!-- jquery ui 1.12.1 --><style type="text/css" rel="stylesheet" href="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css?v=420.00.' . filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css') .'.0" ></style>';
@@ -555,9 +555,9 @@ class crnrstn_environment {
                         $tmp_str = $tmp_str .'
 <!-- jquery.mobile 1.4.5 --><style type="text/css" rel="stylesheet" href="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css?v=420.00.' . filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css') .'.0" ></style>
 
-<!-- jquery 3.6.0 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0" ></script>
-<!-- jquery mobile helpmate --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') .'.0" ></script>
-<!-- jquery.mobile 1.4.5 --><script type="application/javascript" src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') .'.0" ></script>
+<!-- jquery 3.6.0 --><script src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') .'.0" ></script>
+<!-- jquery mobile helpmate --><script src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') .'.0" ></script>
+<!-- jquery.mobile 1.4.5 --><script src="'.$this->oCRNRSTN_USR->sys_notice_creative_http_path.'js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js?v=420.00.'. filesize(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') . '.' . filemtime(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') .'.0" ></script>
 ';
 
                         break;
@@ -588,7 +588,7 @@ class crnrstn_environment {
                     case CRNRSTN_UI_JS_JQUERY:
 
                         $tmp_str = $tmp_str .'
-<!-- jquery 3.6.0 --><script type="application/javascript">
+<!-- jquery 3.6.0 --><script>
 '.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
 </script>';
 
@@ -596,18 +596,18 @@ class crnrstn_environment {
                     case CRNRSTN_UI_JS_JQUERY_UI:
 
                         $tmp_str = $tmp_str .'
-<!-- jquery 3.6.0 --><script type="application/javascript">
+<!-- jquery 3.6.0 --><script>
 '.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
 </script>';
                         $tmp_str = $tmp_str .'
-<!-- jquery ui 1.12.1 --><style type="application/javascript">
+<!-- jquery ui 1.12.1 --><style>
 '.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_ui/1.12.1/jquery-ui-1.12.1/jquery-ui.min.css') . '
 </style>';
 
                     break;
                     case CRNRSTN_UI_JS_JQUERY & CRNRSTN_UI_JS_JQUERY_UI:
                         $tmp_str = $tmp_str .'
-<script type="application/javascript">
+<script>
 '.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
 </script>';
                     break;
@@ -618,7 +618,7 @@ class crnrstn_environment {
 </style>
 
 
-<!-- jquery 3.6.0 - jquery helpmate - jquery.mobile 1.4.5 --><script type="application/javascript">
+<!-- jquery 3.6.0 - jquery helpmate - jquery.mobile 1.4.5 --><script>
 '.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js') . '
 
 '.file_get_contents(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery_mobi/1.4.5/jquery.mobile-1.4.5/index.js') . '
