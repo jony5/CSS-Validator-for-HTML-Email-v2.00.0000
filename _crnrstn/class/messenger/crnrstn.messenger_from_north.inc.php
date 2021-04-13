@@ -4114,7 +4114,7 @@ class crnrstn_communications_css_standard{
     protected $results_count_aggregation_ARRAY = array();
     protected $results_summary_aggregate_ARRAY = array();
 
-    protected $grading_curve = 55.00000;
+    protected $grading_curve = 51.00000;
 
     public function __construct($oCRNRSTN_USR, $raw_html_data = NULL, $output_mode = 'HTML_PAGE'){
 
@@ -5055,7 +5055,7 @@ class crnrstn_communications_css_standard{
                         break;
                     case 'CRNRSTN_OUTLOOK_FOR_MAC':
 
-                        $tmp_regulated_string_patterns_ARRAY = array('<link> in <body>', 'max-device-pixel-ratio', 'max-resolution', 'min-device-pixel-ratio', 'min-resolution', 'EOT', 'font-stretch', 'font-style', 'hyphens', 'text-fill-color', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'backface-visibility', 'transform');
+                        $tmp_regulated_string_patterns_ARRAY = array('<link> in <body>','<link> in <head>', 'max-device-pixel-ratio', 'max-resolution', 'min-device-pixel-ratio', 'min-resolution', 'EOT', 'font-stretch', 'font-style', 'hyphens', 'text-fill-color', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'backface-visibility', 'transform');
 
                         $tmp_css_pattern = 'backdrop-filter';
                         $tmp_note = 'Supported with <code>-webkit</code> prefix.';
@@ -5820,7 +5820,7 @@ class crnrstn_communications_css_standard{
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_ALERT_BANG);
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         $tmp_css_pattern = 'font-size';
@@ -5854,7 +5854,7 @@ class crnrstn_communications_css_standard{
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_ALERT_BANG);
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         break;
@@ -5871,7 +5871,7 @@ class crnrstn_communications_css_standard{
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_ALERT_BANG);
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         break;
@@ -5884,20 +5884,20 @@ class crnrstn_communications_css_standard{
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_ALERT_BANG);
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         break;
                     case 'CRNRSTN_GOOGLE_INBOX_IOS_APP':
 
-                        $tmp_regulated_string_patterns_ARRAY = array('<style> in <body>', '<link> in <body>','<link> in <head>', 'and', 'not', 'any-hover', 'any-pointer', 'hover', 'max-aspect-ratio', 'max-device-aspect-ratio', 'max-device-height', 'max-device-pixel-ratio', 'MEDIA_QUERIES_max-height', 'max-resolution', 'min-aspect-ratio', 'min-device-aspect-ratio', 'min-device-height', 'min-device-pixel-ratio', 'MEDIA_QUERIES_min-height', 'min-resolution', 'pointer', '@font-face', 'EOT', 'SVG', 'TTF', 'WOFF', 'WOFF2', 'WOFF base64 encoded', 'WOFF2 base64 encoded', 'font-feature-settings', 'font-size-adjust', 'font-stretch', 'font-synthesis', 'hyphens', 'overflow-wrap', 'text-fill-color', 'text-overflow', 'text-shadow', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'word-wrap', 'background-attachment', 'border-image', 'box-shadow', 'bottom', 'cursor', 'left', 'position', 'resize', 'right', 'top', 'visibility', 'z-index', 'list-style-image', 'animation', 'animation-delay', 'animation-direction', 'animation-duration', 'animation-fill-mode', 'animation-iteration-count', 'animation-name', 'animation-play-state', 'animation-timing-function', 'backface-visibility', 'perspective', 'perspective-origin', 'transform', 'transform-origin', 'transform-style', 'transition', 'transition-delay', 'transition-duration', 'transition-property', 'transition-timing-function', 'backdrop-filter', 'filter', 'break-after', 'break-before', 'break-inside', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'GRID_align-content', 'GRID_align-items', 'GRID_align-self', 'FLEXBOX_align-content', 'flex', 'flex-basis', 'flex-direction', 'flex-flow', 'flex-grow', 'flex-shrink', 'flex-wrap', 'GRID_justify-content', 'order', 'FLEXBOX_align-items', 'FLEXBOX_align-self', 'grid', 'grid-area', 'grid-auto-columns', 'grid-auto-flow', 'grid-auto-rows', 'grid-column-end', 'grid-column-gap', 'grid-column-start', 'grid-gap', 'grid-row', 'grid-row-end', 'grid-row-gap', 'grid-row-start', 'grid-template-areas', 'grid-template-columns', 'grid-template-rows', 'FLEXBOX_justify-content', 'justify-items', 'justify-self');
+                        $tmp_regulated_string_patterns_ARRAY = array('Data URI background image', '<style> in <body>', '<link> in <body>','<link> in <head>', 'and', 'not', 'any-hover', 'any-pointer', 'hover', 'max-aspect-ratio', 'max-device-aspect-ratio', 'max-device-height', 'max-device-pixel-ratio', 'MEDIA_QUERIES_max-height', 'max-resolution', 'min-aspect-ratio', 'min-device-aspect-ratio', 'min-device-height', 'min-device-pixel-ratio', 'MEDIA_QUERIES_min-height', 'min-resolution', 'pointer', '@font-face', 'EOT', 'SVG', 'TTF', 'WOFF', 'WOFF2', 'WOFF base64 encoded', 'WOFF2 base64 encoded', 'font-feature-settings', 'font-size-adjust', 'font-stretch', 'font-synthesis', 'hyphens', 'overflow-wrap', 'text-fill-color', 'text-overflow', 'text-shadow', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'word-wrap', 'background-attachment', 'border-image', 'box-shadow', 'bottom', 'cursor', 'left', 'position', 'resize', 'right', 'top', 'visibility', 'z-index', 'list-style-image', 'animation', 'animation-delay', 'animation-direction', 'animation-duration', 'animation-fill-mode', 'animation-iteration-count', 'animation-name', 'animation-play-state', 'animation-timing-function', 'backface-visibility', 'perspective', 'perspective-origin', 'transform', 'transform-origin', 'transform-style', 'transition', 'transition-delay', 'transition-duration', 'transition-property', 'transition-timing-function', 'backdrop-filter', 'filter', 'break-after', 'break-before', 'break-inside', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'GRID_align-content', 'GRID_align-items', 'GRID_align-self', 'FLEXBOX_align-content', 'flex', 'flex-basis', 'flex-direction', 'flex-flow', 'flex-grow', 'flex-shrink', 'flex-wrap', 'GRID_justify-content', 'order', 'FLEXBOX_align-items', 'FLEXBOX_align-self', 'grid', 'grid-area', 'grid-auto-columns', 'grid-auto-flow', 'grid-auto-rows', 'grid-column-end', 'grid-column-gap', 'grid-column-start', 'grid-gap', 'grid-row', 'grid-row-end', 'grid-row-gap', 'grid-row-start', 'grid-template-areas', 'grid-template-columns', 'grid-template-rows', 'FLEXBOX_justify-content', 'justify-items', 'justify-self');
 
                         $tmp_css_pattern = 'word-wrap';
                         $tmp_note = 'Buggy.  Only supports <code>break-word</code> on the first line of text.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_ALERT_BANG);
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         break;
@@ -6166,7 +6166,7 @@ class crnrstn_communications_css_standard{
                         $tmp_regulated_string_patterns_ARRAY = array('<style> in <body>', '<link> in <head>', '<link> in <body>', 'not', 'any-hover', 'any-pointer', 'hover', 'max-aspect-ratio', 'max-device-aspect-ratio', 'max-device-height', 'max-device-pixel-ratio', 'MEDIA_QUERIES_max-height', 'min-aspect-ratio', 'min-device-aspect-ratio', 'min-device-height', 'min-device-pixel-ratio', 'MEDIA_QUERIES_min-height', 'pointer', '@font-face', 'EOT', 'SVG', 'TTF', 'WOFF', 'WOFF2', 'WOFF base64 encoded', 'WOFF2 base64 encoded', 'font-stretch', 'hyphens', 'overflow-wrap', 'text-fill-color', 'text-overflow', 'text-shadow', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'background-attachment', 'Data URI background image', 'border-image', 'box-shadow', 'bottom', 'cursor', 'left', 'position', 'resize', 'right', 'top', 'visibility', 'z-index', 'list-style-image', 'animation', 'animation-delay', 'animation-direction', 'animation-duration', 'animation-fill-mode', 'animation-iteration-count', 'animation-name', 'animation-play-state', 'animation-timing-function', 'backface-visibility', 'perspective', 'perspective-origin', 'transform', 'transform-origin', 'transform-style', 'transition', 'transition-delay', 'transition-duration', 'transition-property', 'transition-timing-function', 'backdrop-filter', 'filter', 'break-after', 'break-before', 'break-inside', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'GRID_align-content', 'GRID_align-items', 'GRID_align-self', 'FLEXBOX_align-content', 'flex', 'flex-basis', 'flex-direction', 'flex-flow', 'flex-grow', 'flex-shrink', 'flex-wrap', 'GRID_justify-content', 'order', 'FLEXBOX_align-items', 'FLEXBOX_align-self', 'grid', 'grid-area', 'grid-auto-columns', 'grid-auto-flow', 'grid-auto-rows', 'grid-column', 'grid-column-end', 'grid-column-gap', 'grid-column-start', 'grid-gap', 'grid-gap', 'grid-row', 'grid-row-end', 'grid-row-gap', 'grid-row-start', 'grid-template-areas', 'grid-template-columns', 'grid-template-rows', 'FLEXBOX_justify-content', 'justify-items', 'justify-self');
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         $tmp_css_pattern = 'font-stretch';
@@ -6179,7 +6179,7 @@ class crnrstn_communications_css_standard{
                         $tmp_regulated_string_patterns_ARRAY = array('<style> in <body>', '<link> in <head>', '<link> in <body>', 'not', 'any-hover', 'any-pointer', 'hover', 'max-aspect-ratio', 'max-device-aspect-ratio', 'max-device-height', 'max-device-pixel-ratio', 'MEDIA_QUERIES_max-height', 'min-aspect-ratio', 'min-device-aspect-ratio', 'min-device-height', 'min-device-pixel-ratio', 'MEDIA_QUERIES_min-height', 'pointer', '@font-face', 'EOT', 'SVG', 'TTF', 'WOFF', 'WOFF2', 'WOFF base64 encoded', 'WOFF2 base64 encoded', 'font-stretch', 'hyphens', 'overflow-wrap', 'text-fill-color', 'text-overflow', 'text-shadow', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'background-attachment', 'Data URI background image', 'border-image', 'box-shadow', 'bottom', 'cursor', 'left', 'position', 'resize', 'right', 'top', 'visibility', 'z-index', 'list-style-image', 'animation', 'animation-delay', 'animation-direction', 'animation-duration', 'animation-fill-mode', 'animation-iteration-count', 'animation-name', 'animation-play-state', 'animation-timing-function', 'backface-visibility', 'perspective', 'perspective-origin', 'transform', 'transform-origin', 'transform-style', 'transition', 'transition-delay', 'transition-duration', 'transition-property', 'transition-timing-function', 'backdrop-filter', 'filter', 'break-after', 'break-before', 'break-inside', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'GRID_align-content', 'GRID_align-items', 'GRID_align-self', 'FLEXBOX_align-content', 'flex', 'flex-basis', 'flex-direction', 'flex-flow', 'flex-grow', 'flex-shrink', 'flex-wrap', 'GRID_justify-content', 'order', 'FLEXBOX_align-items', 'FLEXBOX_align-self', 'grid', 'grid-area', 'grid-auto-columns', 'grid-auto-flow', 'grid-auto-rows', 'grid-column', 'grid-column-end', 'grid-column-gap', 'grid-column-start', 'grid-gap', 'grid-row', 'grid-row-end', 'grid-row-gap', 'grid-row-start', 'grid-template-areas', 'grid-template-columns', 'grid-template-rows', 'FLEXBOX_justify-content', 'justify-items', 'justify-self');
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         $tmp_css_pattern = 'font-stretch';
@@ -6192,7 +6192,7 @@ class crnrstn_communications_css_standard{
                         $tmp_regulated_string_patterns_ARRAY = array('<style> in <body>', '<link> in <head>', '<link> in <body>', 'not', 'any-hover', 'any-pointer', 'hover', 'max-aspect-ratio', 'max-device-aspect-ratio', 'max-device-height', 'max-device-pixel-ratio', 'MEDIA_QUERIES_max-height', 'min-aspect-ratio', 'min-device-aspect-ratio', 'min-device-height', 'min-device-pixel-ratio', 'MEDIA_QUERIES_min-height', 'pointer', '@font-face', 'EOT', 'SVG', 'TTF', 'WOFF', 'WOFF2', 'WOFF base64 encoded', 'WOFF2 base64 encoded', 'font-stretch', 'hyphens', 'overflow-wrap', 'text-fill-color', 'text-overflow', 'text-shadow', 'text-size-adjust', 'text-stroke', 'text-stroke-color', 'text-stroke-width', 'background-attachment', 'Data URI background image', 'border-image', 'box-shadow', 'bottom', 'cursor', 'left', 'position', 'resize', 'right', 'top', 'visibility', 'z-index', 'list-style-image', 'animation', 'animation-delay', 'animation-direction', 'animation-duration', 'animation-fill-mode', 'animation-iteration-count', 'animation-name', 'animation-play-state', 'animation-timing-function', 'backface-visibility', 'perspective', 'perspective-origin', 'transform', 'transform-origin', 'transform-style', 'transition', 'transition-delay', 'transition-duration', 'transition-property', 'transition-timing-function', 'backdrop-filter', 'filter', 'break-after', 'break-before', 'break-inside', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'GRID_align-content', 'GRID_align-items', 'GRID_align-self', 'FLEXBOX_align-content', 'flex', 'flex-basis', 'flex-direction', 'flex-flow', 'flex-grow', 'flex-shrink', 'flex-wrap', 'GRID_justify-content', 'order', 'FLEXBOX_align-items', 'FLEXBOX_align-self', 'grid', 'grid-area', 'grid-auto-columns', 'grid-auto-flow', 'grid-auto-rows', 'grid-column', 'grid-column-end', 'grid-column-gap', 'grid-column-start', 'grid-gap', 'grid-row', 'grid-row-end', 'grid-row-gap', 'grid-row-start', 'grid-template-areas', 'grid-template-columns', 'grid-template-rows', 'FLEXBOX_justify-content', 'justify-items', 'justify-self');
 
                         $tmp_css_pattern = 'text-overflow';
-                        $tmp_note = 'Property is supported, but the client breaks long words with <code><wbr></code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
+                        $tmp_note = 'Property is supported, but the client breaks long words with <code>&lt;wbr&gt;</code> elements. And the <code>word-wrap</code> property defaults to <code>break-word</code>.';
                         $this->css_meta_load($mail_const_int, $tmp_css_pattern, $tmp_note, CRNRSTN_CSS_ICON_SUCCESS_CHECK);
 
                         $tmp_css_pattern = 'font-stretch';
@@ -9609,7 +9609,7 @@ Formally, the display property sets an element\'s inner and outer display types.
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
         
         '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
-        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
               
     </head>
     <body>
@@ -9696,10 +9696,10 @@ Formally, the display property sets an element\'s inner and outer display types.
                                     <table cellspacing="0" cellpadding="0" border="0" style="width:300px;">
                                     <tr>
                                         <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
-                                            <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/', 'web_standards_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/', 'campaign_monitor_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
-                                            for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/', 'ultimate_guide_to_css').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
+                                            <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/', 'web_standards_thanks_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/', 'campaign_monitor_thanks_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
+                                            for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/', 'ultimate_guide_to_css_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
                                              respect to CSS support for many popular mobile, web, and desktop email  
-                                            clients and for their creation of  the <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.email-standards.org/', 'email_standards_project').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
+                                            clients and for their creation of  the <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.email-standards.org/', 'email_standards_project_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
         
                                             <br><br>  The strength, accuracy, and thorough  consideration baked into the
                                             algorithm  behind this validator are each and  equally directly proportional
@@ -9752,7 +9752,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         //error_log(__LINE__.' (int) '.CRNRSTN_UI_JS_JQUERY.' css return_css_validator_content_HTML len='.strlen($html_content_injection));
         //die();
-         //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
+        //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
 
         //error_log(__LINE__.' css CRNRSTN_UI_CSS_MAIN len = '.strlen($tmp).' | return_css_validator_content_HTML len='.strlen($html_content_injection));
         //die();
@@ -9783,7 +9783,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <title>CRNRSTN :: CSS Validator for HTML Email v2.00.0000</title>
         '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN).
-        $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
+            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY).'
         
     </head>
     <body>
@@ -9924,13 +9924,37 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         $tmp_array = explode('_',$str);
 
-        if(isset($tmp_array[1])){
+        if(sizeof($tmp_array) > 4) {
 
-            $str = $tmp_array[1];
+            error_log(__LINE__.' css need to check for '.sizeof($tmp_array).' underscores for ['.$str.']');
+            die();
+
+        }
+
+        if(sizeof($tmp_array) > 3) {
+
+            $str = $tmp_array[3];
+
+        }else{
+
+            if(sizeof($tmp_array)>2){
+
+                $str = $tmp_array[2];
+
+            }else{
+
+                if(isset($tmp_array[1])){
+
+                    $str = $tmp_array[1];
+
+                }
+
+            }
 
         }
 
         return $str;
+
     }
 
     private function dynamic_content_return($css_str_pattern, $content_type_key, $output_format='TEXT', $mail_client_constant = null){
@@ -10219,9 +10243,32 @@ Formally, the display property sets an element\'s inner and outer display types.
 
                         if($this->oCRNRSTN_USR->serialized_isBitSet($tmp_serialized_bit_nom, CRNRSTN_CSS_CLIENT_ASSOC_HAS_META)) {
 
-                            //
-                            // INFORMATION BANG ICONOGRAPHY
-                            $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('NOTICE_TRI_ALERT', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                            if($this->oCRNRSTN_USR->serialized_isBitSet($tmp_serialized_bit_nom, CRNRSTN_CSS_ICON_SUCCESS_CHECK)){  // HAS SUCCESS
+
+                                //
+                                // SUCCESS CHECK ICONOGRAPHY
+                                $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                            }else{
+
+                                //
+                                // HAS ERR X
+                                if($this->oCRNRSTN_USR->serialized_isBitSet($tmp_serialized_bit_nom, CRNRSTN_CSS_ICON_ERR_X)){
+
+                                    //
+                                    // ERROR X ICONOGRAPHY
+                                    $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('ERR_X', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                                }else{
+
+                                    //
+                                    // INFORMATION BANG ICONOGRAPHY
+                                    $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('NOTICE_TRI_ALERT', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                                }
+
+                            }
 
                         }else{
 
@@ -10261,9 +10308,29 @@ Formally, the display property sets an element\'s inner and outer display types.
 
                         if($this->oCRNRSTN_USR->serialized_isBitSet($tmp_serialized_bit_nom, CRNRSTN_CSS_CLIENT_ASSOC_HAS_META)) {
 
-                            //
-                            // INFORMATION BANG ICONOGRAPHY
-                            $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('NOTICE_TRI_ALERT', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+                            if($this->oCRNRSTN_USR->serialized_isBitSet($tmp_serialized_bit_nom, CRNRSTN_CSS_ICON_SUCCESS_CHECK)){
+
+                                //
+                                // SUCCESS CHECK ICONOGRAPHY
+                                $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                            }else{
+
+                                if($this->oCRNRSTN_USR->serialized_isBitSet($tmp_serialized_bit_nom, CRNRSTN_CSS_ICON_ERR_X)){
+
+                                    //
+                                    // ERROR X ICONOGRAPHY
+                                    $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('ERR_X', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                                }else{
+
+                                    //
+                                    // INFORMATION BANG ICONOGRAPHY
+                                    $tmp_icon_img = $this->oCRNRSTN_USR->return_email_creative('NOTICE_TRI_ALERT', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED);
+
+                                }
+
+                            }
 
                         }else{
 
@@ -10561,9 +10628,9 @@ Formally, the display property sets an element\'s inner and outer display types.
                                                         <tr>
                                                             <td colspan="2">
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; font-weight: bold; border-left: 10px solid #FFF;  border-top: 10px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'>Validator Status ::</div>
-                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 10px solid #FFF; border-right: 10px solid #FFF; border-right: 10px solid #FFF; border-bottom: 10px solid #FFF; color: #6885C3; \'><span style=\'font-family:"Courier New", Courier, monospace; font-size: 14px; font-weight: bold;\'>April 10, 2021 0232hrs.</span> Please scroll down for the CSS validation report. This tool is currently under active development</strong>. Close enough to 
-                                                                a working prototype,...here we are in production. There are some bugs here and there, but
-                                                                once testing is complete, this brief status report will be updated to an 
+                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 10px solid #FFF; border-right: 10px solid #FFF; border-right: 10px solid #FFF; border-bottom: 10px solid #FFF; color: #6885C3; line-height:17px; \'><span style=\'font-family:"Courier New", Courier, monospace; font-size: 14px; font-weight: bold;\'>April 13, 2021 1726hrs.</span> Please scroll down for the CSS validation report details. This tool is currently under active development. 
+                                                                We just finished clearing most (or all) bugs in the <a href="./?css_valptrn='.$this->oCRNRSTN_USR->generateNewKey(8, '01').'" style="color:#0066CC;">underlying rules</a> supporting the validation algorithm. For now, there are still other 
+                                                                bugs, so this tool remains in PRE-ALPHA. Once testing is complete, this brief status report will be updated to an 
                                                                 overview of the tool. <br><br>At some point, I would also like to implement share via 
                                                                 email/FTAF for this report. This project is <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://crnrstn.evifweb.com/licensing/').'" target="_blank">MIT Licensed</a>, and it has been pushed to <a href="'.$this->oCRNRSTN_USR->return_sticky_link('https://github.com/jony5/CSS-Validator-for-HTML-Email-v2.00.0000').'" target="_blank">GitHub</a>.</div>
                                                                 
