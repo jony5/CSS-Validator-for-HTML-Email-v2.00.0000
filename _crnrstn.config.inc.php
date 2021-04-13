@@ -1065,6 +1065,15 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
 // INSTANTIATE CRNRSTN :: USER CLASS OBJECT
 $oCRNRSTN_USR = $oCRNRSTN_ENV->return_oCRNRSTN_USR();
 
+$CRNRSTN_LISTENER_RESPONSE = $oCRNRSTN_USR->client_request_listen();
+
+if(strlen($CRNRSTN_LISTENER_RESPONSE) > 0){
+
+    echo $CRNRSTN_LISTENER_RESPONSE;
+    exit();
+
+}
+
 //$oCRNRSTN_USR->hello_world();
 
 //
@@ -1082,6 +1091,7 @@ $oCRNRSTN_USR = $oCRNRSTN_ENV->return_oCRNRSTN_USR();
 
 //
 // THIS MAKES MY LIFE EASY...SO I SIMPLY LEAVE HERE 4U, COOL?
+// CHANGE LINE 1037 TO true IF YOU HAVE SSL CERT ON BOX
 if($oCRNRSTN_USR->get_resource('SSL_ENABLED')){
 
     if(!$oCRNRSTN_USR->isSSL()){
