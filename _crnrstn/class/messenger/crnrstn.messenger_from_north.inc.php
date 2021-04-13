@@ -10113,7 +10113,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                     case 'HTML':
 
                         $tmp_str = '<div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; line-height:25px; font-weight: bold; text-align: left; border-top: 20px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'><a href="'.$tmp_css_uri.'" target="_blank" style=\'font-family:"Courier New", Courier, monospace; font-size: 17px;text-decoration:none; color: #6885C3; text-decoration: underline; \'>'.htmlentities($css_str_pattern_TITLE).'</a></div>  
-<div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 0px solid #FFF;  border-right: 10px solid #FFF; border-bottom: 20px solid #FFF; color: #6885C3; line-height:16px; text-align:left;\'>'.$tmp_css_description.' '.$tmp_deprecated_indicator.'</div>';
+<div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 0px solid #FFF;  border-right: 10px solid #FFF; border-bottom: 20px solid #FFF; color: #6885C3; line-height:16px; text-align:left;\'>'.htmlentities($tmp_css_description).' '.$tmp_deprecated_indicator.'</div>';
 
                         break;
                     default:
