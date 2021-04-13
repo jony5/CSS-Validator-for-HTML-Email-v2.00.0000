@@ -326,9 +326,19 @@ class crnrstn_user{
 
     }
 
-    public function return_sticky_link($uri){
+    public function return_sticky_link($uri, $meta_params =  NULL){
 
         $tmp_uri = $this->paramTunnelEncrypt($uri);
+
+        if(isset($meta_params)){
+
+            $tmp_meta = 'crnrstn_m='.urlencode($meta_params);
+
+        }else{
+
+            $tmp_meta = '';
+
+        }
 
         if($this->isSSL()){
 
@@ -343,11 +353,27 @@ class crnrstn_user{
         $tmp_pos_quest = strpos($tmp_loc,'?');
         if($tmp_pos_quest === false){
 
-            $tmp_proxy_uri = $tmp_loc.'?crnrstn_r=' . urlencode($tmp_uri);
+            if(strlen($tmp_meta)<1){
+
+                $tmp_proxy_uri = $tmp_loc.'?crnrstn_r=' . urlencode($tmp_uri);
+
+            }else{
+
+                $tmp_proxy_uri = $tmp_loc.'?'.$tmp_meta.'&crnrstn_r=' . urlencode($tmp_uri);
+
+            }
 
         }else{
 
-            $tmp_proxy_uri = $tmp_loc.'&crnrstn_r=' . urlencode($tmp_uri);
+            if(strlen($tmp_meta)<1){
+
+                $tmp_proxy_uri = $tmp_loc.'&crnrstn_r=' . urlencode($tmp_uri);
+
+            }else{
+
+                $tmp_proxy_uri = $tmp_loc.'&'.$tmp_meta.'&crnrstn_r=' . urlencode($tmp_uri);
+
+            }
 
         }
 
