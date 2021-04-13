@@ -4355,8 +4355,8 @@ class crnrstn_communications_css_standard{
 
                                     <div style="text-align: center; margin:0 auto;">
 
-                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:35px; height:19px;">&nbsp;<a href="http://validator.w3.org/check?uri=referer" target="_blank">XHTML</a></div>
-                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:25px; height:19px;">&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS</a></div>
+                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:35px; height:19px;">&nbsp;<a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://validator.w3.org/check?uri=referer', 'validator_w3_org').'" target="_blank">XHTML</a></div>
+                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:25px; height:19px;">&nbsp;<a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://jigsaw.w3.org/css-validator/check/referer', 'jigsaw_w3_org').'" target="_blank">CSS</a></div>
 
                                         <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
@@ -9589,7 +9589,6 @@ Formally, the display property sets an element\'s inner and outer display types.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'
-        <meta http-equiv="Content-Language" content="en-us" />
         <meta name="distribution" content="Global" />
         <meta name="ROBOTS" content="index" />
         <meta name="ROBOTS" content="follow" />
@@ -9765,7 +9764,6 @@ Formally, the display property sets an element\'s inner and outer display types.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON').'
-        <meta http-equiv="Content-Language" content="en-us" />
         <meta name="distribution" content="Global" />
         <meta name="ROBOTS" content="index" />
         <meta name="ROBOTS" content="follow" />

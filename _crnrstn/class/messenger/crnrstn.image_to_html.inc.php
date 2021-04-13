@@ -903,7 +903,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/5.php');
 
-                return '<div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><a href="http://jony5.com/projects/crnrstn/philosophy/" target="_blank"><img src="'.$tmp_str.'" width="18" height="17" alt="5" title="5" border="0"></a></div>';
+                return '<div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><a href="http://jony5.com/projects/crnrstn/philosophy/" target="_blank"><img src="'.$tmp_str.'" width="18" height="17" alt="5" title="5" style="border: 0;"></a></div>';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -919,7 +919,7 @@ class crnrstn_image_v_html_content_manager {
             default:
                 //case CRNRSTN_UI_IMG_URI_HTML_WRAPPED:
 
-                return '<div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><a href="http://jony5.com/projects/crnrstn/philosophy/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/5.png" width="18" height="17" alt="5" title="5" style="border: 0;" border="0"></a></div>';
+                return '<div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><a href="http://jony5.com/projects/crnrstn/philosophy/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/5.png" width="18" height="17" alt="5" title="5" style="border: 0;"></a></div>';
 
             break;
 
@@ -959,7 +959,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/success_chk.png" width="19" height="19" alt="success" title="success" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/success_chk.png" width="19" height="19" alt="success" title="success" style="border: 0;" >';
 
             break;
 
@@ -999,7 +999,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/err_x.png" width="19" height="19" alt="X" title="error" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/err_x.png" width="19" height="19" alt="X" title="error" style="border: 0;" >';
 
             break;
 
@@ -1039,7 +1039,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png" width="293" height="300" alt="J5 wolf pup" title="J5 wolf pup" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png" width="293" height="300" alt="J5 wolf pup" title="J5 wolf pup" style="border: 0;" >';
 
             break;
 
@@ -1079,7 +1079,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_logo_md.png" width="165" height="100" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_logo_md.png" width="165" height="100" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" >';
 
             break;
 
@@ -1119,7 +1119,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_R_md.png" width="26" height="35" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_R_md.png" width="26" height="35" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" >';
 
             break;
 
@@ -1159,7 +1159,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_R_md_plus_wall.png" width="66" height="35" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_R_md_plus_wall.png" width="66" height="35" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" >';
 
             break;
 
@@ -1199,7 +1199,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/elem_shadow_btm.png" width="1" height="5" alt="" title="" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/elem_shadow_btm.png" width="1" height="5" alt="" title="" style="border: 0;" >';
 
             break;
 
@@ -1239,7 +1239,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.php.net/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/php_logo.png" width="65" height="35" alt="php v'.self::$oCRNRSTN_n->version_php.'" title="CRNRSTN :: php v'.self::$oCRNRSTN_n->version_php.'" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.php.net/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/php_logo.png" width="65" height="35" alt="php v'.self::$oCRNRSTN_n->version_php.'" title="CRNRSTN :: php v'.self::$oCRNRSTN_n->version_php.'" style="border: 0;"></a>';
 
             break;
 
@@ -1279,7 +1279,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.php.net/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_php.png" width="100" height="35" alt="php v'.self::$oCRNRSTN_n->version_php.'" title="CRNRSTN :: php v'.self::$oCRNRSTN_n->version_php.'" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.php.net/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_php.png" width="100" height="35" alt="php v'.self::$oCRNRSTN_n->version_php.'" title="CRNRSTN :: php v'.self::$oCRNRSTN_n->version_php.'" style="border: 0;"></a>';
 
             break;
 
@@ -1295,7 +1295,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/zend_logo.php');
 
-                return '<a href="https://www.zend.com/" target="_blank"><img src="'.$tmp_str.'" width="73" height="35" alt="ZEND" title="CRNRSTN :: ZEND" style="border: 0;" border="0" /></a>';
+                return '<a href="https://www.zend.com/" target="_blank"><img src="'.$tmp_str.'" width="73" height="35" alt="ZEND" title="CRNRSTN :: ZEND" style="border: 0;" /></a>';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1319,7 +1319,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_logo.png" width="73" height="35" alt="ZEND" title="CRNRSTN :: ZEND" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_logo.png" width="73" height="35" alt="ZEND" title="CRNRSTN :: ZEND" style="border: 0;"></a>';
 
             break;
 
@@ -1359,7 +1359,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework.png" width="212" height="35" alt="ZEND FRAMEWORK" title="CRNRSTN :: ZEND FRAMEWORK" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework.png" width="212" height="35" alt="ZEND FRAMEWORK" title="CRNRSTN :: ZEND FRAMEWORK" style="border: 0;"></a>';
 
             break;
 
@@ -1399,7 +1399,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework_3.png" width="224" height="35" alt="ZEND FRAMEWORK 3" title="CRNRSTN :: ZEND FRAMEWORK 3" style="border: 0;" border="0" /></a>';
+                return '<a href="https://www.zend.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/zend_framework_3.png" width="224" height="35" alt="ZEND FRAMEWORK 3" title="CRNRSTN :: ZEND FRAMEWORK 3" style="border: 0;" ></a>';
 
             break;
 
@@ -1415,7 +1415,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/linux_penguin_sm.php');
 
-                return '<a href="https://www.linux.com/" target="_blank"><img src="'.$tmp_str.'" width="30" height="35" alt="Linux" title="CRNRSTN :: Linux" style="border: 0;" border="0" /></a>';
+                return '<a href="https://www.linux.com/" target="_blank"><img src="'.$tmp_str.'" width="30" height="35" alt="Linux" title="CRNRSTN :: Linux" style="border: 0;"></a>';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1440,7 +1440,7 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
                 //_crnrstn/creative/_encoded/.png
-                return '<a href="https://www.linux.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/linux_penguin_sm.png" width="30" height="35" alt="Linux" title="CRNRSTN :: Linux" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.linux.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/linux_penguin_sm.png" width="30" height="35" alt="Linux" title="CRNRSTN :: Linux" style="border: 0;"></a>';
 
             break;
 
@@ -1480,7 +1480,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.mysql.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mysql_logo.png" width="66" height="35" alt="MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" title="CRNRSTN :: MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.mysql.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mysql_logo.png" width="66" height="35" alt="MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" title="CRNRSTN :: MySQLi v'.self::$oCRNRSTN_n->version_mysqli.'" style="border: 0;"></a>';
 
             break;
 
@@ -1520,7 +1520,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_redhat.png" width="103" height="35" alt="Powered by Red Hat" title="CRNRSTN :: Powered by Red Hat Linux" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_redhat.png" width="103" height="35" alt="Powered by Red Hat" title="CRNRSTN :: Powered by Red Hat Linux" style="border: 0;"></a>';
 
             break;
 
@@ -1536,7 +1536,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/redhat_bar.php');
 
-                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.$tmp_str.'" width="106" height="35" alt="Red Hat" title="CRNRSTN :: Red Hat Linux" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.$tmp_str.'" width="106" height="35" alt="Red Hat" title="CRNRSTN :: Red Hat Linux" style="border: 0;"></a>';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1560,7 +1560,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/redhat_bar.png" width="106" height="35" alt="Red Hat" title="CRNRSTN :: Red Hat Linux" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/redhat_bar.png" width="106" height="35" alt="Red Hat" title="CRNRSTN :: Red Hat Linux" style="border: 0;"></a>';
 
             break;
 
@@ -1600,7 +1600,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/redhat_circle.png" width="40" height="35" alt="Red Hat" title="CRNRSTN :: Red Hat Linux" style="border: 0;" border="0"></a>';
+                return '<a href="https://www.redhat.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/redhat_circle.png" width="40" height="35" alt="Red Hat" title="CRNRSTN :: Red Hat Linux" style="border: 0;"></a>';
 
             break;
 
@@ -1675,7 +1675,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2_4.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;" border="0"></a>';
+                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2_4.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;"></a>';
 
             break;
 
@@ -1715,7 +1715,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2_2.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;" border="0"></a>';
+                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2_2.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;"></a>';
 
             break;
 
@@ -1755,7 +1755,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;" border="0"></a>';
+                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_2.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;"></a>';
 
             break;
 
@@ -1795,7 +1795,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_1_3.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;" border="0"></a>';
+                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache_1_3.png" width="259" height="32" alt="Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" title="CRNRSTN :: Powered by APACHE v'.self::$oCRNRSTN_n->version_apache.'" style="border: 0;"></a>';
 
             break;
 
@@ -1835,7 +1835,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache.png" width="259" height="32" alt="Powered by APACHE" title="CRNRSTN :: Powered by APACHE" style="border: 0;" border="0"></a>';
+                return '<a href="http://apache.org/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/powered_by_apache.png" width="259" height="32" alt="Powered by APACHE" title="CRNRSTN :: Powered by APACHE" style="border: 0;"></a>';
 
             break;
 
@@ -1851,7 +1851,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/crnrstn_logo_lg.php');
 
-                return '<img src="'.$tmp_str.'" width="345" height="208" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0">';
+                return '<img src="'.$tmp_str.'" width="345" height="208" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" >';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1875,7 +1875,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_logo_lg.png" width="345" height="208" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/crnrstn_logo_lg.png" width="345" height="208" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" >';
 
             break;
 
@@ -1891,7 +1891,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/signin_frm_reflection.php');
 
-                return '<img src="'.$tmp_str.'" width="259" height="32" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0" />';
+                return '<img src="'.$tmp_str.'" width="259" height="32" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;">';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1915,7 +1915,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/signin_frm_reflection.png" width="722" height="55"alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;"  border="0"  />';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/signin_frm_reflection.png" width="722" height="55" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;">';
 
             break;
 
@@ -1931,7 +1931,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/dot_grn.php');
 
-                return '<img src="'.$tmp_str.'" width="20" height="20" alt="O" title="O" style="border: 0;" border="0" />';
+                return '<img src="'.$tmp_str.'" width="20" height="20" alt="O" title="O" style="border: 0;" >';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1955,7 +1955,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_grn.png" width="20" height="20" alt="O" title="O" style="border: 0;"  border="0"  />';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_grn.png" width="20" height="20" alt="O" title="O" style="border: 0;">';
 
             break;
 
@@ -1995,7 +1995,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_red.png" width="20" height="20" alt="O" title="O" style="border: 0;"  border="0"  />';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_red.png" width="20" height="20" alt="O" title="O" style="border: 0;">';
 
             break;
 
@@ -2035,7 +2035,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_grey.png" width="20" height="20" alt="O" title="O" style="border: 0;"  border="0"  />';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/dot_grey.png" width="20" height="20" alt="O" title="O" style="border: 0;">';
 
             break;
 
@@ -2075,7 +2075,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/triangle_alert.png" width="19" height="19" alt="!" title="alert" style="border: 0;"  border="0" />';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/triangle_alert.png" width="19" height="19" alt="!" title="alert" style="border: 0;">';
 
             break;
 
@@ -2091,7 +2091,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/mag_glass_search.php');
 
-                return '<img src="'.$tmp_str.'" width="14" height="14" alt="Search" title="Search" style="border: 0;" border="0">';
+                return '<img src="'.$tmp_str.'" width="14" height="14" alt="Search" title="Search" style="border: 0;" >';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -2115,7 +2115,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mag_glass_search.png" width="14" height="14" alt="Search" title="Search" style="border: 0;" border="0">';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/mag_glass_search.png" width="14" height="14" alt="Search" title="Search" style="border: 0;" >';
 
             break;
 
@@ -2157,7 +2157,7 @@ class crnrstn_image_v_html_content_manager {
 
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/email_inbox_icon.png" width="201" height="185" "alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;" border="0" />';
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/email_inbox_icon.png" width="201" height="185" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;">';
 
             break;
 
