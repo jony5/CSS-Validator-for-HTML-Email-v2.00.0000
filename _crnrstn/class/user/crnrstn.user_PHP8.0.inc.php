@@ -276,6 +276,85 @@ class crnrstn_user{
 
     }
 
+    public function client_request_listen(){
+
+        //
+        // CHECK FOR INITIALIZATION OF STICKY LINK VAR
+        if($this->isset_HTTP_Param('crnrstn_r', 'GET')){
+
+            // $tmp_uri = html_entity_decode($this->extractData_HTTP('crnrstn_r'));
+            $tmp_uri = $this->paramTunnelDecrypt($this->extractData_HTTP('crnrstn_r'), true);
+
+            $tmp_redirect_html = '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="0; url='.$tmp_uri.'" />
+    <style>
+        p               { padding:10px 0 0 20px; font-size: 18px;}
+    </style>
+</head>
+<body>
+<p><a href="'.$tmp_uri.'" target="_self" style="color:#0066CC;">Click here</a>, if you are not redirected immediately.</p>
+<!-- 
+
+      ___           ___           ___           ___           ___                         ___              
+     /\__\         /\  \         /\  \         /\  \         /\__\                       /\  \             
+    /:/  /        /::\  \        \:\  \       /::\  \       /:/ _/_         ___          \:\  \            
+   /:/  /        /:/\:\__\        \:\  \     /:/\:\__\     /:/ /\  \       /\__\          \:\  \      ::::::  ::::::           
+  /:/  /  ___   /:/ /:/  /    _____\:\  \   /:/ /:/  /    /:/ /::\  \     /:/  /      _____\:\  \     ::::::  ::::::          
+ /:/__/  /\__\ /:/_/:/__/___ /::::::::\__\ /:/_/:/__/___ /:/_/:/\:\__\   /:/__/      /::::::::\__\         
+ \:\  \ /:/  / \:\/:::::/  / \:\~~\~~\/__/ \:\/:::::/  / \:\/:/ /:/  /  /::\  \      \:\~~\~~\/__/         
+  \:\  /:/  /   \::/~~/~~~~   \:\  \        \::/~~/~~~~   \::/ /:/  /  /:/\:\  \      \:\  \          ::::::  ::::::         
+   \:\/:/  /     \:\~~\        \:\  \        \:\~~\        \/_/:/  /   \/__\:\  \      \:\  \         ::::::  ::::::          
+    \::/  /       \:\__\        \:\__\        \:\__\         /:/  /         \:\__\      \:\__\             
+     \/__/         \/__/         \/__/         \/__/         \/__/           \/__/       \/__/      
+	 
+
+
+
+-->
+</body>
+</html>';
+
+            return $tmp_redirect_html;
+
+        }else{
+
+            return NULL;
+
+        }
+
+    }
+
+    public function return_sticky_link($uri){
+
+        $tmp_uri = $this->paramTunnelEncrypt($uri);
+
+        if($this->isSSL()){
+
+            $tmp_loc = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        }else{
+
+            $tmp_loc = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        }
+
+        $tmp_pos_quest = strpos($tmp_loc,'?');
+        if($tmp_pos_quest === false){
+
+            $tmp_proxy_uri = $tmp_loc.'?crnrstn_r=' . urlencode($tmp_uri);
+
+        }else{
+
+            $tmp_proxy_uri = $tmp_loc.'&crnrstn_r=' . urlencode($tmp_uri);
+
+        }
+
+        return $tmp_proxy_uri;
+
+    }
+
     public function return_sys_logging_profile_pack(){
 
         $tmp_array = array();
@@ -10466,4 +10545,5 @@ C:::::C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
         $this->oLog_output_ARRAY[] = $this->error_log('goodbye crnrstn :: usr __destruct called.', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY);
 
     }
+
 }
