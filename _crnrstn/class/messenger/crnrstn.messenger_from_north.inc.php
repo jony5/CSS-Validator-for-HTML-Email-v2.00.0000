@@ -6788,7 +6788,7 @@ class crnrstn_communications_css_standard{
                 // STYLE_ELEMENT
                 case '<style> in <head>':
 
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link('https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style');
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link('https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style', 'developer_mozilla_web_docs');
                     $tmp_description = 'The HTML <style> element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the <style> element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STYLE_IN_HEAD;
                     $tmp_pattern_species = 'STYLE_ELEMENT';
@@ -6798,7 +6798,7 @@ class crnrstn_communications_css_standard{
                     break;
                 case '<style> in <body>':
 
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link('https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style');
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link('https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style', 'developer_mozilla_web_docs');
                     $tmp_description = 'The HTML <style> element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the <style> element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STYLE_IN_BODY;
                     $tmp_pattern_species = 'STYLE_ELEMENT';
@@ -6811,7 +6811,7 @@ class crnrstn_communications_css_standard{
                 case '<link> in <body>':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The HTML External Resource Link element (<link>) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_LINK_IN_BODY;
                     $tmp_pattern_species = 'LINK_ELEMENT';
@@ -6822,7 +6822,7 @@ class crnrstn_communications_css_standard{
                 case '<link> in <head>':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The HTML External Resource Link element (<link>) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_LINK_IN_HEAD;
                     $tmp_pattern_species = 'LINK_ELEMENT';
@@ -6835,7 +6835,7 @@ class crnrstn_communications_css_standard{
                 case '@media':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6846,7 +6846,7 @@ class crnrstn_communications_css_standard{
                 case 'and':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#logical_operators';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6857,7 +6857,7 @@ class crnrstn_communications_css_standard{
                 case 'or (comma)':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#logical_operators';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6868,7 +6868,7 @@ class crnrstn_communications_css_standard{
                 case 'not':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#logical_operators';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6879,7 +6879,7 @@ class crnrstn_communications_css_standard{
                 case 'screen':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_types';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6890,7 +6890,7 @@ class crnrstn_communications_css_standard{
                 case 'only screen':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media#testing_for_print_and_screen_media_types';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @media CSS at-rule can be used to apply part of a style sheet based on the result of one or more media queries. With it, you specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6901,7 +6901,7 @@ class crnrstn_communications_css_standard{
                 case 'all':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/all';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The all shorthand CSS property resets all of an element\'s properties except unicode-bidi, direction, and CSS Custom Properties. It can set properties to their initial or inherited values, or to the values specified in another stylesheet origin.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6912,7 +6912,7 @@ class crnrstn_communications_css_standard{
                 case 'any-hover':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-hover';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The any-hover CSS media feature can be used to test whether any available input mechanism can hover over elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6923,7 +6923,7 @@ class crnrstn_communications_css_standard{
                 case 'any-pointer':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The any-pointer CSS media feature tests whether the user has any pointing device (such as a mouse), and if so, how accurate it is.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6934,7 +6934,7 @@ class crnrstn_communications_css_standard{
                 case 'hover':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/:hover';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The :hover CSS pseudo-class matches when the user interacts with an element with a pointing device, but does not necessarily activate it. It is generally triggered when the user hovers over an element with the cursor (mouse pointer).';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6945,7 +6945,7 @@ class crnrstn_communications_css_standard{
                 case 'max-aspect-ratio':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The aspect-ratio CSS media feature can be used to test the aspect ratio of the viewport.<br><br>
 
 The aspect-ratio feature is specified as a <ratio> value representing the width-to-height aspect ratio of the viewport. It is a range feature, meaning you can also use the prefixed min-aspect-ratio and max-aspect-ratio variants to query minimum and maximum values, respectively.';
@@ -6958,7 +6958,7 @@ The aspect-ratio feature is specified as a <ratio> value representing the width-
                 case 'max-device-aspect-ratio':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/device-aspect-ratio';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The device-aspect-ratio CSS media feature can be used to test the width-to-height aspect ratio of an output device.<br><br>
 
 The device-aspect-ratio feature is specified as a <ratio>. It is a range feature, meaning that you can also use the prefixed min-device-aspect-ratio and max-device-aspect-ratio variants to query minimum and maximum values, respectively.';
@@ -6971,7 +6971,7 @@ The device-aspect-ratio feature is specified as a <ratio>. It is a range feature
                 case 'max-device-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/device-height';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The device-height CSS media feature can be used to test the height of an output device\'s rendering surface.<br><br>
 
 The device-height feature is specified as a <length> value. It is a range feature, meaning that you can also use the prefixed min-device-height and max-device-height variants to query minimum and maximum values, respectively.';
@@ -6984,7 +6984,7 @@ The device-height feature is specified as a <length> value. It is a range featur
                 case 'max-device-pixel-ratio':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The -webkit-device-pixel-ratio is a non-standard Boolean CSS media feature which is an alternative to the standard resolution media feature.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_IS_NONSTANDARD;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -6995,7 +6995,7 @@ The device-height feature is specified as a <length> value. It is a range featur
                 case 'max-device-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/device-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The device-width CSS media feature can be used to test the width of an output device\'s rendering surface.<br><br>
 The device-width feature is specified as a <length> value. It is a range feature, meaning that you can also use the prefixed min-device-width and max-device-width variants to query minimum and maximum values, respectively.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_IS_DEPRECATED;
@@ -7007,7 +7007,7 @@ The device-width feature is specified as a <length> value. It is a range feature
                 case 'MEDIA_QUERIES_max-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The max-height CSS property sets the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for max-height.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7018,7 +7018,7 @@ The device-width feature is specified as a <length> value. It is a range feature
                 case 'max-resolution':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The resolution CSS media feature can be used to test the pixel density of the output device.<br><br>
 
 The resolution feature is specified as a <resolution> value representing the pixel density of the output device. It is a range feature, meaning that you can also use the prefixed min-resolution and max-resolution variants to query minimum and maximum values, respectively.';
@@ -7031,7 +7031,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'MEDIA_QUERIES_max-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The max-width CSS property sets the maximum width of an element. It prevents the used value of the width property from becoming larger than the value specified by max-width.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7042,7 +7042,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'min-aspect-ratio':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The aspect-ratio CSS media feature can be used to test the aspect ratio of the viewport.<br><br>
 
 The aspect-ratio feature is specified as a <ratio> value representing the width-to-height aspect ratio of the viewport. It is a range feature, meaning you can also use the prefixed min-aspect-ratio and max-aspect-ratio variants to query minimum and maximum values, respectively.';
@@ -7055,7 +7055,7 @@ The aspect-ratio feature is specified as a <ratio> value representing the width-
                 case 'min-device-aspect-ratio':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/device-aspect-ratio';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The device-aspect-ratio CSS media feature can be used to test the width-to-height aspect ratio of an output device.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_IS_DEPRECATED;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7066,7 +7066,7 @@ The aspect-ratio feature is specified as a <ratio> value representing the width-
                 case 'min-device-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/device-height';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The device-height CSS media feature can be used to test the height of an output device\'s rendering surface.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_IS_DEPRECATED;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7077,7 +7077,7 @@ The aspect-ratio feature is specified as a <ratio> value representing the width-
                 case 'min-device-pixel-ratio':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-moz-device-pixel-ratio';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The -moz-device-pixel-ratio Gecko-only CSS media feature can be used to apply styles based on the number of device pixels per CSS pixel.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_IS_DEPRECATED;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7088,7 +7088,7 @@ The aspect-ratio feature is specified as a <ratio> value representing the width-
                 case 'min-device-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/device-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The device-width CSS media feature can be used to test the width of an output device\'s rendering surface.<br><br>
 The device-width feature is specified as a <length> value. It is a range feature, meaning that you can also use the prefixed min-device-width and max-device-width variants to query minimum and maximum values, respectively.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_IS_DEPRECATED;
@@ -7100,7 +7100,7 @@ The device-width feature is specified as a <length> value. It is a range feature
                 case 'MEDIA_QUERIES_min-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The min-height CSS property sets the minimum height of an element. It prevents the used value of the height property from becoming smaller than the value specified for min-height.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7111,7 +7111,7 @@ The device-width feature is specified as a <length> value. It is a range feature
                 case 'min-resolution':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The resolution CSS media feature can be used to test the pixel density of the output device.<br><br>
 
 The resolution feature is specified as a <resolution> value representing the pixel density of the output device. It is a range feature, meaning that you can also use the prefixed min-resolution and max-resolution variants to query minimum and maximum values, respectively.';
@@ -7124,7 +7124,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'MEDIA_QUERIES_min-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The min-width CSS property sets the minimum width of an element. It prevents the used value of the width property from becoming smaller than the value specified for min-width.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7135,7 +7135,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'orientation':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The orientation CSS media feature can be used to test the orientation of the viewport (or the page box, for paged media).';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7146,7 +7146,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'pointer':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The pointer CSS media feature tests whether the user has a pointing device (such as a mouse), and if so, how accurate the primary pointing device is.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'MEDIA_QUERIES';
@@ -7159,7 +7159,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case '@font-face':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The @font-face CSS at-rule specifies a custom font with which to display text; the font can be loaded from either a remote server or a locally-installed font on the user\'s own computer.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7181,7 +7181,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'SVG':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The svg element is a container that defines a new coordinate system and viewport. It is used as the outermost element of SVG documents, but it can also be used to embed an SVG fragment inside an SVG or HTML document.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7203,7 +7203,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'WOFF':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'WOFF (the Web Open Font Format) is a web font format developed by Mozilla in concert with Type Supply, LettError, and other organizations. It uses a compressed version of the same table-based sfnt structure used by TrueType, OpenType, and Open Font Format, but adds metadata and private-use data structures, including predefined fields allowing foundries and vendors to provide license information if desired.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_NONE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7244,7 +7244,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'direction':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/direction';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The direction CSS property sets the direction of text, table columns, and horizontal overflow. Use rtl for languages written from right to left (like Hebrew or Arabic), and ltr for those written from left to right (like English and most other languages).';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7255,7 +7255,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font CSS shorthand property sets all the different properties of an element\'s font. Alternatively, it sets an element\'s font to a system font.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7266,7 +7266,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-family':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-family';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-family CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7277,7 +7277,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-feature-settings':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-feature-settings CSS property controls advanced typographic features in OpenType fonts.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7288,7 +7288,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-kerning':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-kerning';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-kerning CSS property sets the use of the kerning information stored in a font.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7299,7 +7299,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-size':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-size';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-size CSS property sets the size of the font. Changing the font size also updates the sizes of the font size-relative <length> units, such as em, ex, and so forth.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7310,7 +7310,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-size-adjust':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-size-adjust CSS property sets the size of lower-case letters relative to the current font size (which defines the size of upper-case letters).';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7321,7 +7321,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-stretch':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-stretch';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-stretch CSS property selects a normal, condensed, or expanded face from a font.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7332,7 +7332,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-style CSS property sets whether a font should be styled with a normal, italic, or oblique face from its font-family.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7343,7 +7343,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-synthesis':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-synthesis CSS property controls which missing typefaces, bold or italic, may be synthesized by the browser.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7354,7 +7354,7 @@ The resolution feature is specified as a <resolution> value representing the pix
                 case 'font-variant':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-variant CSS shorthand property allows you to set all the font variants for a font.<br><br>
 
 You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, normal or small-caps), by using the font shorthand.';
@@ -7367,7 +7367,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'font-weight':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The font-weight CSS property sets the weight (or boldness) of the font. The weights available depend on the font-family that is currently set.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7378,7 +7378,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'hyphens':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The hyphens CSS property specifies how words should be hyphenated when text wraps across multiple lines. It can prevent hyphenation entirely, hyphenate at manually-specified points within the text, or let the browser automatically insert hyphens where appropriate.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7389,7 +7389,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'letter-spacing':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The letter-spacing CSS property sets the horizontal spacing behavior between text characters. This value is added to the natural spacing between characters while rendering the text. Positive values of letter-spacing causes characters to spread farther apart, while negative values of letter-spacing bring characters closer together.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7400,7 +7400,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'line-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/line-height';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The line-height CSS property sets the height of a line box. It\'s commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7411,7 +7411,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'overflow-wrap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The overflow-wrap CSS property applies to inline elements, setting whether the browser should insert line breaks within an otherwise unbreakable string to prevent text from overflowing its line box.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7422,7 +7422,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-align':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-align';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-align CSS property sets the horizontal alignment of a block element or table-cell box. This means it works like vertical-align but in the horizontal direction.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7433,7 +7433,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-decoration':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-decoration shorthand CSS property sets the appearance of decorative lines on text. It is a shorthand for text-decoration-line, text-decoration-color, text-decoration-style, and the newer text-decoration-thickness property.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7444,7 +7444,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-fill-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-fill-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The -webkit-text-fill-color CSS property specifies the fill color of characters of text. If this property is not set, the value of the color property is used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7455,7 +7455,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-indent':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-indent CSS property sets the length of empty space (indentation) that is put before lines of text in a block';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7466,7 +7466,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-overflow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-overflow CSS property sets how hidden overflow content is signaled to users. It can be clipped, display an ellipsis (\'…\'), or display a custom string.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7477,7 +7477,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-shadow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-shadow CSS property adds shadows to text. It accepts a comma-separated list of shadows to be applied to the text and any of its decorations. Each shadow is described by some combination of X and Y offsets from the element, blur radius, and color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7488,7 +7488,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-size-adjust':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-size-adjust CSS property controls the text inflation algorithm used on some smartphones and tablets. Other browsers will ignore this property.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7499,7 +7499,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-stroke':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The -webkit-text-stroke CSS property specifies the width and color of strokes for text characters. This is a shorthand property for the longhand properties -webkit-text-stroke-width and -webkit-text-stroke-color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7510,7 +7510,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-stroke-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The -webkit-text-stroke-color CSS property specifies the stroke color of characters of text. If this property is not set, the value of the color property is used.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7521,7 +7521,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-stroke-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The -webkit-text-stroke-width CSS property specifies the width of the stroke for text.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7532,7 +7532,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'text-transform':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The text-transform CSS property specifies how to capitalize an element\'s text. It can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also can help improve legibility for ruby.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7543,7 +7543,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'vertical-align':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The vertical-align CSS property sets vertical alignment of an inline, inline-block or table-cell box.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7554,7 +7554,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'white-space':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/white-space';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The white-space CSS property sets how white space inside an element is handled.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7565,7 +7565,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'word-spacing':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The word-spacing CSS property sets the length of space between words and between tags.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TEXT_FONTS';
@@ -7576,7 +7576,7 @@ You can also set the CSS Level 2 (Revision 1) values of font-variant, (that is, 
                 case 'word-wrap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The overflow-wrap CSS property applies to inline elements, setting whether the browser should insert line breaks within an otherwise unbreakable string to prevent text from overflowing its line box.<br><br>
 The property was originally a nonstandard and unprefixed Microsoft extension called word-wrap, and was implemented by most browsers with the same name. It has since been renamed to overflow-wrap, with word-wrap being an alias.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
@@ -7590,7 +7590,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7601,7 +7601,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-attachment':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-attachment CSS property sets whether a background image\'s position is fixed within the viewport, or scrolls with its containing block.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7612,7 +7612,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-blend-mode':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-blend-mode';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-blend-mode CSS property sets how an element\'s background images should blend with each other and with the element\'s background color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7623,7 +7623,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-clip':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-clip CSS property sets whether an element\'s background extends underneath its border box, padding box, or content box.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7634,7 +7634,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-color CSS property sets the background color of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7645,7 +7645,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-image':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-image';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-image CSS property sets one or more background images on an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7656,7 +7656,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-origin':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-origin CSS property sets the background\'s origin: from the border start, inside the border, or inside the padding.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7667,7 +7667,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-position':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-position';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-position CSS property sets the initial position for each background image. The position is relative to the position layer set by background-origin.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7678,7 +7678,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-repeat':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-repeat CSS property sets how background images are repeated. A background image can be repeated along the horizontal and vertical axes, or not repeated at all.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7689,7 +7689,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'background-size':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/background-size';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The background-size CSS property sets the size of the element\'s background image. The image can be left to its natural size, stretched, or constrained to fit the available space.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7700,7 +7700,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The color CSS property sets the foreground color value of an element\'s text and text decorations, and sets the <currentcolor> value. currentcolor may be used as an indirect value on other properties and is the default for other color properties, such as border-color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7711,7 +7711,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'isolation':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/isolation';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The isolation CSS property determines whether an element must create a new stacking context.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7722,7 +7722,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'mix-blend-mode':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The mix-blend-mode CSS property sets how an element\'s content should blend with the content of the element\'s parent and the element\'s background.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7733,7 +7733,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'CSS gradients':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'CSS gradients are represented by the <gradient> data type, a special type of <image> made of a progressive transition between two or more colors. You can choose between three types of gradients: linear (created with the linear-gradient() function), radial (created with radial-gradient()), and conic (created with the conic-gradient() function). You can also create repeating gradients with the repeating-linear-gradient(), repeating-radial-gradient(), and repeating-conic-gradient() functions.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_CSS_GRADIENTS;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7754,7 +7754,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'Multiple background images':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'You can apply multiple backgrounds to elements. These are layered atop one another with the first background you provide on top and the last background listed in the back. Only the last background can include a background color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7765,7 +7765,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'HTML 4.01 Named Colors':
 
                     $tmp_uri = 'https://www.w3schools.com/colors/colors_names.asp';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'Color names.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7776,7 +7776,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'X11 Named Colors':
 
                     $tmp_uri = 'https://en.wikipedia.org/wiki/X11_color_names';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'In computing, on the X Window System, X11 color names are represented in a simple text file, which maps certain strings to RGB color values.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7787,7 +7787,7 @@ The property was originally a nonstandard and unprefixed Microsoft extension cal
                 case 'HEX Colors':
 
                     $tmp_uri = 'https://www.w3schools.com/colors/colors_hexadecimal.asp';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'Hexadecimal color values are also supported in all browsers.<br><br>
 
 A hexadecimal color is specified with: #RRGGBB.<br><br>
@@ -7804,7 +7804,7 @@ For example, #0000FF is displayed as blue, because the blue component is set to 
                 case 'HEX Shorthand Colors':
 
                     $tmp_uri = 'https://www.w3.org/TR/CSS1/#color-units';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The format of an RGB value in hexadecimal notation is a \'#\' immediately followed by either three or six hexadecimal characters. The three-digit RGB notation (#rgb) is converted into six-digit form (#rrggbb) by replicating digits, not by adding zeros.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7815,7 +7815,7 @@ For example, #0000FF is displayed as blue, because the blue component is set to 
                 case 'HSL Colors':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The hsl() functional notation expresses a given color according to its hue, saturation, and lightness components. An optional alpha component represents the color\'s transparency.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7826,7 +7826,7 @@ For example, #0000FF is displayed as blue, because the blue component is set to 
                 case 'HSLA Colors':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsla()';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The hsla() functional notation expresses a given color according to its hue, saturation, and lightness components. An optional alpha component represents the color\'s transparency.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_HSLA;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7837,7 +7837,7 @@ For example, #0000FF is displayed as blue, because the blue component is set to 
                 case 'RGB Colors':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The rgb() functional notation expresses a color according to its red, green, and blue components. An optional alpha component represents the color\'s transparency.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_RGB;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7848,7 +7848,7 @@ For example, #0000FF is displayed as blue, because the blue component is set to 
                 case 'RGBA Colors':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba()';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The rgba() functional notation expresses a color according to its red, green, and blue components. An optional alpha component represents the color\'s transparency.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_RGBA;
                     $tmp_pattern_species = 'COLOR_BACKGROUND';
@@ -7859,7 +7859,7 @@ For example, #0000FF is displayed as blue, because the blue component is set to 
                 case 'currentColor':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The currentcolor keyword represents the value of an element\'s color property. This lets you use the color value on properties that do not receive it by default.<br><br>
 
 If currentcolor is used as the value of the color property, it instead takes its value from the inherited value of the color property.';
@@ -7874,7 +7874,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border shorthand CSS property sets an element\'s border. It sets the values of border-width, border-style, and border-color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7885,7 +7885,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-bottom':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-bottom shorthand CSS property sets an element\'s bottom border. It sets the values of border-bottom-width, border-bottom-style and border-bottom-color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7896,7 +7896,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-bottom-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-bottom-color CSS property sets the color of an element\'s bottom border. It can also be set with the shorthand CSS properties border-color or border-bottom.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7907,7 +7907,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-bottom-left-radius':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-bottom-left-radius CSS property rounds the bottom-left corner of an element by specifying the radius (or the radius of the semi-major and semi-minor axes) of the ellipse defining the curvature of the corner.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7918,7 +7918,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-bottom-right-radius':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-bottom-right-radius CSS property rounds the bottom-right corner of an element by specifying the radius (or the radius of the semi-major and semi-minor axes) of the ellipse defining the curvature of the corner.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7929,7 +7929,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-bottom-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-bottom-style CSS property sets the line style of an element\'s bottom border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7940,7 +7940,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-bottom-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-bottom-width CSS property sets the width of the bottom border of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7951,7 +7951,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-color shorthand CSS property sets the color of an element\'s border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7962,7 +7962,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-image':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-image';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-image CSS property draws an image around a given element. It replaces the element\'s regular border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7973,7 +7973,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-left':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-left';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-left shorthand CSS property sets all the properties of an element\'s left border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7984,7 +7984,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-left-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-left-color CSS property sets the color of an element\'s left border. It can also be set with the shorthand CSS properties border-color or border-left.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -7995,7 +7995,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-left-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-left-style CSS property sets the line style of an element\'s left border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8006,7 +8006,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-left-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-left-width CSS property sets the width of the left border of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8017,7 +8017,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-radius':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-radius CSS property rounds the corners of an element\'s outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8028,7 +8028,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-right':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-right';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-right shorthand CSS property sets all the properties of an element\'s right border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8039,7 +8039,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-right-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-right-color CSS property sets the color of an element\'s right border. It can also be set with the shorthand CSS properties border-color or border-right.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8050,7 +8050,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-right-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-right-style CSS property sets the line style of an element\'s right border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8061,7 +8061,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-right-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-right-width CSS property sets the width of the right border of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8072,7 +8072,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-style shorthand CSS property sets the line style for all four sides of an element\'s border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8083,7 +8083,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-top':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-top shorthand CSS property sets all the properties of an element\'s top border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8094,7 +8094,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-top-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-top-color CSS property sets the color of an element\'s top border. It can also be set with the shorthand CSS properties border-color or border-top.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8105,7 +8105,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-top-left-radius':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-top-left-radius CSS property rounds the top-left corner of an element by specifying the radius (or the radius of the semi-major and semi-minor axes) of the ellipse defining the curvature of the corner.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8116,7 +8116,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-top-right-radius':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-right-radius';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-top-right-radius CSS property rounds the top-right corner of an element by specifying the radius (or the radius of the semi-major and semi-minor axes) of the ellipse defining the curvature of the corner.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8127,7 +8127,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-top-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-top-style CSS property sets the line style of an element\'s top border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8138,7 +8138,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-top-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-top-width CSS property sets the width of the top border of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8149,7 +8149,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'border-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-width shorthand CSS property sets the width of an element\'s border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8160,7 +8160,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'box-shadow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The box-shadow CSS property adds shadow effects around an element\'s frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radius, and color.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8171,7 +8171,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'box-sizing':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The box-sizing CSS property sets how the total width and height of an element is calculated.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8182,7 +8182,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/height';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The height CSS property specifies the height of an element. By default, the property defines the height of the content area. If box-sizing is set to border-box, however, it instead determines the height of the border area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8193,7 +8193,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'margin':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/margin';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The margin CSS property sets the margin area on all four sides of an element. It is a shorthand for margin-top, margin-right, margin-bottom, and margin-left.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8204,7 +8204,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'margin-bottom':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The margin-bottom CSS property sets the margin area on the bottom of an element. A positive value places it farther from its neighbors, while a negative value places it closer.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8215,7 +8215,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'margin-left':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The margin-left CSS property sets the margin area on the left side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8226,7 +8226,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'margin-right':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The margin-right CSS property sets the margin area on the right side of an element. A positive value places it farther from its neighbors, while a negative value places it closer.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8237,7 +8237,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'margin-top':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The margin-top CSS property sets the margin area on the top of an element. A positive value places it farther from its neighbors, while a negative value places it closer.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8248,7 +8248,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'BOX_MODEL_max-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/max-height';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The max-height CSS property sets the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for max-height.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8259,7 +8259,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'BOX_MODEL_max-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/max-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The max-width CSS property sets the maximum width of an element. It prevents the used value of the width property from becoming larger than the value specified by max-width.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8270,7 +8270,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'BOX_MODEL_min-height':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/min-height';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The min-height CSS property sets the minimum height of an element. It prevents the used value of the height property from becoming smaller than the value specified for min-height.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8281,7 +8281,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'BOX_MODEL_min-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/min-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The min-width CSS property sets the minimum width of an element. It prevents the used value of the width property from becoming smaller than the value specified for min-width.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8292,7 +8292,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'padding':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/padding';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The padding CSS shorthand property sets the padding area on all four sides of an element at once.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8303,7 +8303,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'padding-bottom':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The padding-bottom CSS property sets the height of the padding area on the bottom of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8314,7 +8314,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'padding-left':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The padding-left CSS property sets the width of the padding area to the left of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8325,7 +8325,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'padding-right':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The padding-right CSS property sets the width of the padding area on the right of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8336,7 +8336,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'padding-top':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The padding-top CSS property sets the height of the padding area on the top of an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8347,7 +8347,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'width':  // 2
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The width CSS property sets an element\'s width. By default, it sets the width of the content area, but if box-sizing is set to border-box, it sets the width of the border area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'BOX_MODEL';
@@ -8360,7 +8360,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'bottom':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/bottom';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The bottom CSS property participates in setting the vertical position of a positioned element. It has no effect on non-positioned elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8371,7 +8371,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'clear':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/clear';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The clear CSS property sets whether an element must be moved below (cleared) floating elements that precede it. The clear property applies to floating and non-floating elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8382,7 +8382,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'cursor':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/cursor';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The cursor CSS property sets the type of mouse cursor, if any, to show when the mouse pointer is over an element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8393,7 +8393,7 @@ If currentcolor is used as the value of the color property, it instead takes its
                 case 'POSITIONING_AND_DISPLAY_display':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/display';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.<br><br>
 
 Formally, the display property sets an element\'s inner and outer display types. The outer type sets an element\'s participation in flow layout; the inner type sets the layout of children. Some values of display are fully defined in their own individual specifications; for example the detail of what happens when display: flex is declared is defined in the CSS Flexible Box Model specification.';
@@ -8406,7 +8406,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'float':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/float';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The float CSS property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. The element is removed from the normal flow of the page, though still remaining a part of the flow (in contrast to absolute positioning).';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8417,7 +8417,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'left':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/left';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The left CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8428,7 +8428,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'object-fit':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The object-fit CSS property sets how the content of a replaced element, such as an <img> or <video>, should be resized to fit its container.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8439,7 +8439,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'object-position':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/object-position';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The object-position CSS property specifies the alignment of the selected replaced element\'s contents within the element\'s box. Areas of the box which aren\'t covered by the replaced element\'s object will show the element\'s background.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8450,7 +8450,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'opacity':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/opacity';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The opacity CSS property sets the opacity of an element. Opacity is the degree to which content behind an element is hidden, and is the opposite of transparency.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8461,7 +8461,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'outline':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/outline';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The outline CSS shorthand property set all the outline properties in a single declaration.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8472,7 +8472,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'outline-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The outline-color CSS property sets the color of an element\'s outline.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8483,7 +8483,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'outline-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The outline-style CSS property sets the style of an element\'s outline. An outline is a line that is drawn around an element, outside the border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8494,7 +8494,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'outline-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS outline-width property sets the thickness of an element\'s outline. An outline is a line that is drawn around an element, outside the border.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8505,7 +8505,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'overflow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/overflow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The overflow CSS shorthand property sets the desired behavior for an element\'s overflow &ndash; i.e. when an element\'s content is too big to fit in its block formatting context &ndash; in both directions.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8516,7 +8516,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'position':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/position';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The position CSS property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8527,7 +8527,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'resize':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/resize';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The resize CSS property sets whether an element is resizable, and if so, in which direction';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8538,7 +8538,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'right':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/right';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The right CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8549,7 +8549,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'top':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/top';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The top CSS property participates in specifying the vertical position of a positioned element. It has no effect on non-positioned elements.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8560,7 +8560,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'visibility':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/visibility';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The visibility CSS property shows or hides an element without changing the layout of a document. The property can also hide rows or columns in a <table>.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8571,7 +8571,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'z-index':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/z-index';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The z-index CSS property sets the z-order of a positioned element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'POSITIONING_AND_DISPLAY';
@@ -8584,7 +8584,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'list-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/list-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The list-style CSS shorthand property allows you to set all the list style properties at once.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'LISTS';
@@ -8595,7 +8595,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'list-style-image':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The list-style-image CSS property sets an image to be used as the list item marker.<br><br>
 
 It is often more convenient to use the shorthand list-style.';
@@ -8608,7 +8608,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'list-style-position':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The list-style-position CSS property sets the position of the ::marker relative to a list item.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'LISTS';
@@ -8619,7 +8619,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'list-style-type':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The list-style-type CSS property sets the marker (such as a disc, character, or custom counter style) of a list item element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'LISTS';
@@ -8632,7 +8632,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'border-collapse':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-collapse CSS property sets whether cells inside a <table> have shared or separate borders.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TABLES';
@@ -8643,7 +8643,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'border-spacing':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The border-spacing CSS property sets the distance between the borders of adjacent <table> cells. This property applies only when border-collapse is separate.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TABLES';
@@ -8654,7 +8654,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'caption-side':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The caption-side CSS property puts the content of a table\'s <caption> on the specified side. The values are relative to the writing-mode of the table.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TABLES';
@@ -8665,7 +8665,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'empty-cells':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The empty-cells CSS property sets whether borders and backgrounds appear around <table> cells that have no visible content.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TABLES';
@@ -8676,7 +8676,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'table-layout':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The table-layout CSS property sets the algorithm used to lay out <table> cells, rows, and columns.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TABLES';
@@ -8689,7 +8689,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'animation':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation shorthand CSS property applies an animation between styles. It is a shorthand for animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, and animation-play-state.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8700,7 +8700,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'animation-delay':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-delay CSS property specifies the amount of time to wait from applying the animation to an element before beginning to perform the animation. The animation can start later, immediately from its beginning, or immediately and partway through the animation.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8711,7 +8711,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'animation-direction':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-direction CSS property sets whether an animation should play forward, backward, or alternate back and forth between playing the sequence forward and backward.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8722,7 +8722,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'animation-duration':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-duration CSS property sets the length of time that an animation takes to complete one cycle.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8733,7 +8733,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'animation-fill-mode':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-fill-mode CSS property sets how a CSS animation applies styles to its target before and after its execution.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8744,7 +8744,7 @@ It is often more convenient to use the shorthand list-style.';
                 case 'animation-iteration-count':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-iteration-count CSS property sets the number of times an animation sequence should be played before stopping.<br><br>
 
 If multiple values are specified, each time the animation is played the next value in the list is used, cycling back to the first value after the last one is used.';
@@ -8757,7 +8757,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'animation-name':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-name CSS property specifies the names of one or more @keyframes at-rules describing the animation or animations to apply to the element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8768,7 +8768,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'animation-play-state':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-play-state CSS property sets whether an animation is running or paused.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8779,7 +8779,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'animation-timing-function':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The animation-timing-function CSS property sets how an animation progresses through the duration of each cycle.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'ANIMATIONS';
@@ -8792,7 +8792,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'backface-visibility':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The backface-visibility CSS property sets whether the back face of an element is visible when turned towards the user.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSFORMS';
@@ -8803,7 +8803,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'perspective':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/perspective';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The perspective CSS property determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSFORMS';
@@ -8814,7 +8814,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'perspective-origin':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The perspective-origin CSS property determines the position at which the viewer is looking. It is used as the vanishing point by the perspective property.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSFORMS';
@@ -8825,7 +8825,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transform':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transform';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSFORMS';
@@ -8836,7 +8836,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transform-origin':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transform-origin CSS property sets the origin for an element\'s transformations.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSFORMS';
@@ -8847,7 +8847,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transform-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transform-style CSS property sets whether children of an element are positioned in the 3D space or are flattened in the plane of the element.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSFORMS';
@@ -8860,7 +8860,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transition':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transition';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transition CSS property is a shorthand property for transition-property, transition-duration, transition-timing-function, and transition-delay.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSITIONS';
@@ -8871,7 +8871,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transition-delay':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transition-delay CSS property specifies the duration to wait before starting a property\'s transition effect when its value changes.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSITIONS';
@@ -8882,7 +8882,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transition-duration':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transition-duration CSS property sets the length of time a transition animation should take to complete. By default, the value is 0s, meaning that no animation will occur.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSITIONS';
@@ -8893,7 +8893,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transition-property':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transition-property CSS property sets the CSS properties to which a transition effect should be applied.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSITIONS';
@@ -8904,7 +8904,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'transition-timing-function':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The transition-timing-function CSS property sets how intermediate values are calculated for CSS properties being affected by a transition effect.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'TRANSITIONS';
@@ -8917,7 +8917,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'backdrop-filter':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The backdrop-filter CSS property lets you apply graphical effects such as blurring or color shifting to the area behind an element. Because it applies to everything behind the element, to see the effect you must make the element or its background at least partially transparent.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FILTERS';
@@ -8928,7 +8928,7 @@ If multiple values are specified, each time the animation is played the next val
                 case 'filter':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/filter';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The filter CSS property applies graphical effects like blur or color shift to an element. Filters are commonly used to adjust the rendering of images, backgrounds, and borders.<br><br>
 
 Included in the CSS standard are several functions that achieve predefined effects. You can also reference an SVG filter with a URL to an SVG filter element.';
@@ -8943,7 +8943,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'break-after':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/break-after';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The break-after CSS property sets how page, column, or region breaks should behave after a generated box. If there is no generated box, the property is ignored.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -8954,7 +8954,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'break-before':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/break-before';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The break-before CSS property sets how page, column, or region breaks should behave before a generated box. If there is no generated box, the property is ignored.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -8965,7 +8965,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'break-inside':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The break-inside CSS property sets how page, column, or region breaks should behave inside a generated box. If there is no generated box, the property is ignored.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -8976,7 +8976,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-count':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-count';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-count CSS property breaks an element\'s content into the specified number of columns.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -8987,7 +8987,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-fill':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-fill CSS property controls how an element\'s contents are balanced when broken into columns.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -8998,7 +8998,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-gap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-gap CSS property sets the size of the gap (gutter) between an element\'s columns.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9009,7 +9009,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-rule':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-rule shorthand CSS property sets the width, style, and color of the line drawn between columns in a multi-column layout.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9020,7 +9020,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-rule-color':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-rule-color CSS property sets the color of the line drawn between columns in a multi-column layout.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9031,7 +9031,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-rule-style':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-style';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-rule-style CSS property sets the style of the line drawn between columns in a multi-column layout.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9042,7 +9042,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-rule-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-rule-width CSS property sets the width of the line drawn between columns in a multi-column layout.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9053,7 +9053,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-span':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-span';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-span CSS property makes it possible for an element to span across all columns when its value is set to all.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9064,7 +9064,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'column-width':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-width';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-width CSS property sets the ideal column width in a multi-column layout. The container will have as many columns as can fit without any of them having a width less than the column-width value. If the width of the container is narrower than the specified value, the single column\'s width will be smaller than the declared column width.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9075,7 +9075,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'columns':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/columns';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The columns CSS shorthand property sets the number of columns to use when drawing an element\'s contents, as well as those columns\' widths.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'COLUMNS';
@@ -9088,7 +9088,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'FLEXBOX_align-content':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/align-content';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS align-content property sets the distribution of space between and around content items along a flexbox\'s cross-axis or a grid\'s block axis.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9099,7 +9099,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'FLEXBOX_align-items':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/align-items';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9110,7 +9110,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'FLEXBOX_align-self':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/align-self';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The align-self CSS property overrides a grid or flex item\'s align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9121,7 +9121,7 @@ Included in the CSS standard are several functions that achieve predefined effec
                 case 'FLEXBOX_display':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/display';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.<br><br>
 
 Formally, the display property sets an element\'s inner and outer display types. The outer type sets an element\'s participation in flow layout; the inner type sets the layout of children. Some values of display are fully defined in their own individual specifications; for example the detail of what happens when display: flex is declared is defined in the CSS Flexible Box Model specification.';
@@ -9134,7 +9134,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'flex':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex CSS shorthand property sets how a flex item will grow or shrink to fit the space available in its flex container.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9145,7 +9145,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'flex-basis':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex-basis CSS property sets the initial main size of a flex item. It sets the size of the content box unless otherwise set with box-sizing.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9156,7 +9156,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'flex-direction':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex-direction CSS property sets how flex items are placed in the flex container defining the main axis and the direction (normal or reversed).';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9167,7 +9167,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'flex-flow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex-flow CSS shorthand property specifies the direction of a flex container, as well as its wrapping behavior.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9178,7 +9178,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'flex-grow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex-grow CSS property sets the flex grow factor of a flex item\'s main size.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9189,7 +9189,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'flex-shrink':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex-shrink CSS property sets the flex shrink factor of a flex item. If the size of all flex items is larger than the flex container, items shrink to fit according to flex-shrink.<br><br>
 
 In use, flex-shrink is used alongside the other flex properties flex-grow and flex-basis, and normally defined using the flex shorthand.';
@@ -9202,7 +9202,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'flex-wrap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9213,7 +9213,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'FLEXBOX_justify-content':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9224,7 +9224,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'order':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/order';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The order CSS property sets the order to lay out an item in a flex or grid container. Items in a container are sorted by ascending order value and then by their source code order.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'FLEXBOX';
@@ -9237,7 +9237,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'GRID_align-content':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/align-content';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS align-content property sets the distribution of space between and around content items along a flexbox\'s cross-axis or a grid\'s block axis.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9248,7 +9248,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'GRID_align-items':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/align-items';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9259,7 +9259,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'GRID_align-self':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/align-self';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The align-self CSS property overrides a grid or flex item\'s align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9270,7 +9270,7 @@ In use, flex-shrink is used alongside the other flex properties flex-grow and fl
                 case 'GRID_display':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/display';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.<br><br>
 
 Formally, the display property sets an element\'s inner and outer display types. The outer type sets an element\'s participation in flow layout; the inner type sets the layout of children. Some values of display are fully defined in their own individual specifications; for example the detail of what happens when display: flex is declared is defined in the CSS Flexible Box Model specification.';
@@ -9283,7 +9283,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid CSS property is a shorthand property that sets all of the explicit and implicit grid properties in a single declaration.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9294,7 +9294,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-area':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-area CSS shorthand property specifies a grid item’s size and location within a grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the edges of its grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9305,7 +9305,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-auto-columns':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-auto-columns CSS property specifies the size of an implicitly-created grid column track or pattern of tracks.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9316,7 +9316,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-auto-flow':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9327,7 +9327,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-auto-rows':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-auto-rows CSS property specifies the size of an implicitly-created grid row track or pattern of tracks.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9338,7 +9338,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-column':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-column CSS shorthand property specifies a grid item\'s size and location within a grid column by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start and inline-end edge of its grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9349,7 +9349,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-column-end':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-column-end CSS property specifies a grid item’s end position within the grid column by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the block-end edge of its grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9360,7 +9360,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-column-gap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The column-gap CSS property sets the size of the gap (gutter) between an element\'s columns.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9371,7 +9371,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-column-start':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-column-start CSS property specifies a grid item’s start position within the grid column by contributing a line, a span, or nothing (automatic) to its grid placement. This start position defines the block-start edge of the grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9382,7 +9382,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-gap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9393,7 +9393,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-row':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-row CSS shorthand property specifies a grid item’s size and location within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start and inline-end edge of its grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9404,7 +9404,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-row-end':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-row-end CSS property specifies a grid item’s end position within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-end edge of its grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9415,7 +9415,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-row-gap':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The row-gap CSS property sets the size of the gap (gutter) between an element\'s grid rows.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9426,7 +9426,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-row-start':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-row-start CSS property specifies a grid item’s start position within the grid row by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start edge of its grid area.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9437,7 +9437,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-template-areas':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-template-areas CSS property specifies named grid areas, establishing the cells in the grid and assigning them names.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9448,7 +9448,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-template-columns':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-template-columns CSS property defines the line names and track sizing functions of the grid columns.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9459,7 +9459,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'grid-template-rows':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The grid-template-rows CSS property defines the line names and track sizing functions of the grid rows.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9470,7 +9470,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'GRID_justify-content': // 2
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9481,7 +9481,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'justify-items':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The CSS justify-items property defines the default justify-self for all items of the box, giving them all a default way of justifying each box along the appropriate axis.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9492,7 +9492,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                 case 'justify-self':
 
                     $tmp_uri = 'https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self';
-                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri);
+                    $tmp_uri = $this->oCRNRSTN_USR->return_sticky_link($tmp_uri, 'developer_mozilla_web_docs');
                     $tmp_description = 'The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_self">CSS</a> justify-self property sets the way a box is justified inside its alignment container along the appropriate axis.';
                     $tmp_validation_type = CRNRSTN_CSS_VALIDATE_STANDARD_USE;
                     $tmp_pattern_species = 'GRID';
@@ -9697,10 +9697,10 @@ Formally, the display property sets an element\'s inner and outer display types.
                                     <table cellspacing="0" cellpadding="0" border="0" style="width:300px;">
                                     <tr>
                                         <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
-                                            <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
-                                            for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
+                                            <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/', 'web_standards_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/', 'campaign_monitor_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
+                                            for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/', 'ultimate_guide_to_css').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
                                              respect to CSS support for many popular mobile, web, and desktop email  
-                                            clients and for their creation of  the <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.email-standards.org/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
+                                            clients and for their creation of  the <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.email-standards.org/', 'email_standards_project').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
         
                                             <br><br>  The strength, accuracy, and thorough  consideration baked into the
                                             algorithm  behind this validator are each and  equally directly proportional
@@ -9740,12 +9740,11 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
    
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
-    
+
     </body>
     </html>';
 
         return $tmp_str;
-
 
     }
 
@@ -9873,10 +9872,10 @@ Formally, the display property sets an element\'s inner and outer display types.
                                     <table style="border:0; padding: 0; margin:0; width:300px;">
                                     <tr>
                                         <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
-                                            <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
-                                            for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
-                                             respect to CSS support for many popular mobile, web, and desktop email 
-                                            clients and for their creation of  the <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.email-standards.org/').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
+                                            <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/', 'web_standards_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/', 'campaign_monitor_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
+                                            for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/', 'ultimate_guide_to_css').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
+                                             respect to CSS support for many popular mobile, web, and desktop email  
+                                            clients and for their creation of  the <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.email-standards.org/', 'email_standards_project').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Email Standards Project</a>.
         
                                             <br><br>  The strength, accuracy, and thorough  consideration baked into the
                                             algorithm  behind this validator are each and  equally directly proportional
@@ -9915,7 +9914,7 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
     
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
-   
+
     </body>
     </html>';
 
