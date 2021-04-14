@@ -140,6 +140,7 @@ class crnrstn {
 	public $sys_notices_creative_mode = 'ALL_IMAGE';
     public $sys_notice_creative_http_path;
     private static $encryptableDataTypes = array();
+    public $logging_profile_constants = array();
     public $creativeElementsKeys = array();
     private static $sys_notice_creative_http_path_ARRAY = array();
     private static $m_starttime = array();
@@ -151,7 +152,6 @@ class crnrstn {
     public $log_initial_profile_ARRAY = array();
     protected $log_initial_profile_meta_ARRAY = array();
     public $soap_permissions_file_path_ARRAY = array();
-    public $colorScheme;
 
     public $version_crnrstn = '2.00.0000 PRE-ALPHA-DEV';
     public $version_apache;
@@ -188,6 +188,7 @@ class crnrstn {
         //
         // INITIALIZE ARRAY OF ENCRYPTABLE DATATYPES
         self::$encryptableDataTypes = array('string', 'integer', 'double', 'float', 'int');
+        $this->logging_profile_constants = array(CRNRSTN_LOG_EMAIL, CRNRSTN_LOG_EMAIL_PROXY, CRNRSTN_LOG_FILE, CRNRSTN_LOG_FILE_FTP, CRNRSTN_LOG_SCREEN_TEXT, CRNRSTN_LOG_SCREEN, CRNRSTN_LOG_SCREEN_HTML, CRNRSTN_LOG_SCREEN_HTML_HIDDEN, CRNRSTN_LOG_DEFAULT, CRNRSTN_LOG_ELECTRUM);
 
         $this->creativeElementsKeys = array('CRNRSTN ::', 'LINUX_PENGUIN', 'REDHAT_BAR', 'REDHAT_CIRCLE', 'APACHE_POWER_VERS', 'CRNRSTN_R', '5', 'REDHAT_POWER', 'MYSQL_DOLPHIN', 'PHP_ELLIPSE', 'CRNRSTN_R_WALL', 'POW_BY_PHP', 'ZEND_LOGO', 'ZEND_FRAMEWORK', 'ZEND_FRAMEWORK_3');
 
@@ -203,6 +204,10 @@ class crnrstn {
         // FORCE RE-SERIALIZATION OF SESSION UPON CONFIG CHANGE
         $serial = $CRNRSTN_configSerial . '_420.00' . filesize($config_filepath) . '.' . filemtime($config_filepath) . '.0';
         $this->configSerial = $serial;
+
+        //
+        // HOLDER OF SELECT INPUT PARAMS RECEIVED THROUGH THE CONFIGURATION FILE
+
 
         //
         // SUPPORT FOR ENRICHED DEBUGGING/LOG TRACE
@@ -240,10 +245,10 @@ class crnrstn {
         // USE OF STATIC METHODS?
         // SHIPPING CALCULATIONS API INTEGRATIONS DONE SAME TIME AS PAYMENT GATEWAY INTEGRATIONS
 
-        $sys_logging_profile_pack = $this->return_sys_logging_profile_pack();
+        //
+        // LOGGING PROFILE MANAGER
+        $sys_logging_profile_pack = $this->return_sys_logging_init_profile_pack();
         self::$oLog_ProfileManager = new crnrstn_logging_oprofile_manager($sys_logging_profile_pack, $this);
-
-        //self::$oLog_ProfileManager->sync_to_environment($this);
 
         try {
 
@@ -406,22 +411,18 @@ class crnrstn {
 
     }
 
-	public function set_developer_output_mode($colorScheme = CRNRSTN_UI_PHPNIGHT){
-
-        //error_log(__LINE__.' '.__METHOD__.' ::'.$colorScheme,' is the value.');
-
-        //$this->colorScheme = $colorScheme;
+	public function set_developer_output_mode($theme_style = CRNRSTN_UI_PHPNIGHT){
 
         //
         // FLAG - STATE IS OFF
-        //$this->oCRNRSTN_BITWISE->set($tmp_val);
-        //$this->oCRNRSTN_BITWISE->toggle($tmp_val);
-        //$this->oCRNRSTN_BITWISE->read($tmp_val);
-        //$this->oCRNRSTN_BITWISE->remove($tmp_val)
+        //$this->oCRNRSTN_BITWISE->set($integer_constant);
+        //$this->oCRNRSTN_BITWISE->toggle($integer_constant);
+        //$this->oCRNRSTN_BITWISE->read($integer_constant);
+        //$this->oCRNRSTN_BITWISE->remove($integer_constant)
         //$this->oCRNRSTN_BITWISE->stringout()
-        //$this->oCRNRSTN_BITFLIP_MGR->set($colorScheme, true);
+        //$this->oCRNRSTN_BITFLIP_MGR->set($integer_constant, true);
 
-        $this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->set($colorScheme, true);
+        $this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->set($theme_style, true);
 
     }
 
@@ -430,6 +431,7 @@ class crnrstn {
         return self::$oLog_ProfileManager;
 
     }
+
     public function hello_world($is_bastard = true){
 
         try{
@@ -447,7 +449,6 @@ class crnrstn {
             error_log(__LINE__.' '.get_class().' exception! '.$str);
             throw new Exception('CRNRSTN '.$this->version_crnrstn.' :: '.$str.' This is an exception handling test from '.$_SERVER['SERVER_NAME'].' ('.$_SERVER['SERVER_ADDR'].').');
 
-
         } catch( Exception $e ) {
 
             //
@@ -462,27 +463,11 @@ class crnrstn {
 
         $tmp_array = array();
 
-        $tmp_array['log_initial_profile_ARRAY'] = $this->log_initial_profile_ARRAY;
-        $tmp_array['log_initial_profile_meta_ARRAY'] = $this->log_initial_profile_meta_ARRAY;
-        $tmp_array['oWildCardResource_ARRAY'] = $this->oWildCardResource_ARRAY;
-
-        return $tmp_array;
-
-    }
-
-	public function return_sys_logging_profile_pack(){
-
-        $tmp_array = array();
-
-        $tmp_array['sys_logging_profile_ARRAY'] = self::$sys_logging_profile_ARRAY;
-        $tmp_array['sys_logging_meta_ARRAY'] = self::$sys_logging_meta_ARRAY;
-
-        // SLATE THESE FOR DELETION
-        $tmp_array['sys_logging_endpoint'] = self::$sys_logging_endpoint_ARRAY;
-        $tmp_array['sys_logging_wcr'] = self::$sys_logging_wcr_ARRAY;
-        $tmp_array['sys_logging_update_profile'] = self::$sys_logging_update_profile_ARRAY;
-        $tmp_array['sys_logging_update_endpoint'] = self::$sys_logging_update_endpoint_ARRAY;
         //
+        // PARALLEL STORAGE IN USE BY ENVIRONMENTAL CLASS OBJECT
+        $tmp_array['sys_logging_profile_ARRAY'] = self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        $tmp_array['sys_logging_meta_ARRAY'] = self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        $tmp_array['sys_logging_wcr_ARRAY'] = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
 
         return $tmp_array;
 
@@ -495,29 +480,25 @@ class crnrstn {
 
     }
 
-	public function init_logging_embryonic($output_profile, $output_profile_meta = NULL){
+	public function init_logging_embryonic($CRNRSTN_loggingProfile, $CRNRSTN_loggingMeta = NULL){
 
-        // OLD
-        //$this->log_initial_profile_ARRAY[] = $output_profile;
-        //$this->log_initial_profile_meta_ARRAY[] = $output_profile_meta;
+        $this->oCRNRSTN_BITFLIP_MGR->initialize_bit($CRNRSTN_loggingProfile, true);
 
-
-        // NEW
-        self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = $output_profile;
+        self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = $CRNRSTN_loggingProfile;
 
         if(isset($CRNRSTN_loggingMeta)){
 
-            self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = $output_profile_meta;
+            self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = $CRNRSTN_loggingMeta;
 
         }else{
 
-            self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = '';
+            self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = '0';
 
         }
 
         //
         // PROCESS META DATA
-        $this->error_log('Embryonic logging profile data (int) '.$output_profile.' has been received.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+        $this->error_log('Embryonic logging profile data (int) '.$CRNRSTN_loggingProfile.' has been received.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
     }
 
@@ -528,9 +509,9 @@ class crnrstn {
     }
 
     private function augmentWCR_array($oWCR){
-        # $this->oWildCardResource_ARRAY[crc32($this->configSerial)][self::$resourceKey]
+
         $tmp_array = array();
-        //$tmp_array = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+
         $tmp_array[$oWCR->returnResourceKey()] = $oWCR;
         $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = $tmp_array;
 
@@ -582,40 +563,55 @@ class crnrstn {
 
 	public function returnSystemCreative($envKey){
 
+        //
+        // TODO :: THIS FUNCTIONALITY SHOULD BE ADAPTED FOR WHITE LABEL FOR ALL SYSTEM NOTIFICATIONS.
         try{
 
-            switch($this->sys_notices_creative_mode){
-                case 'ALL_HTML':
-                case 'ALL_HTML_HEADER_OFF':
-                case 'ALL_IMAGE':
-                case 'ALL_IMAGE_HEADER_OFF':
+            if(isset(self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey])){
 
-                    if(isset(self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey])){
+                return self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey];
 
-                        return self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey];
+            }else{
 
-                    }else{
-
-                        //
-                        // HOOOSTON...VE HAF PROBLEM!
-                        throw new Exception('Unable to locate a CRNRSTN :: system images HTTP path related to the serialization of this CRNRSTN configuration file and the environment, "'.$envKey.'".');
-
-                    }
-
-                break;
-                //case 'ALL_HTML':
-                //case 'ALL_HTML_HEADER_OFF':
-
-                //    return '';
-
-                //break;
-                default:
-
-                    return '';
-
-                break;
+                //
+                // HOOOSTON...VE HAF PROBLEM!
+                throw new Exception('Unable to locate a CRNRSTN :: system images HTTP path related to the serialization of this CRNRSTN configuration file and the environment, "'.$envKey.'".');
 
             }
+
+//
+//            switch($this->sys_notices_creative_mode){
+//                case 'ALL_HTML':
+//                case 'ALL_HTML_HEADER_OFF':
+//                case 'ALL_IMAGE':
+//                case 'ALL_IMAGE_HEADER_OFF':
+//
+//                    if(isset(self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey])){
+//
+//                        return self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey];
+//
+//                    }else{
+//
+//                        //
+//                        // HOOOSTON...VE HAF PROBLEM!
+//                        throw new Exception('Unable to locate a CRNRSTN :: system images HTTP path related to the serialization of this CRNRSTN configuration file and the environment, "'.$envKey.'".');
+//
+//                    }
+//
+//                break;
+//                //case 'ALL_HTML':
+//                //case 'ALL_HTML_HEADER_OFF':
+//
+//                //    return '';
+//
+//                //break;
+//                default:
+//
+//                    return '';
+//
+//                break;
+//
+//            }
 
         }catch( Exception $e ) {
 
@@ -815,7 +811,7 @@ class crnrstn {
         //
         // PROCESS BITWISE DATA DO THIS AFTER ENVIRONMENTAL DETECTION
         //$this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->set($CRNRSTN_loggingProfile, true);
-
+        error_log(__LINE__.' crnrstn_environment to receive logging array['.crc32($this->configSerial).']['.crc32($envKey).']=['.$CRNRSTN_loggingProfile.']');
         self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][crc32($envKey)][] = $CRNRSTN_loggingProfile;
 
         if(isset($CRNRSTN_loggingMeta)){
@@ -824,7 +820,7 @@ class crnrstn {
 
         }else{
 
-            self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][crc32($envKey)][] = '';
+            self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][crc32($envKey)][] = '0';
 
         }
 
@@ -2072,20 +2068,37 @@ class crnrstn {
 
     }
 
-    public function print_r($expression, $title=NULL, $colorScheme = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+    private function return_set_bit($constants_int_ARRAY){
 
-        if(!isset($colorScheme)){
+        //$this->oCRNRSTN_BITWISE->set($integer_constant);
+        //$this->oCRNRSTN_BITWISE->toggle($integer_constant);
+        //$this->oCRNRSTN_BITWISE->read($integer_constant);
+        //$this->oCRNRSTN_BITWISE->remove($integer_constant)
+        //$this->oCRNRSTN_BITWISE->stringout()
+        //$this->oCRNRSTN_BITFLIP_MGR->set($integer_constant, true);
 
-            if(isset($this->colorScheme)){
+        foreach($constants_int_ARRAY as $key => $int_constant){
 
-                $colorScheme = $this->colorScheme;
+            if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read($int_constant)){
 
-            }else{
-
-                $this->colorScheme = CRNRSTN_UI_PHPNIGHT;
-                $colorScheme = CRNRSTN_UI_PHPNIGHT;
+                return $int_constant;
 
             }
+
+        }
+
+
+        return -1;
+
+    }
+
+    public function print_r($expression, $title=NULL, $theme_style = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+
+        if(!isset($theme_style)){
+
+            $tmp_array = array(CRNRSTN_UI_PHPNIGHT, CRNRSTN_UI_PHP, CRNRSTN_UI_HTML, CRNRSTN_UI_FEATHER);
+
+            $theme_style = $this->return_set_bit($tmp_array);
 
         }
 
@@ -2136,7 +2149,7 @@ class crnrstn {
 
         $tmp_hash = $this->generateNewKey(10);
 
-        switch($colorScheme){
+        switch($theme_style){
             case CRNRSTN_UI_PHP:
 
                 $tmp_out = '
@@ -2187,7 +2200,7 @@ class crnrstn {
         echo '<div style="background-color: #FFF; padding: 10px 20px 10px 20px;">';
         echo $tmp_out;
 
-        $output = $this->highlightText($tmp_print_r, $colorScheme);
+        $output = $this->highlightText($tmp_print_r, $theme_style);
         $output = $this->properReplace('<br />', '
 ', $output);
 
@@ -2889,11 +2902,10 @@ class crnrstn {
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function highlightText($text, $colorScheme = 'phpnight')   // [EDIT] CRNRSTN v2.0.0 FOR PHPNIGHT :: J5
+    public function highlightText($text, $theme_style = NULL)   // [EDIT] CRNRSTN v2.00.0000 FOR CRNRSTN_UI_PHPNIGHT :: J5
     {
-        $colorScheme = trim(strtolower($colorScheme));              // [EDIT] CRNRSTN v2.0.0 :: J5
 
-        if ($colorScheme == 'php') {
+        if ($theme_style == CRNRSTN_UI_PHP) {
 
             ini_set('highlight.comment', '#008000');
             ini_set('highlight.default', '#000');
@@ -2901,7 +2913,7 @@ class crnrstn {
             ini_set('highlight.keyword', '#00B; font-weight: bold');
             ini_set('highlight.string', '#D00');
 
-        } else if ($colorScheme == 'html') {
+        } else if ($theme_style == CRNRSTN_UI_HTML) {
 
             ini_set('highlight.comment', 'green');
             ini_set('highlight.default', '#C00');
@@ -2909,7 +2921,7 @@ class crnrstn {
             ini_set('highlight.keyword', 'black; font-weight: bold');
             ini_set('highlight.string', '#00F');
 
-        } else if ($colorScheme == 'phpnight')                        // [EDIT] CRNRSTN v2.0.0 :: J5
+        } else if ($theme_style == CRNRSTN_UI_PHPNIGHT)                        // [EDIT] CRNRSTN :: v2.00.0000 :: J5 :: April 13, 2021 2004hrs
         {
             ini_set('highlight.comment', '#FC0');
             ini_set('highlight.default', '#DEDECB');
@@ -2918,7 +2930,6 @@ class crnrstn {
             ini_set('highlight.string', '#F66');
 
         }
-        // ...
 
         $text = trim($text);
         $text = highlight_string("<?php " . $text, true);  // highlight_string() requires opening PHP tag or otherwise it will not colorize the text
@@ -3681,8 +3692,7 @@ class crnrstn_bitflip_manager {
 //
 // SOURCE :: https://www.php.net/manual/en/language.operators.bitwise.php
 // AUTHOR :: icy at digitalitcc dot com :: https://www.php.net/manual/en/language.operators.bitwise.php#50299
-class crnrstn_bitmask
-{
+class crnrstn_bitmask{
     protected $bitmask = array();
 
     public function set( $bit ) // Set some bit

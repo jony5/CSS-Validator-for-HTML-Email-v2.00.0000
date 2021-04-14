@@ -300,45 +300,55 @@ class crnrstn_logging {
 
                 //
                 // CRNRSTN :: DEEP EMBRYONIC STATE
-                $oCRNRSTN = $oCRNRSTN_n;
+                //$oCRNRSTN = $oCRNRSTN_n;
 
-                $init_profile_pack_ARRAY = $oCRNRSTN->return_sys_logging_init_profile_pack();
+                //$init_profile_pack_ARRAY['sys_logging_profile_ARRAY'] = $array[crc32($this->configSerial)][CRNRSTN_LOG_ALL][];
+                //$init_profile_pack_ARRAY['sys_logging_meta_ARRAY'] = $array[crc32($this->configSerial)][CRNRSTN_LOG_ALL][];
+                //$init_profile_pack_ARRAY['sys_logging_wcr_ARRAY'] = $array[crc32($this->configSerial)][CRNRSTN_LOG_ALL][]
 
-                $this->oLog_ProfileManager = $oCRNRSTN->return_oLog_ProfileManager();
-                //$this->oLog_ProfileManager->consume_init_profile_pack($init_profile_pack_ARRAY);
+                $init_profile_pack_ARRAY = $oCRNRSTN_n->return_sys_logging_init_profile_pack();
 
-            //break;
+                $this->oLog_ProfileManager = new crnrstn_logging_oprofile_manager($init_profile_pack_ARRAY, $oCRNRSTN_n);
+
+                //error_log(__LINE__.' log '.get_class().'::  init_profile_pack_ARRAY size='.print_r($init_profile_pack_ARRAY, true));
+                //die();
+
+                $this->oLog_ProfileManager->sync_to_environment($oCRNRSTN_n);
+
+                // DO WE NEED TO CALL THIS AFTER CONSTRUCTOR RECEIVES SAME ARRAY?
+                $this->oLog_ProfileManager->consume_init_profile_pack($init_profile_pack_ARRAY);
+
+            break;
             case 'crnrstn_user':
-            case 'crnrstn_environment':
 
-                if($tmp_class_name == 'crnrstn_user'){
-
-                    $oCRNRSTN_n = $oCRNRSTN_n->return_oCRNRSTN_ENV();
-
-                }
-
-                if(!isset($init_profile_pack_ARRAY)){
-
-                    $init_profile_pack_ARRAY = array();
-
-                    $init_profile_pack_ARRAY['log_initial_profile_ARRAY'] = $oCRNRSTN_n->return_sys_logging_profile();
-                    $init_profile_pack_ARRAY['log_initial_profile_meta_ARRAY'] = $oCRNRSTN_n->return_sys_logging_meta();
-
-                }
-
-                //error_log(__LINE__.' configSerial='.$oCRNRSTN_n->configSerial);
-
-                $tmp_oWCR_ARRAY = $oCRNRSTN_n->oWildCardResource_ARRAY[crc32($oCRNRSTN_n->configSerial)][CRNRSTN_LOG_ALL];
-
-                if(isset($tmp_oWCR_ARRAY)) {
-
-                    $init_profile_pack_ARRAY['oWildCardResource_ARRAY'] = $tmp_oWCR_ARRAY;
-
-                }
+                $oCRNRSTN_ENV = $oCRNRSTN_n->return_oCRNRSTN_ENV();
 
                 //
-                // CRNRSTN :: DEEP TO MATURE EMBRYONIC DEVELOPMENT
+                // ALWAYS GET FRESH LOGGING PROFILE. CAN CHANGE BEFORE METHOD CALL...RIGHT?
+                $init_profile_pack_ARRAY = array();
+                $init_profile_pack_ARRAY['sys_logging_profile_ARRAY'] = $oCRNRSTN_ENV->return_sys_logging_profile();
+                $init_profile_pack_ARRAY['sys_logging_meta_ARRAY'] = $oCRNRSTN_ENV->return_sys_logging_meta();
+                $init_profile_pack_ARRAY['sys_logging_wcr_ARRAY'] = $oCRNRSTN_ENV->oWildCardResource_ARRAY[crc32($oCRNRSTN_ENV->configSerial)][CRNRSTN_LOG_ALL];
+
                 $this->oLog_ProfileManager = $oCRNRSTN_n->return_oLog_ProfileManager();
+
+                $this->oLog_ProfileManager->consume_init_profile_pack($init_profile_pack_ARRAY);
+
+            break; // DO NOT BREAK.
+            case 'crnrstn_environment':
+
+                //
+                // ALWAYS GET FRESH LOGGING PROFILE. CAN CHANGE BEFORE METHOD CALL...RIGHT?
+                $init_profile_pack_ARRAY = array();
+                $init_profile_pack_ARRAY['sys_logging_profile_ARRAY'] = $oCRNRSTN_n->return_sys_logging_profile();
+                $init_profile_pack_ARRAY['sys_logging_meta_ARRAY'] = $oCRNRSTN_n->return_sys_logging_meta();
+                $init_profile_pack_ARRAY['sys_logging_wcr_ARRAY'] = $oCRNRSTN_n->oWildCardResource_ARRAY[crc32($oCRNRSTN_n->configSerial)][CRNRSTN_LOG_ALL];
+
+                $this->oLog_ProfileManager = $oCRNRSTN_n->return_oLog_ProfileManager();
+
+//              error_log(__LINE__.' log '.get_class().'::  pack + sys_logging_wcr_ARRAY='.print_r($init_profile_pack_ARRAY, true));
+//              die();
+
                 $this->oLog_ProfileManager->consume_init_profile_pack($init_profile_pack_ARRAY);
 
             break;
@@ -347,9 +357,6 @@ class crnrstn_logging {
                 // MATURE DEVELOPMENT
             default :
 
-                //
-                // ACQUIRE oCRNRSTN_ENV CLASS OBJECT
-                $oCRNRSTN_n = $oCRNRSTN_n->return_oCRNRSTN_ENV();
 
             break;
 
@@ -361,7 +368,7 @@ class crnrstn_logging {
         $tmp_exception_systemtime = $oCRNRSTN_n->getMicroTime();
 
         $exception_method_trim = trim($exception_method);
-        error_log(__LINE__.' my class in logger catchException is '.get_class($oCRNRSTN_n).' $exception_method_trim='.$exception_method_trim.' $tmp_exception_msg='.$tmp_exception_msg);
+        //error_log(__LINE__.' my class in logger catchException is '.get_class($oCRNRSTN_n).' $exception_method_trim='.$exception_method_trim.' $tmp_exception_msg='.$tmp_exception_msg);
 
         if(isset($exception_method_trim)){
 

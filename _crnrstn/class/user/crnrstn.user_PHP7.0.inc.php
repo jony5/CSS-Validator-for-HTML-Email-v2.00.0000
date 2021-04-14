@@ -209,12 +209,13 @@ class crnrstn_user{
 
 
         }else{
+
             error_log(__LINE__.' '.__METHOD__.' WE HAVE _GET....');
 
-            if($this->http){
-
-
-            }
+//            if($this->http){
+//
+//
+//            }
 
             $this->print_r(file_get_contents('php://input'),'SOAP LISTENER TEST',NULL, __LINE__,__METHOD__,__FILE__);
             //$server->service(file_get_contents('php://input'));
@@ -378,20 +379,6 @@ class crnrstn_user{
         }
 
         return $tmp_proxy_uri;
-
-    }
-
-    public function return_sys_logging_profile_pack(){
-
-        $tmp_array = array();
-
-        $tmp_array['sys_logging_profile'] = self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_endpoint'] = self::$sys_logging_endpoint_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_wcr'] = self::$sys_logging_wcr_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_update_profile'] = self::$sys_logging_update_profile_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_update_endpoint'] = self::$sys_logging_update_endpoint_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-
-        return $tmp_array;
 
     }
 

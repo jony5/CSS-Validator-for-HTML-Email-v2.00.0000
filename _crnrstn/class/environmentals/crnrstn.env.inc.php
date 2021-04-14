@@ -72,6 +72,7 @@ class crnrstn_environment {
     private static $resourceKey;
 
     protected $oCRNRSTN_USR;
+    protected $oCRNRSTN_DEV_INPUT_CONTROLLER;
     public $oCRNRSTN_BITFLIP_MGR;
 	public $oCRNRSTN_IPSECURITY_MGR;
 	public $oSESSION_MGR;
@@ -84,6 +85,7 @@ class crnrstn_environment {
 	private static $sess_env_param_ARRAY = array();
 	private static $m_starttime = array();
 	private static $encryptableDataTypes = array();
+	public $logging_profile_constants = array();
 	private static $creativeElementsKeys = array();
     public $soap_permissions_file_path_ARRAY = array();
 	
@@ -121,13 +123,11 @@ class crnrstn_environment {
     public $version_mysqli;
     private static $process_id_perf_stat_ARRAY = array();
 
-
     public function __construct($oCRNRSTN, $instanceType=NULL) {
 		
 		$this->starttime = $oCRNRSTN->getStartTime();
 		$this->sys_notices_creative_mode = $oCRNRSTN->sys_notices_creative_mode;
 		$this->sys_notice_creative_http_path = $oCRNRSTN->sys_notice_creative_http_path;
-        $this->colorScheme = $oCRNRSTN->colorScheme;
         $this->version_crnrstn = $oCRNRSTN->version_crnrstn;
         $this->version_apache = $oCRNRSTN->version_apache;
         $this->version_apache_sysimg = $oCRNRSTN->version_apache_sysimg;
@@ -139,7 +139,10 @@ class crnrstn_environment {
 		//
 		// INITIALIZE ARRAY OF ENCRYPTABLE DATATYPES
 		self::$encryptableDataTypes = array('string','integer','double','float','int');
-		self::$creativeElementsKeys = $oCRNRSTN->creativeElementsKeys;
+        //self::$logging_profile_constants = array(CRNRSTN_LOG_EMAIL, CRNRSTN_LOG_EMAIL_PROXY, CRNRSTN_LOG_FILE, CRNRSTN_LOG_FILE_FTP, CRNRSTN_LOG_SCREEN_TEXT, CRNRSTN_LOG_SCREEN, CRNRSTN_LOG_SCREEN_HTML, CRNRSTN_LOG_SCREEN_HTML_HIDDEN, CRNRSTN_LOG_DEFAULT, CRNRSTN_LOG_ELECTRUM);
+        $this->logging_profile_constants = $oCRNRSTN->logging_profile_constants;
+
+        self::$creativeElementsKeys = $oCRNRSTN->creativeElementsKeys;
 
         //$this->initialize_language();
         self::$lang_content_ARRAY = $oCRNRSTN->return_lang_content_ARRAY();
@@ -756,23 +759,6 @@ class crnrstn_environment {
     public function serialized_isBitSet($const_nom, $integer_const){
 
         return $this->oCRNRSTN_BITFLIP_MGR->serialized_isBitSet($const_nom, $integer_const);
-
-    }
-
-    public function return_sys_logging_profile_pack(){
-
-        //
-        // CURRENTLY ONLY CALLED BY CRNRSTN CONSTRUCTOR...THEN FORGOTTEN.
-
-        $tmp_array = array();
-
-        $tmp_array['sys_logging_profile'] = self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_endpoint'] = self::$sys_logging_endpoint_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_wcr'] = self::$sys_logging_wcr_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_update_profile'] = self::$sys_logging_update_profile_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-        $tmp_array['sys_logging_update_endpoint'] = self::$sys_logging_update_endpoint_ARRAY[crc32($this->configSerial)][self::$resourceKey];
-
-        return $tmp_array;
 
     }
 
@@ -1442,9 +1428,21 @@ class crnrstn_environment {
 	private function initEnvLoggingProfile($oCRNRSTN){
 
         //
-        // SESSION CHECK TO RETRIEVE DETECTED RESOURCE KEY
+        // DETECTED RESOURCE KEY
         if(isset(self::$resourceKey)){
 
+            //
+            // CLEAR OUT BITS FOR NEW LOGGING PROFILE DATA
+            foreach($this->logging_profile_constants as $key => $integer_constant){
+
+                //
+                // LET'S TRY THIS. OTHERWISE WE HAVE TO READ() AND THEN TOGGLE() IF TRUE.
+                $this->initialize_bit($integer_constant, false);
+
+            }
+
+            //
+            // RETRIEVE LOGGING PROFILE DATA FROM CRNRSTN ::
             self::$sys_logging_profile_ARRAY = $oCRNRSTN->return_logging_profile(self::$resourceKey);
             self::$sys_logging_meta_ARRAY = $oCRNRSTN->return_logging_meta(self::$resourceKey);
 
@@ -1457,6 +1455,8 @@ class crnrstn_environment {
 
             }
 
+            //
+            // NOW THAT WE HAVE LOGGING PROFILE DATA...SYNC LOGGING PROFILE MANAGER
             self::$oLog_ProfileManager->sync_to_environment($oCRNRSTN, $this);
 
             $this->oLogger->sync_olog_profile_manager(self::$oLog_ProfileManager);
@@ -1925,7 +1925,7 @@ class crnrstn_environment {
 
                 include_once($this->wildCardResource_filePath);
 
-                $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL] = $oWildCardResource_ARRAY;
+                $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL][] = $oWildCardResource_ARRAY;
 
                 $this->tmp_wcr_config_envKey = '';
 
@@ -4976,6 +4976,12 @@ class crnrstn_logging_oprofile_manager {
 
     public function __construct($sys_logging_profile_pack, $oCRNRSTN) {
 
+        /*
+        $sys_logging_profile_pack['sys_logging_profile_ARRAY'] = ARRAY[crc32($this->configSerial)][self::$resourceKey];
+        $sys_logging_profile_pack['sys_logging_meta_ARRAY'] = ARRAY[crc32($this->configSerial)][self::$resourceKey];
+        $sys_logging_profile_pack['sys_logging_wcr_ARRAY'] = ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        */
+
         $this->configSerial = $oCRNRSTN->configSerial;
 
         $this->oWildCardResource_ARRAY = $oCRNRSTN->oWildCardResource_ARRAY;
@@ -5024,20 +5030,10 @@ class crnrstn_logging_oprofile_manager {
 
             switch(get_class($oCRNRSTN_n)){
                 case 'crnrstn_user':
-
-                    $oCRNRSTN_n = $oCRNRSTN_n->return_oCRNRSTN_ENV();
-
                 case 'crnrstn_environment':
+                case 'crnrstn':
 
-                    //error_log(__LINE__.' env - CHECK LOG OUTPUT CONST (int) '.$oLog_profile->logging_profile.'.');
-                    //if($oCRNRSTN_n->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(($oLog_profile->logging_profile))){
                     if($oCRNRSTN_n->isBitSet($oLog_profile->logging_profile)){
-
-                        error_log(__LINE__.' env - I am the (int) '.$oLog_profile->logging_profile.' profile object you are looking for.');
-
-                        //
-                        // TODO :: CONFIRM IF...NOTIFICATIONS TRIGGERED BY HIGHER CLASS OBJECTS WILL BE MUTED...UNLESS
-                        // TODO :: CLASS NAME IS ADDED TO LOG SPOILER
 
                         //
                         // SOURCE :: https://www.youtube.com/watch?v=83KR_UBWdPI
@@ -5052,46 +5048,8 @@ class crnrstn_logging_oprofile_manager {
                     }
 
                 break;
-                case 'crnrstn':
-
-                    //error_log('env 4661 ok! class= ['.get_class($oCRNRSTN_n).'] log_initial_profile_ARRAY='.print_r($oCRNRSTN_n->log_initial_profile_ARRAY,true));
-
-                    foreach($oCRNRSTN_n->log_initial_profile_ARRAY as $pkey => $profile){
-
-                        //error_log(__LINE__.' env - execute against ['.$profile.']['.$oLog_profile->logging_profile.'] profile object.');
-                        //if($profile == $oLog_profile->logging_profile){
-                        if($oCRNRSTN_n->isBitSet($oLog_profile->logging_profile)){
-
-                            error_log(__LINE__.' env - I am the (int) '.$oLog_profile->logging_profile.' profile object you are looking for.');
-
-                            //if(!isset($tmp_log_profile_spoiled[$profile])) {
-
-                                //
-                                // TODO :: NOTIFICATIONS TRIGGERED BY HIGHER CLASS OBJECTS WILL BE MUTED...UNLESS
-                                // TODO :: CLASS NAME IS ADDED TO LOG SPOILER
-                                //$tmp_log_profile_spoiled[$profile] = 1;
-
-                                //
-                                // SOURCE :: https://www.youtube.com/watch?v=83KR_UBWdPI
-                                if (!$oLog_profile->no_cars_tification_go($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj)) {
-
-                                    error_log('Error processing the following message through ['.$profile.'] notification channel :: ' . $tmp_exception_output_str);
-
-                                    die();
-
-                                }
-
-                            //}
-
-                        }
-
-                    }
-
-                break;
 
             }
-
-
 
         }
 
@@ -5222,26 +5180,23 @@ class crnrstn_logging_oprofile_manager {
 
     }
 
-    private function is_WCR_key($str){
+    private function is_WCR_key($sys_logging_wcr_ARRAY, $str){
 
-        if(isset($this->oWildCardResource_ARRAY)){
-           // error_log('2448 env - is_WCR_key() TEST NEW !!ARRAY FORK AGAINST ARRAY sizeof>0, where sizeof='.sizeof($this->oWildCardResource_ARRAY[crc32($this->configSerial)]));
+        //if(isset($this->oWildCardResource_ARRAY)){
+        // error_log('2448 env - is_WCR_key() TEST NEW !!ARRAY FORK AGAINST ARRAY sizeof>0, where sizeof='.sizeof($this->oWildCardResource_ARRAY[crc32($this->configSerial)]));
 
-            //
-            // SOURCE :: https://www.php.net/manual/en/language.types.boolean.php
-            // AUTHOR :: https://www.php.net/manual/en/language.types.boolean.php#78099
-            if(!!$this->oWildCardResource_ARRAY){
-            //if(sizeof($this->oWildCardResource_ARRAY[crc32($this->configSerial)]) > 0){
-                error_log(__LINE__.' env - we are sizeof() > 0...per !!array(), right?');
-                foreach ($this->oWildCardResource_ARRAY as $key => $value) {
+        //
+        // SOURCE :: https://www.php.net/manual/en/language.types.boolean.php
+        // AUTHOR :: artktec at gmail dot com :: https://www.php.net/manual/en/language.types.boolean.php#78099
+        if(!!$sys_logging_wcr_ARRAY){
 
-                    error_log(__LINE__.' env - is_WCR_key() key['.$key.']['.$value.']');
-                    if($str == $value){
+            foreach ($sys_logging_wcr_ARRAY as $key0 => $chunkArray0) {
 
-                        error_log(__LINE__.' env - WCR MATCH str['.$str.']['.$value.']');
+                foreach($chunkArray0 as $key => $oWCR){
 
-                        return $this->oWildCardResource_ARRAY[crc32($this->configSerial)][$key];
-                        // return true;
+                    if($str == $oWCR->returnResourceKey()){
+
+                        return $oWCR;
 
                     }
 
@@ -5249,11 +5204,6 @@ class crnrstn_logging_oprofile_manager {
 
             }
 
-        }else{
-
-            error_log(__LINE__.' env print_r die();');
-            error_log(print_r($this->oWildCardResource_ARRAY[crc32($this->configSerial)], true));
-            die();
         }
 
         return false;
@@ -5275,7 +5225,7 @@ class crnrstn_logging_oprofile_manager {
                     switch($profile){
                         case CRNRSTN_LOG_EMAIL:
 
-                            error_log(__LINE__.' env - do we run here...receive_profile_EMAIL_WCR() '.$oLog_profile->return_profile());
+                            error_log(__LINE__.' env - RUN receive_profile_EMAIL_WCR() '.$oLog_profile->return_profile());
 
                             //
                             // ADD WCR DATA TO oLog_profile
@@ -5284,21 +5234,21 @@ class crnrstn_logging_oprofile_manager {
 
                         break;
                         case CRNRSTN_LOG_EMAIL_PROXY:
-                            error_log(__LINE__.' env - do we run here...receive_profile_EMAIL_PROXY_WCR() '.$oLog_profile->return_profile());
+                            error_log(__LINE__.' env - RUN receive_profile_EMAIL_PROXY_WCR() '.$oLog_profile->return_profile());
 
                             $oLog_profile->receive_profile_EMAIL_PROXY_WCR($oWCR, $value);
                             $oLog_profile->isValid = true;
 
                         break;
                         case CRNRSTN_LOG_FILE_FTP:
-                            error_log(__LINE__.' env - do we run here...receive_profile_FTP_WCR() '.$oLog_profile->return_profile());
+                            error_log(__LINE__.' env - RUN receive_profile_FTP_WCR() '.$oLog_profile->return_profile());
 
                             $oLog_profile->receive_profile_FTP_WCR($oWCR, $value);
                             $oLog_profile->isValid = true;
 
                         break;
                         case CRNRSTN_LOG_FILE:
-                            error_log(__LINE__.' env - do we run here... receive_profile_FILE_WCR() '.$oLog_profile->return_profile());
+                            error_log(__LINE__.' env - RUN receive_profile_FILE_WCR() '.$oLog_profile->return_profile());
 
                             $oLog_profile->receive_profile_FILE_WCR($oWCR, $value);
                             $oLog_profile->isValid = true;
@@ -5315,7 +5265,7 @@ class crnrstn_logging_oprofile_manager {
                         case CRNRSTN_LOG_EMAIL:
                         case CRNRSTN_LOG_EMAIL_PROXY:
 
-                            error_log(__LINE__.' env - do we run here... receive_profile_EMAIL() '.$oLog_profile->return_profile());
+                            error_log(__LINE__.' env - RUN receive_profile_EMAIL() '.$oLog_profile->return_profile());
 
                             //
                             // ADD DATA TO oLog_profile
@@ -5324,7 +5274,7 @@ class crnrstn_logging_oprofile_manager {
 
                         break;
                         case CRNRSTN_LOG_FILE:
-                            error_log(__LINE__.' env - do we run here... receive_profile_FILE() '.$oLog_profile->return_profile());
+                            error_log(__LINE__.' env - RUN receive_profile_FILE() '.$oLog_profile->return_profile());
 
                             $oLog_profile->receive_profile_FILE($value);
                             $oLog_profile->isValid = true;
@@ -5343,303 +5293,179 @@ class crnrstn_logging_oprofile_manager {
 
     }
 
-    public function consume_init_profile_pack($init_profile_pack_ARRAY){
+    public function consume_init_profile_pack($init_profile_pack){
 
         /*
         init_profile_pack_ARRAY ::
-        $tmp_array['log_initial_profile_ARRAY'] = $this->log_initial_profile_ARRAY;
-        $tmp_array['log_initial_profile_meta_ARRAY'] = $this->log_initial_profile_meta_ARRAY;
-        $tmp_array['oWildCardResource_ARRAY'] = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
-
-         $init_profile_pack_ARRAY['log_initial_profile_ARRAY'] = $oCRNRSTN_n->return_sys_logging_profile();
-                $init_profile_pack_ARRAY['log_initial_profile_meta_ARRAY'] = $oCRNRSTN_n->return_sys_logging_meta();
-
-        log_initial_profile_meta_ARRAY
+        $init_profile_pack['sys_logging_profile_ARRAY'] = self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        $init_profile_pack['sys_logging_meta_ARRAY'] = self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        $init_profile_pack['sys_logging_wcr_ARRAY'] = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
         */
 
-        $tmp_working_copy_profile_ARRAY = array();
+        if(isset($init_profile_pack['sys_logging_meta_ARRAY'])){
 
-        if(isset($init_profile_pack_ARRAY['log_initial_profile_ARRAY'])){
+            foreach ($init_profile_pack['sys_logging_meta_ARRAY'] as $key => $value) {
 
-            //error_log('1633 env - log_initial_profile_ARRAY set...');
-            $tmp_output_profile_ARRAY = $init_profile_pack_ARRAY['log_initial_profile_ARRAY'];
-            $tmp_cnt = sizeof($tmp_output_profile_ARRAY);
+                //error_log(__LINE__.' env - HOW MANY META DATA PROCESS? ['.$init_profile_pack['sys_logging_meta_ARRAY'][$key].'] FOR DATA  ' . $value);
+                //error_log(__LINE__.' env - (int) '.print_r($init_profile_pack['sys_logging_profile_ARRAY'][$key], true).' HANDLE META VALUE ' . print_r($value, true));
 
-            if ($tmp_cnt > 0) {
+                switch($init_profile_pack['sys_logging_profile_ARRAY'][$key]){
+                    case CRNRSTN_LOG_EMAIL:
 
-                foreach ($tmp_output_profile_ARRAY as $key => $value) {
+                        $pos_at = strpos($value, '@');
 
-                    $tmp_working_copy_profile_ARRAY[$key] = $value;
+                        //error_log(__LINE__.' env ['.get_class().'] ping. wcr=' . print_r($this->oWildCardResource_ARRAY, true));
+                        if($pos_at !== false){
 
-                }
-
-            }
-
-        }
-
-        if(isset($init_profile_pack_ARRAY['log_initial_profile_meta_ARRAY'])){
-
-            //error_log(__LINE__.' env die();');
-            //print_r($init_profile_pack_ARRAY['log_initial_profile_meta_ARRAY']);
-
-            //die();
-            $tmp_endpt_profile_array = $init_profile_pack_ARRAY['log_initial_profile_ARRAY'];
-            $tmp_endpt_pipe_array = $init_profile_pack_ARRAY['log_initial_profile_meta_ARRAY'];
-            $tmp_cnt = sizeof($tmp_endpt_pipe_array);
-
-            if ($tmp_cnt > 0) {
-
-                foreach ($tmp_endpt_pipe_array as $key => $value) {
-
-                    //error_log(__LINE__.' env - HOW MANY META DATA PROCESS...3???['.$tmp_working_copy_profile_ARRAY[$key].'] FOR DATA  ' . $value);
-                    error_log(__LINE__.' env - (int) '.print_r($tmp_endpt_profile_array[$key], true).' HANDLE META VALUE ' . print_r($value, true));
-                    error_log(__LINE__.' env ['.get_class().'] ping.');
-
-                    switch($tmp_endpt_profile_array[$key]){
-                        case CRNRSTN_LOG_EMAIL:
-
-                            $pos_at = strpos($value, '@');
-
-                            error_log(__LINE__.' env ['.get_class().'] ping. wcr=' . print_r($this->oWildCardResource_ARRAY, true));
-                            if($pos_at !== false || isset($tmp_oWCR[$value])){
-
-                                if($this->is_WCR_key($value)){
-                                    error_log(__LINE__.' env ['.get_class().'] ping.');
-                                    //
-                                    // PROCESS FOR WCR
-                                    $tmp_oWCR = $this->is_WCR_key($value);
-                                    if(is_array($tmp_oWCR)){
-
-                                        foreach($tmp_oWCR as $wcr_key => $oWCR){
-
-                                            if($value == $oWCR->returnResourceKey()){
-
-                                                //
-                                                // PROCESS FOR WCR
-                                                error_log(__LINE__.' env - PROCESS['.$tmp_working_copy_profile_ARRAY[$key].'] FOR WCR ' . $value);
-                                                $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value, $oWCR);
-
-                                            }
-
-                                        }
-
-                                    }
-
-                                    error_log(__LINE__.' env ['.get_class().'] ping.');
-
-                                }else{
-                                    error_log(__LINE__.' env ['.get_class().'] ping.');
-                                    //
-                                    // PROCESS FOR EMAIL ADDRESS
-                                    error_log(__LINE__.' env - PROCESS['.$tmp_working_copy_profile_ARRAY[$key].'] FOR EMAIL_ADDR ' . $value);
-                                    $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value);
-
-                                }
-
-                                error_log(__LINE__.' env ['.get_class().'] ping.');
-
-                            }else{
-
-                                $tmp_oWCR = $this->is_WCR_key($value);
-                                if(is_array($tmp_oWCR)){
-
-                                    foreach($tmp_oWCR as $wcr_key => $oWCR){
-
-                                        if($value == $oWCR->returnResourceKey()){
-
-                                            //
-                                            // PROCESS FOR WCR
-                                            error_log(__LINE__.' env - PROCESS['.$tmp_working_copy_profile_ARRAY[$key].'] FOR WCR ' . $value);
-                                            $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value, $oWCR);
-
-                                        }
-
-                                    }
-
-                                }
-
-                            }
-
-                        break;
-                        case CRNRSTN_LOG_EMAIL_PROXY:
-
-                            $pos_at = strpos($value, '@');
-                            if($pos_at !== false){
-
+//                            if($this->is_WCR_key($value)){
+//                                error_log(__LINE__.' env ['.get_class().'] ping.');
+//                                //
+//                                // PROCESS FOR WCR
+//                                $tmp_oWCR = $this->is_WCR_key($value);
+//                                if(is_array($tmp_oWCR)){
+//
+//                                    foreach($tmp_oWCR as $wcr_key => $oWCR){
+//
+//                                        if($value == $oWCR->returnResourceKey()){
+//
+//                                            //
+//                                            // PROCESS FOR WCR
+//                                            error_log(__LINE__.' env - PROCESS['.$init_profile_pack['sys_logging_meta_ARRAY'][$key].'] FOR WCR ' . $value);
+//                                            $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_meta_ARRAY'][$key], $value, $oWCR);
+//
+//                                        }
+//
+//                                    }
+//
+//                                }
+//
+//                                error_log(__LINE__.' env ['.get_class().'] ping.');
+//
+//                            }
+                            //else{
                                 //
                                 // PROCESS FOR EMAIL ADDRESS
-                                //error_log(__LINE__.' env - PROCESS['.$tmp_working_copy_profile_ARRAY[$key].'] FOR EMAIL_ADDR ' . $value);
-                                $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value);
+                                //error_log(__LINE__.' env - PROCESS['.$init_profile_pack['sys_logging_meta_ARRAY'][$key].'] FOR EMAIL_ADDR ' . $value);
+                                $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value);
 
-                            }else{
+                            //}
 
-                                $tmp_oWCR = $this->is_WCR_key($value);
-                                if(is_array($tmp_oWCR)){
+                        }else{
 
-                                    foreach($tmp_oWCR as $wcr_key => $oWCR) {
+                            $tmp_oWCR = $this->is_WCR_key($init_profile_pack['sys_logging_wcr_ARRAY'], $value);
+                            if(is_object($tmp_oWCR)){
 
-                                        if ($value == $oWCR->returnResourceKey()) {
+                                error_log(__LINE__.' env - PROCESS[' . $init_profile_pack['sys_logging_meta_ARRAY'][$key] . '] FOR WCR ' . $value);
 
-                                            //
-                                            // PROCESS FOR WCR
-                                            //error_log(__LINE__.' env - PROCESS[' . $tmp_working_copy_profile_ARRAY[$key] . '] FOR WCR ' . $value);
-                                            $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value, $oWCR);
-
-                                        }
-
-                                    }
-
-                                }
-
-                            }
-
-                        break;
-                        case CRNRSTN_LOG_FILE:
-
-                            $tmp_oWCR = $this->is_WCR_key($value);
-                            if(is_array($tmp_oWCR)){
-
-                                foreach($tmp_oWCR as $wcr_key => $oWCR) {
-
-                                    if ($value == $oWCR->returnResourceKey()) {
-
-                                        error_log(__LINE__.' env - PROCESS[' . $tmp_working_copy_profile_ARRAY[$key] . '] FOR WCR ' . $value);
-                                        $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value, $oWCR);
-
-                                    }
-                                }
-
-                            }else{
-
-                                error_log(__LINE__.' env - PROCESS[' . $tmp_working_copy_profile_ARRAY[$key] . '] FOR PATH ' . $value);
-                                $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value);
-
-                            }
-
-                        break;
-                        case CRNRSTN_LOG_FILE_FTP:
-
-                            $tmp_oWCR = $this->is_WCR_key($value);
-                            if(is_array($tmp_oWCR)){
-
-                                foreach($tmp_oWCR as $wcr_key => $oWCR) {
-
-                                    if ($value == $oWCR->returnResourceKey()) {
-
-                                        error_log(__LINE__.' env - PROCESS[' . $tmp_working_copy_profile_ARRAY[$key] . '] FOR WCR ' . $value);
-                                        $this->oLog_profile_endpoint_update($tmp_working_copy_profile_ARRAY[$key], $value, $oWCR);
-
-                                    }
-
-                                }
-
-                            }
-
-                        break;
-
-                    }
-
-                }
-
-            }
-
-        }else{
-
-            error_log(__LINE__.' env - log_initial_profile_meta_ARRAY NOT set...');
-
-        }
-
-        if(isset($init_profile_pack_ARRAY['oWildCardResource_ARRAY'])) {
-
-            //error_log(__LINE__.' 1/2. ...There should be 2/2 next! '.print_r($init_profile_pack_ARRAY['oWildCardResource_ARRAY'], true));
-
-            //die();
-            //if(isset($init_profile_pack_ARRAY['oWildCardResource_ARRAY'][crc32($this->configSerial)])){
-
-                //error_log(__LINE__.' 2/2. Thx!');
-
-                //$tmp_wcr_pipe_array = $init_profile_pack_ARRAY['oWildCardResource_ARRAY'][crc32($this->configSerial)][CRNRSTN_LOG_ALL];
-                //$tmp_cnt = sizeof($tmp_wcr_pipe_array);
-
-                //if ($tmp_cnt > 0) {
-
-                    foreach ($init_profile_pack_ARRAY['log_initial_profile_meta_ARRAY'] as $key => $chunkArray0) {
-
-                        //error_log(__LINE__.' env chunkArray0='.print_r($chunkArray0, true));
-                        //error_log(__LINE__.' env init_profile_pack_ARRAY='.print_r($init_profile_pack_ARRAY, true));
-
-                        $tmp_oWCR_array = $init_profile_pack_ARRAY['oWildCardResource_ARRAY'];
-
-                        foreach($tmp_oWCR_array as $key0 => $oWCR){
-
-                            //error_log(__LINE__.' env $oWCR='.print_r($oWCR, true));
-                            if(is_object($oWCR)){
-
-                               // $oWCR = $oWCR[CRNRSTN_LOG_ALL][0][$chunkArray0];
-
-                                $tmp_wcr_key = $oWCR->returnResourceKey();
-
-                                //error_log(__LINE__.' env - PROCESS[WCR] (will need to autodetect the olog_profile to which to make updates)- ' .$tmp_wcr_key);
-                                //error_log('1746 env - PROCESS[WCR] - ' . $oWCR->get_attribute('CRNRSTN_SMTP_COMM_PROFILE', 'SYS_SMTP_SERVER'));
-
-                                //
-                                // DETECT WCR ENDPOINT [TYPE=EMAIL] FROM FIELD EMAIL_PROTOCOL IN WCR EMAIL TEMPLATE
-                                if($oWCR->isset_WCR($tmp_wcr_key, 'EMAIL_PROTOCOL')){
-
-                                    //error_log(__LINE__.' env - PROCESS[WCR] update oLog_profile_endpoint_update() ...has EMAIL_PROTOCOL ' .$tmp_wcr_key);
-
-                                    //
-                                    // WCR FOR EMAIL OF TRACE
-                                    $this->oLog_profile_endpoint_update(CRNRSTN_LOG_EMAIL, $tmp_wcr_key, $oWCR);
-
-                                }
-
-                                //
-                                // DETECT WCR ENDPOINT [TYPE=FTP] FROM FIELD FTP_SERVER IN WCR FTP TEMPLATE
-                                if($oWCR->isset_WCR($tmp_wcr_key, 'FTP_SERVER')) {
-
-                                    //
-                                    // WCR FOR FTP OF TRACE IN FILE
-                                    $this->oLog_profile_endpoint_update(CRNRSTN_LOG_FILE_FTP, $tmp_wcr_key, $oWCR);
-
-                                }
-
-                                //
-                                // DETECT WCR ENDPOINT [TYPE=EMAIL_PROXY] FROM FIELD FTP_SERVER IN WCR EMAIL_PROXY TEMPLATE
-                                if($oWCR->isset_WCR($tmp_wcr_key, 'WSDL_URI')) {
-
-                                    //
-                                    // WCR FOR EMAIL_PROXY OF TRACE IN FILE
-                                    $this->oLog_profile_endpoint_update(CRNRSTN_LOG_EMAIL_PROXY, $tmp_wcr_key, $oWCR);
-
-                                }
-
-                                //
-                                // DETECT WCR ENDPOINT [TYPE=FILE] FROM FIELD LOCAL_DIR_PATH IN WCR FILE TEMPLATE
-                                if($oWCR->isset_WCR($tmp_wcr_key, 'LOCAL_DIR_PATH')) {
-
-                                    //
-                                    // WCR FOR FILE WRITE OF TRACE IN FILE
-                                    $this->oLog_profile_endpoint_update(CRNRSTN_LOG_FILE, $tmp_wcr_key, $oWCR);
-
-                                }
-
+                                $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value, $tmp_oWCR);
 
                             }
 
                         }
 
-                    }
+                    break;
+                    case CRNRSTN_LOG_EMAIL_PROXY:
 
-                    //}
+                        $pos_at = strpos($value, '@');
+                        if($pos_at !== false){
 
-                //}
+                            //
+                            // PROCESS FOR EMAIL ADDRESS
+                            //error_log(__LINE__.' env - PROCESS['.$init_profile_pack['sys_logging_meta_ARRAY'][$key].'] FOR EMAIL_ADDR ' . $value);
+                            $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value);
 
-            //}
+                        }else{
+
+                            $tmp_oWCR = $this->is_WCR_key($init_profile_pack['sys_logging_wcr_ARRAY'], $value);
+                            if(is_object($tmp_oWCR)){
+
+                                error_log(__LINE__.' env - PROCESS[' . $init_profile_pack['sys_logging_meta_ARRAY'][$key] . '] FOR WCR ' . $value);
+
+                                $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value, $tmp_oWCR);
+
+                            }
+
+                        }
+
+                    break;
+                    case CRNRSTN_LOG_FILE:
+
+                        $tmp_oWCR = $this->is_WCR_key($init_profile_pack['sys_logging_wcr_ARRAY'], $value);
+                        if(is_object($tmp_oWCR)){
+                            error_log(__LINE__.' env - PROCESS[' . $init_profile_pack['sys_logging_meta_ARRAY'][$key] . '] FOR WCR ' . $value);
+                            $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value, $tmp_oWCR);
+
+                        }else{
+
+                            error_log(__LINE__.' env - PROCESS[' . $init_profile_pack['sys_logging_meta_ARRAY'][$key] . '] FOR PATH ' . $value);
+                            $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value);
+
+                        }
+
+                    break;
+                    case CRNRSTN_LOG_FILE_FTP:
+
+                        $tmp_oWCR = $this->is_WCR_key($init_profile_pack['sys_logging_wcr_ARRAY'], $value);
+                        if(is_object($tmp_oWCR)){
+
+                            $tmp_wcr_key = $tmp_oWCR->returnResourceKey();
+
+                            $this->oLog_profile_endpoint_update($init_profile_pack['sys_logging_profile_ARRAY'][$key], $value, $tmp_oWCR);
+
+                            //
+                            // CHECK oWCR FOR ANY OTHER RELEVANT ENDPOINT DATA
+                            // DETECT oWCR ENDPOINT [TYPE=EMAIL] FROM FIELD EMAIL_PROTOCOL IN WCR EMAIL TEMPLATE
+                            if($tmp_oWCR->isset_WCR($tmp_wcr_key, 'EMAIL_PROTOCOL') && (CRNRSTN_LOG_EMAIL != $init_profile_pack['sys_logging_profile_ARRAY'][$key])){
+
+                                //error_log(__LINE__.' env - PROCESS[WCR] update oLog_profile_endpoint_update() ...has EMAIL_PROTOCOL ' .$tmp_wcr_key);
+
+                                //
+                                // WCR FOR EMAIL OF TRACE
+                                $this->oLog_profile_endpoint_update(CRNRSTN_LOG_EMAIL, $tmp_wcr_key, $tmp_oWCR);
+
+                            }
+
+                            //
+                            // DETECT WCR ENDPOINT [TYPE=FTP] FROM FIELD FTP_SERVER IN WCR FTP TEMPLATE
+                            if($tmp_oWCR->isset_WCR($tmp_wcr_key, 'FTP_SERVER') && (CRNRSTN_LOG_FILE_FTP != $init_profile_pack['sys_logging_profile_ARRAY'][$key])) {
+
+                                //
+                                // WCR FOR FTP OF TRACE IN FILE
+                                $this->oLog_profile_endpoint_update(CRNRSTN_LOG_FILE_FTP, $tmp_wcr_key, $tmp_oWCR);
+
+                            }
+
+                            //
+                            // DETECT WCR ENDPOINT [TYPE=EMAIL_PROXY] FROM FIELD FTP_SERVER IN WCR EMAIL_PROXY TEMPLATE
+                            if($tmp_oWCR->isset_WCR($tmp_wcr_key, 'WSDL_URI') && (CRNRSTN_LOG_EMAIL_PROXY != $init_profile_pack['sys_logging_profile_ARRAY'][$key])) {
+
+                                //
+                                // WCR FOR EMAIL_PROXY OF TRACE IN FILE
+                                $this->oLog_profile_endpoint_update(CRNRSTN_LOG_EMAIL_PROXY, $tmp_wcr_key, $tmp_oWCR);
+
+                            }
+
+                            //
+                            // DETECT WCR ENDPOINT [TYPE=FILE] FROM FIELD LOCAL_DIR_PATH IN WCR FILE TEMPLATE
+                            if($tmp_oWCR->isset_WCR($tmp_wcr_key, 'LOCAL_DIR_PATH') && (CRNRSTN_LOG_FILE != $init_profile_pack['sys_logging_profile_ARRAY'][$key])) {
+
+                                //
+                                // WCR FOR FILE WRITE OF TRACE IN FILE
+                                $this->oLog_profile_endpoint_update(CRNRSTN_LOG_FILE, $tmp_wcr_key, $tmp_oWCR);
+
+                            }
+
+                        }
+
+                    break;
+
+                }
+
+            }
 
         }else{
 
-            error_log(__LINE__.' env - oWildCardResource_ARRAY NOT set...');
+            error_log(__LINE__.' env - sys_logging_meta_ARRAY NOT set...');
 
         }
 
@@ -5653,6 +5479,8 @@ class crnrstn_logging_oprofile_manager {
 
             foreach($this->oLog_profiles_ARRAY as $key => $oLog_profile){
 
+                //
+                // LOAD CRNRSTN OBJ INTO EACH LOGGING PROFILE OBJECT
                 $oLog_profile->load_CRNRSTN_ENV($oCRNRSTN);
 
                 $tmp_array[] = $oLog_profile;
@@ -5664,9 +5492,12 @@ class crnrstn_logging_oprofile_manager {
 
             foreach($this->oLog_profiles_ARRAY as $key => $oLog_profile){
 
+                //
+                // LOAD CRNRSTN_ENV OBJ INTO EACH LOGGING PROFILE OBJECT
                 $oLog_profile->load_CRNRSTN_ENV($oCRNRSTN_ENV);
 
                 $tmp_array[] = $oLog_profile;
+
             }
 
             $this->oLog_profiles_ARRAY = $tmp_array;
@@ -6565,18 +6396,18 @@ class crnrstn_logging_oprofile{
 
             $tmp_oGabriel_serial = $oCRNRSTN_n->generateNewKey(50);
 
+            error_log(__LINE__.' env die $tmp_RECIPIENT_EMAIL='.print_r($tmp_RECIPIENT_EMAIL, true));
+
             switch(get_class($oCRNRSTN_n)){
                 case 'crnrstn_user':
                 case 'crnrstn_environment':
                 case 'crnrstn':
 
-                    $tmp_recipient_cnt = sizeof($tmp_RECIPIENT_EMAIL);
-
-                    //error_log(__LINE__.' '.__METHOD__.' Outside of '.$tmp_recipient_cnt.' emails send loop....');
+                    $tmp_recipient_cnt = count($tmp_RECIPIENT_EMAIL);
 
                     for ($i = 0; $i < $tmp_recipient_cnt; $i++) {
 
-                        //error_log(__LINE__.' processing recipient email='.$tmp_RECIPIENT_EMAIL[$i]);
+                        error_log(__LINE__.' processing recipient email='.$tmp_RECIPIENT_EMAIL[$i]);
 
                         if(!($tmp_DUP_SUPPRESS && isset($tmp_sent_suppression[strtolower($tmp_RECIPIENT_EMAIL[$i])]))){
 
@@ -7807,7 +7638,7 @@ class crnrstn_logging_oprofile{
 
     }
 
-    public function consume_logging_profile_pack($sys_logging_profile_pack){
+    public function consume_logging_profile_pack($sys_logging_profile_pack = NULL){
 
         if(isset($sys_logging_profile_pack['sys_logging_profile'])){
 

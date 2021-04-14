@@ -3152,7 +3152,7 @@ class crnrstn_messenger_from_north {
                             <td style="text-align:center; border-top:2px solid #D2D2D2; border-bottom:2px solid #D2D2D2;">
                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                     <tr>
-                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; 2020 Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
+                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; '.date('Y').' Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
                                     </tr>
                                 </table>
                             </td>
@@ -3324,7 +3324,7 @@ class crnrstn_messenger_from_north {
                             <td style="text-align:center; border-top:2px solid #D2D2D2; border-bottom:2px solid #D2D2D2;">
                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                     <tr>
-                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; 2020 Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
+                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; '.date('Y').' Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
                                     </tr>
                                 </table>
                             </td>
@@ -3496,7 +3496,7 @@ class crnrstn_messenger_from_north {
                             <td style="text-align:center; border-top:2px solid #D2D2D2; border-bottom:2px solid #D2D2D2;">
                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                     <tr>
-                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; 2020 Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
+                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; '.date('Y').' Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
                                     </tr>
                                 </table>
                             </td>
@@ -3632,7 +3632,7 @@ Data Destinations
 
 {ELECTRUM_ERRORS_TRACE_TEXT}
 = = = = = = = = = = = = = = = = = = = = = = = = =
-(c) 2020 Jonathan J5 Harris,
+(c) '.date('Y').' Jonathan J5 Harris,
 All Rights Reserved in accordance with the most
 recent version of the MIT License.
 
@@ -3677,7 +3677,7 @@ Process Runtime ::
 {PROCESS_RUN_TIME} seconds
 
 = = = = = = = = = = = = = = = = = = = = = = = = =
-(c) 2020 Jonathan J5 Harris,
+(c) '.date('Y').' Jonathan J5 Harris,
 All Rights Reserved in accordance with the most
 recent version of the MIT License.
 
@@ -3729,7 +3729,7 @@ Process Runtime ::
 {PROCESS_RUN_TIME} seconds
 
 = = = = = = = = = = = = = = = = = = = = = = = = =
-(c) 2020 Jonathan J5 Harris,
+(c) '.date('Y').' Jonathan J5 Harris,
 All Rights Reserved in accordance with the most
 recent version of the MIT License.
 
@@ -9693,9 +9693,9 @@ Formally, the display property sets an element\'s inner and outer display types.
                             </td>                                            
                             <td style="vertical-align: top; text-align: left; border-left:10px solid #FFF;">
                                 <div style="border-top:'.$r_tblcol_top_padding.'px solid #FFF; vertical-align:top;">                               
-                                    <table cellspacing="0" cellpadding="0" border="0" style="width:300px;">
+                                    <table style="border:0; padding: 0; margin:0; width:305px;">
                                     <tr>
-                                        <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
+                                        <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
                                             <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/', 'web_standards_thanks_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/', 'campaign_monitor_thanks_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
                                             for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/', 'ultimate_guide_to_css_results').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
                                              respect to CSS support for many popular mobile, web, and desktop email  
@@ -9748,14 +9748,6 @@ Formally, the display property sets an element\'s inner and outer display types.
     }
 
     private function return_css_validator_content_HTML($html_content_injection, $r_tblcol_top_padding = 117){
-
-
-        //error_log(__LINE__.' (int) '.CRNRSTN_UI_JS_JQUERY.' css return_css_validator_content_HTML len='.strlen($html_content_injection));
-        //die();
-        //$tmp = $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY);
-
-        //error_log(__LINE__.' css CRNRSTN_UI_CSS_MAIN len = '.strlen($tmp).' | return_css_validator_content_HTML len='.strlen($html_content_injection));
-        //die();
 
         $tmp_form_serial = $this->oCRNRSTN_USR->generateNewKey(7);
 
@@ -9852,7 +9844,6 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <div style="height:10px; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
-
         <div style=" width:700px; text-align: center; margin:0 auto;">
             <div id="crnrstn_css_validation_bdr01_'.$tmp_form_serial.'">
 
@@ -9860,16 +9851,16 @@ Formally, the display property sets an element\'s inner and outer display types.
                         <table style="border:0; padding: 0; margin:0;">
                         <tr>
                             <td style="vertical-align: top; text-align: left;">
-                                <div style="text-align: left; width: 390px; background-color: #FFF;">
+                                <div style="text-align: left; width: 370px; background-color: #FFF;">
                                '.$html_content_injection.'   
-                                </div>          
+                                </div>
                                 
                             </td>                                            
                             <td style="vertical-align: top; text-align: left; border-left:10px solid #FFF;">
                                 <div style="border-top:'.$r_tblcol_top_padding.'px solid #FFF; vertical-align:top;">                               
-                                    <table style="border:0; padding: 0; margin:0; width:300px;">
+                                    <table style="border:0; padding: 0; margin:0; width:305px;">
                                     <tr>
-                                        <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; width:290px; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
+                                        <td style=\'text-align:left; line-height: 18px; color:#6885C3;border-right:15px solid #FFF; font-size: 14px; margin: 0; font-family:"Courier New", Courier, monospace;\'>
                                             <strong>Note:</strong> Special thanks to the folks  at <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://webstandards.org/', 'web_standards_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">WaSP</a> and <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/', 'campaign_monitor_thanks').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Campaign Monitor</a>
                                             for  their <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://www.campaignmonitor.com/css/', 'ultimate_guide_to_css').'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">Ultimate Guide to CSS</a> breaking  down a host of the nitty-gritty with
                                              respect to CSS support for many popular mobile, web, and desktop email  
@@ -10628,8 +10619,8 @@ Formally, the display property sets an element\'s inner and outer display types.
                                                         <tr>
                                                             <td colspan="2">
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; font-weight: bold; border-left: 10px solid #FFF;  border-top: 10px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'>Validator Status ::</div>
-                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 10px solid #FFF; border-right: 10px solid #FFF; border-right: 10px solid #FFF; border-bottom: 10px solid #FFF; color: #6885C3; line-height:17px; \'><span style=\'font-family:"Courier New", Courier, monospace; font-size: 14px; font-weight: bold;\'>April 13, 2021 1923hrs.</span> Please scroll down for the CSS validation report details. This tool is currently under active development. 
-                                                                We just finished clearing most (or all) bugs in the <a href="./?css_valptrn='.$this->oCRNRSTN_USR->generateNewKey(8, '01').'" style="color:#0066CC;">underlying rules</a> supporting the validation algorithm. For now, there are still other 
+                                                                <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 10px solid #FFF; border-right: 10px solid #FFF; border-right: 10px solid #FFF; border-bottom: 10px solid #FFF; color: #6885C3; line-height:17px; \'><span style=\'font-family:"Courier New", Courier, monospace; font-size: 14px; font-weight: bold;\'>April 14, 2021 1525hrs.</span> Please scroll down for the CSS validation report details. This tool is currently under active development. 
+                                                                We just finished clearing many bugs in the <a href="./?css_valptrn='.$this->oCRNRSTN_USR->generateNewKey(8, '01').'" style="color:#0066CC;">underlying rules</a> supporting the validation algorithm and also within exception handling. For now, there are still other 
                                                                 bugs and incomplete core elements, so this tool remains in PRE-ALPHA. Once testing is complete, this brief status report will be updated to an 
                                                                 overview of the tool. <br><br>It would be nice to have share via 
                                                                 email/FTAF for this report. This project is <a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://crnrstn.evifweb.com/licensing/').'" target="_blank">MIT Licensed</a>, and it has been pushed to <a href="'.$this->oCRNRSTN_USR->return_sticky_link('https://github.com/jony5/CSS-Validator-for-HTML-Email-v2.00.0000').'" target="_blank">GitHub</a>.</div>

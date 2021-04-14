@@ -1415,7 +1415,7 @@ class crnrstn_image_v_html_content_manager {
                 $tmp_str = '';
                 require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/linux_penguin_sm.php');
 
-                return '<a href="https://www.linux.com/" target="_blank"><img src="'.$tmp_str.'" width="30" height="35" alt="Linux" title="CRNRSTN :: Linux" style="border: 0;"></a>';
+                return '<a href="https://www.linux.com/" target="_blank"><img src="'.$tmp_str.'" width="30" height="35" alt="Linux :: Tux the Penguin" title="CRNRSTN :: Linux" style="border: 0;"></a>';
 
             break;
             case CRNRSTN_UI_IMG_BASE64:
@@ -1440,7 +1440,7 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
                 //_crnrstn/creative/_encoded/.png
-                return '<a href="https://www.linux.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/linux_penguin_sm.png" width="30" height="35" alt="Linux" title="CRNRSTN :: Linux" style="border: 0;"></a>';
+                return '<a href="https://www.linux.com/" target="_blank"><img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/linux_penguin_sm.png" width="30" height="35" alt="Linux :: Tux the Penguin" title="CRNRSTN :: Linux" style="border: 0;"></a>';
 
             break;
 
