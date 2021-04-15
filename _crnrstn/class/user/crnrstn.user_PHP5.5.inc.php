@@ -71,11 +71,6 @@ class crnrstn_user{
     private static $resourceKey;
 
     private static $oLog_ProfileManager;
-    private static $sys_logging_profile_ARRAY = array();
-    private static $sys_logging_endpoint_ARRAY = array();
-    private static $sys_logging_wcr_ARRAY = array();
-    private static $sys_logging_update_profile_ARRAY = array();
-    private static $sys_logging_update_endpoint_ARRAY = array();
 
     public $cache_ttl_default = 80;
     public $useCURL_default = true;
@@ -280,6 +275,70 @@ class crnrstn_user{
     public function client_request_listen(){
 
         //
+        // BASE64 IMAGE HELPER crnrstn_to_base64=imgs/png/j5_wolf_pup_lil_5_pts.png
+        if($tmp_html = $this->base64_asset_path_listener()){
+
+            return $tmp_html;
+
+        }
+
+        //
+        // STICKY LINK CHECK
+        if($tmp_html = $this->sticky_uri_listener()){
+
+            return $tmp_html;
+
+        }
+
+    }
+
+    private function base64_asset_path_listener(){
+
+        if($this->isset_HTTP_Param('crnrstn_to_base64', 'GET')){
+
+            $tmp_filename = $this->extractData_HTTP('crnrstn_to_base64');
+
+            $tmp_encoding = $this->base64_encode_image($this->get_resource('DOCUMENT_ROOT') . $this->get_resource('DOCUMENT_ROOT_DIR') . '/_crnrstn/ui/imgs/png/' . $tmp_filename, 'png');
+
+            $tmp_html =  '<div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div>('.$this->crcINT($tmp_filename).' / '.crc32($tmp_filename).') <div style="height:15px; width:100%; clear:both; display: block; overflow: hidden;"></div><img src="' . $tmp_encoding . '" /><div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div><textarea cols="30" rows="50">' . $tmp_encoding . '</textarea>';
+
+            $tmp_html = '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body                        { text-align: center; margin:0px auto;}
+        p                           { padding:10px 0 0 20px; font-size: 18px;}
+	    .debug_output				{ font-size:10px; height:400px;overflow:scroll;border-bottom:2px solid #333;padding:10px 0 0 20px;}
+    </style>
+</head>
+<body>
+<div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div>
+<form action="#" method="get">
+<div style="padding-bottom: 20px;"><input name="crnrstn_to_base64" placeholder="Enter PNG name" value=""></div>
+<button type="submit" style="width:150px; height:30px; text-align: center; font-weight: bold;">SUBMIT</button>
+</form><br><br>
+'.$tmp_html.'
+<pre class="debug_output">'.$this->return_CRNRSTN_ASCII_ART(0).'</pre> 
+
+<br>
+
+
+</body>
+</html>';
+
+            return $tmp_html;
+
+        }else{
+
+            return false;
+
+        }
+
+    }
+
+    private function sticky_uri_listener(){
+
+        //
         // CHECK FOR INITIALIZATION OF STICKY LINK VAR
         if($this->isset_HTTP_Param('crnrstn_r', 'GET')){
 
@@ -321,7 +380,7 @@ class crnrstn_user{
 
         }else{
 
-            return NULL;
+            return false;
 
         }
 
@@ -10068,7 +10127,7 @@ class crnrstn_user{
     // AUTHOR :: luke at lukeoliff.com :: https://www.php.net/manual/en/function.base64-encode.php#105200
     public function base64_encode_image ($filename, $filetype) {
 
-        error_log(__LINE__.' base64_encode_image-- '.$filename);
+//        error_log(__LINE__.' base64_encode_image-- '.$filename);
 
         if (is_file($filename) || (is_string($filename) && (strlen($filename) > 0))) {
 
