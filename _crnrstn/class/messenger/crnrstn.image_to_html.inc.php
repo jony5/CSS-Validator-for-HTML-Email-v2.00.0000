@@ -155,145 +155,212 @@ class crnrstn_image_v_html_content_manager {
 
                         return $this->FIVE();
 
-                    break;
-                    case 'J5_WOLF_PUP':
+                break;
+                    case 'J5_WOLF_PUP_RAND':
 
-                        return $this->J5_WOLF_PUP();
+                        return $this->J5_WOLF_PUP_RAND();
 
-                    break;
+                break;
                     case 'CRNRSTN_LOGO':
 
                         return $this->CRNRSTN_LOGO_EMAIL();
 
-                    break;
+                break;
                     case 'CRNRSTN_R':
 
                         return $this->R();
 
-                    break;
+                break;
                     case 'CRNRSTN_R_WALL':
 
                         return $this->R_PLUS_WALL();
 
-                    break;
+                break;
                     case 'SUCCESS_CHECK':
 
                         return $this->SUCCESS_CHECK();
 
-                    break;
+                break;
                     case 'ERR_X':
 
                         return $this->ERR_X();
 
-                    break;
+                break;
                     case 'CRNRSTN_FAVICON':
 
                         return $this->FAVICON();
 
-                    break;
+                break;
                     case 'LINUX_PENGUIN':
 
                         return $this->LINUX_PENGUIN();
 
-                    break;
+                break;
                     case 'MYSQL_DOLPHIN':
 
                         return $this->MYSQL_DOLPHIN();
 
-                    break;
+                break;
                     case 'REDHAT_BAR':
 
                         return $this->REDHAT_BAR();
 
-                    break;
+                break;
                     case 'REDHAT_CIRCLE':
 
                         return $this->REDHAT_CIRCLE();
 
-                    break;
+                break;
                     case 'APACHE_POWER_VERS':
 
                         return $this->APACHE_POWER_VERSION();
 
-                    break;
+                break;
                     case 'APACHE_POWER':
 
                         return $this->APACHE_POWER();
 
-                    break;
+                break;
                     case 'REDHAT_POWER':
 
                         return $this->REDHAT_POWER();
 
-                    break;
+                break;
                     case 'PHP_ELLIPSE':
 
                         return $this->PHP_ELLIPSE();
 
-                    break;
+                break;
                     case 'POW_BY_PHP':
 
                         return $this->POW_BY_PHP();
 
-                    break;
+                break;
                     case 'ZEND_LOGO':
 
                         return $this->ZEND_LOGO();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK_3':
 
                         return $this->ZEND_FRAMEWORK_3();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK':
 
                         return $this->ZEND_FRAMEWORK();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_RESPONSE_CODE':
 
                         return $this->BG_SHADOW_RESPONSE_CODE();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_LOGO_SIGNIN':
 
                         return $this->BG_ELEMENT_LOGO_SIGNIN();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_REFLECTION_SIGNING':
 
                         return $this->BG_ELEMENT_REFLECTION_SIGNIN();
 
-                    break;
+                break;
                     case 'DOT_GREEN':
 
                         return $this->DOT_GREEN();
 
-                    break;
+                break;
                     case 'DOT_RED':
 
                         return $this->DOT_RED();
 
-                    break;
+                break;
                     case 'DOT_OFF':
 
                         return $this->DOT_OFF();
 
-                    break;
+                break;
                     case 'NOTICE_TRI_ALERT':
 
                         return $this->NOTICE_TRI_ALERT();
 
-                    break;
+                break;
                     case 'SEARCH_MAGNIFY_GLASS':
+
                         return $this->SEARCH_MAGNIFY_GLASS();
-                    break;
+
+                break;
                     case 'ICON_EMAIL_INBOX_REFLECT':
 
                         return $this->ICON_EMAIL_INBOX_REFLECT();
 
-                    break;
+                break;
+                    case 'J5_WOLF_PUP_LAY_00':
+
+                        return $this->J5_WOLF_PUP_LAY_00();
+
+                break;
+                    case 'J5_WOLF_PUP_LAY_01':
+
+                        return $this->J5_WOLF_PUP_LAY_01();
+
+                break;
+                    case 'J5_WOLF_PUP_LEASH_EYES_CLOSED':
+
+                        return $this->J5_WOLF_PUP_LEASH_EYES_CLOSED();
+
+                break;
+                    case 'J5_WOLF_PUP_LIL_5_PTS':
+
+                        return $this->J5_WOLF_PUP_LIL_5_PTS();
+
+                break;
+                    case 'J5_WOLF_PUP_SIT':
+
+                        return $this->J5_WOLF_PUP_SIT();
+
+                break;
+                    case 'J5_WOLF_PUP_SIT_EYES_CLOSED':
+
+                        return $this->J5_WOLF_PUP_SIT_EYES_CLOSED();
+
+                break;
+                    case 'J5_WOLF_PUP_SIT_LOOK_RIGHT':
+
+                        return $this->J5_WOLF_PUP_SIT_LOOK_RIGHT();
+
+                break;
+                    case 'J5_WOLF_PUP_SIT_LOOK_RIGHT_SHADOW':
+
+                        return $this->J5_WOLF_PUP_SIT_LOOK_RIGHT_SHADOW();
+
+                break;
+                    case 'J5_WOLF_PUP_SIT_LOOK_RIGHT_UP':
+
+                        return $this->J5_WOLF_PUP_SIT_LOOK_RIGHT_UP();
+
+                break;
+                    case 'J5_WOLF_PUP_STAND_LOOK_RIGHT':
+
+                        return $this->J5_WOLF_PUP_STAND_LOOK_RIGHT();
+
+                break;
+                    case 'J5_WOLF_PUP_STAND_LOOK_UP':
+
+                        return $this->J5_WOLF_PUP_STAND_LOOK_UP();
+
+                break;
+                    case 'J5_WOLF_PUP_WALK':
+
+                        return $this->J5_WOLF_PUP_WALK();
+
+                break;
+                    case 'J5_WOLF_PUP':
+
+                        return $this->J5_WOLF_PUP();
+
+                break;
 
                 }
 
@@ -305,132 +372,143 @@ class crnrstn_image_v_html_content_manager {
 
                         return $this->FIVE();
 
-                    break;
+                break;
                     case 'J5_WOLF_PUP':
 
                         return $this->J5_WOLF_PUP();
 
-                    break;
+                break;
                     case 'CRNRSTN_LOGO':
 
                         return $this->CRNRSTN_LOGO_EMAIL();
 
-                    break;
+                break;
                     case 'CRNRSTN_R':
 
                         return $this->R();
 
-                    break;
+                break;
                     case 'CRNRSTN_R_WALL':
 
                         return $this->R_PLUS_WALL();
 
-                    break;
+                break;
                     case 'SUCCESS_CHECK':
 
                         return $this->SUCCESS_CHECK();
 
-                    break;
+                break;
                     case 'ERR_X':
 
                         return $this->ERR_X();
 
-                    break;
+                break;
                     case 'LINUX_PENGUIN':
 
                         return $this->LINUX_PENGUIN();
 
-                    break;
+                break;
                     case 'MYSQL_DOLPHIN':
 
                         return $this->MYSQL_DOLPHIN();
 
-                    break;
+                break;
                     case 'REDHAT_BAR':
 
                         return $this->REDHAT_BAR();
 
-                    break;
+                break;
                     case 'REDHAT_CIRCLE':
 
                         return $this->REDHAT_CIRCLE();
 
-                    break;
+                break;
                     case 'APACHE_POWER_VERS':
 
                         return $this->APACHE_POWER_VERSION();
 
-                    break;
+                break;
                     case 'APACHE_POWER':
 
                         return $this->APACHE_POWER();
 
-                    break;
+                break;
                     case 'REDHAT_POWER':
 
                         return $this->REDHAT_POWER();
 
-                    break;
+                break;
                     case 'PHP_ELLIPSE':
 
                         return $this->PHP_ELLIPSE();
 
-                    break;
+                break;
                     case 'POW_BY_PHP':
 
                         return $this->POW_BY_PHP();
 
-                    break;
+                break;
                     case 'ZEND_LOGO':
 
                         return $this->ZEND_LOGO();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK_3':
 
                         return $this->ZEND_FRAMEWORK_3();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK':
 
                         return $this->ZEND_FRAMEWORK();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_LOGO_SIGNIN':
 
                         return $this->BG_ELEMENT_LOGO_SIGNIN();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_REFLECTION_SIGNING':
 
                         return $this->BG_ELEMENT_REFLECTION_SIGNIN();
 
-                    break;
+                break;
                     case 'DOT_GREEN':
 
                         return $this->DOT_GREEN();
 
-                    break;
+                break;
                     case 'DOT_RED':
 
                         return $this->DOT_RED();
 
-                    break;
+                break;
                     case 'DOT_OFF':
 
                         return $this->DOT_OFF();
 
-                    break;
+                break;
                     case 'NOTICE_TRI_ALERT':
 
                         return $this->NOTICE_TRI_ALERT();
 
-                    break;
+                break;
                     case 'ICON_EMAIL_INBOX_REFLECT':
 
                         return $this->ICON_EMAIL_INBOX_REFLECT();
 
-                    break;
+                break;
+                    case 'SEARCH_MAGNIFY_GLASS':
+
+                        return $this->SEARCH_MAGNIFY_GLASS();
+
+                break;
+                    case 'WOLF_PUP_LIL_FIVE_POINTS':
+
+                        return $this->WOLF_PUP_LIL_FIVE_POINTS();
+
+                break;
+
                 }
 
             break;
@@ -441,142 +519,153 @@ class crnrstn_image_v_html_content_manager {
 
                         return $this->FIVE();
 
-                    break;
+                break;
                     case 'J5_WOLF_PUP':
 
                         return $this->J5_WOLF_PUP();
 
-                    break;
+                break;
                     case 'CRNRSTN_LOGO':
 
                         return '&nbsp;';
 
-                    break;
+                break;
                     case 'CRNRSTN_R':
 
                         return $this->R();
 
-                    break;
+                break;
                     case 'CRNRSTN_R_WALL':
 
                         return $this->R_PLUS_WALL();
 
-                    break;
+                break;
                     case 'SUCCESS_CHECK':
 
                         return $this->SUCCESS_CHECK();
 
-                    break;
+                break;
                     case 'ERR_X':
 
                         return $this->ERR_X();
 
-                    break;
+                break;
                     case 'CRNRSTN_FAVICON':
 
                         return $this->FAVICON();
 
-                    break;
+                break;
                     case 'LINUX_PENGUIN':
 
                         return $this->LINUX_PENGUIN();
 
-                    break;
+                break;
                     case 'MYSQL_DOLPHIN':
 
                         return $this->MYSQL_DOLPHIN();
 
-                    break;
+                break;
                     case 'REDHAT_BAR':
 
                         return $this->REDHAT_BAR();
 
-                    break;
+                break;
                     case 'REDHAT_CIRCLE':
 
                         return $this->REDHAT_CIRCLE();
 
-                    break;
+                break;
                     case 'APACHE_POWER_VERS':
 
                         return $this->APACHE_POWER_VERSION();
 
-                    break;
+                break;
                     case 'APACHE_POWER':
 
                         return $this->APACHE_POWER();
 
-                    break;
+                break;
                     case 'REDHAT_POWER':
 
                         return $this->REDHAT_POWER();
 
-                    break;
+                break;
                     case 'PHP_ELLIPSE':
 
                         return $this->PHP_ELLIPSE();
 
-                    break;
+                break;
                     case 'POW_BY_PHP':
 
                         return $this->POW_BY_PHP();
 
-                    break;
+                break;
                     case 'ZEND_LOGO':
 
                         return $this->ZEND_LOGO();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK_3':
 
                         return $this->ZEND_FRAMEWORK_3();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK':
 
                         return $this->ZEND_FRAMEWORK();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_RESPONSE_CODE':
 
                         return $this->BG_SHADOW_RESPONSE_CODE();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_LOGO_SIGNIN':
 
                         return $this->BG_ELEMENT_LOGO_SIGNIN();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_REFLECTION_SIGNING':
 
                         return $this->BG_ELEMENT_REFLECTION_SIGNIN();
 
-                    break;
+                break;
                     case 'DOT_GREEN':
 
                         return $this->DOT_GREEN();
 
-                    break;
+                break;
                     case 'DOT_RED':
 
                         return $this->DOT_RED();
 
-                    break;
+                break;
                     case 'DOT_OFF':
 
                         return $this->DOT_OFF();
 
-                    break;
+                break;
                     case 'NOTICE_TRI_ALERT':
 
                         return $this->NOTICE_TRI_ALERT();
 
-                    break;
+                break;
                     case 'ICON_EMAIL_INBOX_REFLECT':
 
                         return $this->ICON_EMAIL_INBOX_REFLECT();
 
-                    break;
+                break;
+                    case 'SEARCH_MAGNIFY_GLASS':
+
+                        return $this->SEARCH_MAGNIFY_GLASS();
+
+                break;
+                    case 'WOLF_PUP_LIL_FIVE_POINTS':
+
+                        return $this->WOLF_PUP_LIL_FIVE_POINTS();
+
+                break;
+
 
                 }
 
@@ -588,132 +677,143 @@ class crnrstn_image_v_html_content_manager {
 
                         return $this->FIVE();
 
-                    break;
+                break;
                     case 'J5_WOLF_PUP':
 
                         return $this->J5_WOLF_PUP();
 
-                    break;
+                break;
                     case 'CRNRSTN_LOGO':
 
                         return '&nbsp;';
 
-                    break;
+                break;
                     case 'CRNRSTN_R':
 
                         return $this->R();
 
-                    break;
+                break;
                     case 'CRNRSTN_R_WALL':
 
                         return $this->R_PLUS_WALL();
 
-                    break;
+                break;
                     case 'SUCCESS_CHECK':
 
                         return $this->SUCCESS_CHECK();
 
-                    break;
+                break;
                     case 'ERR_X':
 
                         return $this->ERR_X();
 
-                    break;
+                break;
                     case 'LINUX_PENGUIN':
 
                         return $this->LINUX_PENGUIN();
 
-                    break;
+                break;
                     case 'MYSQL_DOLPHIN':
 
                         return $this->MYSQL_DOLPHIN();
 
-                    break;
+                break;
                     case 'REDHAT_BAR':
 
                         return $this->REDHAT_BAR();
 
-                    break;
+                break;
                     case 'REDHAT_CIRCLE':
 
                         return $this->REDHAT_CIRCLE();
 
-                    break;
+                break;
                     case 'APACHE_POWER_VERS':
 
                         return $this->APACHE_POWER_VERSION();
 
-                    break;
+                break;
                     case 'APACHE_POWER':
 
                         return $this->APACHE_POWER();
 
-                    break;
+                break;
                     case 'REDHAT_POWER':
 
                         return $this->REDHAT_POWER();
 
-                    break;
+                break;
                     case 'PHP_ELLIPSE':
 
                         return $this->PHP_ELLIPSE();
 
-                    break;
+                break;
                     case 'POW_BY_PHP':
 
                         return $this->POW_BY_PHP();
 
-                    break;
+                break;
                     case 'ZEND_LOGO':
 
                         return $this->ZEND_LOGO();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK_3':
 
                         return $this->ZEND_FRAMEWORK_3();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK':
 
                         return $this->ZEND_FRAMEWORK();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_LOGO_SIGNIN':
 
                         return $this->BG_ELEMENT_LOGO_SIGNIN();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_REFLECTION_SIGNING':
 
                         return $this->BG_ELEMENT_REFLECTION_SIGNIN();
 
-                    break;
+                break;
                     case 'DOT_GREEN':
 
                         return $this->DOT_GREEN();
 
-                    break;
+                break;
                     case 'DOT_RED':
 
                         return $this->DOT_RED();
 
-                    break;
+                break;
                     case 'DOT_OFF':
 
                         return $this->DOT_OFF();
 
-                    break;
+                break;
                     case 'NOTICE_TRI_ALERT':
 
                         return $this->NOTICE_TRI_ALERT();
 
-                    break;
+                break;
                     case 'ICON_EMAIL_INBOX_REFLECT':
 
                         return $this->ICON_EMAIL_INBOX_REFLECT();
 
-                    break;
+                break;
+                    case 'SEARCH_MAGNIFY_GLASS':
+
+                        return $this->SEARCH_MAGNIFY_GLASS();
+
+                break;
+                    case 'WOLF_PUP_LIL_FIVE_POINTS':
+
+                        return $this->WOLF_PUP_LIL_FIVE_POINTS();
+
+                break;
+
 
                 }
 
@@ -732,138 +832,149 @@ class crnrstn_image_v_html_content_manager {
 
                         return $this->FIVE();
 
-                    break;
+                break;
                     case 'J5_WOLF_PUP':
 
                         return $this->J5_WOLF_PUP();
 
-                    break;
+                break;
                     case 'CRNRSTN_LOGO':
 
                         return $this->CRNRSTN_LOGO_EMAIL();
 
-                    break;
+                break;
                     case 'CRNRSTN_R':
 
                         return $this->R();
 
-                    break;
+                break;
                     case 'CRNRSTN_R_WALL':
 
                         return $this->R_PLUS_WALL();
 
-                    break;
+                break;
                     case 'SUCCESS_CHECK':
 
                         return $this->SUCCESS_CHECK();
 
-                    break;
+                break;
                     case 'ERR_X':
 
                         return $this->ERR_X();
 
-                    break;
+                break;
                     case 'CRNRSTN_FAVICON':
 
                         //return $this->FAVICON();
                         return '';
 
-                    break;
+                break;
                     case 'LINUX_PENGUIN':
 
                         return $this->LINUX_PENGUIN();
 
-                    break;
+                break;
                     case 'MYSQL_DOLPHIN':
 
                         return $this->MYSQL_DOLPHIN();
 
-                    break;
+                break;
                     case 'REDHAT_BAR':
 
                         return $this->REDHAT_BAR();
 
-                    break;
+                break;
                     case 'REDHAT_CIRCLE':
 
                         return $this->REDHAT_CIRCLE();
 
-                    break;
+                break;
                     case 'APACHE_POWER_VERS':
 
                         return $this->APACHE_POWER_VERSION();
 
-                    break;
+                break;
                     case 'APACHE_POWER':
 
                         return $this->APACHE_POWER();
 
-                    break;
+                break;
                     case 'REDHAT_POWER':
 
                         return $this->REDHAT_POWER();
 
-                    break;
+                break;
                     case 'PHP_ELLIPSE':
 
                         return $this->PHP_ELLIPSE();
 
-                    break;
+                break;
                     case 'POW_BY_PHP':
 
                         return $this->POW_BY_PHP();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_LOGO_SIGNIN':
 
                         return $this->BG_ELEMENT_LOGO_SIGNIN();
 
-                    break;
+                break;
                     case 'BG_ELEMENT_REFLECTION_SIGNING':
 
                         return $this->BG_ELEMENT_REFLECTION_SIGNIN();
 
-                    break;
+                break;
                     case 'ZEND_LOGO':
 
                         return $this->ZEND_LOGO();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK_3':
 
                         return $this->ZEND_FRAMEWORK_3();
 
-                    break;
+                break;
                     case 'ZEND_FRAMEWORK':
 
                         return $this->ZEND_FRAMEWORK();
 
-                    break;
+                break;
                     case 'DOT_GREEN':
 
                         return $this->DOT_GREEN();
 
-                    break;
+                break;
                     case 'DOT_RED':
 
                         return $this->DOT_RED();
 
-                    break;
+                break;
                     case 'DOT_OFF':
 
                         return $this->DOT_OFF();
 
-                    break;
+                break;
                     case 'NOTICE_TRI_ALERT':
 
                         return $this->NOTICE_TRI_ALERT();
 
-                    break;
+                break;
                     case 'ICON_EMAIL_INBOX_REFLECT':
 
                         return $this->ICON_EMAIL_INBOX_REFLECT();
 
-                    break;
+                break;
+                    case 'SEARCH_MAGNIFY_GLASS':
+
+                        return $this->SEARCH_MAGNIFY_GLASS();
+
+                break;
+                    case 'WOLF_PUP_LIL_FIVE_POINTS':
+
+                        return $this->WOLF_PUP_LIL_FIVE_POINTS();
+
+                break;
+
 
                 }
 
@@ -1000,46 +1111,6 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
                 return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/err_x.png" width="19" height="19" alt="X" title="error" style="border: 0;" >';
-
-            break;
-
-        }
-
-    }
-
-    private function J5_WOLF_PUP(){
-
-        switch(self::$image_output_mode){
-            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
-
-                $tmp_str = '';
-                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/j5_wolf_pup_right_align.php');
-
-                return '<img src="'.$tmp_str.'" width="293" height="300" alt="J5 wolf pup" title="J5 wolf pup" />';
-
-            break;
-            case CRNRSTN_UI_IMG_BASE64:
-
-                $tmp_str = '';
-                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/j5_wolf_pup_right_align.php');
-
-                //
-                // BASE64
-                return $tmp_str;
-
-            break;
-            case CRNRSTN_UI_IMG_URI:
-
-                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png';
-
-            break;
-            default:
-
-                // CRNRSTN_UI_IMG_URI_HTML_WRAPPED
-
-                //
-                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
-                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png" width="293" height="300" alt="J5 wolf pup" title="J5 wolf pup" style="border: 0;" >';
 
             break;
 
@@ -2158,6 +2229,656 @@ class crnrstn_image_v_html_content_manager {
                 //
                 // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
                 return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/email_inbox_icon.png" width="201" height="185" alt="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" title="CRNRSTN :: v'.self::$oCRNRSTN_n->version_crnrstn.'" style="border: 0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_RAND(){
+
+        $tmp_array = array('J5_WOLF_PUP_LAY_00', 'J5_WOLF_PUP_LAY_01', 'J5_WOLF_PUP_LEASH_EYES_CLOSED',
+            'J5_WOLF_PUP_LIL_5_PTS', 'J5_WOLF_PUP_SIT', 'J5_WOLF_PUP_SIT_EYES_CLOSED',
+            'J5_WOLF_PUP_SIT_LOOK_RIGHT', 'J5_WOLF_PUP_SIT_LOOK_RIGHT_SHADOW', 'J5_WOLF_PUP_SIT_LOOK_RIGHT_UP',
+            'J5_WOLF_PUP_STAND_LOOK_RIGHT', 'J5_WOLF_PUP_STAND_LOOK_UP', 'J5_WOLF_PUP_WALK', 'J5_WOLF_PUP');
+        $tmp_cnt = count($tmp_array);
+
+        $tmp_int = rand(0, $tmp_cnt-1);
+
+        switch($tmp_array[$tmp_int]){
+            case 'J5_WOLF_PUP_LAY_00':
+
+                return $this->J5_WOLF_PUP_LAY_00();
+
+            break;
+            case 'J5_WOLF_PUP_LAY_01':
+
+                return $this->J5_WOLF_PUP_LAY_01();
+
+            break;
+            case 'J5_WOLF_PUP_LEASH_EYES_CLOSED':
+
+                return $this->J5_WOLF_PUP_LEASH_EYES_CLOSED();
+
+            break;
+            case 'J5_WOLF_PUP_LIL_5_PTS':
+
+                return $this->J5_WOLF_PUP_LIL_5_PTS();
+
+            break;
+            case 'J5_WOLF_PUP_SIT':
+
+                return $this->J5_WOLF_PUP_SIT();
+
+            break;
+            case 'J5_WOLF_PUP_SIT_EYES_CLOSED':
+
+                return $this->J5_WOLF_PUP_SIT_EYES_CLOSED();
+
+            break;
+            case 'J5_WOLF_PUP_SIT_LOOK_RIGHT':
+
+                return $this->J5_WOLF_PUP_SIT_LOOK_RIGHT();
+
+            break;
+            case 'J5_WOLF_PUP_SIT_LOOK_RIGHT_SHADOW':
+
+                return $this->J5_WOLF_PUP_SIT_LOOK_RIGHT_SHADOW();
+
+            break;
+            case 'J5_WOLF_PUP_SIT_LOOK_RIGHT_UP':
+
+                return $this->J5_WOLF_PUP_SIT_LOOK_RIGHT_UP();
+
+            break;
+            case 'J5_WOLF_PUP_STAND_LOOK_RIGHT':
+
+                return $this->J5_WOLF_PUP_STAND_LOOK_RIGHT();
+
+            break;
+            case 'J5_WOLF_PUP_STAND_LOOK_UP':
+
+                return $this->J5_WOLF_PUP_STAND_LOOK_UP();
+
+            break;
+            case 'J5_WOLF_PUP_WALK':
+
+                return $this->J5_WOLF_PUP_WALK();
+
+            break;
+            default:
+                //J5_WOLF_PUP
+
+                return $this->J5_WOLF_PUP();
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_LAY_00(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_lay_00';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="480" height="378" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="480" height="378" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_LAY_01(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_lay_01';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="431" height="400" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="431" height="400" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_LEASH_EYES_CLOSED(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_leash_eyes_closed';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="478" height="390" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="478" height="390" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_LIL_5_PTS(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_lil_5_pts';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="300" height="340" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="300" height="340" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP(){
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/j5_wolf_pup_right_align.php');
+
+                return '<img src="'.$tmp_str.'" width="293" height="300" alt="J5 wolf pup" title="J5 wolf pup" />';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/j5_wolf_pup_right_align.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png';
+
+            break;
+            default:
+
+                // CRNRSTN_UI_IMG_URI_HTML_WRAPPED
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/j5_wolf_pup_right_align.png" width="293" height="300" alt="J5 wolf pup" title="J5 wolf pup" style="border: 0;" >';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_SIT(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_sit';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="340" height="342" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="340" height="342" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_SIT_EYES_CLOSED(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_sit_eyes_closed';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="352" height="411" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="352" height="411" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_SIT_LOOK_RIGHT(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_sit_look_right';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="261" height="416" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="261" height="416" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_SIT_LOOK_RIGHT_SHADOW(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_sit_look_right_shadow';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="553" height="300" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="553" height="300" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_SIT_LOOK_RIGHT_UP(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_sit_look_right_up';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="248" height="414" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="248" height="414" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_STAND_LOOK_RIGHT(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_stand_look_right';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="300" height="390" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="340" height="390" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_STAND_LOOK_UP(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_stand_look_up';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'" width="315" height="360" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="315" height="360" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+
+        }
+
+    }
+
+    private function J5_WOLF_PUP_WALK(){
+
+        //
+        // NO EXTENSION
+        $tmp_filename = 'j5_wolf_pup_walk';
+
+        switch(self::$image_output_mode){
+            case CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                return '<img src="'.$tmp_str.'"  width="340" height="342" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
+
+            break;
+            case CRNRSTN_UI_IMG_BASE64:
+
+                $tmp_str = '';
+                require(CRNRSTN_ROOT . '/_crnrstn/ui/imgs/base64/'.$tmp_filename.'.php');
+
+                //
+                // BASE64
+                return $tmp_str;
+
+            break;
+            case CRNRSTN_UI_IMG_URI:
+
+                return self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.php';
+
+            break;
+            default:
+
+                // HTML_DOM_WRAPPED_URI
+
+                //
+                // HTTP/S PATH TO IMAGE - PUBLIC IP...OF COURSE.
+                return '<img src="'.self::$oCRNRSTN_n->sys_notice_creative_http_path . 'imgs/png/'.$tmp_filename.'.png" width="340" height="342" alt="J5 Wolf Pup" title="J5 Wolf Pup" style="border:0;">';
 
             break;
 

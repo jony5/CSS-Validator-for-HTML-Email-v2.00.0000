@@ -9729,7 +9729,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <div style="float:right; padding:420px 0 0 0; margin:0; width:100%;">
             <div style="position: absolute; width:100%; text-align: right; background-color: #FFF; padding-top: 20px;">
-                '.$this->oCRNRSTN_USR->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
+                '.$this->oCRNRSTN_USR->return_email_creative('WOLF_PUP_LIL_FIVE_POINTS', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
             </div>
         </div>
 
@@ -9894,7 +9894,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <div style="float:right; padding:420px 0 0 0; margin:0; width:100%;">
             <div style="position: absolute; width:100%; text-align: right; background-color: #FFF; padding-top: 20px;">
-                '.$this->oCRNRSTN_USR->return_email_creative('J5_WOLF_PUP').'
+                '.$this->oCRNRSTN_USR->return_email_creative('J5_WOLF_PUP_RAND').'
             </div>
         </div>
 
