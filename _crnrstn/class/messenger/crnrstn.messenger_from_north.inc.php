@@ -3166,23 +3166,17 @@ class crnrstn_messenger_from_north {
 
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                 <tr>
-                                                    <td style="text-align: left; border-left:20px solid #FFF; border-top:30px solid #FFF;">
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may<br>
-                                                            not have been saved anywhere. For this reason, it<br>
+                                                    <td style="text-align: left; border-left:20px solid #FFF; border-right:8px solid #FFF; border-top:30px solid #FFF;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may 
+                                                            not have been saved anywhere. For this reason, it 
                                                             may be good to maintain a copy of this email.</div>
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
 
                                                         <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">This email was sent to {EMAIL}.<br>
-                                                            If you wish to unsubscribe from future<br>
-                                                            system notifications, please contact the<br>
+                                                            If you wish to unsubscribe from future 
+                                                            system notifications, please contact the 
                                                             website administrator.</div>
-
-                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
-
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div>
-
-                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
 
                                                     </td>
                                                 </tr>
@@ -3191,7 +3185,7 @@ class crnrstn_messenger_from_north {
                                         </td>
                                         <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</td></tr></table>
+                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP_RAND', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</td></tr></table>
                                         </td>
                                     </tr>
                                 </table>
@@ -3338,23 +3332,17 @@ class crnrstn_messenger_from_north {
 
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                 <tr>
-                                                    <td style="text-align: left; border-left:20px solid #FFF; border-top:30px solid #FFF;">
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may<br>
-                                                            not have been saved anywhere. For this reason, it<br>
+                                                    <td style="text-align: left; border-left:20px solid #FFF; border-right:8px solid #FFF;  border-top:30px solid #FFF;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may 
+                                                            not have been saved anywhere. For this reason, it 
                                                             may be good to maintain a copy of this email.</div>
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
 
                                                         <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">This email was sent to {EMAIL}.<br>
-                                                            If you wish to unsubscribe from future<br>
-                                                            system notifications, please contact the<br>
+                                                            If you wish to unsubscribe from future 
+                                                            system notifications, please contact the 
                                                             website administrator.</div>
-
-                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
-
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div>
-
-                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
 
                                                     </td>
                                                 </tr>
@@ -3363,7 +3351,7 @@ class crnrstn_messenger_from_north {
                                         </td>
                                         <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</td></tr></table>
+                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP_RAND', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</td></tr></table>
                                         </td>
                                     </tr>
                                 </table>
@@ -3392,7 +3380,7 @@ class crnrstn_messenger_from_north {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    '.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_FAVICON', 'SOAP_TRANSPORT').'
+    '.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_SOAP_TRANSPORT).'
     <title>CRNRSTN ::</title>
 </head>
 
@@ -3416,7 +3404,7 @@ class crnrstn_messenger_from_north {
                                         <td colspan="2">
                                             <table>
                                                 <tr>
-                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;">'.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_LOGO', 'SOAP_TRANSPORT').'</div></td>
+                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;">'.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_LOGO', CRNRSTN_UI_IMG_SOAP_TRANSPORT).'</div></td>
                                                     <td valign="top" align="right" style="text-align:right;">
                                                         <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
                                                             <tr>
@@ -3510,23 +3498,17 @@ class crnrstn_messenger_from_north {
 
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                 <tr>
-                                                    <td style="text-align: left; border-left:20px solid #FFF; border-top:30px solid #FFF;">
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may<br>
-                                                            not have been saved anywhere. For this reason, it<br>
+                                                    <td style="text-align: left; border-left:20px solid #FFF; border-right:8px solid #FFF; border-top:30px solid #FFF;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may 
+                                                            not have been saved anywhere. For this reason, it 
                                                             may be good to maintain a copy of this email.</div>
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
 
                                                         <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">This email was sent to {EMAIL}.<br>
-                                                            If you wish to unsubscribe from future<br>
-                                                            system notifications, please contact the<br>
+                                                            If you wish to unsubscribe from future 
+                                                            system notifications, please contact the 
                                                             website administrator.</div>
-
-                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
-
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', 'SOAP_TRANSPORT').'</div>
-
-                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
 
                                                     </td>
                                                 </tr>
@@ -3535,7 +3517,7 @@ class crnrstn_messenger_from_north {
                                         </td>
                                         <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', 'SOAP_TRANSPORT').'</td></tr></table>
+                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP_RAND', CRNRSTN_UI_IMG_SOAP_TRANSPORT).'</td></tr></table>
                                         </td>
                                     </tr>
                                 </table>
@@ -4543,7 +4525,7 @@ class crnrstn_communications_css_standard{
                                             
                                             <div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; font-weight: bold; border-left: 0px solid #FFF;  border-top: 10px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'>Transparency ::</div>
                                             <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 0px solid #FFF; border-right: 10px solid #FFF; border-right: 10px solid #FFF; border-bottom: 10px solid #FFF; color: #6885C3; line-height:16px;\'>
-                                            Using inputs below, expose the performance based
+                                            Using the inputs below, one can expose the performance based
                                             assumptions which regulate the scoring algorithm behind 
                                             this validator.<br><br>
                                             
@@ -9739,7 +9721,15 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
    
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag(\'js\', new Date());
 
+	gtag(\'config\', \'G-G28EC03WLZ\');
+</script>
     </body>
     </html>';
 
@@ -9903,7 +9893,15 @@ Formally, the display property sets an element\'s inner and outer display types.
     </div>
     
     '.$this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_TAG_ANALYTICS).'
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G28EC03WLZ"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag(\'js\', new Date());
 
+	gtag(\'config\', \'G-G28EC03WLZ\');
+</script>
     </body>
     </html>';
 
@@ -9997,7 +9995,6 @@ Formally, the display property sets an element\'s inner and outer display types.
 
                             $this->results_count_aggregation_ARRAY[$mail_client_constant]['SUCCESS'][] = 1;
                             //error_log(__LINE__.' '.$mail_client_constant.' SUCCESS cnt = '.count($this->results_count_aggregation_ARRAY[$mail_client_constant]['BANG']));
-
 
                         }
 
