@@ -12,7 +12,11 @@
 #
 // NOTE: THIS IS ALL OLD DEV AND TESTING CODE...SOME METHOD NAMES MAY HAVE CHANGED.
 require('_crnrstn.root.inc.php');
-include_once($CRNRSTN_ROOT . '/_crnrstn.config.inc.php');
+include_once(CRNRSTN_ROOT . '/_crnrstn.config.inc.php');
+
+$oCRNRSTN_USR->returnSrvrRespStatus(503);
+exit();
+
 $test = '';
 $test_append = '';
 $oQueryProfileMgr = new crnrstn_query_profile_manager($oCRNRSTN_USR);

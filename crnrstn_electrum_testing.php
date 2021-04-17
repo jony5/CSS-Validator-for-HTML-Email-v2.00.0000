@@ -5,6 +5,9 @@
 require('_crnrstn.root.inc.php');
 include_once(CRNRSTN_ROOT . '/_crnrstn.config.inc.php');
 
+$oCRNRSTN_USR->returnSrvrRespStatus(503);
+exit();
+
 //
 // NOTE: OLD DEV CODE...SOME METHOD NAMES MAY HAVE CHANGED.
 
