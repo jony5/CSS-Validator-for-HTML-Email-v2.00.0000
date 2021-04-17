@@ -2021,7 +2021,7 @@ class crnrstn_environment {
 <div style=\'width:96%; margin:0 0 0 0; padding:6px 2% 0 2%; color:#FFF; font-family:"trebuchet MS", Verdana, sans-serif;background-color:#BEBEBE; height:30px; line-height: 28px;\'><h1 style="font-size: 30px; overflow: hidden; height:23px; padding-top:7px; margin-top: 0;">Server Error</h1></div>
 <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px; border-top: 2px solid #FFF;"></div>
 
-<div style="height:5px; '.$this->return_email_creative('BG_ELEMENT_RESPONSE_CODE').' background-repeat: repeat-x;">
+<div style="height:5px; '.$this->return_email_creative('BG_ELEMENT_RESPONSE_CODE', CRNRSTN_UI_IMG_BASE64).' background-repeat: repeat-x;">
     <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
 </div>
 
@@ -2041,7 +2041,7 @@ class crnrstn_environment {
 
 <div style="float:right; padding:420px 0 0 0; margin:0; width:100%;">
     <div style="position: absolute; width:100%; text-align: right; background-color: #FFF; padding-top: 20px;">
-        '.$this->return_email_creative('J5_WOLF_PUP').'
+        '.$this->return_email_creative('J5_WOLF_PUP_RAND').'
     </div>
 </div>
 
@@ -2068,7 +2068,7 @@ class crnrstn_environment {
 <div style=\'width:96%; margin:0 0 0 0; padding:6px 2% 0 2%; color:#FFF; font-family:"trebuchet MS", Verdana, sans-serif;background-color:#BEBEBE; height:30px; line-height: 28px;\'><h1 style="font-size: 30px; overflow: hidden; height:23px; padding-top:7px; margin-top: 0;">Server Error</h1></div>
 <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px; border-top: 2px solid #FFF;"></div>
 
-<div style="height:5px; '.$this->return_email_creative('BG_ELEMENT_RESPONSE_CODE').' background-repeat: repeat-x;">
+<div style="height:5px; '.$this->return_email_creative('BG_ELEMENT_RESPONSE_CODE', CRNRSTN_UI_IMG_BASE64).' background-repeat: repeat-x;">
     <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
 </div>
 
@@ -2088,7 +2088,7 @@ class crnrstn_environment {
 
 <div style="float:right; padding:420px 0 0 0; margin:0; width:100%;">
     <div style="position: absolute; width:100%; text-align: right; background-color: #FFF; padding-top: 20px;">
-        '.$this->return_email_creative('J5_WOLF_PUP').'
+        '.$this->return_email_creative('J5_WOLF_PUP_RAND').'
     </div>
 </div>
 
