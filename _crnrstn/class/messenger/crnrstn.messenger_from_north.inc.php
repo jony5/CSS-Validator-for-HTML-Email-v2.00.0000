@@ -2990,7 +2990,7 @@ class crnrstn_messenger_from_north {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    '.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'
+    '.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_FAVICON').'
     <title>CRNRSTN ::</title>
 </head>
 
@@ -3014,7 +3014,7 @@ class crnrstn_messenger_from_north {
                                         <td colspan="2">
                                             <table>
                                                 <tr>
-                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;">'.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_LOGO', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</div></td>
+                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;">'.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_LOGO', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div></td>
                                                     <td valign="top" align="right" style="text-align:right;">
                                                         <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
                                                             <tr>
@@ -3180,7 +3180,7 @@ class crnrstn_messenger_from_north {
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
 
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</div>
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div>
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
 
@@ -3191,7 +3191,7 @@ class crnrstn_messenger_from_north {
                                         </td>
                                         <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</td></tr></table>
+                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</td></tr></table>
                                         </td>
                                     </tr>
                                 </table>
@@ -3220,7 +3220,7 @@ class crnrstn_messenger_from_north {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    '.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'
+    '.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'
     <title>CRNRSTN ::</title>
 </head>
 
@@ -3244,7 +3244,7 @@ class crnrstn_messenger_from_north {
                                         <td colspan="2">
                                             <table>
                                                 <tr>
-                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;">'.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_LOGO', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</div></td>
+                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;">'.self::$oCRNRSTN_n->return_email_creative('CRNRSTN_LOGO', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div></td>
                                                     <td valign="top" align="right" style="text-align:right;">
                                                         <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
                                                             <tr>
@@ -3352,7 +3352,7 @@ class crnrstn_messenger_from_north {
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
 
-                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</div>
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">'.self::$oCRNRSTN_n->return_email_creative('5', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div>
 
                                                         <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
 
@@ -3363,7 +3363,7 @@ class crnrstn_messenger_from_north {
                                         </td>
                                         <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</td></tr></table>
+                                                <tr><td style="text-align: right;">'.self::$oCRNRSTN_n->return_email_creative('J5_WOLF_PUP', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</td></tr></table>
                                         </td>
                                     </tr>
                                 </table>
@@ -4355,8 +4355,8 @@ class crnrstn_communications_css_standard{
 
                                     <div style="text-align: center; margin:0 auto;">
 
-                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:35px; height:19px;">&nbsp;<a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://validator.w3.org/check?uri=referer', 'validator_w3_org').'" target="_blank">XHTML</a></div>
-                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_URI).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:25px; height:19px;">&nbsp;<a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://jigsaw.w3.org/css-validator/check/referer', 'jigsaw_w3_org').'" target="_blank">CSS</a></div>
+                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_PNG).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:35px; height:19px;">&nbsp;<a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://validator.w3.org/check?uri=referer', 'validator_w3_org').'" target="_blank">XHTML</a></div>
+                                        <div style="float:left; background-image:url('.$this->oCRNRSTN_USR->return_email_creative('SUCCESS_CHECK', CRNRSTN_UI_IMG_PNG).');background-repeat:no-repeat; margin-right:10px; padding:0 10px 0 17px; width:25px; height:19px;">&nbsp;<a href="'.$this->oCRNRSTN_USR->return_sticky_link('http://jigsaw.w3.org/css-validator/check/referer', 'jigsaw_w3_org').'" target="_blank">CSS</a></div>
 
                                         <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
@@ -9588,7 +9588,7 @@ Formally, the display property sets an element\'s inner and outer display types.
     <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'
+        '.$this->oCRNRSTN_USR->return_email_creative('CRNRSTN_FAVICON', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'
         <meta name="distribution" content="Global" />
         <meta name="ROBOTS" content="index" />
         <meta name="ROBOTS" content="follow" />
@@ -9596,12 +9596,12 @@ Formally, the display property sets an element\'s inner and outer display types.
         <meta property="og:url" content="http://css.validate.jony5.com/"/>
         <meta property="og:site_name" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
         <meta property="og:title" content="Only email pros can score over 92.5%. The CRNRSTN :: CSS Validator will assess the use of CSS within HTML email code and score the situation from a high level and then down to each email client."/>
-        <meta property="og:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta property="og:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/jpg/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
         <meta property="og:description" content="Only email pros can score over 92.5%.  Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:title" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
-        <meta name="twitter:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta name="twitter:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/jpg/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
         <meta name="twitter:description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support!" />
         <meta name="description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
         <meta name="keywords" content="jesus, christ, jesus christ, gospel, j5, jonathan, harris, jonathan harris, johnny 5, jony5, atlanta, moxie, agency, web, christian, web services, email, web programming, marketing, CSS, XHTML, php, ajax" />
@@ -9710,7 +9710,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                     </tr>
                                     <tr>
                                         <td style="text-align: right;">
-                                            <div style="border-right:20px solid #FFF; border-top:20px solid #FFF;">'.$this->oCRNRSTN_USR->return_email_creative('ICON_EMAIL_INBOX_REFLECT', CRNRSTN_UI_IMG_URI_HTML_WRAPPED).'</div>
+                                            <div style="border-right:20px solid #FFF; border-top:20px solid #FFF;">'.$this->oCRNRSTN_USR->return_email_creative('ICON_EMAIL_INBOX_REFLECT', CRNRSTN_UI_IMG_PNG_HTML_WRAPPED).'</div>
                                         </td>
                                     </tr>
                                     </table>
@@ -9729,7 +9729,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         <div style="float:right; padding:420px 0 0 0; margin:0; width:100%;">
             <div style="position: absolute; width:100%; text-align: right; background-color: #FFF; padding-top: 20px;">
-                '.$this->oCRNRSTN_USR->return_email_creative('WOLF_PUP_LIL_FIVE_POINTS', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
+                '.$this->oCRNRSTN_USR->return_email_creative('J5_WOLF_PUP_RAND', CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED).'
             </div>
         </div>
 
@@ -9763,12 +9763,12 @@ Formally, the display property sets an element\'s inner and outer display types.
         <meta property="og:url" content="http://css.validate.jony5.com/"/>
         <meta property="og:site_name" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
         <meta property="og:title" content="Only email pros can score over 92.5%. The CRNRSTN :: CSS Validator will assess the use of CSS within HTML email code and score the situation from a high level and then down to each email client."/>
-        <meta property="og:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta property="og:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/jpg/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
         <meta property="og:description" content="Only email pros can score over 92.5%.  Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:title" content="CRNRSTN :: CSS Validator for HTML Email v2.00.0000"/>
-        <meta name="twitter:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/png/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
+        <meta name="twitter:image" content="http://css.validate.jony5.com/_crnrstn/ui/imgs/jpg/crnrstn_css_validator_logo_smedia.jpg?v=420.00"/>
         <meta name="twitter:description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support!" />
         <meta name="description" content="Only email pros can score over 92.5%. Special thanks to the folks  at WaSP and Campaign Monitor for  their Ultimate Guide to CSS breaking  down a host of the nitty-gritty with  respect to CSS support for many popular mobile, web, and desktop email clients and for their creation of  the Email Standards Project." />
         <meta name="keywords" content="jesus, christ, jesus christ, gospel, j5, jonathan, harris, jonathan harris, johnny 5, jony5, atlanta, moxie, agency, web, christian, web services, email, web programming, marketing, CSS, XHTML, php, ajax" />

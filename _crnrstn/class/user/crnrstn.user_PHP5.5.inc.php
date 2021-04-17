@@ -298,11 +298,27 @@ class crnrstn_user{
 
             $tmp_filename = $this->extractData_HTTP('crnrstn_to_base64');
 
-            $tmp_encoding = $this->base64_encode_image($this->get_resource('DOCUMENT_ROOT') . $this->get_resource('DOCUMENT_ROOT_DIR') . '/_crnrstn/ui/imgs/png/' . $tmp_filename, 'png');
+            $tmp_pos_png = strpos($tmp_filename, '.png');
+            if($tmp_pos_png !== false){
 
-            $tmp_html =  '<div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div>('.$this->crcINT($tmp_filename).' / '.crc32($tmp_filename).') <div style="height:15px; width:100%; clear:both; display: block; overflow: hidden;"></div><img src="' . $tmp_encoding . '" /><div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div><textarea cols="30" rows="50">' . $tmp_encoding . '</textarea>';
+                //
+                // WE HAVE .PNG
 
-            $tmp_html = '<!DOCTYPE html>
+            }else{
+
+                $tmp_filename = $tmp_filename . '.png';
+
+            }
+
+            $tmp_file_path = $this->get_resource('DOCUMENT_ROOT') . $this->get_resource('DOCUMENT_ROOT_DIR') . '/_crnrstn/ui/imgs/png/' . $tmp_filename;
+
+            if(is_file($tmp_file_path)){
+
+                $tmp_encoding = $this->base64_encode_image($tmp_file_path, 'png');
+
+                $tmp_html =  '<div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div>('.$this->crcINT($tmp_filename).' / '.crc32($tmp_filename).') <div style="height:15px; width:100%; clear:both; display: block; overflow: hidden;"></div><img src="' . $tmp_encoding . '" /><div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div><textarea cols="30" rows="50">' . $tmp_encoding . '</textarea>';
+
+                $tmp_html = '<!DOCTYPE html>
 <html lang="en">
 <head>
     <style>
@@ -326,7 +342,14 @@ class crnrstn_user{
 </body>
 </html>';
 
-            return $tmp_html;
+                return $tmp_html;
+
+            }else{
+
+                header("Location: http://css.validate.jony5.com/");
+                exit();
+
+            }
 
         }else{
 

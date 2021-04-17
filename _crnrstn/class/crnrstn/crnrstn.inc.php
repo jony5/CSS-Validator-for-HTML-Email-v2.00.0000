@@ -463,11 +463,15 @@ class crnrstn {
 
         $tmp_array = array();
 
-        //
-        // PARALLEL STORAGE IN USE BY ENVIRONMENTAL CLASS OBJECT
-        $tmp_array['sys_logging_profile_ARRAY'] = self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
-        $tmp_array['sys_logging_meta_ARRAY'] = self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
-        $tmp_array['sys_logging_wcr_ARRAY'] = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        if(isset(self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL])){
+
+            //
+            // PARALLEL STORAGE IN USE BY ENVIRONMENTAL CLASS OBJECT
+            $tmp_array['sys_logging_profile_ARRAY'] = self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+            $tmp_array['sys_logging_meta_ARRAY'] = self::$sys_logging_meta_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+            $tmp_array['sys_logging_wcr_ARRAY'] = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+
+        }
 
         return $tmp_array;
 
@@ -811,7 +815,7 @@ class crnrstn {
         //
         // PROCESS BITWISE DATA DO THIS AFTER ENVIRONMENTAL DETECTION
         //$this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->set($CRNRSTN_loggingProfile, true);
-        error_log(__LINE__.' crnrstn_environment to receive logging array['.crc32($this->configSerial).']['.crc32($envKey).']=['.$CRNRSTN_loggingProfile.']');
+       // error_log(__LINE__.' '.__METHOD__.' crnrstn_environment to receive logging array['.crc32($this->configSerial).']['.crc32($envKey).']=['.$CRNRSTN_loggingProfile.']');
         self::$sys_logging_profile_ARRAY[crc32($this->configSerial)][crc32($envKey)][] = $CRNRSTN_loggingProfile;
 
         if(isset($CRNRSTN_loggingMeta)){

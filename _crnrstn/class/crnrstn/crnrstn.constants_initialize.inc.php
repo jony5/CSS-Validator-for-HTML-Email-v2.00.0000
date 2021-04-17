@@ -279,7 +279,7 @@ function crnrstn_constants_init($const_nom){
 
         //
         // 7301-7509
-        // 'CRNRSTN_UI_IMG_BASE64', 'CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED', 'CRNRSTN_UI_IMG_URI', 'CRNRSTN_UI_IMG_URI_HTML_WRAPPED'
+        // 'CRNRSTN_UI_IMG_BASE64', 'CRNRSTN_UI_IMG_BASE64_HTML_WRAPPED', 'CRNRSTN_UI_IMG_PNG', 'CRNRSTN_UI_IMG_PNG_HTML_WRAPPED'
         case 'CRNRSTN_UI_IMG_BASE64':
 
             return (int) 7301;
@@ -290,104 +290,114 @@ function crnrstn_constants_init($const_nom){
             return (int) 7302;
 
         break;
-        case 'CRNRSTN_UI_IMG_URI':
+        case 'CRNRSTN_UI_IMG_JPEG':
 
             return (int) 7303;
 
         break;
-        case 'CRNRSTN_UI_IMG_URI_HTML_WRAPPED':
+        case 'CRNRSTN_UI_IMG_JPEG_HTML_WRAPPED':
 
             return (int) 7304;
 
         break;
-        case 'CRNRSTN_UI_CSS_MAIN':
+        case 'CRNRSTN_UI_IMG_PNG':
 
             return (int) 7305;
 
         break;
-        case 'CRNRSTN_UI_CSS_MOBILE':
+        case 'CRNRSTN_UI_IMG_PNG_HTML_WRAPPED':
 
             return (int) 7306;
 
         break;
-        case 'CRNRSTN_UI_CSS_TABLET':
+        case 'CRNRSTN_UI_CSS_MAIN':
 
             return (int) 7307;
 
         break;
-        case 'CRNRSTN_UI_CSS_DESKTOP':
+        case 'CRNRSTN_UI_CSS_MOBILE':
 
             return (int) 7308;
 
         break;
-        case 'CRNRSTN_UI_JS_JQUERY':
+        case 'CRNRSTN_UI_CSS_TABLET':
 
             return (int) 7309;
 
         break;
-        case 'CRNRSTN_UI_JS_JQUERY_UI':
+        case 'CRNRSTN_UI_CSS_DESKTOP':
 
             return (int) 7310;
 
         break;
-        case 'CRNRSTN_UI_JS_JQUERY_MOBILE':
+        case 'CRNRSTN_UI_JS_JQUERY':
 
             return (int) 7311;
 
         break;
-        case 'CRNRSTN_UI_JS_LIGHTBOX_DOT_JS':
+        case 'CRNRSTN_UI_JS_JQUERY_UI':
 
             return (int) 7312;
 
         break;
-        case 'CRNRSTN_UI_TAG_ANALYTICS':
+        case 'CRNRSTN_UI_JS_JQUERY_MOBILE':
 
             return (int) 7313;
 
         break;
-        case 'CRNRSTN_UI_TAG_ENGAGEMENT':
+        case 'CRNRSTN_UI_JS_LIGHTBOX_DOT_JS':
 
             return (int) 7314;
 
         break;
-        case 'CRNRSTN_UI_FORM_INTEGRATION_PACKET':
+        case 'CRNRSTN_UI_TAG_ANALYTICS':
 
             return (int) 7315;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_PREFERENCE':
+        case 'CRNRSTN_UI_TAG_ENGAGEMENT':
 
             return (int) 7316;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_YESNO':
+        case 'CRNRSTN_UI_FORM_INTEGRATION_PACKET':
 
             return (int) 7317;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_NOTICE':
+        case 'CRNRSTN_UI_COOKIE_PREFERENCE':
 
             return (int) 7318;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_THEME_DARKNIGHT':
+        case 'CRNRSTN_UI_COOKIE_YESNO':
 
             return (int) 7319;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_THEME_FEATHER':
+        case 'CRNRSTN_UI_COOKIE_NOTICE':
 
             return (int) 7320;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_THEME_DAYLIGHT':
+        case 'CRNRSTN_UI_COOKIE_THEME_DARKNIGHT':
 
             return (int) 7321;
 
         break;
-        case 'CRNRSTN_UI_COOKIE_THEME_GREYSKYS':
+        case 'CRNRSTN_UI_COOKIE_THEME_FEATHER':
 
             return (int) 7322;
+
+        break;
+        case 'CRNRSTN_UI_COOKIE_THEME_DAYLIGHT':
+
+            return (int) 7323;
+
+        break;
+        case 'CRNRSTN_UI_COOKIE_THEME_GREYSKYS':
+
+            return (int) 7324;
 
         break;
 
@@ -440,18 +450,18 @@ function crnrstn_constants_init($const_nom){
 
         //
         // 7510-8050
-        // 'CRNRSTN_ASSET_MODE_HTTP', 'CRNRSTN_ASSET_MODE_BASE64'
-        case 'CRNRSTN_ASSET_MODE_HTTP':
+        // 'CRNRSTN_ASSET_MODE_BASE64', 'CRNRSTN_ASSET_MODE_PNG', 'CRNRSTN_ASSET_MODE_JPEG'
+        case 'CRNRSTN_ASSET_MODE_BASE64':
 
             return (int) 7510;
 
         break;
-        case 'CRNRSTN_ASSET_MODE_HTTPS':
+        case 'CRNRSTN_ASSET_MODE_PNG':
 
             return (int) 7511;
 
         break;
-        case 'CRNRSTN_ASSET_MODE_BASE64':
+        case 'CRNRSTN_ASSET_MODE_JPEG':
 
             return (int) 7512;
 

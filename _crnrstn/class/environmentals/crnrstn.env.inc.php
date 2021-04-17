@@ -385,14 +385,13 @@ class crnrstn_environment {
         //
         // MODES OF OUTPUT
         // IMG
-        //    - BASE64
-        //    - PNG
-        //    - SVG
-        // JS/XML/CSS
+        //    - CRNRSTN_ASSET_MODE_PNG
+        //    - CRNRSTN_ASSET_MODE_JPEG
+        //    - CRNRSTN_ASSET_MODE_BASE64  <CONTENT EMBED MODE>
         //
-        if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTPS)){
+        if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_PNG)){
 
-            $asset_mode = 'HTTPS';
+            $asset_mode = 'PNG';
 
             switch($integer_constant){
                 case CRNRSTN_UI_JS_JQUERY:
@@ -432,9 +431,9 @@ class crnrstn_environment {
 
         }else{
 
-            if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_HTTP)){
+            if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_JPEG)){
 
-                $asset_mode = 'HTTP';
+                $asset_mode = 'JPEG';
 
                 switch($integer_constant){
                     case CRNRSTN_UI_JS_JQUERY:
@@ -526,8 +525,8 @@ class crnrstn_environment {
     private function return_output_CRNRSTN_UI_JS($integer_constant, $meta_profile_data, $asset_mode = 'BASE64'){
 
         switch($asset_mode){
-            case 'HTTPS':
-            case 'HTTP':
+            case 'PNG':
+            case 'JPEG':
 
                 $tmp_str = '
 <!-- BEGIN CRNRSTN :: '.$this->oCRNRSTN_USR->version_crnrstn.' UI JS/CSS MODULE OUTPUT -->';
