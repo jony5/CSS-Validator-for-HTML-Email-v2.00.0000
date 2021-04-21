@@ -54,9 +54,9 @@ require( CRNRSTN_ROOT . '/_crnrstn/_crnrstn.classdefinitions.inc.php' );
  * $CRNRSTN_debugMode
  * DESCRIPTION :: The master debug mode control variable for the CRNRSTN Suite ::.
  * OPTIONS ::
- * * $CRNRSTN_debugMode = 0,
- * * $CRNRSTN_debugMode = 1,
- * * $CRNRSTN_debugMode = 2
+ * * $CRNRSTN_debugMode = 0 = CRNRSTN_DEBUG_OFF
+ * * $CRNRSTN_debugMode = 1 = CRNRSTN_DEBUG_NATIVE_ERR_LOG
+ * * $CRNRSTN_debugMode = 2 = CRNRSTN_DEBUG_AGGREGATION_ON
  *
  * DETAIL ::
  # $CRNRSTN_debugMode = 0 = CRNRSTN_DEBUG_OFF
@@ -92,13 +92,14 @@ require( CRNRSTN_ROOT . '/_crnrstn/_crnrstn.classdefinitions.inc.php' );
  *  notification...e.g. EMAIL or write to custom FILE output.
  * NOTE :: Maximum additional memory and processing overhead requirements can be expected.
  *
+ * TLDR;
  * CRNRSTN_DEBUG_OFF
- * CRNRSTN_DEBUG_ERROR_LOG
- * CRNRSTN_DEBUG_AGGREGATE
+ * CRNRSTN_DEBUG_NATIVE_ERR_LOG
+ * CRNRSTN_DEBUG_AGGREGATION_ON
  *
  * @var int
 */
-$CRNRSTN_debugMode = 0;
+$CRNRSTN_debugMode = CRNRSTN_DEBUG_OFF;
 
 /**
  * $PHPMAILER_debugMode
@@ -178,10 +179,10 @@ $CRNRSTN_loggingProfile = CRNRSTN_LOG_NONE;
 // INSTANTIATE AN INSTANCE OF CRNRSTN ::
 $oCRNRSTN = new crnrstn(__FILE__, $CRNRSTN_configSerial, $CRNRSTN_debugMode, $PHPMAILER_debugMode, $CRNRSTN_loggingProfile);
 
-$oCRNRSTN->set_developer_output_mode(CRNRSTN_UI_PHPNIGHT);       // CRNRSTN_UI_PHP, CRNRSTN_UI_HTML or CRNRSTN_UI_PHPNIGHT
+$oCRNRSTN->set_developer_output_mode(CRNRSTN_UI_HTML);       // CRNRSTN_UI_PHP, CRNRSTN_UI_HTML or CRNRSTN_UI_PHPNIGHT
 
 $oCRNRSTN->ini_set('max_execution_time', 60);
-$oCRNRSTN->ini_set('memory_limit', '200M');
+//$oCRNRSTN->ini_set('memory_limit', '150M');
 
 //
 // SET EMBRYONIC LOGGING PROFILE - JUST FOR "PRE ENVIRONMENTAL-DETECTION" ERROR LOGGING
@@ -238,35 +239,52 @@ $oCRNRSTN->ini_set('memory_limit', '200M');
 // NEW WILD CARD RESOURCE - SMTP
 
 $CRNRSTN_EMBRYONIC_oWCR = $oCRNRSTN->define_wildcard_resource('CRNRSTN_SMTP_COMM_PROFILE');
-//
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_AUTH_KEY', ';TN:nn88ggw8mx5o,o*&%$co)Bza?!#bLQf{wc$1k$;cs=fFO~u}DI2FKP');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_USERNAME', '007372897787987979793879240');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', 'passwordf1234567');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-//
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_ENVIRONMENT', '23456765432345serial_key2345678765432123456');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_CONNECTION', 'serial_key2345678765432123456');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_CIPHER', 'sm4');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_OPTIONS', OPENSSL_RAW_DATA);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_HMAC_ALG', 'haval256,5');
-//
-$CRNRSTN_EMBRYONIC_oWCR->add_attribute('EMAIL_PROTOCOL', 'MAIL');     //SMTP, MAIL, QMAIL, SENDMAIL
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_AUTH', true);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SERVER', 'v2.crnrstn.email.com;v2.crnrstn.email.com');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PORT_OUTGOING', '587');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_USERNAME', 'email@v2.crnrstn.email.com');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PASSWORD', 'password123');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_KEEPALIVE', false);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SECURE', '');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_AUTOTLS', true);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_TIMEOUT', 5);
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_EMAIL', 'email@v2.crnrstn.email.com');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_NAME', 'CRNRSTN v2.0.0 Mailer');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_EMAIL_PIPED', 'email01@v2.crnrstn.email.com|email02@v2.crnrstn.email.com');
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_NAME_PIPED', '1_CRNRSTN v2.0.0 :: Lead Developer|2_CRNRSTN v2.0.0 :: Lead Developer');
+//$CRNRSTN_EMBRYONIC_oWCR = $oCRNRSTN->define_wildcard_resource('CRNRSTN_ERR_LOG_FTP');
 
-//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris email@email.com|email@email.com|email@email.com');
-$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris email@email.com');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_AUTH_KEY', ';TN:nn8Q{U0Pvbduy|D>4}z!2L-<aJNBza?!#bLQf{wc$1k$;cs=fFO~u}DI2FKP');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_USERNAME', '00737289745665293879240');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', 'password1234567876');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
+
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_ENVIRONMENT', 'for_a_stranger-this-Is-the_soap-encrypti0n-key');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_SECRET_KEY_CONNECTION', 'hi, this-Is-the_soap-encrypti0n-key-for_a_group of _outsiders');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_CIPHER', 'sm4');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_OPTIONS', OPENSSL_RAW_DATA);
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SOAP_ENCRYPT_HMAC_ALG', 'haval256,5');
+
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_SERVER', '172.16.195.132');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_USERNAME', 'jony5');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_PASSWORD', 'password1234567876');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_PORT', 21);
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_TIMEOUT', 90);
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_IS_SSL', false);
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_USE_PASV', true);
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_USE_PASV_ADDR', false);
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_DISABLE_AUTOSEEK', false);
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_DIR_PATH', '/var/www/html/_backup_test/dest420_FTP_WCR/');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FTP_MKDIR_MODE', 775);
+
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('LOCAL_DIR_PATH', '/var/www/html/_backup_test/_tmp');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('LOCAL_DIR_FILEPATH', '/var/www/html/_backup_test/_tmp/');
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('LOCAL_MKDIR_MODE', 775);
+
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('EMAIL_PROTOCOL', 'SMTP');     //SMTP, MAIL, QMAIL, SENDMAIL
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_AUTH', true);
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SERVER', 'v2.crnrstn.evifweb.com;v2.crnrstn.WEBDOMAIN.com');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PORT_OUTGOING', '587');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_USERNAME', 'no_reply@v2.crnrstn.WEBDOMAIN.com');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_PASSWORD', 'password1234567876');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_KEEPALIVE', false);
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_SECURE', '');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_AUTOTLS', true);
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('SMTP_TIMEOUT', 5);
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_EMAIL', 'no_reply@v2.crnrstn.WEBDOMAIN.com');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('FROM_NAME', 'CRNRSTN v2.0.0 Mailer');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_EMAIL_PIPED', 'no_reply01@v2.crnrstn.WEBDOMAIN.com|no_reply02@v2.crnrstn.evWEBDOMAINifweb.com');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('REPLYTO_NAME_PIPED', '1_CRNRSTN v2.0.0 :: Lead Developer|2_CRNRSTN v2.0.0 :: Lead Developer');
+
+//$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris email@WEBDOMAIN.com|jharris@WEBDOMAIN.com|j5@WEBDOMAIN.com');
+$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris email@WEBDOMAIN.com');
 //$CRNRSTN_EMBRYONIC_oWCR->add_attribute('RECIPIENTS_NAME_PIPED', '');
 
 $oCRNRSTN->save_wildcard_resource($CRNRSTN_EMBRYONIC_oWCR);
@@ -288,7 +306,7 @@ unset($CRNRSTN_EMBRYONIC_oWCR);
  * @param   int error level constant integer(s) profile data $errorTypesProfile will allow for configuration
  * of the error level constants that should (or should not) be handled by native PHP...and, therefore
  * will define...with specificity...the jurisdiction of CRNRSTN :: with respect to throw/error handling.
- * Fine tune what CRNRSTN :: error log trace and exception handling will process by providing the desired profile
+ * Fine tune what CRNRSTN :: error log trace and exception handling will process by providing the desired profilelllllll
  * of error level integer constants as this parameter. Feel free to use bit flips, and not (&amp; ~), etc.
  *
  * @return	boolean TRUE
@@ -298,15 +316,12 @@ unset($CRNRSTN_EMBRYONIC_oWCR);
  * The above gives E_NOTICE, E_STRICT, AND E_DEPRECATED throws to native PHP for handling. All else
  * will go through CRNRSTN :: and can be sent as CRNRSTN :: system EMAIL notification if desired.
  */
-$oCRNRSTN->init_CRNRSTN_errHandle_embryonic();
-$oCRNRSTN->init_logging_embryonic(CRNRSTN_LOG_EMAIL, 'CRNRSTN_SMTP_COMM_PROFILE');
-$oCRNRSTN->init_logging_embryonic_HTTP_DIR('http://css.validate.jony5.com/_crnrstn/ui/');
-
-//$oCRNRSTN->init_logging_embryonic({{EMAIL|DEFAULT|FILE}}}, 'Website Administrator jharris@evifweb.com||/var/www/html/_debug_output/error.log');
-# ABOVE AND BELOW ARE EQUAL...BUT USE PROPER INT CONSTANTS
-//$oCRNRSTN->init_logging_embryonic({{EMAIL_PROXY}}, 'Website Administrator email@v2.crnrstn.email.com|email@email.com');
-//$oCRNRSTN->init_logging_embryonic({{FILE}}, '/var/www/html/_debug_output/error.log');
-//$oCRNRSTN->init_logging_embryonic({{DEFAULT}});
+$oCRNRSTN->embryonic_init_crnrstn_err_handle(true);
+$oCRNRSTN->embryonic_init_logging(CRNRSTN_LOG_DEFAULT);
+//$oCRNRSTN->embryonic_init_logging(CRNRSTN_LOG_EMAIL, 'email@webdomain.com');
+//$oCRNRSTN->embryonic_init_logging(CRNRSTN_LOG_FILE, '/var/www/html/_backup_test/_tmp/hello_world_logs.txt');
+$oCRNRSTN->embryonic_init_sys_img_http_dir('http://css.validate.jony5.com/_crnrstn/ui/');
+$oCRNRSTN->embryonic_init_crnrstn_tmp_dir('/var/www/html/_backup_test/_tmp');
 
 /**
 REFERENCE OF ERROR LEVEL CONSTANTS
@@ -409,9 +424,9 @@ $oCRNRSTN->set_CRNRSTN_asErrorHandler('LOCALHOST_MACBOOKTERMINAL',true);
  * $oCRNRSTN->init_sys_assets_transport_mode()
  * DESCRIPTION :: Configure the HTML email image handling profile for CRNRSTN :: system notifications.
  * OPTIONS ::
- * case 'CRNRSTN_ASSET_MODE_BASE64':
- * case CRNRSTN_ASSET_MODE_HTTP
- * case CRNRSTN_ASSET_MODE_HTTPS
+ * CRNRSTN_ASSET_MODE_PNG
+ * CRNRSTN_ASSET_MODE_BASE64
+ * CRNRSTN_ASSET_MODE_JPEG
  *
  * @param   string $mode will indicate what kind of creative (image or HTML) is to
  * be loaded within CRNRSTN :: system notifications. Use of any images should be
@@ -426,7 +441,7 @@ $oCRNRSTN->set_CRNRSTN_asErrorHandler('LOCALHOST_MACBOOKTERMINAL',true);
  * for any image hosting) from CRNRSTN :: system notifications.
  * // ALL_IMAGE
  */
-$oCRNRSTN->init_sys_assets_transport_mode(CRNRSTN_ASSET_MODE_HTTP);
+$oCRNRSTN->init_sys_assets_transport_mode(CRNRSTN_ASSET_MODE_PNG);
 
 /**
  * $oCRNRSTN->initSystemNotices_imgHTTP_DIR()
@@ -452,6 +467,7 @@ $oCRNRSTN->init_sys_assets_transport_mode(CRNRSTN_ASSET_MODE_HTTP);
  * in support of the HTML versions of system email messages. Also text versions are available
  * for all system notifications by default, and HTML can be 'turned off' if desired.
  */
+//init_sys_img_HTTP_DIR()
 $oCRNRSTN->initSystemNotices_imgHTTP_DIR('BLUEHOST', 'http://css.validate.jony5.com/_crnrstn/ui/');
 $oCRNRSTN->initSystemNotices_imgHTTP_DIR('LOCALHOST_MACBOOKTERMINAL', 'http://css.validate.jony5.com/_crnrstn/ui/');
 
@@ -550,12 +566,19 @@ $oCRNRSTN->init_resource_wildcards('BLUEHOST', CRNRSTN_ROOT . '/_crnrstn/_config
  * or SENDMAIL) meta data/credentials.
  *
  * Example ::
- * $oCRNRSTN->init_logging('BLUEHOST', CRNRSTN_LOG_FILE & CRNRSTN_LOG_DEFAULT & CRNRSTN_LOG_FILE_FTP & CRNRSTN_LOG_SCREEN,'email01@email.com,email02@email.com||/var/log/_dev_debug_output/custom_error.log|','CRNRSTN_SMTP_COMM_PROFILE|||');
  */
-$oCRNRSTN->init_logging('BLUEHOST', CRNRSTN_LOG_EMAIL & CRNRSTN_LOG_FILE & CRNRSTN_LOG_SCREEN_HTML_HIDDEN,'j5@jony5.com');
-$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_EMAIL,'j5@jony5.com, c00000101@gmail.com');  //
-$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_EMAIL,'CRNRSTN_SMTP_COMM_PROFILE');
-$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_FILE, CRNRSTN_ROOT . '/_backup_test/_tmp/');
+$oCRNRSTN->init_logging('BLUEHOST', CRNRSTN_LOG_DEFAULT);
+$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_DEFAULT);
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_EMAIL,'j5@webdomain.com, email@webdomain.com');
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_EMAIL,'CRNRSTN_SMTP_COMM_PROFILE');
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_FILE, '/var/www/html/_backup_test/_tmp/');
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_DEFAULT);
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_SCREEN_HTML);
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_SCREEN_TEXT);
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL',CRNRSTN_LOG_SCREEN_HTML_HIDDEN);
+
+
+//$oCRNRSTN->init_logging('LOCALHOST_MACBOOKTERMINAL', CRNRSTN_LOG_FILE, CRNRSTN_ROOT . '/_backup_test/_tmp/');
 
 //
 // INITIALIZE CRNRSTN :: SOAP SERVICES LAYER RESOURCE ACCESS
@@ -1025,7 +1048,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
 //    $oCRNRSTN->define_env_resource('BLUEHOST', 'DOCUMENT_ROOT_DIR', '');
 //    $oCRNRSTN->define_env_resource('BLUEHOST', 'ROOT_PATH_CLIENT_HTTP', 'http://css.validate.jony5.com/');
 //    $oCRNRSTN->define_env_resource('BLUEHOST', 'ROOT_PATH_CLIENT_HTTP_DIR', '');
-//
+
 
     //
 	// BEGIN CONFIG FOR NEXT ENVIRONMENT
@@ -1033,7 +1056,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
 //	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SERVER_NAME', '172.16.195.132');
 //	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SERVER_ADDR', '172.16.195.132');
 	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SERVER_PORT', '80');
-//	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SERVER_PROTOCOL', 'HTTP/1.1');
+	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SERVER_PROTOCOL', 'HTTP/1.1');
 	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SSL_ENABLED', false);
 //	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'DOCUMENT_ROOT', '/var/www/html'); # VALUE FOR YOUR SERVER['DOCUMENT_ROOT']
 //	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'DOCUMENT_ROOT_DIR', '/css.validate.jony5.com');
@@ -1059,7 +1082,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
 
 }
 
-//$oCRNRSTN_ENV->hello_world();
+//$oCRNRSTN_ENV->hello_world('of_exception!');
 
 //
 // INSTANTIATE CRNRSTN :: USER CLASS OBJECT
@@ -1076,24 +1099,12 @@ if(strlen($CRNRSTN_LISTENER_RESPONSE) > 0){
 
 }
 
-//$oCRNRSTN_USR->hello_world();
-
-//
-// SOAP SERVER INITIALIZATION PING - CRNRSTN :: SOAP SERVICES LAYER
-//if($result = $oCRNRSTN_USR->initProxyCommListener()){
-//if($SOAP_response = $oCRNRSTN_USR->SOAP_service_listen()){
-//    echo $SOAP_response;
-//    die();
-
-//}
+//$oCRNRSTN_USR->hello_world('of_exception!');
 
 # # # # # #
 # # # # # #
 # # # # # # 	END OF CRNRSTN :: CONFIG
 
-//
-// THIS MAKES MY LIFE EASY...SO I SIMPLY LEAVE HERE 4U, COOL?
-// CHANGE LINE 1037 TO true IF YOU HAVE SSL CERT ON BOX
 if($oCRNRSTN_USR->get_resource('SSL_ENABLED')){
 
     if(!$oCRNRSTN_USR->isSSL()){
