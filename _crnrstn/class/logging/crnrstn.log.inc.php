@@ -2081,6 +2081,8 @@ class crnrstn_log_output_manager {
     protected $oLogger;
     private static $oCRNRSTN_n;
 
+    public $maximum_email_log_trace = 23;   // REGULATE MAXIMUM LOG TRACE OUTPUT TO EMAIL & ERROR_LOG
+
     public function __construct($oCRNRSTN_n) {
 
         self::$oCRNRSTN_n = $oCRNRSTN_n;
@@ -2091,7 +2093,7 @@ class crnrstn_log_output_manager {
 
     }
 
-    public function return_log_trace_output_str($output_profile){
+    public function return_log_trace_output_str($output_profile = 'ERROR_LOG', $line_wrap = NULL){
 
         //
         // RETURN LOG TRACE STRING
@@ -2108,7 +2110,7 @@ class crnrstn_log_output_manager {
             break;
             case 'FILE':
 
-                return $this->return_log_str_FILE();
+                return $this->return_log_str_FILE($line_wrap);
 
             break;
             case 'SCREEN_TEXT':
@@ -2129,6 +2131,8 @@ class crnrstn_log_output_manager {
             break;
             default:
 
+                //
+                // ERROR_LOG
                 return $this->return_log_str_ERROR_LOG();
 
             break;
@@ -2175,6 +2179,8 @@ class crnrstn_log_output_manager {
     }
 
     private function return_log_str_EMAIL_HTML(){
+
+        $tmp_log_str_ARRAY = array();
 
         //
         // BUILD LOG TRACE STRING FOR HTML EMAIL
@@ -2232,7 +2238,7 @@ class crnrstn_log_output_manager {
 
                 //
                 // ADD OBJECT DATA TO OUTPUT STR
-                $tmp_msg .= '<tr>
+                $tmp_log_str_ARRAY[] = '<tr>
                                 <td align="left" style="text-align: left;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; border-top: 2px solid #FFF;"><span style="color: #000; font-weight: bold;">'.$tmp_transactionTime.'</span></div></td>
                                 <td align="left" style="text-align: left;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:18px; border-bottom: 0px solid #FFF;"><span style="color: #FF0000; line-height: 20px;">'.$tmp_runTime.'</span></div></td>
                                 <td align="left" style="text-align: left;"><div style="text-align: left; font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:18px; border-bottom: 0px solid #FFF;"><span style="line-height: 20px;">'.$tmp_HTML_chunk_output_ARRAY[0].'</span></div></td>
@@ -2245,32 +2251,11 @@ class crnrstn_log_output_manager {
 
         }
 
-        $tmp_condition='';
-        $tmp_msg = trim($tmp_msg);
-        if(strlen($tmp_msg)<5) {
+        if(count($tmp_log_str_ARRAY)<1) {
 
             if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-//                if ($pipe_pos !== false) {
-//
-//                    $tmp_silo_str = '';
-//                    $tmp_silo_array = explode('|', self::$oCRNRSTN_n->log_silo_profile);
-//                    $tmp_cnt = sizeof($tmp_silo_array);
-//                    for ($i = 0; $i < $tmp_cnt; $i++) {
-//                        $tmp_silo_str .= $tmp_silo_array[$i] . ' and ';
-//                    }
-//
-//                    //
-//                    // STRIP TRAILING AND
-//                    $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
-//
-//                    $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-//
-//                } else {
-
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-
-                //}
+                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
 
             } else {
 
@@ -2290,15 +2275,52 @@ class crnrstn_log_output_manager {
 
             $tmp_msg = '<div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:23px;">'.$tmp_msg.'</div>';
 
-        }
+            //
+            // RETURN LOG TRACE STRING FOR HTML EMAIL
+            return $tmp_msg;
 
-        //
-        // RETURN LOG TRACE STRING FOR HTML EMAIL
-        return $tmp_msg;
+        }else{
+
+            $tmp_log_cnt = count($tmp_log_str_ARRAY);
+            $tmp_buffer_delta = $tmp_log_cnt - $this->maximum_email_log_trace;
+
+            if($tmp_buffer_delta<0){
+
+                //
+                // OUTPUT ALL.
+                foreach($tmp_log_str_ARRAY as $key => $html_str_section){
+
+                    $tmp_msg .= $html_str_section;
+
+                }
+
+            }else{
+
+                //
+                // ONLY OUTPUT TRAILING
+                foreach($tmp_log_str_ARRAY as $key => $html_str_section){
+
+                    if($key > $tmp_buffer_delta){
+
+                        $tmp_msg .= $html_str_section;
+
+                    }
+
+                }
+
+            }
+
+            //
+            // RETURN LOG TRACE STRING FOR HTML EMAIL
+            return $tmp_msg;
+
+        }
 
     }
 
     private function return_log_str_EMAIL_TEXT(){
+
+        $tmp_log_str_ARRAY = array();
 
         //
         // BUILD LOG TRACE STRING FOR TEXT EMAIL
@@ -2345,33 +2367,17 @@ class crnrstn_log_output_manager {
                 }
 
                 $tmp_logMsg_raw = $oLog->get_logMsg();
-                $tmp_msg .= $tmp_logMsg_raw . '
+                $tmp_log_str_ARRAY[] = $tmp_logMsg_raw . '
 
 ';
             }
         }
 
-        $tmp_msg = trim($tmp_msg);
-        if(strlen($tmp_msg)<5) {
+        if(count($tmp_log_str_ARRAY)<1) {
 
             if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-
-//                if ($pipe_pos !== false) {
-//                    $tmp_silo_str = '';
-//
-//
-//                    //
-//                    // STRIP TRAILING AND
-//                    $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
-//
-//                    $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced CRNRSTN :: trace output activity to NULL';
-//
-//                } else {
-
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced CRNRSTN :: trace output activity to NULL';
-
-                //}
+                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced CRNRSTN :: trace output activity to NULL';
 
             } else {
 
@@ -2388,10 +2394,44 @@ class crnrstn_log_output_manager {
                 $tmp_msg = '** The CRNRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **';
 
             }
+
+            //
+            // RETURN LOG TRACE STRING FOR TEXT EMAIL
+            return $tmp_msg;
+
+        }
+
+        $tmp_log_cnt = count($tmp_log_str_ARRAY);
+        $tmp_buffer_delta = $tmp_log_cnt - $this->maximum_email_log_trace;
+
+        if($tmp_buffer_delta<0){
+
+            //
+            // OUTPUT ALL.
+            foreach($tmp_log_str_ARRAY as $key => $html_str_section){
+
+                $tmp_msg .= $html_str_section;
+
+            }
+
+        }else{
+
+            //
+            // ONLY OUTPUT TRAILING
+            foreach($tmp_log_str_ARRAY as $key => $html_str_section){
+
+                if($key > $tmp_buffer_delta){
+
+                    $tmp_msg .= $html_str_section;
+
+                }
+
+            }
+
         }
 
         //
-        // RETURN LOG TRACE STRING FOR TEXT EMAIL
+        // RETURN LOG TRACE STRING FOR HTML EMAIL
         return $tmp_msg;
 
     }
@@ -2428,27 +2468,8 @@ class crnrstn_log_output_manager {
             if(strlen($tmp_msg)<5) {
 
                 if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
-//
-//                    if ($pipe_pos !== false) {
-//
-//                        $tmp_silo_str = '';
-//                        $tmp_silo_array = explode('|', self::$oCRNRSTN_n->log_silo_profile);
-//                        $tmp_cnt = sizeof($tmp_silo_array);
-//                        for ($i = 0; $i < $tmp_cnt; $i++) {
-//                            $tmp_silo_str .= $tmp_silo_array[$i] . ' and ';
-//                        }
-//
-//                        //
-//                        // STRIP TRAILING AND
-//                        $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
-//
-//                        $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-//
-//                    } else {
 
-                        $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-
-                    //}
+                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
 
                 } else {
 
@@ -2504,28 +2525,7 @@ class crnrstn_log_output_manager {
 
                 if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-//                    $pipe_pos = stripos(self::$oCRNRSTN_n->log_silo_profile, "|");
-//
-//                    if ($pipe_pos !== false) {
-//
-//                        $tmp_silo_str = '';
-//                        $tmp_silo_array = explode('|', self::$oCRNRSTN_n->log_silo_profile);
-//                        $tmp_cnt = sizeof($tmp_silo_array);
-//                        for ($i = 0; $i < $tmp_cnt; $i++) {
-//                            $tmp_silo_str .= $tmp_silo_array[$i] . ' and ';
-//                        }
-//
-//                        //
-//                        // STRIP TRAILING AND
-//                        $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
-//
-//                        $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-//
-//                    } else {
-
-                        $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-
-                    //}
+                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
 
                 } else {
 
@@ -2542,7 +2542,6 @@ class crnrstn_log_output_manager {
 
                     $tmp_msg = '** The C<span style="color:#FF0000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **
 ';
-
                 }
 
             }
@@ -2569,15 +2568,20 @@ class crnrstn_log_output_manager {
 
             if(is_object($oLog)){
 
-                $tmp_log_out .= $oLog->toTextConversion($line_break_char, 'TEXT', 79);
+                $tmp_log_out .= $oLog->toTextConversion($line_break_char, 'SCREEN_TEXT', 74);
 
             }
+
         }
 
+        $tmp_log_out = ltrim($tmp_log_out,'
+');
+
         if(strlen($tmp_log_out)>0){
-            $tmp_msg = 'BEGIN LOG OUTPUT OF AGGREGATED ACTIVITY FROM SOURCE REQUESTING ['.$output_channel.'] :: EXCEPTION THROWN'.$line_break_char;
-            $tmp_msg .= $tmp_log_out;
-            $tmp_msg .= 'END LOG OUTPUT OF AGGREGATED ACTIVITY FROM SOURCE REQUESTING ['.$output_channel.'] :: EXCEPTION THROWN'.$line_break_char;
+
+            //$tmp_msg = 'BEGIN LOG OUTPUT OF AGGREGATED ACTIVITY FROM SOURCE REQUESTING ['.$output_channel.'] :: EXCEPTION THROWN'.$line_break_char;
+            $tmp_msg = $tmp_log_out;
+            //$tmp_msg .= 'END LOG OUTPUT OF AGGREGATED ACTIVITY FROM SOURCE REQUESTING ['.$output_channel.'] :: EXCEPTION THROWN'.$line_break_char;
 
         }
 
@@ -2585,28 +2589,7 @@ class crnrstn_log_output_manager {
 
             if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-//                $pipe_pos = stripos(self::$oCRNRSTN_n->log_silo_profile, "|");
-//
-//                if ($pipe_pos !== false) {
-//
-//                    $tmp_silo_str = '';
-//                    $tmp_silo_array = explode('|', self::$oCRNRSTN_n->log_silo_profile);
-//                    $tmp_cnt = sizeof($tmp_silo_array);
-//                    for ($i = 0; $i < $tmp_cnt; $i++) {
-//                        $tmp_silo_str .= $tmp_silo_array[$i] . ' and ';
-//                    }
-//
-//                    //
-//                    // STRIP TRAILING AND
-//                    $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
-//
-//                    $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-//
-//                } else {
-
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
-
-               // }
+                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
 
             } else {
 
@@ -2634,6 +2617,8 @@ class crnrstn_log_output_manager {
 
     private function return_log_str_ERROR_LOG(){
 
+        $tmp_log_str_ARRAY = array();
+
         //
         // RETURN LOG TRACE STRING FOR PHP ERROR_LOG PARAMETER
         $tmp_msg = '';
@@ -2641,36 +2626,17 @@ class crnrstn_log_output_manager {
 
             if(is_object($oLog)){
 
-                $tmp_msg .= $oLog->toTextConversion(NULL, 'ERROR_LOG', 125, false);
+                $tmp_log_str_ARRAY[] = $oLog->toTextConversion(NULL, 'ERROR_LOG', 0, false);
 
             }
 
         }
 
-        $tmp_msg = trim($tmp_msg);
-        if(strlen($tmp_msg)<5) {
+        if(count($tmp_log_str_ARRAY)<1) {
 
             if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
-//
-//                if ($pipe_pos !== false) {
-//                    $tmp_silo_str = '';
-//                    $tmp_silo_array = explode('|', self::$oCRNRSTN_n->log_silo_profile);
-//                    $tmp_cnt = sizeof($tmp_silo_array);
-//                    for ($i = 0; $i < $tmp_cnt; $i++) {
-//                        $tmp_silo_str .= $tmp_silo_array[$i] . ' and ';
-//                    }
-//
-//                    //
-//                    // STRIP TRAILING AND
-//                    $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
-//
-//                    $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced CRNRSTN :: trace output activity to NULL';
-//
-//                } else {
 
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced CRNRSTN :: trace output activity to NULL';
-
-                //}
+                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced CRNRSTN :: trace output activity to NULL';
 
             } else {
 
@@ -2687,15 +2653,52 @@ class crnrstn_log_output_manager {
                 $tmp_msg = '** The CRNRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **';
 
             }
+
+            //
+            // RETURN LOG TRACE STRING FOR PHP NATIVE ERROR_LOG
+            return $tmp_msg;
+
+        }else{
+
+            $tmp_log_cnt = count($tmp_log_str_ARRAY);
+            $tmp_buffer_delta = $tmp_log_cnt - $this->maximum_email_log_trace;
+
+            if($tmp_buffer_delta<0){
+
+                //
+                // OUTPUT ALL.
+                foreach($tmp_log_str_ARRAY as $key => $html_str_section){
+
+                    $tmp_msg .= $html_str_section;
+
+                }
+
+            }else{
+
+                //
+                // ONLY OUTPUT TRAILING
+                foreach($tmp_log_str_ARRAY as $key => $html_str_section){
+
+                    if($key > $tmp_buffer_delta){
+
+                        $tmp_msg .= $html_str_section;
+
+                    }
+
+                }
+
+            }
+
+            //
+            // RETURN LOG TRACE STRING FOR HTML EMAIL
+            return $tmp_msg;
+
         }
 
-        //
-        // RETURN LOG TRACE STRING FOR PHP NATIVE ERROR_LOG
-        return $tmp_msg;
 
     }
 
-    private function return_log_str_FILE(){
+    private function return_log_str_FILE($line_wrap){
 
         //
         // RETURN LOG TRACE STRING FOR CUSTOM FILE OUTPUT
@@ -2708,7 +2711,7 @@ class crnrstn_log_output_manager {
 
             if(is_object($oLog)){
 
-                $tmp_msg .= $oLog->toTextConversion($line_break_char, 'TEXT');
+                $tmp_msg .= $oLog->toTextConversion($line_break_char, 'TEXT', $line_wrap);
 
             }
 
@@ -2805,7 +2808,7 @@ class crnrstn_log {
     protected $line_number;
     protected $message;
     protected $is_devoted_to_destruction = false;
-    protected $log_toTextStr_processed;
+    protected $log_toTextStr_processed_ARRAY = array();
 
     public function __construct($oCRNRSTN_USR, $transactionTime, $log_silo_key_profile = CRNRSTN_LOG_ALL) {
 
@@ -2847,19 +2850,19 @@ class crnrstn_log {
     }
 
     //public function toTextConversion($addBreakChar=NULL, $line_wrap=145, $isVisTransactionTime=true){
-    public function toTextConversion($addBreakChar=NULL, $output_type='ERROR_LOG', $line_wrap=125, $isVisTransactionTime=true){
+    public function toTextConversion($break_char = NULL, $output_type = 'ERROR_LOG', $line_wrap = 125, $isVisTransactionTime = true){
 
-        if(isset($this->log_toTextStr_processed)){
+        if(isset($this->log_toTextStr_processed_ARRAY[$output_type])){
 
-            return $this->log_toTextStr_processed;
+            return $this->log_toTextStr_processed_ARRAY[$output_type];
 
         }else{
 
             $tmp_out_processed = '';
 
-            if(isset($addBreakChar)){
+            if(isset($break_char)){
 
-                $tmp_linebreak = $addBreakChar;
+                $tmp_linebreak = $break_char;
 
             }else{
 
@@ -2968,7 +2971,7 @@ class crnrstn_log {
                 $tmp_lineNumber.
                 $tmp_logMsg;
 
-            if(strlen($tmp_out_raw)>$line_wrap){
+            if(strlen($tmp_out_raw)>$line_wrap && $line_wrap > 0){
 
                 //
                 // RETURN LOG TRACE STRING FOR SCREEN TEXT
@@ -2988,12 +2991,24 @@ class crnrstn_log {
                     break;
                     case 'TEXT':
 
-                        $tmp_out_processed .= $oChunkRestrictData->return_linesString($output_type, '...');
+                        //
+                        // IDENTICAL TO SCREEN_TEXT
+                        $output_type = 'SCREEN_TEXT';
+                        $tmp_out_processed .= $oChunkRestrictData->return_linesString($output_type, '   ');
+
+                    break;
+                    case 'SCREEN_TEXT':
+
+                        //
+                        // CURRENTLY USED FOR TEXT VERSION OF MULTI-PART EMAIL AND SCREEN_TEXT OUTPUT
+                        $tmp_out_processed .= $oChunkRestrictData->return_linesString($output_type, '   ');
 
                     break;
                     default:
 
-                        $tmp_out_processed .= $oChunkRestrictData->return_linesString($output_type, '...');
+                        //
+                        // ERROR_LOG
+                        $tmp_out_processed .= $tmp_out_raw;
 
                     break;
 
@@ -3005,7 +3020,7 @@ class crnrstn_log {
 
             }
 
-            $this->log_toTextStr_processed = $tmp_out_processed;
+            $this->log_toTextStr_processed_ARRAY[$output_type] = $tmp_out_processed;
 
         }
 

@@ -4276,7 +4276,7 @@ class crnrstn_image_v_html_content_manager {
 
                 }else{
 
-                    return '<img src="'.$tmp_str.'"  width="'.$tmp_width.'" height="'.$tmp_height.'" alt="'.$tmp_alt_text.'" title="'.$tmp_title_text.'" style="border:0;">';
+                    return '<div style="border-right:10px solid #FFF;"><img src="'.$tmp_str.'"  width="'.$tmp_width.'" height="'.$tmp_height.'" alt="'.$tmp_alt_text.'" title="'.$tmp_title_text.'" style="border:0;"></div>';
 
                 }
 
@@ -4303,7 +4303,7 @@ class crnrstn_image_v_html_content_manager {
 
                 }else{
 
-                    return '<img src="'.$tmp_str.'"  width="'.$tmp_width.'" height="'.$tmp_height.'" alt="'.$tmp_alt_text.'" title="'.$tmp_title_text.'" style="border:0;">';
+                    return '<div style="border-right:10px solid #FFF;"><img src="'.$tmp_str.'"  width="'.$tmp_width.'" height="'.$tmp_height.'" alt="'.$tmp_alt_text.'" title="'.$tmp_title_text.'" style="border:0;"></div>';
 
                 }
 
@@ -4338,7 +4338,7 @@ class crnrstn_image_v_html_content_manager {
 
                 }else{
 
-                    return '<img src="'.$tmp_str.'"  width="'.$tmp_width.'" height="'.$tmp_height.'" alt="'.$tmp_alt_text.'" title="'.$tmp_title_text.'" style="border:0;">';
+                    return '<div style="border-right:10px solid #FFF;"><img src="'.$tmp_str.'"  width="'.$tmp_width.'" height="'.$tmp_height.'" alt="'.$tmp_alt_text.'" title="'.$tmp_title_text.'" style="border:0;"></div>';
 
                 }
 

@@ -137,12 +137,15 @@ class crnrstn {
 	public $oLog_output_ARRAY = array();
 	public $oWildCardResource_ARRAY = array();
 	public $wildCardResource_filePath_ARRAY = array();
+	public $destruct_output = '';
 	public $sys_notices_creative_mode = 'ALL_IMAGE';
     public $sys_notice_creative_http_path;
     private static $encryptableDataTypes = array();
     public $logging_profile_constants = array();
+    public $theme_style_profile_constants = array();
     public $creativeElementsKeys = array();
-    private static $sys_notice_creative_http_path_ARRAY = array();
+    private static $system_creative_http_path_ARRAY = array();
+    private static $crnrstn_tmp_dir;
     private static $m_starttime = array();
     private static $requestProtocol;
 
@@ -189,6 +192,7 @@ class crnrstn {
         // INITIALIZE ARRAY OF ENCRYPTABLE DATATYPES
         self::$encryptableDataTypes = array('string', 'integer', 'double', 'float', 'int');
         $this->logging_profile_constants = array(CRNRSTN_LOG_EMAIL, CRNRSTN_LOG_EMAIL_PROXY, CRNRSTN_LOG_FILE, CRNRSTN_LOG_FILE_FTP, CRNRSTN_LOG_SCREEN_TEXT, CRNRSTN_LOG_SCREEN, CRNRSTN_LOG_SCREEN_HTML, CRNRSTN_LOG_SCREEN_HTML_HIDDEN, CRNRSTN_LOG_DEFAULT, CRNRSTN_LOG_ELECTRUM);
+        $this->theme_style_profile_constants = array(CRNRSTN_UI_PHPNIGHT, CRNRSTN_UI_HTML, CRNRSTN_UI_PHP, CRNRSTN_UI_FEATHER);
 
         $this->creativeElementsKeys = array('CRNRSTN ::', 'LINUX_PENGUIN', 'REDHAT_BAR', 'REDHAT_CIRCLE', 'APACHE_POWER_VERS', 'CRNRSTN_R', '5', 'REDHAT_POWER', 'MYSQL_DOLPHIN', 'PHP_ELLIPSE', 'CRNRSTN_R_WALL', 'POW_BY_PHP', 'ZEND_LOGO', 'ZEND_FRAMEWORK', 'ZEND_FRAMEWORK_3');
 
@@ -230,7 +234,7 @@ class crnrstn {
         $this->error_log('TODO :: CONFIRM EXCLUSIVE USE OF ONLY-GET-WHAT-YOU-NEED-TO-oCRNRSTN_ENV ON NEW CONFIGURATION INCLUDES WITHIN CRNRSTN [oWCR, PROXY, etc.] ::. 11/13/2020 1159hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: SET NUSOAP PHP DEBUG MODE, $NUSOAP_debugMode (CRNRSTN :: SOAP SERVICES) THROUGH CRNRSTN :: CONFIG FILE. 11/14/2020 2114hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: WRAP NUSOAP PHP SERVER ENDPOINT IN CRNRSTN_USR...AND PREPARE TO SUPPORT DYNAMIC WSDL ENDPOINTS ::. 11/14/2020 2114hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-        $this->error_log('TODO :: PREFIX NUSOAP PHP SERVER WSDL ENDPOINT WITH CONFIGURABLE ALLOW/DENY IP ADDRESS CHECK. 11/15/2020 0705hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+        $this->error_log('TODO :: PREFIX NUSOAP PHP SERVER WSDL ENDPOINT WITH --> CONFIGURABLE ALLOW/DENY IP ADDRESS CHECK. 11/15/2020 0705hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: TEST NULL PASSTHROUGH FROM CLIENT TO SERVER. 11/23/2020 1120hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: DECOUPLE SOAP ENDPOINT VERSION DIRECTORY NAME (E.G. /2.0.0/) FROM ACTUAL SERVICE INVOKATION. 1/15/20201 @ 1400hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: TTL FUNCTIONALITY ADDED TO ELECTRUM DESTINATION FTP/DIR PROFILE TO SUPPORT ROTATION. 1/25/2021 1228hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
@@ -298,6 +302,12 @@ class crnrstn {
     public function isBitSet($integer_const){
 
         return $this->oCRNRSTN_BITFLIP_MGR->isBitSet($integer_const);
+
+    }
+
+    public function return_encryptable_data_types(){
+
+        return self::$encryptableDataTypes;
 
     }
 
@@ -402,8 +412,8 @@ class crnrstn {
 
         //
         //const CRNRSTN_UI_PHPNIGHT;
-        //const CRNRSTN_HTML;
-        //const CRNRSTN_PHP;
+        //const CRNRSTN_UI_HTML;
+        //const CRNRSTN_UI_PHP;
 
 
         //
@@ -432,7 +442,7 @@ class crnrstn {
 
     }
 
-    public function hello_world($is_bastard = true){
+    public function hello_world($type, $is_bastard = true){
 
         try{
 
@@ -484,7 +494,36 @@ class crnrstn {
 
     }
 
-	public function init_logging_embryonic($CRNRSTN_loggingProfile, $CRNRSTN_loggingMeta = NULL){
+    public function embryonic_init_crnrstn_tmp_dir($dir_path){
+
+        if(is_dir($dir_path)){
+
+            self::$crnrstn_tmp_dir = rtrim($dir_path,DIRECTORY_SEPARATOR);
+            $this->error_log('Embryonic /tmp directory path '.$dir_path.' has been stored.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+
+        }else{
+
+            $this->error_log('Skipping embryonic /tmp directory path, '.$dir_path.'. This has not been applied.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+
+        }
+
+    }
+
+    public function return_tmp(){
+
+        if(isset(self::$crnrstn_tmp_dir)){
+
+            return self::$crnrstn_tmp_dir;
+
+        }else{
+
+            return false;
+
+        }
+
+    }
+
+	public function embryonic_init_logging($CRNRSTN_loggingProfile, $CRNRSTN_loggingMeta = NULL){
 
         $this->oCRNRSTN_BITFLIP_MGR->initialize_bit($CRNRSTN_loggingProfile, true);
 
@@ -553,7 +592,7 @@ class crnrstn {
 
     }
 
-    public function init_logging_embryonic_HTTP_DIR($http_uri_dir){
+    public function embryonic_init_sys_img_http_dir($http_uri_dir){
 
         //
         // ENSURE THERE IS A TRAILING FORWARD SLASH
@@ -571,9 +610,9 @@ class crnrstn {
         // TODO :: THIS FUNCTIONALITY SHOULD BE ADAPTED FOR WHITE LABEL FOR ALL SYSTEM NOTIFICATIONS.
         try{
 
-            if(isset(self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey])){
+            if(isset(self::$system_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey])){
 
-                return self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey];
+                return self::$system_creative_http_path_ARRAY[crc32($this->configSerial)][$envKey];
 
             }else{
 
@@ -656,13 +695,13 @@ class crnrstn {
         $crnrstn_images_http_dir = rtrim($crnrstn_images_http_dir, $slashChar);
         $crnrstn_images_http_dir .= $slashChar;
 
-        self::$sys_notice_creative_http_path_ARRAY[crc32($this->configSerial)][crc32($envKey)] = $crnrstn_images_http_dir;
+        self::$system_creative_http_path_ARRAY[crc32($this->configSerial)][crc32($envKey)] = $crnrstn_images_http_dir;
 
         return true;
 
     }
 
-    public function init_CRNRSTN_errHandle_embryonic($isActive = true, $errorTypesProfile=NULL){
+    public function embryonic_init_crnrstn_err_handle($isActive = true, $errorTypesProfile=NULL){
 
         if($isActive){
 
@@ -903,7 +942,7 @@ class crnrstn {
 	
 	public function deny_access($envKey, $ipOrFile){
 
-        //$this->hello_world();
+        //$this->hello_world('of_exception!');
 
         $this->deny_accessIP_ARRAY[crc32($this->configSerial)][crc32($envKey)] = $ipOrFile;
 
@@ -2072,7 +2111,7 @@ class crnrstn {
 
     }
 
-    private function return_set_bit($constants_int_ARRAY){
+    private function return_set_bits($constants_int_ARRAY){
 
         //$this->oCRNRSTN_BITWISE->set($integer_constant);
         //$this->oCRNRSTN_BITWISE->toggle($integer_constant);
@@ -2081,28 +2120,37 @@ class crnrstn {
         //$this->oCRNRSTN_BITWISE->stringout()
         //$this->oCRNRSTN_BITFLIP_MGR->set($integer_constant, true);
 
+        $tmp_array = array();
+
         foreach($constants_int_ARRAY as $key => $int_constant){
 
             if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read($int_constant)){
 
-                return $int_constant;
+                $tmp_array[] = $int_constant;
 
             }
 
         }
 
-
-        return -1;
+        return $tmp_array;
 
     }
 
-    public function print_r($expression, $title=NULL, $theme_style = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+    public function print_r_str($expression, $title=NULL, $theme_style = NULL, $line_num = NULL, $method = NULL, $file = NULL){
 
         if(!isset($theme_style)){
 
-            $tmp_array = array(CRNRSTN_UI_PHPNIGHT, CRNRSTN_UI_PHP, CRNRSTN_UI_HTML, CRNRSTN_UI_FEATHER);
+            //
+            // SET A DEFAULT
+            $theme_style = CRNRSTN_UI_PHPNIGHT;
 
-            $theme_style = $this->return_set_bit($tmp_array);
+            $theme_style_ARRAY = $this->return_set_bits($this->theme_style_profile_constants);
+
+            if(count($theme_style_ARRAY) > 0){
+
+                $theme_style = $theme_style_ARRAY[0];   // FIRST MATCH
+
+            }
 
         }
 
@@ -2135,7 +2183,158 @@ class crnrstn {
         $tmp_line_cnt = sizeof($lines);
 
         $lineHTML = implode('<br />', range(1, $tmp_line_cnt+0));
-        $tmp_linecnt_html_out = '<div style="line-height:20px; position:absolute; width:25px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:25px; padding-bottom:25px; padding-left:4px;">'.$lineHTML.'</div>';
+        $tmp_linecnt_html_out = '<div style="line-height:20px; position:absolute; padding-right:5px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:25px; padding-bottom:25px; padding-left:4px;">'.$lineHTML.'</div>';
+
+        if(isset($title) && $title != ''){
+
+            $tmp_title = '<div style="display:block; clear:both; height:4px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div><div style="float:left; padding:5px 0 0 30px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">';
+            $tmp_title .= $title;
+            $tmp_title .= '</div><div style="display:block; clear:both; height:0px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div>';
+
+        }else{
+
+            $tmp_title = '<div style="display:block; clear:both; height:4px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div><div style="float:left; padding:5px 0 0 30px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">';
+            $tmp_title .= 'Begin print_r() output by C<span style="color:#F00;">R</span>NRSTN ::';
+            $tmp_title .= '</div><div style="display:block; clear:both; height:0px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div>';
+
+        }
+
+        $tmp_hash = $this->generateNewKey(10);
+
+        switch($theme_style){
+            case CRNRSTN_UI_PHP:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#CCC; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#CCC; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+            case CRNRSTN_UI_HTML:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#FFF; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#FFF; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+            case CRNRSTN_UI_PHPNIGHT:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#000; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#000; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+            default:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#E6E6E6; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#E6E6E6; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+
+        }
+
+        $tmp_str_out = '<div style="background-color: #FFF; padding: 10px 20px 10px 20px;">';
+        $tmp_str_out .= $tmp_out;
+
+        $output = $this->highlightText($tmp_print_r, $theme_style);
+        $output = $this->properReplace('<br />', '
+', $output);
+
+        if($output == '<span style="color: #DEDECB"></span>' || $output == '<span style="color: #000000"></span>' || $output == '<span style="color: #CC0000"></span>'){
+
+            $output = '<span style="color: #DEDECB">&nbsp;</span>';
+
+        }
+
+        $tmp_str_out .= '<pre>';
+        $tmp_str_out .=  print_r($output, true);
+        $tmp_str_out .= '</pre>';
+
+        $component_crnrstn_title = $this->return_component_branding_creative();
+
+        $tmp_str_out .= '</code></div></div>
+        <div style="width:100%;">
+            <div style="display:block; clear:both; height:4px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div>
+
+            '.$component_crnrstn_title.'
+
+            <div style="float:right; max-width:88%; max-width:82%; padding:4px 0 5px 0; text-align:right; font-family: Courier New, Courier, monospace; font-size:11px;">'.$tmp_meta.'</div>
+                
+            <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
+        </div>
+        </div></div>';
+
+        $tmp_str_out .= '<div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
+';
+
+        return $tmp_str_out;
+
+    }
+
+    public function print_r($expression, $title=NULL, $theme_style = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+
+        if(!isset($theme_style)){
+
+            //
+            // SET A DEFAULT
+            $theme_style = CRNRSTN_UI_PHPNIGHT;
+
+            $theme_style_ARRAY = $this->return_set_bits($this->theme_style_profile_constants);
+
+            if(count($theme_style_ARRAY) > 0){
+
+                $theme_style = $theme_style_ARRAY[0];   // FIRST MATCH
+
+            }
+
+        }
+
+        $tmp_meta = '['.$this->getMicroTime().' '.date('T').'] [rtime '. $this->wallTime().' secs]';
+
+        if(!isset($method) || $method==''){
+
+            if(isset($file)){
+
+                $tmp_meta .= ' [file '.$file.']';
+
+            }
+
+        }else{
+
+            $tmp_meta .= ' [methd '.$method.']';
+
+        }
+
+        if(isset($line_num)){
+
+            $tmp_meta .= ' [lnum '.$line_num.']';
+
+        }
+
+        $tmp_print_r = print_r($expression, true);
+
+        $tmp_print_r = $this->properReplace('\r\n', '\n', $tmp_print_r);
+        $lines = preg_split('#\r?\n#', trim($tmp_print_r));
+        $tmp_line_cnt = sizeof($lines);
+
+        $lineHTML = implode('<br />', range(1, $tmp_line_cnt+0));
+        $tmp_linecnt_html_out = '<div style="line-height:20px; position:absolute; padding-right:5px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:25px; padding-bottom:25px; padding-left:4px;">'.$lineHTML.'</div>';
 
         if(isset($title) && $title != ''){
 
@@ -2650,7 +2849,7 @@ class crnrstn {
 
     }
 
-    public function stringSanitize($str, $type){
+    public function string_sanitize($str, $type){
 
         return $this->strSanitize($str, $type);
 
@@ -2894,6 +3093,72 @@ class crnrstn {
     }
 
     //
+    // SOURCE :: https://stackoverflow.com/questions/2510434/format-bytes-to-kilobytes-megabytes-gigabytes
+    // AUTHOR :: https://stackoverflow.com/users/227532/leo
+    public function formatBytes($bytes, $precision = 2, $SI_output=false) {
+
+        //
+        // CRNRSTN v2.0.0 :: MODS
+        // SEE :: https://en.wikipedia.org/wiki/Binary_prefix
+        // SEE ALSO :: ISO/IEC 80000 family of standards (November 1, 2009)
+        // https://en.wikipedia.org/wiki/ISO/IEC_80000#Information_science_and_technology
+        // SEE COMMENT BY DEVATOR [https://stackoverflow.com/users/659731/devator] JUST
+        // BENEATH THE METHOD [formatBytes()] AUTHOR'S RESPONSE AT SOURCE LINK. THIS IS MY
+        // IMPETUS TO INCLUDE THE ABOVE LINKS TO ADDITIONAL MATERIAL FROM WIKIPEDIA.
+        if($SI_output){
+
+            // SI :: metric prefix
+            $units = array('bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+            $units_power = 1000;
+
+        }else{
+
+            // IEC :: ISO 80000 or IEC 80000
+            $units = array('bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB');
+            $units_power = 1024;
+
+        }
+
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log($units_power));
+        $pow = min($pow, count($units) - 1);
+
+        $bytes /= pow($units_power, $pow);
+
+        $tmp_number = round($bytes, $precision);
+        $tmp_number = $this->number_format_keep_precision($tmp_number);
+
+        return  $tmp_number. ' ' . $units[$pow];
+
+    }
+
+    public function number_format_keep_precision($number, $dec_places=0, $dec_point = '.', $thou_separate = ','){
+
+        if($dec_places>0){
+
+            return number_format($number , $dec_places , $dec_point, $thou_separate);
+
+        }else{
+
+            //
+            // SOURCE :: https://www.php.net/manual/en/function.number-format.php
+            // AUTHOR :: stm555 at hotmail dot com :: https://www.php.net/manual/en/function.number-format.php#52311
+            $broken_number = explode($dec_point,$number);
+            if(isset($broken_number[1])){
+
+                return number_format($broken_number[0] , 0 , $dec_point, $thou_separate).$dec_point.$broken_number[1];
+
+            }else{
+
+                return number_format($broken_number[0] , 0 , $dec_point, $thou_separate);
+
+            }
+
+        }
+
+    }
+
+    //
     // SOURCE :: https://www.php.net/manual/en/function.highlight-string.php
     // AUTHOR :: stanislav dot eckert at vizson dot de :: https://www.php.net/manual/en/function.highlight-string.php#118550
     /**
@@ -2949,6 +3214,45 @@ class crnrstn {
     }
 
     //
+    // SOURCE :: http://php.net/manual/en/function.mkdir.php
+    // AUTHOR :: kungla at gmail dot com :: http://php.net/manual/en/function.mkdir.php#68207
+    public function mkdir_r($dirName, $mode=777){
+
+        try{
+
+            $mode = octdec( str_pad($mode,4,'0',STR_PAD_LEFT) );
+            $mode = (int)$mode;
+
+            $dirs = explode('/', $dirName);
+            $dir='';
+            foreach ($dirs as $part) {
+                $dir.=$part.'/';
+                if (!is_dir($dir) && strlen($dir)>0) {
+                    if(!mkdir($dir, $mode)){
+                        $error = error_get_last();
+
+                        //
+                        // HOOOSTON...VE HAF PROBLEM!
+                        throw new Exception($error['message']. ' mkdir_r() failed to mkdir :: ' . $dir);
+
+                    }
+                }
+            }
+
+            return true;
+
+        }catch( Exception $e ) {
+
+            //
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
+            $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
+
+            return false;
+
+        }
+    }
+
+    //
     // SOURCE :: https://www.php.net/manual/en/function.str-split.php
     // AUTHOR :: qeremy [atta] gmail [dotta] com :: https://www.php.net/manual/en/function.str-split.php#113274
     public function str_split_unicode($str, $length = 1) {
@@ -2970,6 +3274,132 @@ class crnrstn {
         }
 
         return $tmp;
+
+    }
+
+    //    private function fileMove_DF($ftp_stream, $SOURCE_filePath, $oEndpoint_serial_SOURCE, $oEndpoint_serial_DESTINATION, $oElectrum_STATS, $SOURCE_filePath_ORIGINAL=NULL){
+    public function file_local_send_by_ftp($ftp_stream_target, $file_source_path, $oEndpoint_serial_SOURCE, $oEndpoint_serial_DESTINATION, $oElectrum_STATS){
+
+        $continue_process = false;
+
+        #$tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH']
+        #$tmp_stats_DESTINATION_ARRAY['MKSUB_DIR']
+        #$tmp_stats_DESTINATION_ARRAY['DESTINATION_FILEPATH']
+        #$tmp_stats_DESTINATION_ARRAY['SPLIT_DIR']
+
+        //$tmp_stats_DESTINATION_ARRAY = $oElectrum_STATS->return_DF_destination_stats_array($oEndpoint_serial_SOURCE, $oEndpoint_serial_DESTINATION, $file_source_path);
+        //$tmp_stats_dest_path = $oElectrum_STATS->return_destination_stats_path($oEndpoint_serial_SOURCE, $oEndpoint_serial_DESTINATION);
+        //self::$oCRNRSTN_USR->error_log('oWheel :: Run ftp_mksubdirs=>[ftp_root_dir_path='.$ftp_root_dir_path.'][tmp_mksubdir_destination_path='.$tmp_mksubdir_destination_path.']', __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+        if(is_dir($file_source_path)){
+
+            //self::$oCRNRSTN_USR->error_log('oWheel :: Run ftp_mksubdirs=>[source_filepath='.$file_source_path.']', __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            $this->ftp_mksubdirs($ftp_stream_target, $tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'], $tmp_stats_DESTINATION_ARRAY['MKSUB_DIR']);
+
+            $continue_process = true;
+
+        }else{
+
+            if(isset($SOURCE_filePath_ORIGINAL)){
+
+                $SOURCE_filepath_for_DESTINATION = $SOURCE_filePath_ORIGINAL;
+
+            }else{
+
+                $SOURCE_filepath_for_DESTINATION = $file_source_path;
+
+            }
+
+            $tmp_slashChar = $this->return_slashChar($tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH']);
+
+            $tmp_split_ARRAY = explode($tmp_slashChar, $tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH']);
+            $tmp_split_cnt = sizeof($tmp_split_ARRAY);
+
+            $tmp_dir_split_ARRAY = explode($tmp_split_ARRAY[$tmp_split_cnt-2], $tmp_stats_DESTINATION_ARRAY['DESTINATION_FILEPATH']);
+
+            $tmp_dir_sect_ARRAY = explode($tmp_slashChar, $tmp_dir_split_ARRAY[1]);
+            $tmp_sect_cnt = sizeof($tmp_dir_sect_ARRAY);
+
+            #$tmp_dir_sect_ARRAY[$tmp_sect_cnt-2] = wethrbug
+            $tmp_dest_file_section_ARRAY = explode($tmp_dir_sect_ARRAY[$tmp_sect_cnt-2], $SOURCE_filepath_for_DESTINATION);
+
+            # [tmp_dir_split_ARRAY[1]=/a_custom_folder_name/20201013_16-52-26/wethrbug/
+            $tmp_sect_array = explode($tmp_slashChar, $tmp_dir_split_ARRAY[1]);
+            $tmp_cnt = sizeof($tmp_sect_array);
+
+            $tmp_cut_dir = $tmp_sect_array[$tmp_cnt-2];
+
+            $tmp_source_sect_ARRAY = explode($tmp_cut_dir, $file_source_path);
+            //$tmp_dir = dirname($tmp_source_sect_ARRAY[1]);
+
+            $tmp_file_dest = rtrim($tmp_dir_split_ARRAY[1], $tmp_slashChar).$tmp_dest_file_section_ARRAY[1];
+            $tmp_file_cap = basename($tmp_file_dest);
+
+            $tmp_file_dirpath_final = rtrim($tmp_file_dest,$tmp_file_cap);
+            $tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'] = rtrim($tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'], $tmp_slashChar);
+            //$tmp_dfile = $tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'].$SOURCE_filepath_for_DESTINATION;
+            $tmp_dfile = $tmp_stats_dest_path;
+            $tmp_dfile = rtrim($tmp_dfile, $tmp_slashChar);
+            //self::$oCRNRSTN_USR->error_log('oWheel :: SLASH CHAR = '.$tmp_slashChar, __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            $tmp_dfile_array = explode($tmp_slashChar, $tmp_stats_DESTINATION_ARRAY['DESTINATION_FILEPATH']);
+            $tmp_dfile_sect_cnt = sizeof($tmp_dfile_array);
+
+            //self::$oCRNRSTN_USR->error_log('oWheel :: EXPLODE ['.$tmp_stats_DESTINATION_ARRAY['DESTINATION_FILEPATH'].'] ON '.$tmp_dfile_sect_cnt, __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            $tmp_dfile_bi_path_ARRAY = explode($tmp_dfile_array[$tmp_dfile_sect_cnt-2], $SOURCE_filepath_for_DESTINATION);
+
+            $tmp_dfile .= $tmp_dfile_bi_path_ARRAY[1];
+            //self::$oCRNRSTN_USR->error_log('oWheel :: Run ftp_mksubdirs=> [DESTINATION_FILEPATH]='.$tmp_stats_DESTINATION_ARRAY['DESTINATION_FILEPATH'].' | [FTP_DIR_PATH]='.$tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH']. ' on tmp_split_ARRAY[tmp_split_cnt-2]='.$tmp_split_ARRAY[$tmp_split_cnt-2], __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+            //self::$oCRNRSTN_USR->error_log('oWheel :: Run ftp_mksubdirs @ '. $tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'].' for =>['.$tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'].$tmp_file_dirpath_final, __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            if($this->ftp_mksubdirs($ftp_stream_target, $tmp_slashChar, $tmp_stats_DESTINATION_ARRAY['FTP_DIR_PATH'].$tmp_file_dirpath_final)){
+
+                //self::$oCRNRSTN_USR->error_log('oWheel :: ftp_mksubdirs SUCCESS', __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            }else{
+
+                $error = error_get_last();
+
+                //
+                // WE USE FTP_CHDIR TO SEE IF WE NEED TO CALL FTP_MKDIR. IT IS OK (OR EXPECTED) TO GET FTP_CHDIR ERRORS HERE.
+                $pos_ignore_err = strpos($error['message'],'ftp_chdir()');
+                if($pos_ignore_err===false){
+
+                    self::$oCRNRSTN_USR->error_log('oWheel :: ftp_mksubdirs ERROR :: '.$error['message'], __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+                }
+            }
+
+            if(substr($tmp_dfile, -1) == $tmp_slashChar){
+
+                $tmp_dfile = rtrim($tmp_dfile, $tmp_slashChar).$tmp_slashChar;
+                $tmp_dfile_fname = basename($SOURCE_filepath_for_DESTINATION);
+                $tmp_dfile = $tmp_dfile.$tmp_dfile_fname;
+
+            }
+
+            //self::$oCRNRSTN_USR->error_log('oWheel :: SEE ['.$SOURCE_filepath_for_DESTINATION.']. Now run ftp_put LOCAL FILE=>['.$SOURCE_filepath_for_DESTINATION.'] to DEST FILE=>['.$tmp_dfile.']', __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            if(ftp_put($ftp_stream_target, $tmp_dfile, $SOURCE_filepath_for_DESTINATION, FTP_BINARY)) {
+
+                $continue_process = true;
+                //self::$oCRNRSTN_USR->error_log('oWheel FF - 2/2 (or DF 1 of 1) :: Successfully uploaded LOCAL FILE=>['.$SOURCE_filepath_for_DESTINATION.'] to DEST FILE=>['.$tmp_dfile.']', __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+            }else{
+
+                $error = error_get_last();
+                self::$oCRNRSTN_USR->error_log('oWheel FF - 2/2 (or DF 1 of 1) :: ERROR uploading LOCAL FILE=>['.$SOURCE_filepath_for_DESTINATION.'] to DEST FILE=>['.$tmp_dfile.'] :: '.$error['message'], __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+
+                $this->is_error_on_transfer = true;
+                $this->error_on_transfer_message = $error['message'].' <= Error experienced while pushing local file ['.$SOURCE_filepath_for_DESTINATION.'] to FTP destination[{FTP_OR_LOCAL_DETAIL}] as file=>['.$tmp_dfile.'].';
+
+            }
+
+        }
+
+        return $continue_process;
 
     }
 
@@ -3766,4 +4196,5 @@ class crnrstn_bitmask{
     {
         var_dump($this->bitmask);
     }
+
 }

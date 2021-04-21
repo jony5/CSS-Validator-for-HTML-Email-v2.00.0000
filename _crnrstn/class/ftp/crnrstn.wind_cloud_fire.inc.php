@@ -1099,7 +1099,7 @@ class crnrstn_wind_cloud_fire {
 
     public function localStorageUse_doNotPassUsagePercent($maxStorageUse){
 
-        $tmp_maxStorage = self::$oCRNRSTN_USR->stringSanitize($maxStorageUse, 'max_storage_utilization');
+        $tmp_maxStorage = self::$oCRNRSTN_USR->string_sanitize($maxStorageUse, 'max_storage_utilization');
 
         $tmp_maxStorage = (int) $tmp_maxStorage * 1;
 
@@ -3464,7 +3464,7 @@ class crnrstn_wind_cloud_fire {
 
     //
     // SOURCE :: http://php.net/manual/en/function.mkdir.php
-    // AUTHOR :: http://php.net/manual/en/function.mkdir.php#68207
+    // AUTHOR :: kungla at gmail dot com :: http://php.net/manual/en/function.mkdir.php#68207
     private function mkdir_r($dirName, $mode=777){
 
         try{

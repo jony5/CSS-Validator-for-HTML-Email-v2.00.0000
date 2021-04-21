@@ -127,7 +127,7 @@ class crnrstn_session_manager {
 
     }
 
-	public function setSessionParam($sessParam, $val=NULL){
+	public function set_session_param($sessParam, $val=NULL){
 		
 		if(in_array(gettype($val), self::$encryptableDataTypes)){
 			
@@ -150,7 +150,7 @@ class crnrstn_session_manager {
 		return true;
 	}
 	
-	public function getSessionParam($sessParam){
+	public function get_session_param($sessParam){
 		$this->resourceKey = $_SESSION['CRNRSTN_'.crc32($_SESSION['CRNRSTN_CONFIG_SERIAL'])]['CRNRSTN_RESOURCE_KEY'];
 		
 		//
@@ -225,7 +225,7 @@ class crnrstn_session_manager {
 
 	}
 	
-	public function issetSessionParam($sessParam){
+	public function isset_session_param($sessParam){
 
 		$this->resourceKey = $_SESSION['CRNRSTN_'.crc32($_SESSION['CRNRSTN_CONFIG_SERIAL'])]['CRNRSTN_RESOURCE_KEY'];
 		

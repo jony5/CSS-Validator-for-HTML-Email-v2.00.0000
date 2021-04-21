@@ -27,15 +27,15 @@
 #       necessary) SMTP credentials for authorization to access and execute more restricted communications
 #       protocols of the network.
 #  LICENSE :: MIT
-#		Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-#		documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+#       Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+#       documentation files (the "Software"), to deal in the Software without restriction, including without limitation
 #       the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
 #       and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 #
-#		The above copyright notice and this permission notice shall be included in all copies or substantial portions
-#		of the Software.
+#       The above copyright notice and this permission notice shall be included in all copies or substantial portions
+#       of the Software.
 #
-#		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+#       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
 #       TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
 #       THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 #       CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
@@ -53,11 +53,11 @@
 #
 class crnrstn_environment {
 
-	public $configSerial;
-	
-	protected $oLogger;
+    public $configSerial;
+    
+    protected $oLogger;
 
-	private static $oLog_ProfileManager;
+    private static $oLog_ProfileManager;
 
     private static $lang_content_ARRAY = array();
     private static $sys_logging_profile_ARRAY = array();
@@ -74,32 +74,34 @@ class crnrstn_environment {
     protected $oCRNRSTN_USR;
     protected $oCRNRSTN_DEV_INPUT_CONTROLLER;
     public $oCRNRSTN_BITFLIP_MGR;
-	public $oCRNRSTN_IPSECURITY_MGR;
-	public $oSESSION_MGR;
-	public $oCOOKIE_MGR;
-	public $oMYSQLI_CONN_MGR;
-	public $oHTTP_MGR;
-	public $oFINITE_EXPRESS;            # SHOULD HAVE ISOCODE CONSIDERATIONS. MAKING FOR INTEGRATION WITH EVIFWEB EXTRANET LANG ENGINE.
+    public $oCRNRSTN_IPSECURITY_MGR;
+    public $oSESSION_MGR;
+    public $oCOOKIE_MGR;
+    public $oMYSQLI_CONN_MGR;
+    public $oHTTP_MGR;
+    public $oFINITE_EXPRESS;            # SHOULD HAVE ISOCODE CONSIDERATIONS. MAKING FOR INTEGRATION WITH EVIFWEB EXTRANET LANG ENGINE.
     private static $oCommRichMediaProvider;
 
-	private static $sess_env_param_ARRAY = array();
-	private static $m_starttime = array();
-	private static $encryptableDataTypes = array();
-	public $logging_profile_constants = array();
-	private static $creativeElementsKeys = array();
+    private static $sess_env_param_ARRAY = array();
+    private static $m_starttime = array();
+    private static $encryptableDataTypes = array();
+    public $logging_profile_constants = array();
+    public $theme_style_profile_constants = array();
+    private static $creativeElementsKeys = array();
     public $soap_permissions_file_path_ARRAY = array();
-	
-	private static $requestProtocol;
-	
-	public $CRNRSTN_debugMode;
-	public $PHPMAILER_debugMode;
+    
+    private static $requestProtocol;
+    
+    public $CRNRSTN_debugMode;
+    public $PHPMAILER_debugMode;
     public $log_silo_profile;
-	public $starttime;
-	public $oLog_output_ARRAY = array();
-	public $oWildCardResource_ARRAY = array();
+    public $starttime;
+    public $oLog_output_ARRAY = array();
+    public $oWildCardResource_ARRAY = array();
     public $wildCardResource_filePath = array();
     public $handle_env_cleartext_ARRAY = array();
-	public $env_cleartext_name;
+    public $destruct_output;
+    public $env_cleartext_name;
     public $sys_notices_creative_mode = 'ALL_HTML';
     public $sys_notice_creative_http_path;
     public $colorScheme;
@@ -124,10 +126,12 @@ class crnrstn_environment {
     private static $process_id_perf_stat_ARRAY = array();
 
     public function __construct($oCRNRSTN, $instanceType=NULL) {
-		
-		$this->starttime = $oCRNRSTN->getStartTime();
-		$this->sys_notices_creative_mode = $oCRNRSTN->sys_notices_creative_mode;
-		$this->sys_notice_creative_http_path = $oCRNRSTN->sys_notice_creative_http_path;
+        
+        $this->starttime = $oCRNRSTN->getStartTime();
+        $this->destruct_output = $oCRNRSTN->destruct_output;
+
+        $this->sys_notices_creative_mode = $oCRNRSTN->sys_notices_creative_mode;
+        $this->sys_notice_creative_http_path = $oCRNRSTN->sys_notice_creative_http_path;
         $this->version_crnrstn = $oCRNRSTN->version_crnrstn;
         $this->version_apache = $oCRNRSTN->version_apache;
         $this->version_apache_sysimg = $oCRNRSTN->version_apache_sysimg;
@@ -136,18 +140,18 @@ class crnrstn_environment {
         $this->operating_system = $oCRNRSTN->operating_system;
         $this->process_id = $oCRNRSTN->process_id;
 
-		//
-		// INITIALIZE ARRAY OF ENCRYPTABLE DATATYPES
-		self::$encryptableDataTypes = array('string','integer','double','float','int');
-        //self::$logging_profile_constants = array(CRNRSTN_LOG_EMAIL, CRNRSTN_LOG_EMAIL_PROXY, CRNRSTN_LOG_FILE, CRNRSTN_LOG_FILE_FTP, CRNRSTN_LOG_SCREEN_TEXT, CRNRSTN_LOG_SCREEN, CRNRSTN_LOG_SCREEN_HTML, CRNRSTN_LOG_SCREEN_HTML_HIDDEN, CRNRSTN_LOG_DEFAULT, CRNRSTN_LOG_ELECTRUM);
+        //
+        // INITIALIZE ARRAY OF ENCRYPTABLE DATATYPES
+        self::$encryptableDataTypes = $oCRNRSTN->return_encryptable_data_types();
         $this->logging_profile_constants = $oCRNRSTN->logging_profile_constants;
+        $this->theme_style_profile_constants = $oCRNRSTN->theme_style_profile_constants;
 
         self::$creativeElementsKeys = $oCRNRSTN->creativeElementsKeys;
 
         //$this->initialize_language();
         self::$lang_content_ARRAY = $oCRNRSTN->return_lang_content_ARRAY();
 
-		//
+        //
         // ROLL OVER ENVIRONMENT NAMES
         $this->handle_env_cleartext_ARRAY = $oCRNRSTN->handle_env_cleartext_ARRAY;
 
@@ -155,20 +159,16 @@ class crnrstn_environment {
         // ROLL OVER SOAP PERMISSIONS
         $this->soap_permissions_file_path_ARRAY = $oCRNRSTN->soap_permissions_file_path_ARRAY;
 
-		//
-		// ROLL OVER DEBUG/ERROR_LOG TRACE FROM CRNRSTN OBJECT AND THEN CONTINUE TO APPEND
+        //
+        // ROLL OVER DEBUG/ERROR_LOG TRACE FROM CRNRSTN OBJECT AND THEN CONTINUE TO APPEND
         self::$m_starttime = $oCRNRSTN->return_m_start_time();
-		$this->CRNRSTN_debugMode = $oCRNRSTN->CRNRSTN_debugMode;
+        $this->CRNRSTN_debugMode = $oCRNRSTN->CRNRSTN_debugMode;
         $this->PHPMAILER_debugMode = $oCRNRSTN->PHPMAILER_debugMode;
         $this->log_silo_profile = $oCRNRSTN->log_silo_profile;
-		$this->oLog_output_ARRAY = $oCRNRSTN->oLog_output_ARRAY;
+        $this->oLog_output_ARRAY = $oCRNRSTN->oLog_output_ARRAY;
 
         $this->crnrstn_as_error_handler_ARRAY = $oCRNRSTN->crnrstn_as_error_handler_ARRAY;
         $this->crnrstn_as_error_handler_constants_ARRAY = $oCRNRSTN->crnrstn_as_error_handler_constants_ARRAY;
-
-        //
-        // SUPPORT FOR CRNRSTN_->PRINT_R()
-        self::$oCommRichMediaProvider = new crnrstn_image_v_html_content_manager($this);
 
         self::$oLog_ProfileManager = $oCRNRSTN->return_oLog_ProfileManager();
         self::$oLog_ProfileManager->sync_to_environment($oCRNRSTN, $this);
@@ -177,20 +177,19 @@ class crnrstn_environment {
         // CLEAR oCRNRSTN oLOG OUTPUT ARRAY TO FREE MEMORY
         array_splice($oCRNRSTN->oLog_output_ARRAY, 0);
 
-		$this->oLogger = new crnrstn_logging($this->CRNRSTN_debugMode, __CLASS__, $this->log_silo_profile, $this);
-
-		$this->configSerial = $oCRNRSTN->configSerial;
-        
-		$this->oCOOKIE_MGR = new crnrstn_cookie_manager();
-		$this->oHTTP_MGR = new crnrstn_http_manager();
+        $this->configSerial = $oCRNRSTN->configSerial;
+        self::$oCommRichMediaProvider = new crnrstn_image_v_html_content_manager($this);
+        $this->oLogger = new crnrstn_logging($this->CRNRSTN_debugMode, __CLASS__, $this->log_silo_profile, $this);
+        $this->oCOOKIE_MGR = new crnrstn_cookie_manager();
+        $this->oHTTP_MGR = new crnrstn_http_manager($this);
         $this->oFINITE_EXPRESS = new finite_expression();
 
         if(!($instanceType == 'session_initialization_ping')){
-			
-			try{
+            
+            try{
 
                 //
-                //	DETERMINE KEY DESIGNATING THE RUNNING ENVIRONMENT, WHERE KEY = CRC32(env key)
+                //  DETERMINE KEY DESIGNATING THE RUNNING ENVIRONMENT, WHERE KEY = CRC32(env key)
                 self::$resourceKey = $oCRNRSTN->getServerEnv();
 
                 if(self::$resourceKey == ''){
@@ -318,22 +317,22 @@ class crnrstn_environment {
 
                 return false;
 
-			}
+            }
 
         }else{
-			
-			//
-			// THIS IS A SIMPLE CONFIG CHECK.
+            
+            //
+            // THIS IS A SIMPLE CONFIG CHECK.
             $this->oLog_output_ARRAY[] = $this->error_log(__METHOD__.' performing simple config check prior to loading of define_env_resource() in the CRNRSTN :: config file.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-			
-		}
+            
+        }
 
-	}
+    }
 
-	//
+    //
     // SOURCE :: https://aloneonahill.com/blog/if-php-were-british/
     // AUTHOR :: https://aloneonahill.com/blog/about-dave/
-	public function hello_world($is_bastard = true){
+    public function hello_world($type, $is_bastard = true){
 
         try{
 
@@ -682,7 +681,7 @@ class crnrstn_environment {
 
     }
 
-	public function return_oCRNRSTN_USR(){
+    public function return_oCRNRSTN_USR(){
 
         //$this->version_php = '5.5.420';
 
@@ -749,7 +748,7 @@ class crnrstn_environment {
 
     }
 
-	public function isBitSet($const){
+    public function isBitSet($const){
 
         return $this->oCRNRSTN_BITFLIP_MGR->isBitSet($const);
 
@@ -774,27 +773,27 @@ class crnrstn_environment {
         return $oChunkRestrictData;
 
     }
-	
-	public function is_configured($oCRNRSTN){
-		
-		//
-		// INSTANTIATE SESSION MANAGER
-		if(!isset($this->oSESSION_MGR)){
+    
+    public function is_configured($oCRNRSTN){
+        
+        //
+        // INSTANTIATE SESSION MANAGER
+        if(!isset($this->oSESSION_MGR)){
 
-			$this->oSESSION_MGR = new crnrstn_session_manager($this);
+            $this->oSESSION_MGR = new crnrstn_session_manager($this);
 
-		}
-		
-		//
-		// DO WE HAVE SESSION DATA IN LINE WITH THE CONFIGURATION SERIALIZATION
-		if(isset($_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_RESOURCE_KEY'])){
+        }
+        
+        //
+        // DO WE HAVE SESSION DATA IN LINE WITH THE CONFIGURATION SERIALIZATION
+        if(isset($_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_RESOURCE_KEY'])){
 
             $this->oLog_output_ARRAY[] = $this->error_log('sessionid['.session_id().'] has been initialized by CRNRSTN ::. current value of CRNRSTN_RESOURCE_KEY ['.$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_RESOURCE_KEY'].'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
-			//
-			// SESSION IS SET
-			try{
-			    
+            //
+            // SESSION IS SET
+            try{
+                
                 //
                 // DETERMINE KEY DESIGNATING THE RUNNING ENVIRONMENT, WHERE KEY = CRC32(env key)
                 $oCRNRSTN->setServerEnv();
@@ -906,23 +905,23 @@ class crnrstn_environment {
 
             }
 
-		}else{
-			
-			//
-			// NO SESSION SET
+        }else{
+            
+            //
+            // NO SESSION SET
             $this->oLog_output_ARRAY[] = $this->error_log('session['.session_id().'] has not been initialized with CRNRSTN :: configuration yet. process all config parameters and initialize.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
             //
             // CLEAR OUT ANY INACCESSIBLE MEMORY RESOURCES IN SESSION FROM PREVIOUS SESSION CONFIG INITIALIZATION
             $this->removePreviousSessEnvDetectData($oCRNRSTN);
 
-			return false;
+            return false;
 
-		}
+        }
 
-	}
+    }
 
-	private function removePreviousSessEnvDetectData($oCRNRSTN){
+    private function removePreviousSessEnvDetectData($oCRNRSTN){
 
         $oCRNRSTN->oLog_output_ARRAY = $this->oLog_output_ARRAY;
 
@@ -931,33 +930,33 @@ class crnrstn_environment {
         $this->oLog_output_ARRAY = $oCRNRSTN->oLog_output_ARRAY;
 
     }
-	
-	public function getEnvKey(){
+    
+    public function getEnvKey(){
 
-		return self::$resourceKey;
+        return self::$resourceKey;
 
-	}
-	
-	public function getEnvSerial(){
+    }
+    
+    public function getEnvSerial(){
 
-		return $this->configSerial;
+        return $this->configSerial;
 
-	}
+    }
 
-	public function safe_getServerArrayVar($param, $oCRNRSTN_USR=NULL){
+    public function safe_getServerArrayVar($param, $oCRNRSTN_USR=NULL){
 
-	    if($this->isset_ServerArrayVar($param)){
+        if($this->isset_ServerArrayVar($param)){
 
-	        return $this->getServerArrayVar($param, $oCRNRSTN_USR);
+            return $this->getServerArrayVar($param, $oCRNRSTN_USR);
 
         }else{
 
-	        return false;
+            return false;
 
         }
     }
 
-	public function isset_ServerArrayVar($param){
+    public function isset_ServerArrayVar($param){
 
         if(isset($_SERVER[$param])){
 
@@ -971,11 +970,11 @@ class crnrstn_environment {
 
     }
 
-	public function getServerArrayVar($param, $oCRNRSTN_USR=NULL){
+    public function getServerArrayVar($param, $oCRNRSTN_USR=NULL){
 
         try {
 
-	        if(!isset($_SERVER[$param])){
+            if(!isset($_SERVER[$param])){
 
                 //
                 // HOOOSTON...VE HAF PROBLEM!
@@ -1011,7 +1010,7 @@ class crnrstn_environment {
 
     public function issetHTTP($protocol){
 
-	    switch($protocol){
+        switch($protocol){
             case 'GET':
 
                 $super_global = $_GET;
@@ -1027,7 +1026,7 @@ class crnrstn_environment {
 
         }
 
-	    return $this->oHTTP_MGR->issetHTTP($super_global);
+        return $this->oHTTP_MGR->issetHTTP($super_global);
 
     }
 
@@ -1424,7 +1423,7 @@ class crnrstn_environment {
 
     }
 
-	private function initEnvLoggingProfile($oCRNRSTN){
+    private function initEnvLoggingProfile($oCRNRSTN){
 
         //
         // DETECTED RESOURCE KEY
@@ -1462,78 +1461,78 @@ class crnrstn_environment {
 
         }
 
-	}
-	
-	private function initRuntimeConfig(){
-		
-		//
-		// INITIALIZE CONFIG AND ENV KEYS.
-		#$_SESSION['CRNRSTN_CONFIG_SERIAL'] = $this->configSerial;  # MOVED TO CRNRSTN __construct() @ ~line 105
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_RESOURCE_KEY'] = self::$resourceKey;
+    }
+    
+    private function initRuntimeConfig(){
+        
+        //
+        // INITIALIZE CONFIG AND ENV KEYS.
+        #$_SESSION['CRNRSTN_CONFIG_SERIAL'] = $this->configSerial;  # MOVED TO CRNRSTN __construct() @ ~line 105
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_RESOURCE_KEY'] = self::$resourceKey;
         $this->oLog_output_ARRAY[] = $this->error_log('Initialize session['.session_id().'] with CRNRSTN :: config serial ['.$this->configSerial.'] and environmental resource key ['.self::$resourceKey.'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-		
-	}
-	
-	private function initializeErrorReporting($oCRNRSTN){
+        
+    }
+    
+    private function initializeErrorReporting($oCRNRSTN){
 
         $this->oLog_output_ARRAY[] = $this->error_log('Initialize server error_reporting() to ['.$oCRNRSTN->handle_env_ARRAY[crc32($this->configSerial)][self::$resourceKey].'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-		error_reporting((int) $oCRNRSTN->handle_env_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
+        error_reporting((int) $oCRNRSTN->handle_env_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
 
-	}
+    }
 
-	private function initExclusiveAccess($oCRNRSTN){
-		
-		//
-		// PROCESS IP ADDRESS ACCESS AND RESTRICTION FOR SELECTED ENVIRONMENT
-		if(is_file($oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey])){
-			
-			//
-			// EXTRACT ACCESS-BY-IP AUTHORIZATION PROFILE FROM FILE
+    private function initExclusiveAccess($oCRNRSTN){
+        
+        //
+        // PROCESS IP ADDRESS ACCESS AND RESTRICTION FOR SELECTED ENVIRONMENT
+        if(is_file($oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey])){
+            
+            //
+            // EXTRACT ACCESS-BY-IP AUTHORIZATION PROFILE FROM FILE
             $this->oLog_output_ARRAY[] = $this->error_log('We have a file to include and process for exclusive access IP restrictions at ['.$oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey].'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-			include_once($oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
-			
-		}else{
-			
-			//
-			// DO WE HAVE ANY IP DATA TO PROCESS
-			if($oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey] != ""){
+            include_once($oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
+            
+        }else{
+            
+            //
+            // DO WE HAVE ANY IP DATA TO PROCESS
+            if($oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey] != ""){
 
                 $this->oLog_output_ARRAY[] = $this->error_log('Process grant exclusive access IP['.$oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey].'] for this connection.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-				$this->oCRNRSTN_IPSECURITY_MGR->grantAccessWKey(self::$resourceKey, $oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
+                $this->oCRNRSTN_IPSECURITY_MGR->grantAccessWKey(self::$resourceKey, $oCRNRSTN->grant_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
 
-			}else{
-					//
-					// NO IP ADDRESSES PROVIDED. NOTHING TO DO HERE.
-			}
-		}
-	}
-	
-	private function initDenyAccess($oCRNRSTN){
+            }else{
+                    //
+                    // NO IP ADDRESSES PROVIDED. NOTHING TO DO HERE.
+            }
+        }
+    }
+    
+    private function initDenyAccess($oCRNRSTN){
 
-		if(is_file($oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey])){
-			
-			//
-			// EXTRACT ACCESS-BY-IP AUTHORIZATION PROFILE FROM FILE
+        if(is_file($oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey])){
+            
+            //
+            // EXTRACT ACCESS-BY-IP AUTHORIZATION PROFILE FROM FILE
             $this->oLog_output_ARRAY[] = $this->error_log('We have a file to include and process for deny access IP restrictions at ['.$oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey].'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-			include_once($oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
-				
-		}else{
+            include_once($oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
+                
+        }else{
 
-			if($oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey] != ""){
+            if($oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey] != ""){
 
                 $this->oLog_output_ARRAY[] = $this->error_log('Process deny access IP['.$oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey].'] for this connection.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-				$this->oCRNRSTN_IPSECURITY_MGR->denyAccessWKey(self::$resourceKey, $oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
+                $this->oCRNRSTN_IPSECURITY_MGR->denyAccessWKey(self::$resourceKey, $oCRNRSTN->deny_accessIP_ARRAY[crc32($this->configSerial)][self::$resourceKey]);
 
-			}else{
-				
-				//
-				// NO IP ADDRESSES PROVIDED. NOTHING TO DO HERE.
+            }else{
+                
+                //
+                // NO IP ADDRESSES PROVIDED. NOTHING TO DO HERE.
 
-			}		
-		}		
-	}
+            }       
+        }       
+    }
 
-	private function initAdminAccess($oCRNRSTN){
+    private function initAdminAccess($oCRNRSTN){
 
         $tmp_cnt = sizeof($oCRNRSTN->add_admin_creds_ARRAY[crc32($this->configSerial)][self::$resourceKey]['email']);
 
@@ -1558,66 +1557,66 @@ class crnrstn_environment {
         return true;
 
     }
-	
-	public function returnResourceKey(){
-		
-		//
-		// RETURN RESOURCE KEY FOR DETECTED ENVIRONMENT
-		return 	self::$resourceKey;
+    
+    public function returnResourceKey(){
+        
+        //
+        // RETURN RESOURCE KEY FOR DETECTED ENVIRONMENT
+        return  self::$resourceKey;
 
-	}
-	
-	public function initSessionEncryption($oCRNRSTN){
-		
-		//
-		// TRANSFER SESSION ENCRYPT PARAMS TO SESSION
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_CIPHER"] = $oCRNRSTN->opensslSessEncryptCipher[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_SECRET_KEY"] = $oCRNRSTN->opensslSessEncryptSecretKey[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_OPTIONS"] = $oCRNRSTN->opensslSessEncryptOptions[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_HMAC_ALG"] = $oCRNRSTN->sessHmac_algorithm[crc32($this->configSerial)][self::$resourceKey];
-		
-		#$this->oLog_output_ARRAY[] = $this->error_log("session encryption configured to _CRNRSTN_SESS_ENCRYPT_CIPHER[".$oCRNRSTN->opensslSessEncryptCipher[crc32($this->configSerial)][self::$resourceKey]."] _CRNRSTN_SESS_ENCRYPT_HMAC_ALG[".$oCRNRSTN->sessHmac_algorithm[crc32($this->configSerial)][self::$resourceKey]."].", __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+    }
+    
+    public function initSessionEncryption($oCRNRSTN){
+        
+        //
+        // TRANSFER SESSION ENCRYPT PARAMS TO SESSION
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_CIPHER"] = $oCRNRSTN->opensslSessEncryptCipher[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_SECRET_KEY"] = $oCRNRSTN->opensslSessEncryptSecretKey[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_OPTIONS"] = $oCRNRSTN->opensslSessEncryptOptions[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_SESS_ENCRYPT_HMAC_ALG"] = $oCRNRSTN->sessHmac_algorithm[crc32($this->configSerial)][self::$resourceKey];
+        
+        #$this->oLog_output_ARRAY[] = $this->error_log("session encryption configured to _CRNRSTN_SESS_ENCRYPT_CIPHER[".$oCRNRSTN->opensslSessEncryptCipher[crc32($this->configSerial)][self::$resourceKey]."] _CRNRSTN_SESS_ENCRYPT_HMAC_ALG[".$oCRNRSTN->sessHmac_algorithm[crc32($this->configSerial)][self::$resourceKey]."].", __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->oLog_output_ARRAY[] = $this->error_log('Session encryption configured to _CRNRSTN_SESS_ENCRYPT_CIPHER[##### REDACTED #####] _CRNRSTN_SESS_ENCRYPT_HMAC_ALG[##### REDACTED #####].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-		
-	}
-	
-	public function initCookieEncryption($oCRNRSTN){
-		
-		//
-		// TRANSFER COOKIE ENCRYPT PARAMS TO SESSION
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_CIPHER"] = $oCRNRSTN->opensslCookieEncryptCipher[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_SECRET_KEY"] = $oCRNRSTN->opensslCookieEncryptSecretKey[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_OPTIONS"] = $oCRNRSTN->opensslCookieEncryptOptions[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG"] = $oCRNRSTN->cookieHmac_algorithm[crc32($this->configSerial)][self::$resourceKey];
-		
-		#$this->oLog_output_ARRAY[] = $this->error_log("cookie encryption configured to _CRNRSTN_COOKIE_ENCRYPT_CIPHER[".$oCRNRSTN->opensslCookieEncryptCipher[crc32($this->configSerial)][self::$resourceKey]."] _CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG[".$oCRNRSTN->cookieHmac_algorithm[crc32($this->configSerial)][self::$resourceKey]."].", __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+        
+    }
+    
+    public function initCookieEncryption($oCRNRSTN){
+        
+        //
+        // TRANSFER COOKIE ENCRYPT PARAMS TO SESSION
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_CIPHER"] = $oCRNRSTN->opensslCookieEncryptCipher[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_SECRET_KEY"] = $oCRNRSTN->opensslCookieEncryptSecretKey[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_OPTIONS"] = $oCRNRSTN->opensslCookieEncryptOptions[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG"] = $oCRNRSTN->cookieHmac_algorithm[crc32($this->configSerial)][self::$resourceKey];
+        
+        #$this->oLog_output_ARRAY[] = $this->error_log("cookie encryption configured to _CRNRSTN_COOKIE_ENCRYPT_CIPHER[".$oCRNRSTN->opensslCookieEncryptCipher[crc32($this->configSerial)][self::$resourceKey]."] _CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG[".$oCRNRSTN->cookieHmac_algorithm[crc32($this->configSerial)][self::$resourceKey]."].", __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->oLog_output_ARRAY[] = $this->error_log('Cookie encryption configured to _CRNRSTN_COOKIE_ENCRYPT_CIPHER[##### REDACTED #####] _CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG[##### REDACTED #####].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
-	}
-	
-	public function initTunnelEncryption($oCRNRSTN){
-		
-		//
-		// TRANSFER COOKIE ENCRYPT PARAMS TO SESSION
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_CIPHER"] = $oCRNRSTN->opensslTunnelEncryptCipher[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_SECRET_KEY"] = $oCRNRSTN->opensslTunnelEncryptSecretKey[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_OPTIONS"] = $oCRNRSTN->opensslTunnelEncryptOptions[crc32($this->configSerial)][self::$resourceKey];
-		$_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_HMAC_ALG"] = $oCRNRSTN->tunnelHmac_algorithm[crc32($this->configSerial)][self::$resourceKey];
-		
-		#$this->oLog_output_ARRAY[] = $this->error_log("cookie encryption configured to _CRNRSTN_COOKIE_ENCRYPT_CIPHER[".$oCRNRSTN->opensslTunnelEncryptCipher[crc32($this->configSerial)][self::$resourceKey]."] _CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG[".$oCRNRSTN->tunnelHmac_algorithm[crc32($this->configSerial)][self::$resourceKey]."].", __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+    }
+    
+    public function initTunnelEncryption($oCRNRSTN){
+        
+        //
+        // TRANSFER COOKIE ENCRYPT PARAMS TO SESSION
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_CIPHER"] = $oCRNRSTN->opensslTunnelEncryptCipher[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_SECRET_KEY"] = $oCRNRSTN->opensslTunnelEncryptSecretKey[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_OPTIONS"] = $oCRNRSTN->opensslTunnelEncryptOptions[crc32($this->configSerial)][self::$resourceKey];
+        $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]["_CRNRSTN_TUNNEL_ENCRYPT_HMAC_ALG"] = $oCRNRSTN->tunnelHmac_algorithm[crc32($this->configSerial)][self::$resourceKey];
+        
+        #$this->oLog_output_ARRAY[] = $this->error_log("cookie encryption configured to _CRNRSTN_COOKIE_ENCRYPT_CIPHER[".$oCRNRSTN->opensslTunnelEncryptCipher[crc32($this->configSerial)][self::$resourceKey]."] _CRNRSTN_COOKIE_ENCRYPT_HMAC_ALG[".$oCRNRSTN->tunnelHmac_algorithm[crc32($this->configSerial)][self::$resourceKey]."].", __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->oLog_output_ARRAY[] = $this->error_log('Tunnel encryption configured to _CRNRSTN_TUNNEL_ENCRYPT_CIPHER[##### REDACTED #####] _CRNRSTN_TUNNEL_ENCRYPT_HMAC_ALG[##### REDACTED #####].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-		
-	}
-	
-	public function paramTunnelEncrypt($data=NULL, $cipher_override=NULL, $secret_key_override=NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
+        
+    }
+    
+    public function paramTunnelEncrypt($data=NULL, $cipher_override=NULL, $secret_key_override=NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
 
-		try{
+        try{
 
-			if(isset($data)){
-			
-				//
-				// DATA TYPE MUST BE ENCRYPTABLE...AND SAFE FOR URI
-				if(in_array(gettype($data), self::$encryptableDataTypes)){
+            if(isset($data)){
+            
+                //
+                // DATA TYPE MUST BE ENCRYPTABLE...AND SAFE FOR URI
+                if(in_array(gettype($data), self::$encryptableDataTypes)){
 
                     $tmp_encrypt_val = $this->tunnelParamEncrypt($data, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override);
 
@@ -1625,25 +1624,25 @@ class crnrstn_environment {
                     // MAKE SAFE FOR URI PASSTHROUGH.
                     $tmp_encrypt_val = urlencode($tmp_encrypt_val);
 
-					return $tmp_encrypt_val;
-								
-				}else{
-					
-					//
-					// NOT ENCRYPTABLE
-					return NULL;
-					
-				}
+                    return $tmp_encrypt_val;
+                                
+                }else{
+                    
+                    //
+                    // NOT ENCRYPTABLE
+                    return NULL;
+                    
+                }
 
-			}else{
-				
-				//
-				// NOT ENCRYPTABLE
-				return NULL;
-				
-			}
-			
-		}catch( Exception $e ) {
+            }else{
+                
+                //
+                // NOT ENCRYPTABLE
+                return NULL;
+                
+            }
+            
+        }catch( Exception $e ) {
 
             //
             // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
@@ -1651,21 +1650,21 @@ class crnrstn_environment {
 
         }
 
-		return NULL;
+        return NULL;
 
-	}
-	
-	public function paramTunnelDecrypt($data=NULL, $uri_passthrough=false, $cipher_override=NULL, $secret_key_override=NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
+    }
+    
+    public function paramTunnelDecrypt($data=NULL, $uri_passthrough=false, $cipher_override=NULL, $secret_key_override=NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
 
-		try{
+        try{
 
-			if(!isset($data) || $data == ''){
+            if(!isset($data) || $data == ''){
 
-				return NULL;
+                return NULL;
 
-			}else{
+            }else{
 
-			    if($uri_passthrough == true){
+                if($uri_passthrough == true){
 
                     //
                     // BACK OUT OF URL ENCODING
@@ -1673,10 +1672,10 @@ class crnrstn_environment {
 
                 }
 
-				return trim($this->tunnelParamDecrypt($data, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override));
-			}
-			
-		}catch( Exception $e ) {
+                return trim($this->tunnelParamDecrypt($data, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override));
+            }
+            
+        }catch( Exception $e ) {
 
             //
             // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
@@ -1687,28 +1686,28 @@ class crnrstn_environment {
         }
 
         return NULL;
-	}	
-	
-	private function tunnelParamEncrypt($val, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override){
+    }   
+    
+    private function tunnelParamEncrypt($val, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override){
 
-		try{
+        try{
 
-			if(isset($cipher_override) || isset($_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_CIPHER'])){
-				
-				if(!isset($secret_key_override)){
+            if(isset($cipher_override) || isset($_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_CIPHER'])){
+                
+                if(!isset($secret_key_override)){
                     //error_log('783 tunnelParamEncrypt - secret_key from session...');
 
                     $secret_key = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_SECRET_KEY'];
 
-				}else{
+                }else{
 
                     $secret_key = $secret_key_override;
 
-				}
+                }
 
-				//
+                //
                 // ENABLE CIPHER OVERRIDE :: v2.0.0
-				if(!isset($cipher_override)){
+                if(!isset($cipher_override)){
                     //error_log('796 tunnelParamEncrypt - cipher from session...');
                     $cipher = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_CIPHER'];
 
@@ -1743,25 +1742,25 @@ class crnrstn_environment {
                     $options_bitwise = $options_bitwise_override;
 
                 }
-				
-				#
-				# Source: http://php.net/manual/en/function.openssl-encrypt.php
-				#
-				$ivlen = openssl_cipher_iv_length($cipher);
-				$iv = openssl_random_pseudo_bytes($ivlen);
-				$ciphertext_raw = openssl_encrypt($val, $cipher, $secret_key, $options=$options_bitwise, $iv);
-				$hmac = hash_hmac($hmac_algorithm, $ciphertext_raw, $secret_key, $as_binary=true);
-				$ciphertext = base64_encode( $iv.$hmac.$ciphertext_raw );
-				
-				return $ciphertext;
+                
+                #
+                # Source: http://php.net/manual/en/function.openssl-encrypt.php
+                #
+                $ivlen = openssl_cipher_iv_length($cipher);
+                $iv = openssl_random_pseudo_bytes($ivlen);
+                $ciphertext_raw = openssl_encrypt($val, $cipher, $secret_key, $options=$options_bitwise, $iv);
+                $hmac = hash_hmac($hmac_algorithm, $ciphertext_raw, $secret_key, $as_binary=true);
+                $ciphertext = base64_encode( $iv.$hmac.$ciphertext_raw );
+                
+                return $ciphertext;
 
-			}else{
-				
-				return $val;
+            }else{
+                
+                return $val;
 
-			}
+            }
 
-		}catch( Exception $e ) {
+        }catch( Exception $e ) {
 
             //
             // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
@@ -1769,31 +1768,31 @@ class crnrstn_environment {
 
             return NULL;
 
-		}
+        }
 
         return NULL;
 
-	}
-	
-	private function tunnelParamDecrypt($val, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override){
+    }
+    
+    private function tunnelParamDecrypt($val, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override){
 
-		try{
-			
-			if(isset($cipher_override) || isset($_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_CIPHER'])){
-				
-				if(!isset($secret_key_override)){
+        try{
+            
+            if(isset($cipher_override) || isset($_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_CIPHER'])){
+                
+                if(!isset($secret_key_override)){
 
-					$secret_key = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_SECRET_KEY'];
+                    $secret_key = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_SECRET_KEY'];
 
-				}else{
+                }else{
 
                     $secret_key = $secret_key_override;
 
-				}
+                }
 
                 //
                 // ENABLE CIPHER OVERRIDE :: v2.0.0
-				if(!isset($cipher_override)){
+                if(!isset($cipher_override)){
 
                     $cipher = $_SESSION['CRNRSTN_'.crc32($this->configSerial)]['CRNRSTN_'.self::$resourceKey]['_CRNRSTN_TUNNEL_ENCRYPT_CIPHER'];
 
@@ -1827,38 +1826,38 @@ class crnrstn_environment {
 
                 }
 
-				#
+                #
                 # Source: http://php.net/manual/en/function.openssl-encrypt.php
                 #
                 $c = base64_decode($val);
-				$ivlen = openssl_cipher_iv_length($cipher);
-				$iv = substr($c, 0, $ivlen);
-				$hmac = substr($c, $ivlen, $sha2len=32);
-				$ciphertext_raw = substr($c, $ivlen+$sha2len);
-				$original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $secret_key, $options=$options_bitwise, $iv);
-				$calcmac = hash_hmac($hmac_algorithm, $ciphertext_raw, $secret_key, $as_binary=true);
-				
-				if (hash_equals($hmac, $calcmac))//PHP 5.6+ timing attack safe comparison
-				{
-					return $original_plaintext;
+                $ivlen = openssl_cipher_iv_length($cipher);
+                $iv = substr($c, 0, $ivlen);
+                $hmac = substr($c, $ivlen, $sha2len=32);
+                $ciphertext_raw = substr($c, $ivlen+$sha2len);
+                $original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $secret_key, $options=$options_bitwise, $iv);
+                $calcmac = hash_hmac($hmac_algorithm, $ciphertext_raw, $secret_key, $as_binary=true);
+                
+                if (hash_equals($hmac, $calcmac))//PHP 5.6+ timing attack safe comparison
+                {
+                    return $original_plaintext;
 
-				}else{
+                }else{
 
-					//
-					// HOOOSTON...VE HAF PROBLEM!
-					throw new Exception('CRNRSTN :: Tunnel Param Decrypt Notice :: Oops. Something went wrong. Hash_equals comparison failed during data decryption.');
+                    //
+                    // HOOOSTON...VE HAF PROBLEM!
+                    throw new Exception('CRNRSTN :: Tunnel Param Decrypt Notice :: Oops. Something went wrong. Hash_equals comparison failed during data decryption.');
 
-				}
-			
-			}else{
-				
-				//
-				// NO ENCRYPTION. RETURN VAL
-				return $val;
+                }
+            
+            }else{
+                
+                //
+                // NO ENCRYPTION. RETURN VAL
+                return $val;
 
-			}
-			
-		}catch( Exception $e ) {
+            }
+            
+        }catch( Exception $e ) {
 
             //
             // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
@@ -1866,37 +1865,37 @@ class crnrstn_environment {
 
             return NULL;
 
-		}
+        }
 
         return NULL;
 
-	}
-	
-	private function initEnvResources($oCRNRSTN){
-		
-		//
-		// ITERATE THROUGH handle_resource_ARRAY TO EXTRACT ENV SPECIFIC USER DEFINED PARAMS
-		// TRANSFER DATA (JUST FOR THE RUNNING ENV) FROM oCRNRSTN RESOURCE ARRAY TO SESSION
-		$this->getHandle_resource_ARRAY = $oCRNRSTN->getHandle_resource_ARRAY();
-		$tmp_envkey = $this->oSESSION_MGR->getSessionKey();
-		foreach($this->getHandle_resource_ARRAY[crc32($this->configSerial)][$tmp_envkey] as $key=>$value){
+    }
+    
+    private function initEnvResources($oCRNRSTN){
+        
+        //
+        // ITERATE THROUGH handle_resource_ARRAY TO EXTRACT ENV SPECIFIC USER DEFINED PARAMS
+        // TRANSFER DATA (JUST FOR THE RUNNING ENV) FROM oCRNRSTN RESOURCE ARRAY TO SESSION
+        $this->getHandle_resource_ARRAY = $oCRNRSTN->getHandle_resource_ARRAY();
+        $tmp_envkey = $this->oSESSION_MGR->getSessionKey();
+        foreach($this->getHandle_resource_ARRAY[crc32($this->configSerial)][$tmp_envkey] as $key=>$value){
 
             $this->oLog_output_ARRAY[] = $this->error_log('Initializing session['.session_id().'] with resource ['.$key.'] receiving value [##### REDACTED #####] for environmental key ['.$tmp_envkey.'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-			$this->oSESSION_MGR->setSessionParam($key, $value);
+            $this->oSESSION_MGR->set_session_param($key, $value);
 
-		}
-		
-		//
-		// INITIALIZE SESSION WITH ANY WILDCARDS
-		if(isset($this->getHandle_resource_ARRAY[crc32($this->configSerial)][crc32('*')])){
-			foreach($this->getHandle_resource_ARRAY[crc32($this->configSerial)][crc32('*')] as $key=>$value){
+        }
+        
+        //
+        // INITIALIZE SESSION WITH ANY WILDCARDS
+        if(isset($this->getHandle_resource_ARRAY[crc32($this->configSerial)][crc32('*')])){
+            foreach($this->getHandle_resource_ARRAY[crc32($this->configSerial)][crc32('*')] as $key=>$value){
 
                 $this->oLog_output_ARRAY[] = $this->error_log('Initializing session['.session_id().'] with resource [*] receiving value [##### REDACTED #####] for environmental key ['.$tmp_envkey.'].', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-				$this->oSESSION_MGR->setSessionParam($key, $value);
+                $this->oSESSION_MGR->set_session_param($key, $value);
 
-			}
-		}
-	}
+            }
+        }
+    }
 
     private function define_wildcard_resource($key){
 
@@ -1906,7 +1905,7 @@ class crnrstn_environment {
 
     }
 
-	private function initializeWildCardResource($oCRNRSTN){
+    private function initializeWildCardResource($oCRNRSTN){
 
         $envKey = $this->env_cleartext_name;
         $this->wildCardResource_filePath = $oCRNRSTN->wildCardResource_filePath_ARRAY[crc32($this->configSerial)][self::$resourceKey];
@@ -1983,21 +1982,21 @@ class crnrstn_environment {
 
     public function augmentWCR_array($oWCR){
 
-	    $tmp_array = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
+        $tmp_array = $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL];
         $tmp_array[$oWCR->returnResourceKey()] = $oWCR;
         $this->oWildCardResource_ARRAY[crc32($this->configSerial)][CRNRSTN_LOG_ALL] = $tmp_array;
 
     }
-	
-	public function returnSrvrRespStatus($errorCode, $html_burn = NULL){
-		
-		//
-		// Source: http://php.net/manual/en/function.http-response-code.php
-		// Source of source: Wikipedia "List_of_HTTP_status_codes"
+    
+    public function returnSrvrRespStatus($errorCode, $html_burn = NULL){
+        
+        //
+        // Source: http://php.net/manual/en/function.http-response-code.php
+        // Source of source: Wikipedia "List_of_HTTP_status_codes"
         $http_status_codes = array(100 => 'Continue', 101 => 'Switching Protocols', 102 => 'Processing', 200 => 'OK', 201 => 'Created', 202 => 'Accepted', 203 => 'Non-Authoritative Information', 204 => 'No Content', 205 => 'Reset Content', 206 => 'Partial Content', 207 => 'Multi-Status', 300 => 'Multiple Choices', 301 => 'Moved Permanently', 302 => 'Found', 303 => 'See Other', 304 => 'Not Modified', 305 => 'Use Proxy', 306 => '(Unused)', 307 => 'Temporary Redirect', 308 => 'Permanent Redirect', 400 => 'Bad Request', 401 => 'Unauthorized', 402 => 'Payment Required', 403 => 'Forbidden', 404 => 'Not Found', 405 => 'Method Not Allowed', 406 => 'Not Acceptable', 407 => 'Proxy Authentication Required', 408 => 'Request Timeout', 409 => 'Conflict', 410 => 'Gone', 411 => 'Length Required', 412 => 'Precondition Failed', 413 => 'Request Entity Too Large', 414 => 'Request-URI Too Long', 415 => 'Unsupported Media Type', 416 => 'Requested Range Not Satisfiable', 417 => 'Expectation Failed', 418 => 'I\'m a teapot', 419 => 'Authentication Timeout', 420 => 'Enhance Your Calm', 422 => 'Unprocessable Entity', 423 => 'Locked', 424 => 'Failed Dependency', 424 => 'Method Failure', 425 => 'Unordered Collection', 426 => 'Upgrade Required', 428 => 'Precondition Required', 429 => 'Too Many Requests', 431 => 'Request Header Fields Too Large', 444 => 'No Response', 449 => 'Retry With', 450 => 'Blocked by Windows Parental Controls', 451 => 'Unavailable For Legal Reasons', 494 => 'Request Header Too Large', 495 => 'Cert Error', 496 => 'No Cert', 497 => 'HTTP to HTTPS', 499 => 'Client Closed Request', 500 => 'Internal Server Error', 501 => 'Not Implemented', 502 => 'Bad Gateway', 503 => 'Service Unavailable', 504 => 'Gateway Timeout', 505 => 'HTTP Version Not Supported', 506 => 'Variant Also Negotiates', 507 => 'Insufficient Storage', 508 => 'Loop Detected', 509 => 'Bandwidth Limit Exceeded', 510 => 'Not Extended', 511 => 'Network Authentication Required', 598 => 'Network read timeout error', 599 => 'Network connect timeout error');
-		header($this->getServerArrayVar('SERVER_PROTOCOL').' '.$errorCode.' '.$http_status_codes[$errorCode]);
+        header($this->getServerArrayVar('SERVER_PROTOCOL').' '.$errorCode.' '.$http_status_codes[$errorCode]);
 
-		if(!isset($html_burn)){
+        if(!isset($html_burn)){
 
             $html_burn = '';
 
@@ -2100,16 +2099,16 @@ class crnrstn_environment {
             break;
 
         }
-		
-		echo $str;
-		
-		exit();
+        
+        echo $str;
+        
+        exit();
 
-	}
-	
-	public function getEnvParam($paramName, $wildCardKey = NULL, $SOAP_output_mode = false){
+    }
+    
+    public function getEnvParam($paramName, $wildCardKey = NULL, $SOAP_output_mode = false){
 
-	    try{
+        try{
 
             //
             // CHECK FOR EXISTENCE OF PARAMETER WITHIN WILD CARD RESOURCE
@@ -2135,7 +2134,91 @@ class crnrstn_environment {
 
                             //
                             // PARAM HAS BEEN DEFINED WITHIN WILD CARD RESOURCE
-                            return $tmp_oWCR->get_attribute($wildCardKey, $paramName, $SOAP_output_mode);
+                            $tmp_oDDO = $tmp_oWCR->get_attribute($wildCardKey, $paramName, $SOAP_output_mode);
+
+                            //$tmp_oDDO
+                            //preach('isset', key).  ..
+                            //preach('type')
+                            //preach('value')
+                            switch($tmp_oDDO->preach('type', $paramName)){
+                                case 'int':
+
+                                    return (int) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'integer':
+
+                                    return (integer) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'bool':
+
+                                    if($SOAP_output_mode){
+
+                                        return $tmp_oDDO->preach('value', $paramName);
+
+                                    }else{
+
+                                        return $this->boolean_conversion($tmp_oDDO->preach('value', $paramName));
+
+                                    }
+
+                                break;
+                                case 'boolean':
+
+                                    if($SOAP_output_mode){
+
+                                        return $tmp_oDDO->preach('value', $paramName);
+
+                                    }else{
+
+                                        return $this->boolean_conversion($tmp_oDDO->preach('value', $paramName));
+
+                                    }
+
+                                break;
+                                case 'float':
+
+                                    return (float) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'double':
+
+                                    return (double) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'real':
+
+                                    return (float) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'string':
+
+                                    return (string) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'array':
+
+                                    return (array) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'object':
+
+                                    return (object) $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+                                case 'NULL':
+
+                                    return NULL;
+
+                                break;
+                                default:
+
+                                    return $tmp_oDDO->preach('value', $paramName);
+
+                                break;
+
+                            }
 
                         } else {
 
@@ -2173,7 +2256,7 @@ class crnrstn_environment {
 
         } catch (Exception $e) {
 
-	        //
+            //
             // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
 
@@ -2181,61 +2264,61 @@ class crnrstn_environment {
 
         }
 
-	}
-	
-	private function pullFromSession($key) {
+    }
+    
+    private function pullFromSession($key) {
 
-		//
-		// PULL FROM SESSION CACHE
-		return $this->oSESSION_MGR->getSessionParam($key);
+        //
+        // PULL FROM SESSION CACHE
+        return $this->oSESSION_MGR->get_session_param($key);
 
-	}
+    }
 
-	/**
-	* @see http://php.net/manual/en/function.openssl-encrypt.php
-	*/
-	public function openssl_get_cipher_methods(){
-		$ciphers             = openssl_get_cipher_methods();
-		$ciphers_and_aliases = openssl_get_cipher_methods(true);
-		$cipher_aliases      = array_diff($ciphers_and_aliases, $ciphers);
-		
-		//
-		// ECB MODE SHOULD BE AVOIDED
-		$ciphers = array_filter( $ciphers, function($n) { return stripos($n,"ecb")===FALSE; } );
-		
-		//
-		// AT LEAST AS EARLY AS AUG 2016, OPENSSL DECLARED THE FOLLOWING WEAK: RC2, RC4, DES, 3DES, MD5 based
-		$ciphers = array_filter( $ciphers, function($c) { return stripos($c,"des")===FALSE; } );
-		$ciphers = array_filter( $ciphers, function($c) { return stripos($c,"rc2")===FALSE; } );
-		$ciphers = array_filter( $ciphers, function($c) { return stripos($c,"rc4")===FALSE; } );
-		$ciphers = array_filter( $ciphers, function($c) { return stripos($c,"md5")===FALSE; } );
-		$cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,"des")===FALSE; } );
-		$cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,"rc2")===FALSE; } );
-		$mergedCiphers = array_merge($ciphers,$cipher_aliases);
-		
-		return $mergedCiphers;
-		
-	}
+    /**
+    * @see http://php.net/manual/en/function.openssl-encrypt.php
+    */
+    public function openssl_get_cipher_methods(){
+        $ciphers             = openssl_get_cipher_methods();
+        $ciphers_and_aliases = openssl_get_cipher_methods(true);
+        $cipher_aliases      = array_diff($ciphers_and_aliases, $ciphers);
+        
+        //
+        // ECB MODE SHOULD BE AVOIDED
+        $ciphers = array_filter( $ciphers, function($n) { return stripos($n,"ecb")===FALSE; } );
+        
+        //
+        // AT LEAST AS EARLY AS AUG 2016, OPENSSL DECLARED THE FOLLOWING WEAK: RC2, RC4, DES, 3DES, MD5 based
+        $ciphers = array_filter( $ciphers, function($c) { return stripos($c,"des")===FALSE; } );
+        $ciphers = array_filter( $ciphers, function($c) { return stripos($c,"rc2")===FALSE; } );
+        $ciphers = array_filter( $ciphers, function($c) { return stripos($c,"rc4")===FALSE; } );
+        $ciphers = array_filter( $ciphers, function($c) { return stripos($c,"md5")===FALSE; } );
+        $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,"des")===FALSE; } );
+        $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,"rc2")===FALSE; } );
+        $mergedCiphers = array_merge($ciphers,$cipher_aliases);
+        
+        return $mergedCiphers;
+        
+    }
 
     public function getMicroTime(){
 
         return $this->oLogger->returnMicroTime();
 
     }
-	
-	public function wallTime(){
+    
+    public function wallTime(){
 
-		$timediff = $this->microtime_float() - $this->starttime;
-		
-		return substr($timediff,0,-8);
-		
-	}
-	
-	public function monitoringDeltaTimeFor($watchKey, $decimal=8){
-		
-		if(!isset(self::$m_starttime[$watchKey])){
+        $timediff = $this->microtime_float() - $this->starttime;
+        
+        return substr($timediff,0,-8);
+        
+    }
+    
+    public function monitoringDeltaTimeFor($watchKey, $decimal=8){
+        
+        if(!isset(self::$m_starttime[$watchKey])){
 
-			self::$m_starttime[$watchKey] = $this->microtime_float();
+            self::$m_starttime[$watchKey] = $this->microtime_float();
             $timediff = self::$m_starttime[$watchKey] - self::$m_starttime[$watchKey];
 
             $len = $decimal * -1;
@@ -2244,68 +2327,68 @@ class crnrstn_environment {
 
             //return 0.0;
 
-		}else{
+        }else{
 
-			$timediff = $this->microtime_float() - self::$m_starttime[$watchKey];
+            $timediff = $this->microtime_float() - self::$m_starttime[$watchKey];
 
-			$len = $decimal * -1;
+            $len = $decimal * -1;
 
             return substr($timediff,0, $len);
 
-			//return substr($timediff,0,-8);
+            //return substr($timediff,0,-8);
 
-		}
-	}
-	
-	//
-	// SOURCE :: http://www.php.net/manual/en/function.microtime.php
-	private function microtime_float(){
+        }
+    }
+    
+    //
+    // SOURCE :: http://www.php.net/manual/en/function.microtime.php
+    private function microtime_float(){
 
-	    list($usec, $sec) = explode(" ", microtime());
-	    return ((float)$usec + (float)$sec);
+        list($usec, $sec) = explode(" ", microtime());
+        return ((float)$usec + (float)$sec);
 
-	}
-	
-	//
-	// RETURN HTTP/S PATH OF CURRENT SCRIPT
-	public function currentLocation(){
+    }
+    
+    //
+    // RETURN HTTP/S PATH OF CURRENT SCRIPT
+    public function currentLocation(){
 
-		if(isset($_SERVER['HTTPS'])){
+        if(isset($_SERVER['HTTPS'])){
 
-			if($_SERVER['HTTPS'] && ($_SERVER['HTTPS'] != 'off')){
+            if($_SERVER['HTTPS'] && ($_SERVER['HTTPS'] != 'off')){
 
-				self::$requestProtocol='https://';
+                self::$requestProtocol='https://';
 
-			}else{
+            }else{
 
-				if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])){
+                if(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])){
 
-					if( !empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ){
+                    if( !empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ){
 
-					    self::$requestProtocol='https://';
+                        self::$requestProtocol='https://';
 
-					}else{
+                    }else{
 
-						self::$requestProtocol='http://';
+                        self::$requestProtocol='http://';
 
-					}
+                    }
 
-				}else{
+                }else{
 
-					self::$requestProtocol='http://';
+                    self::$requestProtocol='http://';
 
-				}
-			}
+                }
+            }
 
-		}else{
+        }else{
 
-			self::$requestProtocol='http://';
+            self::$requestProtocol='http://';
 
-		}
-		
-		return self::$requestProtocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        }
+        
+        return self::$requestProtocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-	}
+    }
 
     //
     // METHOD SOURCE :: Stack Overflow ::  https://stackoverflow.com/questions/1846202/php-how-to-generate-a-random-unique-alphanumeric-string
@@ -2722,18 +2805,44 @@ class crnrstn_environment {
 
     }
 
-    public function print_r($expression, $title=NULL, $colorScheme = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+    public function return_set_bits($constants_int_ARRAY){
 
-        if(!isset($colorScheme)){
+        //$this->oCRNRSTN_BITWISE->set($integer_constant);
+        //$this->oCRNRSTN_BITWISE->toggle($integer_constant);
+        //$this->oCRNRSTN_BITWISE->read($integer_constant);
+        //$this->oCRNRSTN_BITWISE->remove($integer_constant)
+        //$this->oCRNRSTN_BITWISE->stringout()
+        //$this->oCRNRSTN_BITFLIP_MGR->set($integer_constant, true);
 
-            if(isset($this->colorScheme)){
+        $tmp_array = array();
 
-                $colorScheme = $this->colorScheme;
+        foreach($constants_int_ARRAY as $key => $int_constant){
 
-            }else{
+            if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read($int_constant)){
 
-                $this->colorScheme = CRNRSTN_PHPNIGHT;
-                $colorScheme = CRNRSTN_PHPNIGHT;
+                $tmp_array[] = $int_constant;
+
+            }
+
+        }
+
+        return $tmp_array;
+
+    }
+
+    public function print_r_str($expression, $title=NULL, $theme_style = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+
+        if(!isset($theme_style)){
+
+            //
+            // SET A DEFAULT
+            $theme_style = CRNRSTN_UI_PHPNIGHT;
+
+            $theme_style_ARRAY = $this->return_set_bits($this->theme_style_profile_constants);
+
+            if(count($theme_style_ARRAY) > 0){
+
+                $theme_style = $theme_style_ARRAY[0];   // FIRST MATCH
 
             }
 
@@ -2768,7 +2877,7 @@ class crnrstn_environment {
         $tmp_line_cnt = sizeof($lines);
 
         $lineHTML = implode('<br />', range(1, $tmp_line_cnt+0));
-        $tmp_linecnt_html_out = '<div style="line-height:20px; position:absolute; width:25px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:25px; padding-bottom:25px; padding-left:4px;">'.$lineHTML.'</div>';
+        $tmp_linecnt_html_out = '<div style="line-height:20px; position:absolute; padding-right:5px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:25px; padding-bottom:25px; padding-left:4px;">'.$lineHTML.'</div>';
 
         if(isset($title) && $title != ''){
 
@@ -2786,7 +2895,158 @@ class crnrstn_environment {
 
         $tmp_hash = $this->generateNewKey(10);
 
-        switch($colorScheme){
+        switch($theme_style){
+            case CRNRSTN_UI_PHP:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#CCC; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#CCC; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+            case CRNRSTN_UI_HTML:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#FFF; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#FFF; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+            case CRNRSTN_UI_PHPNIGHT:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#000; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#000; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+            default:
+
+                $tmp_out = '
+                <div id="crnrstn_print_r_output_'.$tmp_hash.'" class="crnrstn_print_r_output"  style="width:100%;">
+                '.$tmp_title.'
+                <div style="padding: 5px 30px 20px 25px;"><div style="position:relative; background-color:#E6E6E6; color:#DEDECB; width:100%; padding:0px; margin:0; border:3px solid #CC9900; overflow:scroll; overflow-y:hidden; font-size:14px;">
+                '.$tmp_linecnt_html_out.'
+                <div style="background-color:#E6E6E6; color:#DEDECB; width:3000px; padding:10px; margin-top:0; margin-left:10px; padding-left:35px; line-height:20px;">
+                <code>';
+
+                break;
+
+        }
+
+        $tmp_str_out = '<div style="background-color: #FFF; padding: 10px 20px 10px 20px;">';
+        $tmp_str_out .= $tmp_out;
+
+        $output = $this->highlightText($tmp_print_r, $theme_style);
+        $output = $this->properReplace('<br />', '
+', $output);
+
+        if($output == '<span style="color: #DEDECB"></span>' || $output == '<span style="color: #000000"></span>' || $output == '<span style="color: #CC0000"></span>'){
+
+            $output = '<span style="color: #DEDECB">&nbsp;</span>';
+
+        }
+
+        $tmp_str_out .= '<pre>';
+        $tmp_str_out .=  print_r($output, true);
+        $tmp_str_out .= '</pre>';
+
+        $component_crnrstn_title = $this->return_component_branding_creative();
+
+        $tmp_str_out .= '</code></div></div>
+        <div style="width:100%;">
+            <div style="display:block; clear:both; height:4px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div>
+
+            '.$component_crnrstn_title.'
+
+            <div style="float:right; max-width:88%; max-width:82%; padding:4px 0 5px 0; text-align:right; font-family: Courier New, Courier, monospace; font-size:11px;">'.$tmp_meta.'</div>
+                
+            <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
+        </div>
+        </div></div>';
+
+        $tmp_str_out .= '<div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
+';
+
+        return $tmp_str_out;
+
+    }
+
+    public function print_r($expression, $title=NULL, $style_theme = NULL, $line_num = NULL, $method = NULL, $file = NULL){
+
+        if(!isset($style_theme)){
+
+            //
+            // SET DEFAULT CONSTANT
+            $style_theme = CRNRSTN_UI_PHPNIGHT;
+
+            $tmp_theme_ARRAY = $this->return_set_bits($this->theme_style_profile_constants);
+
+            if(count($tmp_theme_ARRAY) > 0){
+
+                $style_theme = $tmp_theme_ARRAY[0];     // WE TAKE THE FIRST
+
+            }
+
+        }
+
+        $tmp_meta = '['.$this->getMicroTime().' '.date('T').'] [rtime '. $this->wallTime().' secs]';
+
+        if(!isset($method) || $method==''){
+
+            if(isset($file)){
+
+                $tmp_meta .= ' [file '.$file.']';
+
+            }
+
+        }else{
+
+            $tmp_meta .= ' [methd '.$method.']';
+
+        }
+
+        if(isset($line_num)){
+
+            $tmp_meta .= ' [lnum '.$line_num.']';
+
+        }
+
+        $tmp_print_r = print_r($expression, true);
+
+        $tmp_print_r = $this->properReplace('\r\n', '\n', $tmp_print_r);
+        $lines = preg_split('#\r?\n#', trim($tmp_print_r));
+        $tmp_line_cnt = sizeof($lines);
+
+        $lineHTML = implode('<br />', range(1, $tmp_line_cnt+0));
+        $tmp_linecnt_html_out = '<div style="line-height:20px; position:absolute; padding-right:5px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:25px; padding-bottom:25px; padding-left:4px;">'.$lineHTML.'</div>';
+
+        if(isset($title) && $title != ''){
+
+            $tmp_title = '<div style="display:block; clear:both; height:4px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div><div style="float:left; padding:5px 0 0 30px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">';
+            $tmp_title .= $title;
+            $tmp_title .= '</div><div style="display:block; clear:both; height:0px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div>';
+
+        }else{
+
+            $tmp_title = '<div style="display:block; clear:both; height:4px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div><div style="float:left; padding:5px 0 0 30px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">';
+            $tmp_title .= 'Begin print_r() output by C<span style="color:#F00;">R</span>NRSTN ::';
+            $tmp_title .= '</div><div style="display:block; clear:both; height:0px; line-height:1px; overflow:hidden; width:100%; font-size:1px;"></div>';
+
+        }
+
+        $tmp_hash = $this->generateNewKey(10);
+
+        switch($style_theme){
             case CRNRSTN_UI_PHP:
 
                 $tmp_out = '
@@ -2837,7 +3097,7 @@ class crnrstn_environment {
         echo '<div style="background-color: #FFF; padding: 10px 20px 10px 20px;">';
         echo $tmp_out;
 
-        $output = $this->highlightText($tmp_print_r, $colorScheme);
+        $output = $this->highlightText($tmp_print_r, $style_theme);
         $output = $this->properReplace('<br />', '
 ', $output);
 
@@ -2977,6 +3237,12 @@ class crnrstn_environment {
 
     }
 
+    public function client_agent_is($key, $userAgent = null, $httpHeaders = null){
+
+        return $this->oHTTP_MGR->is($key, $userAgent, $httpHeaders);
+
+    }
+
     public function return_email_creative($creative_element_key, $image_output_mode = NULL){
 
         return self::$oCommRichMediaProvider->return_creative($creative_element_key, $image_output_mode);
@@ -3034,6 +3300,173 @@ class crnrstn_environment {
     public function return_lang_content_ARRAY(){
 
         return self::$lang_content_ARRAY;
+
+    }
+
+    public function strSanitize($str, $type){
+
+        $patterns = array();
+        $replacements = array();
+
+        $type = strtolower($type);
+
+        try {
+
+            switch ($type) {
+                case 'max_storage_utilization':
+
+                    $patterns[0] = '%';
+                    $patterns[1] = 'percent';
+                    $patterns[2] = ' ';
+                    $patterns[3] = '!';
+
+                    $replacements[0] = '';
+                    $replacements[1] = '';
+                    $replacements[2] = '';
+                    $replacements[3] = '';
+
+                    break;
+                case 'email_private':
+                    $tmp_new_post_at_ARRAY = array();
+                    $clean_str = '';
+                    $last_dot_flag = false;
+                    $tmp_at_split_ARRAY = explode('@', $str);
+                    $tmp_post_at_len = strlen($tmp_at_split_ARRAY[1]);
+                    $tmp_str_ARRAY = $this->str_split_unicode($str);
+                    $tmp_post_at_str_ARRAY = $this->str_split_unicode($tmp_at_split_ARRAY[1]);
+                    $tmp_post_at_str_rev_ARRAY = array_reverse($tmp_post_at_str_ARRAY);
+
+                    //
+                    // PREP POST @ SITUATION
+                    for($i=0;$i<$tmp_post_at_len;$i++){
+
+                        if(!$last_dot_flag){
+                            if($tmp_post_at_str_rev_ARRAY[$i]=='.'){
+                                $last_dot_flag = true;
+
+                            }
+
+                            $tmp_new_post_at_ARRAY[] = $tmp_post_at_str_rev_ARRAY[$i];
+
+                            if($last_dot_flag){
+
+                                $i = $tmp_post_at_len+420;
+                                $tmp_new_post_at_ARRAY = array_reverse($tmp_new_post_at_ARRAY);
+
+                            }
+                        }
+                    }
+
+                    $tmp_str_len = sizeof($tmp_str_ARRAY);
+                    for($i=0; $i<$tmp_str_len; $i++){
+                        if($i==0){
+
+                            $clean_str .= $tmp_str_ARRAY[$i].'*****';
+
+                        }else{
+
+                            if($tmp_str_ARRAY[$i] == '@'){
+
+                                $at_flag = true;
+                                $tmp_plus_one = $i+1;
+                                $clean_str .= $tmp_str_ARRAY[$i].$tmp_str_ARRAY[$tmp_plus_one].'*****';
+                                $clean_str .= implode($tmp_new_post_at_ARRAY);
+                                $i = $tmp_str_len + 420;
+                            }
+                        }
+                    }
+
+                    return $clean_str;
+
+                    break;
+                case 'custom_mobi_detect_alg':
+
+                    $patterns[0] = '(';
+                    $patterns[1] = ')';
+                    $replacements[0] = '';
+                    $replacements[1] = '';
+
+                    break;
+                case 'http_protocol_simple':
+
+                    $patterns[0] = '_';
+                    $patterns[1] = '$';
+                    $patterns[2] = ' ';
+                    $replacements[0] = '';
+                    $replacements[1] = '';
+                    $replacements[2] = '';
+
+                    break;
+                case 'select_statement':
+
+                    $patterns[0] = "`";
+                    $replacements[0] = '';
+
+                    break;
+                case 'select_field_name':
+
+                    $patterns[0] = "
+";
+                    $patterns[1] = '"';
+                    $patterns[2] = '=';
+                    $patterns[3] = '{';
+                    $patterns[4] = '}';
+                    $patterns[5] = '(';
+                    $patterns[6] = ')';
+                    $patterns[7] = ' ';
+                    $patterns[8] = '    ';
+                    $patterns[9] = ',';
+                    $patterns[10] = '\n';
+                    $patterns[11] = '\r';
+                    $patterns[12] = '\'';
+                    $patterns[13] = '/';
+                    $patterns[14] = '#';
+                    $patterns[15] = ';';
+                    $patterns[16] = ':';
+                    $patterns[17] = '>';
+
+                    $replacements = array();
+                    $replacements[0] = '';
+                    $replacements[1] = '';
+                    $replacements[2] = '';
+                    $replacements[3] = '';
+                    $replacements[4] = '';
+                    $replacements[5] = '';
+                    $replacements[6] = '';
+                    $replacements[7] = '';
+                    $replacements[8] = '';
+                    $replacements[9] = '';
+                    $replacements[10] = '';
+                    $replacements[11] = '';
+                    $replacements[12] = '';
+                    $replacements[13] = '';
+                    $replacements[14] = '';
+                    $replacements[15] = '';
+                    $replacements[16] = '';
+                    $replacements[17] = '';
+
+                    break;
+                default:
+
+                    //
+                    // HOOOSTON...VE HAF PROBLEM!
+                    throw new Exception('Unable to determine string sanitization algorithm [' . $type . '] for the content[' . $str . '].');
+
+                    break;
+            }
+
+            $str = str_replace($patterns, $replacements, $str);
+
+            return $str;
+
+
+        } catch (Exception $e) {
+
+            $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
+
+            return false;
+
+        }
 
     }
 
@@ -3165,7 +3598,7 @@ class crnrstn_environment {
      *                             Returns NULL otherwise.
      *
      * SOURCE :: https://www.php.net/manual/en/function.is-bool.php
-     * AUTHOR :: https://www.php.net/manual/en/function.is-bool.php#124179
+     * AUTHOR :: Julio Marchi :: https://www.php.net/manual/en/function.is-bool.php#124179
      */
     public function boolean_conversion($variable=NULL){
 
@@ -3174,13 +3607,7 @@ class crnrstn_environment {
 
     }
 
-    public function stringSanitize($str, $type){
-
-        return $this->strSanitize($str, $type);
-
-    }
-
-    private function strSanitize($str, $type){
+    public function string_sanitize($str, $type){
 
         $patterns = array();
         $replacements = array();
@@ -3291,7 +3718,7 @@ class crnrstn_environment {
                     $patterns[5] = '(';
                     $patterns[6] = ')';
                     $patterns[7] = ' ';
-                    $patterns[8] = '	';
+                    $patterns[8] = '    ';
                     $patterns[9] = ',';
                     $patterns[10] = '\n';
                     $patterns[11] = '\r';
@@ -3399,11 +3826,11 @@ class crnrstn_environment {
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function highlightText($text, $colorScheme = 'phpnight')   // [EDIT] CRNRSTN v2.0.0 FOR PHPNIGHT :: J5
+    public function highlightText($text, $style_theme = CRNRSTN_UI_PHPNIGHT)   // [EDIT] CRNRSTN v2.0.0 FOR PHPNIGHT :: J5
     {
-        $colorScheme = trim(strtolower($colorScheme));              // [EDIT] CRNRSTN v2.0.0 :: J5
+        $style_theme = trim(strtolower($style_theme));              // [EDIT] CRNRSTN v2.0.0 :: J5
 
-        if ($colorScheme == 'php') {
+        if ($style_theme == CRNRSTN_UI_PHP) {
 
             ini_set('highlight.comment', '#008000');
             ini_set('highlight.default', '#000');
@@ -3411,7 +3838,7 @@ class crnrstn_environment {
             ini_set('highlight.keyword', '#00B; font-weight: bold');
             ini_set('highlight.string', '#D00');
 
-        } else if ($colorScheme == 'html') {
+        } else if ($style_theme == CRNRSTN_UI_HTML) {
 
             ini_set('highlight.comment', 'green');
             ini_set('highlight.default', '#C00');
@@ -3419,7 +3846,7 @@ class crnrstn_environment {
             ini_set('highlight.keyword', 'black; font-weight: bold');
             ini_set('highlight.string', '#00F');
 
-        } else if ($colorScheme == 'phpnight')                        // [EDIT] CRNRSTN v2.0.0 :: J5
+        } else if ($style_theme == CRNRSTN_UI_PHPNIGHT)                        // [EDIT] CRNRSTN v2.0.0 :: J5
         {
             ini_set('highlight.comment', '#FC0');
             ini_set('highlight.default', '#DEDECB');
@@ -3458,6 +3885,45 @@ class crnrstn_environment {
         return $tmp;
     }
 
+    //
+    // SOURCE :: http://php.net/manual/en/function.mkdir.php
+    // AUTHOR :: kungla at gmail dot com :: http://php.net/manual/en/function.mkdir.php#68207
+    public function mkdir_r($dirName, $mode=777){
+
+        try{
+
+            $mode = octdec( str_pad($mode,4,'0',STR_PAD_LEFT) );
+            $mode = (int)$mode;
+
+            $dirs = explode('/', $dirName);
+            $dir='';
+            foreach ($dirs as $part) {
+                $dir.=$part.'/';
+                if (!is_dir($dir) && strlen($dir)>0) {
+                    if(!mkdir($dir, $mode)){
+                        $error = error_get_last();
+
+                        //
+                        // HOOOSTON...VE HAF PROBLEM!
+                        throw new Exception($error['message']. ' mkdir_r() failed to mkdir :: ' . $dir);
+
+                    }
+                }
+            }
+
+            return true;
+
+        }catch( Exception $e ) {
+
+            //
+            // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER
+            $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
+
+            return false;
+
+        }
+    }
+
     public function __destruct() {
 
     }
@@ -3493,7 +3959,7 @@ class crnrstn_administrative_account {
         $this->pwdhash = self::$oCRNRSTN_n->create_pwdHash_for_storage($pwdhash);
         $this->ttl = $ttl;
 
-        //self::$oCRNRSTN_n->oLog_output_ARRAY[] = self::$oCRNRSTN_n->error_log('Instantiating an administrative account with email='.self::$oCRNRSTN_n->stringSanitize($this->email, 'email_private').' for the '.$this->envKey.' environment.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+        //self::$oCRNRSTN_n->oLog_output_ARRAY[] = self::$oCRNRSTN_n->error_log('Instantiating an administrative account with email='.self::$oCRNRSTN_n->string_sanitize($this->email, 'email_private').' for the '.$this->envKey.' environment.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
     }
 
@@ -3514,6 +3980,8 @@ class crnrstn_wildcard_resource {
 
     protected $oLogger;
     private static $oCRNRSTN_n;
+
+    protected $oDataTransportLayer;
 
     protected $envKey;
     protected $resourceKey;
@@ -3537,6 +4005,8 @@ class crnrstn_wildcard_resource {
         $this->resourceKey = $resourceKey;
         self::$oCRNRSTN_n->oLog_output_ARRAY[] = self::$oCRNRSTN_n->error_log('Instantiating a '.$resourceKey.' wild card resource for the '.$this->envKey.' environment.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
+        $this->oDataTransportLayer = new crnrstn_decoupled_data_object(self::$oCRNRSTN_n, $this->resourceKey, 'WCR_RESOURCE_KEY');
+
     }
 
     public function returnResourceKey(){
@@ -3552,8 +4022,9 @@ class crnrstn_wildcard_resource {
         $resource_key_crc = crc32($this->resourceKey);
         $attribute_key_crc = crc32($attribute_key);
 
-        //$this->flag_attribute_key[$resource_key_crc][$attribute_key_crc] = 1;
+        $this->oDataTransportLayer->add($attribute_value, $attribute_key);
         $this->attribute_key_ARRAY[$resource_key_crc][$attribute_key_crc] = $attribute_value;
+        //error_log(__LINE__.' env add_attribute name['.$attribute_key.'|'.crc32($attribute_key).'] val['.print_r($attribute_value, true).']');
         $this->attribute_set_flag_ARRAY[$resource_key_crc][$attribute_key_crc] = 1;
 
     }
@@ -3597,11 +4068,13 @@ class crnrstn_wildcard_resource {
 
                     if($tmp_data){
 
-                        return 'true';
+                        error_log(__METHOD__.' '.__LINE__.' TRACE THIS BOOLEAN REFACTOR [STRING ==> INT(1)] TO THE CRNRSTN :: SOAP SERVICES LAYER...AND THEN DELETE THIS TRACE.');
+                        return 1;
 
                     }else{
 
-                        return 'false';
+                        error_log(__METHOD__.' '.__LINE__.' TRACE THIS BOOLEAN REFACTOR [STRING ==> INT(0)] TO THE CRNRSTN :: SOAP SERVICES LAYER...AND THEN DELETE THIS TRACE.');
+                        return 0;
 
                     }
 
@@ -3614,23 +4087,40 @@ class crnrstn_wildcard_resource {
 
             }
 
-
         }else{
 
-            if(isset($this->attribute_key_ARRAY[$tmp_wc_key_crc][$attribute_key_crc])){
+            /*
 
-                return $this->attribute_key_ARRAY[$tmp_wc_key_crc][$attribute_key_crc];
+            $resource_key_crc = crc32($this->resourceKey);
+            $attribute_key_crc = crc32($attribute_key);
 
-            }else{
+            $this->oDataTransportLayer->add($attribute_value, $attribute_key);
+            $this->attribute_key_ARRAY[$resource_key_crc][$attribute_key_crc] = $attribute_value;
+             * */
 
+            //if(isset($this->attribute_key_ARRAY[$tmp_wc_key_crc][$attribute_key_crc])){
+
+                //
+                // FULL CONVERSION TO DDO :: Tuesday, April 20, 2021 1254hrs
+                // "Cause I don't send my music to no garbage DJs
+                //  They get me." - KRS ONE
+                // SOURCE :: Krs One - Mad Crew :: https://www.youtube.com/watch?v=fTmDeRsS9to
+
+                return $this->oDataTransportLayer;
+
+            //}else{
+
+            //    error_log(__LINE__.' env die() ['.$tmp_wc_key_crc.']['.$attribute_key_crc.'] attribute_key_ARRAY='.print_r($this->attribute_key_ARRAY, true));
+
+            //    die();
                 //
                 // HOOOSTON...VE HAF PROBLEM!
                 //throw new Exception('An unknown wild card resource by attribute key, "'.$attribute_key.'" and by wild card key '.$wildCardKey.' has been requested.');
-                self::$oCRNRSTN_n->error_log('An unknown wild card resource by wild card key '.$wildCardKey.' and by attribute key, "'.$attribute_key.'" has been requested.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+            //    self::$oCRNRSTN_n->error_log('An unknown wild card resource by wild card key '.$wildCardKey.' and by attribute key, "'.$attribute_key.'" has been requested.', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
-                return false;
+           //     return false;
 
-            }
+            //}
 
         }
 
@@ -3851,7 +4341,7 @@ class crnrstn_decoupled_data_object {
 
     }
 
-    public function getCount($attribute_key){
+    public function count($attribute_key){
 
         $tmp_cnt = sizeof($this->attribute_value_ARRAY[$attribute_key]);
 
@@ -4065,12 +4555,12 @@ class crnrstn_decoupled_data_object {
                     if($attribute_value){
                         //error_log(__LINE__.' env - BOOL['.$attribute_key.']['.$attribute_value.']true');
 
-                        $this->attribute_value_ARRAY[$attribute_key][] = 'true';
+                        $this->attribute_value_ARRAY[$attribute_key][] = 1;
 
                     }else{
                         //error_log(__LINE__.' env - BOOL['.$attribute_key.']['.$attribute_value.']false');
 
-                        $this->attribute_value_ARRAY[$attribute_key][] = 'false';
+                        $this->attribute_value_ARRAY[$attribute_key][] = 0;
 
                     }
 
@@ -4079,12 +4569,12 @@ class crnrstn_decoupled_data_object {
                     if(boolval($attribute_value)){
                         //error_log(__LINE__.' env - BOOL['.$attribute_key.']['.$attribute_value.']true');
 
-                        $this->attribute_value_ARRAY[$attribute_key][] = 'true';
+                        $this->attribute_value_ARRAY[$attribute_key][] = 1;
 
                     }else{
                         //error_log(__LINE__.' env - BOOL['.$attribute_key.']['.$attribute_value.']false');
 
-                        $this->attribute_value_ARRAY[$attribute_key][] = 'false';
+                        $this->attribute_value_ARRAY[$attribute_key][] = 0;
 
                     }
 
@@ -4262,7 +4752,7 @@ class crnrstn_decoupled_data_object {
 
                 $SOAP_request_ARRAY = array();
 
-                $tmp_recipient_email_cnt = $this->getCount('RECIPIENT_EMAIL');
+                $tmp_recipient_email_cnt = $this->count('RECIPIENT_EMAIL');
                 for($i=0; $i<$tmp_recipient_email_cnt; $i++){
 
                     $tmp_curr = 1 + $i;
@@ -4551,7 +5041,7 @@ class crnrstn_decoupled_data_object {
                     // 'oSENDER' => array( 'name' => 'oSENDER',  'type' => 'tns:oEmailArray' ),
                     if($this->preach('isset', 'FROM_EMAIL')){
 
-                        $tmp_cnt = $this->getCount('FROM_EMAIL');
+                        $tmp_cnt = $this->count('FROM_EMAIL');
 
                         for($ii=0; $ii<$tmp_cnt; $ii++){
 
@@ -4575,7 +5065,7 @@ class crnrstn_decoupled_data_object {
                     // 'oREPLYTO' => array('name' => 'oREPLYTO', 'type' => 'tns:oEmailArray' ),
                     if($this->preach('isset', 'REPLYTO_EMAIL')){
 
-                        $tmp_cnt = $this->getCount('REPLYTO_EMAIL');
+                        $tmp_cnt = $this->count('REPLYTO_EMAIL');
 
                         for($ii=0; $ii<$tmp_cnt; $ii++){
 
@@ -4599,7 +5089,7 @@ class crnrstn_decoupled_data_object {
                     // 'oCC' => array('name' => 'oCC', 'type' => 'tns:oEmailArray' ),
                     if($this->preach('isset', 'CC_EMAIL')){
 
-                        $tmp_cnt = $this->getCount('CC_EMAIL');
+                        $tmp_cnt = $this->count('CC_EMAIL');
 
                         for($ii=0; $ii<$tmp_cnt; $ii++){
 
@@ -4623,7 +5113,7 @@ class crnrstn_decoupled_data_object {
                     // 'oBCC' => array('name' => 'oBCC', 'type' => 'tns:oEmailArray' ),
                     if($this->preach('isset', 'BCC_EMAIL')){
 
-                        $tmp_cnt = $this->getCount('BCC_EMAIL');
+                        $tmp_cnt = $this->count('BCC_EMAIL');
 
                         for($ii=0; $ii<$tmp_cnt; $ii++){
 
@@ -4658,7 +5148,7 @@ class crnrstn_decoupled_data_object {
 
                     if($this->preach('isset', 'MESSAGE_BODY_HTML', $i)){
 
-                        //error_log($this->getCount('MESSAGE_BODY_HTML').' CLIENT BUILD REQUEST - MESSAGE_BODY_HTML string count ::');
+                        //error_log($this->count('MESSAGE_BODY_HTML').' CLIENT BUILD REQUEST - MESSAGE_BODY_HTML string count ::');
                         //error_log(__LINE__.' CLIENT - HTML ENCRYPT LEN='.strlen(self::$oCRNRSTN_n->paramTunnelEncrypt($this->preach('value', 'MESSAGE_BODY_HTML', true, $i), $tmp_SOAP_ENCRYPT_CIPHER_resp, $tmp_SOAP_ENCRYPT_SECRET_KEY_resp, $tmp_SOAP_ENCRYPT_HMAC_ALG_resp, $tmp_SOAP_ENCRYPT_OPTIONS_resp)));
 
                         $SOAP_request['oKingsHighwayNotification']['MESSAGE_BODY_HTML']['CONTENT'] = self::$oCRNRSTN_n->paramTunnelEncrypt($this->preach('value', 'MESSAGE_BODY_HTML', true, $i), $tmp_SOAP_ENCRYPT_CIPHER_resp, $tmp_SOAP_ENCRYPT_SECRET_KEY_resp, $tmp_SOAP_ENCRYPT_HMAC_ALG_resp, $tmp_SOAP_ENCRYPT_OPTIONS_resp); // self::$oCRNRSTN_n->paramTunnelEncrypt($this->preach('value', 'MESSAGE_BODY_HTML', true), $tmp_SOAP_ENCRYPT_CIPHER_resp, $tmp_SOAP_ENCRYPT_SECRET_KEY_resp, $tmp_SOAP_ENCRYPT_HMAC_ALG_resp, $tmp_SOAP_ENCRYPT_OPTIONS_resp);
@@ -4671,7 +5161,7 @@ class crnrstn_decoupled_data_object {
 
                     if($this->preach('isset', 'MESSAGE_BODY_TEXT', $i)){
 
-                        //error_log($this->getCount('MESSAGE_BODY_TEXT').' CLIENT BUILD REQUEST - MESSAGE_BODY_TEXT string count['.$i.']='.strlen($this->preach('value', 'MESSAGE_BODY_TEXT', true, $i)).' ::');
+                        //error_log($this->count('MESSAGE_BODY_TEXT').' CLIENT BUILD REQUEST - MESSAGE_BODY_TEXT string count['.$i.']='.strlen($this->preach('value', 'MESSAGE_BODY_TEXT', true, $i)).' ::');
 
                         $SOAP_request['oKingsHighwayNotification']['MESSAGE_BODY_TEXT']['CONTENT'] = self::$oCRNRSTN_n->paramTunnelEncrypt($this->preach('value', 'MESSAGE_BODY_TEXT', true, $i), $tmp_SOAP_ENCRYPT_CIPHER_resp, $tmp_SOAP_ENCRYPT_SECRET_KEY_resp, $tmp_SOAP_ENCRYPT_HMAC_ALG_resp, $tmp_SOAP_ENCRYPT_OPTIONS_resp);
                         $SOAP_request['oKingsHighwayNotification']['MESSAGE_BODY_TEXT']['TYPE'] = self::$oCRNRSTN_n->paramTunnelEncrypt($this->preach('type', 'MESSAGE_BODY_TEXT', true, $i), $tmp_SOAP_ENCRYPT_CIPHER_resp, $tmp_SOAP_ENCRYPT_SECRET_KEY_resp, $tmp_SOAP_ENCRYPT_HMAC_ALG_resp, $tmp_SOAP_ENCRYPT_OPTIONS_resp);
@@ -4772,7 +5262,7 @@ class crnrstn_decoupled_data_object {
                     break;
                     case 'oBCC':
 
-                        error_log(__LINE__);
+                        //error_log(__LINE__);
                         $tmp_email_nom = 'BCC_EMAIL';
                         $tmp_name_nom = 'BCC_NAME';
 
@@ -5153,6 +5643,7 @@ class crnrstn_logging_oprofile_manager {
         // FILE
         $log_profile_key = CRNRSTN_LOG_FILE;
         $this->profile_endpoint_criteria_ARRAY[$log_profile_key]['LOCAL_DIR_PATH'] = 1;
+        $this->profile_endpoint_criteria_ARRAY[$log_profile_key]['LOCAL_DIR_FILEPATH'] = 1;
         $this->profile_endpoint_criteria_ARRAY[$log_profile_key]['LOCAL_MKDIR_MODE'] = 1;
 
         //
@@ -5444,9 +5935,8 @@ class crnrstn_logging_oprofile_manager {
 
                             }
 
-                            //
                             // DETECT WCR ENDPOINT [TYPE=FILE] FROM FIELD LOCAL_DIR_PATH IN WCR FILE TEMPLATE
-                            if($tmp_oWCR->isset_WCR($tmp_wcr_key, 'LOCAL_DIR_PATH') && (CRNRSTN_LOG_FILE != $init_profile_pack['sys_logging_profile_ARRAY'][$key])) {
+                            if(($tmp_oWCR->isset_WCR($tmp_wcr_key, 'LOCAL_DIR_FILEPATH') || $tmp_oWCR->isset_WCR($tmp_wcr_key, 'LOCAL_DIR_,KJIUPATH')) && (CRNRSTN_LOG_FILE != $init_profile_pack['sys_logging_profile_ARRAY'][$key])) {
 
                                 //
                                 // WCR FOR FILE WRITE OF TRACE IN FILE
@@ -5595,16 +6085,16 @@ class crnrstn_logging_oprofile_manager {
 
     private function load_system_profiles(){
 
-        $this->log_profiles_ARRAY[] = CRNRSTN_LOG_DEFAULT;
-        $this->log_profiles_ARRAY[] = CRNRSTN_LOG_EMAIL;
+        $this->log_profiles_ARRAY[] = CRNRSTN_LOG_ELECTRUM;  // n + 1 DESTINATIONS
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_EMAIL_PROXY;
+        $this->log_profiles_ARRAY[] = CRNRSTN_LOG_EMAIL;
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_FILE_FTP;
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_FILE;
-        $this->log_profiles_ARRAY[] = CRNRSTN_LOG_ELECTRUM;  // n + 1 DESTINATIONS
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_SCREEN_TEXT;
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_SCREEN;
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_SCREEN_HTML;
         $this->log_profiles_ARRAY[] = CRNRSTN_LOG_SCREEN_HTML_HIDDEN;
+        $this->log_profiles_ARRAY[] = CRNRSTN_LOG_DEFAULT;
 
     }
 
@@ -5634,12 +6124,6 @@ class crnrstn_logging_oprofile{
 
     protected $resourceKey;
     protected $configSerial;
-
-    private static $sys_logging_profile_ARRAY;
-    private static $sys_logging_endpoint_ARRAY;
-    private static $sys_logging_wcr_ARRAY;
-    private static $sys_logging_update_profile_ARRAY;
-    private static $sys_logging_update_endpoint_ARRAY;
 
     protected $profile_endpoint_criteria_ARRAY = array();
     protected $profile_endpoint_data_ARRAY = array();
@@ -5831,14 +6315,14 @@ class crnrstn_logging_oprofile{
 
         //
         // GET N COUNT OF RECIPIENT EMAIL ADDRESSES?
-        $tmp_recipient_email_cnt = $this->oSoapDataTransportLayer->getCount('RECIPIENT_EMAIL');
+        $tmp_recipient_email_cnt = $this->oSoapDataTransportLayer->count('RECIPIENT_EMAIL');
 
         //error_log(__LINE__.' env - recipient email cnt = '.$tmp_recipient_email_cnt);
 
         //for($i=0; $i<$tmp_recipient_email_cnt; $i++){
         // $tmp_email = $this->oSoapDataTransportLayer->preach('value', 'RECIPIENT_EMAIL', false, $i);
         // $tmp_name = $this->oSoapDataTransportLayer->preach('value', 'RECIPIENT_NAME', false, $i);
-        // error_log(__LINE__.' env - ['.$tmp_name.'] ['.self::$oCRNRSTN_n->stringSanitize($tmp_email, 'email_private').']');
+        // error_log(__LINE__.' env - ['.$tmp_name.'] ['.self::$oCRNRSTN_n->string_sanitize($tmp_email, 'email_private').']');
         //}
 
         //
@@ -5867,7 +6351,7 @@ class crnrstn_logging_oprofile{
                     $CRNRSTN_oGabriel = new crnrstn_messenger_from_north($i, 'mail', NULL, NULL, NULL, $oCRNRSTN_n);
                     $tmp_email = $this->oSoapDataTransportLayer->preach('value', 'RECIPIENT_EMAIL', false, $i);
 
-                    //error_log(__LINE__.' env - building ['.$i.'] of ['.$tmp_recipient_email_cnt.'] message for '.self::$oCRNRSTN_n->stringSanitize($tmp_email, 'email_private'));
+                    //error_log(__LINE__.' env - building ['.$i.'] of ['.$tmp_recipient_email_cnt.'] message for '.self::$oCRNRSTN_n->string_sanitize($tmp_email, 'email_private'));
 
                     //
                     // PREPARE TEXT VERSION
@@ -6157,8 +6641,9 @@ class crnrstn_logging_oprofile{
         $tmp_MESSAGE_ENCODING = '8bit';
         $tmp_SMTP_SECURE = '';
         $tmp_SMTP_AUTOTLS = true;
-        $tmp_FROM_EMAIL = 'root@localhost';
-        $tmp_FROM_NAME = 'Root User';
+        //$tmp_FROM_EMAIL = 'root@localhost';
+        $tmp_FROM_EMAIL = 'no_reply@'.$_SERVER['SERVER_NAME'];
+        $tmp_FROM_NAME = 'CRNRSTN System Mailer';
         $tmp_RECIPIENT_EMAIL = array();
         $tmp_RECIPIENT_NAME = array();
         $tmp_REPLYTO_EMAIL = array();
@@ -6171,7 +6656,7 @@ class crnrstn_logging_oprofile{
         $tmp_USE_SENDMAIL_OPTIONS = true;
         $tmp_DIBYA_SAHOO_SSL_CERT_BYPASS = true;
 
-        $tmp_size = sizeof($this->profile_endpoint_data_ARRAY);
+        //$tmp_size = sizeof($this->profile_endpoint_data_ARRAY);
 
         //error_log(__LINE__.' env profile_endpoint_data_ARRAY='.print_r($this->profile_endpoint_data_ARRAY, true));
 
@@ -6183,89 +6668,233 @@ class crnrstn_logging_oprofile{
 
             foreach($chunkArray0 as $data_attribute => $chunkArray1){
 
-                foreach($chunkArray1 as $content_count => $attribute_content){
+                foreach($chunkArray1 as $content_count => $oDDO){
 
-                    //error_log(__LINE__.' env - ['.$config_version.'] ['.$data_attribute.'] ['.$content_count.'] ['.$attribute_content.']');
-
+                    //error_log(__LINE__.' env - die() ['.$config_version.'] ['.$data_attribute.'] ['.$content_count.'] ['.get_class($oDDO).']');
+//    public function preach($data_attribute = 'value', $attribute_key = NULL, $soap_transport=false, $iterator = 0){
                     switch($data_attribute){
                         case 'RECIPIENT_EMAIL':
 
-                            $tmp_RECIPIENT_EMAIL[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach RECIPIENT_EMAIL cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_RECIPIENT_EMAIL[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_RECIPIENT_EMAIL[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'RECIPIENT_NAME':
 
-                            $tmp_RECIPIENT_NAME[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach $tmp_RECIPIENT_NAME cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_RECIPIENT_NAME[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_RECIPIENT_NAME[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'FROM_EMAIL':
 
-                            $tmp_FROM_EMAIL = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach FROM_EMAIL cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_FROM_EMAIL = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_FROM_EMAIL =  $oDDO;
+
+                            }
 
                         break;
                         case 'FROM_NAME':
 
-                            $tmp_FROM_NAME = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                error_log(__LINE__.' env die() preach FROM_NAME cnt='.$oDDO->count($data_attribute));
+                                $tmp_FROM_NAME = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_FROM_NAME =  $oDDO;
+
+                            }
 
                         break;
                         case 'REPLYTO_EMAIL':
 
-                            $tmp_REPLYTO_EMAIL[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach REPLYTO_EMAIL cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_REPLYTO_EMAIL[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_REPLYTO_EMAIL[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'REPLYTO_NAME':
 
-                            $tmp_REPLYTO_NAME[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach REPLYTO_NAME cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_REPLYTO_NAME[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_REPLYTO_NAME[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'CC_EMAIL':
 
-                            $tmp_CC_EMAIL[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach CC_EMAIL cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_CC_EMAIL[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_CC_EMAIL[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'CC_NAME':
 
-                            $tmp_CC_NAME[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach CC_NAME cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_CC_NAME[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_CC_NAME[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'BCC_EMAIL':
 
-                            $tmp_BCC_EMAIL[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach BCC_EMAIL cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_BCC_EMAIL[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_BCC_EMAIL[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'BCC_NAME':
 
-                            $tmp_BCC_NAME[] = $attribute_content;
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach BCC_NAME cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_BCC_NAME[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_BCC_NAME[] =  $oDDO;
+
+                            }
 
                         break;
                         case 'SMTP_KEEPALIVE':
 
-                            $tmp_SMTP_KEEPALIVE = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);;
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  SMTP_KEEPALIVE='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_SMTP_KEEPALIVE = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_SMTP_KEEPALIVE = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'DUP_SUPPRESS':
 
-                            $tmp_DUP_SUPPRESS = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  DUP_SUPPRESS='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_DUP_SUPPRESS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_DUP_SUPPRESS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'ALLOW_EMPTY':
 
-                            $tmp_ALLOW_EMPTY = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+                            if(is_object($oDDO)){
+
+                                $tmp_ALLOW_EMPTY = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_ALLOW_EMPTY = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'ISHTML':
 
-                            $tmp_isHTML = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  ISHTML='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_isHTML = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_isHTML = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'SMTP_TIMEOUT':
 
-                            $tmp_SMTP_TIMEOUT = (int) $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_SMTP_TIMEOUT = (int) $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_SMTP_TIMEOUT = (int) $oDDO;
+
+                            }
 
                         break;
                         case 'PRIORITY':
 
-                            $tmp_PRIORITY = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_PRIORITY = (int) $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_PRIORITY = (int) $oDDO;
+
+                            }
 
                             $priority = trim(strtoupper($tmp_PRIORITY));
 
@@ -6306,77 +6935,204 @@ class crnrstn_logging_oprofile{
                         break;
                         case 'WORDWRAP':
 
-                            $tmp_WORDWRAP = (int) $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_WORDWRAP = (int) $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_WORDWRAP = (int) $oDDO;
+
+                            }
 
                         break;
                         case 'EMAIL_PROTOCOL':
 
-                            $tmp_EMAIL_PROTOCOL = trim(strtoupper($attribute_content));
+                            if(is_object($oDDO)){
+
+                                $tmp_EMAIL_PROTOCOL = trim(strtoupper($oDDO->preach('value', $data_attribute)));
+
+                            }else{
+
+                                $tmp_EMAIL_PROTOCOL = trim(strtoupper($oDDO));
+
+                            }
 
                         break;
                         case 'CHARSET':
 
-                            $tmp_CHARSET = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_CHARSET = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_CHARSET = $oDDO;
+
+                            }
 
                         break;
                         case 'MESSAGE_ENCODING':
 
-                            $tmp_MESSAGE_ENCODING = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_MESSAGE_ENCODING = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_MESSAGE_ENCODING = $oDDO;
+
+                            }
 
                         break;
                         case 'SMTP_SECURE':
 
-                            $tmp_SMTP_SECURE = strtolower(trim($attribute_content));
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  SMTP_AUTH='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_SMTP_SECURE = strtolower(trim($oDDO->preach('value', $data_attribute)));
+
+                            }else{
+
+                                $tmp_SMTP_SECURE = $oDDO;
+
+                            }
 
                         break;
                         case 'SMTP_AUTOTLS':
 
-                            $tmp_SMTP_AUTOTLS = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  SMTP_AUTOTLS='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_SMTP_AUTOTLS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_SMTP_AUTOTLS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'SMTP_AUTH':
 
-                            $tmp_SMTP_AUTH = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  SMTP_AUTH='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_SMTP_AUTH = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_SMTP_AUTH = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'SMTP_SERVER':
 
-                            $tmp_SMTP_SERVER = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_SMTP_SERVER = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_SMTP_SERVER = $oDDO;
+
+                            }
 
                         break;
                         case 'SMTP_PORT_OUTGOING':
 
-                            $tmp_SMTP_PORT_OUTGOING = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_SMTP_PORT_OUTGOING = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_SMTP_PORT_OUTGOING = $oDDO;
+
+                            }
 
                         break;
                         case 'SMTP_USERNAME':
 
-                            $tmp_SMTP_USERNAME = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_SMTP_USERNAME = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_SMTP_USERNAME = $oDDO;
+
+                            }
 
                         break;
                         case 'SMTP_PASSWORD':
 
-                            $tmp_SMTP_PASSWORD = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_SMTP_PASSWORD = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_SMTP_PASSWORD = $oDDO;
+
+                            }
 
                         break;
                         case 'SENDMAIL_PATH':
 
-                            $tmp_SENDMAIL_PATH = $attribute_content;
+                            if(is_object($oDDO)){
+
+                                $tmp_SENDMAIL_PATH = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_SENDMAIL_PATH = $oDDO;
+
+                            }
 
                         break;
                         case 'USE_SENDMAIL_OPTIONS':
 
-                            $tmp_USE_SENDMAIL_OPTIONS = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach ['.$oDDO->count($data_attribute).']  USE_SENDMAIL_OPTIONS='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_USE_SENDMAIL_OPTIONS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_USE_SENDMAIL_OPTIONS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'DIBYA_SAHOO_SSL_CERT_BYPASS':
 
-                            $tmp_DIBYA_SAHOO_SSL_CERT_BYPASS = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach DIBYA_SAHOO_SSL_CERT_BYPASS ['.$oDDO->count($data_attribute).']  DIBYA_SAHOO_SSL_CERT_BYPASS='.$oDDO->preach('type', $data_attribute));
+
+                                $tmp_DIBYA_SAHOO_SSL_CERT_BYPASS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_DIBYA_SAHOO_SSL_CERT_BYPASS = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
                         case 'TRY_OTHER_EMAIL_METHODS_ON_ERR':
 
-                            $tmp_TRY_OTHER_EMAIL_METHODS_ON_ERR = (bool) $oCRNRSTN_n->tidy_boolean($attribute_content);
+                            if(is_object($oDDO)){
+
+                                $tmp_TRY_OTHER_EMAIL_METHODS_ON_ERR = (bool) $oCRNRSTN_n->tidy_boolean($oDDO->preach('value', $data_attribute));
+
+                            }else{
+
+                                $tmp_TRY_OTHER_EMAIL_METHODS_ON_ERR = (bool) $oCRNRSTN_n->tidy_boolean($oDDO);
+
+                            }
 
                         break;
 
@@ -6420,13 +7176,10 @@ class crnrstn_logging_oprofile{
 
                             $crnrstn_phpmailer = new \PHPMailer\crnrstn_PHPMailer\crnrstn_PHPMailer($oCRNRSTN_n);
                             $crnrstn_phpmailer->Mailer = strtolower($tmp_EMAIL_PROTOCOL);  // "mail", "qmail", "sendmail", or "smtp".
-                            $crnrstn_phpmailer->Timeout = $tmp_SMTP_TIMEOUT;
-                            $crnrstn_phpmailer->SMTPKeepAlive = $tmp_SMTP_KEEPALIVE;
+
                             $crnrstn_phpmailer->Priority = $tmp_PRIORITY;
                             $crnrstn_phpmailer->CharSet = $tmp_CHARSET;
                             $crnrstn_phpmailer->Encoding = $tmp_MESSAGE_ENCODING;
-                            $crnrstn_phpmailer->SMTPSecure = $tmp_SMTP_SECURE;
-                            $crnrstn_phpmailer->SMTPAutoTLS = $tmp_SMTP_AUTOTLS;
                             $crnrstn_phpmailer->Sendmail = $tmp_SENDMAIL_PATH;
                             $crnrstn_phpmailer->UseSendmailOptions = $tmp_USE_SENDMAIL_OPTIONS;
 
@@ -6440,6 +7193,7 @@ class crnrstn_logging_oprofile{
                             $crnrstn_phpmailer->AllowEmpty = $tmp_ALLOW_EMPTY;
 
                             $crnrstn_phpmailer->setFrom($tmp_FROM_EMAIL, $tmp_FROM_NAME);
+
                             //error_log(__LINE__ . ' env - Adding setFrom:' . $tmp_FROM_NAME . ' ' . $tmp_FROM_EMAIL);
                             //$crnrstn_phpmailer->From = $config_data_ARRAY[$config_vs]['FROM_EMAIL'][0];
                             //$crnrstn_phpmailer->FromName = $config_data_ARRAY[$config_vs]['FROM_NAME'][0];
@@ -6482,6 +7236,11 @@ class crnrstn_logging_oprofile{
 
                             switch($tmp_EMAIL_PROTOCOL){
                                 case 'SMTP':
+
+                                    $crnrstn_phpmailer->Timeout = $tmp_SMTP_TIMEOUT;
+                                    $crnrstn_phpmailer->SMTPKeepAlive = $tmp_SMTP_KEEPALIVE;
+                                    $crnrstn_phpmailer->SMTPSecure = $tmp_SMTP_SECURE;
+                                    $crnrstn_phpmailer->SMTPAutoTLS = $tmp_SMTP_AUTOTLS;
 
                                     if($tmp_SMTP_AUTH){
 
@@ -6564,7 +7323,7 @@ class crnrstn_logging_oprofile{
 
                             }
 
-                            error_log(__LINE__ . ' env - Adding Recipient:' . $tmp_name . ' ' . $oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private'));
+                            error_log(__LINE__ . ' env - Adding Recipient:' . $tmp_name . ' ' . $oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private'));
                             $crnrstn_phpmailer->AddAddress($tmp_RECIPIENT_EMAIL[$i], $tmp_name);
 
                             //
@@ -6609,26 +7368,26 @@ class crnrstn_logging_oprofile{
 
                                 if($tmp_TRY_OTHER_EMAIL_METHODS_ON_ERR){
 
-                                    $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to secondary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                    error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to secondary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
+                                    $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to secondary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                    error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to secondary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
 
                                     $crnrstn_phpmailer = $this->next_mail_protocol_option($crnrstn_phpmailer);
                                     if(!$crnrstn_phpmailer->Send()){
 
-                                        $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to tertiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                        error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to tertiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
+                                        $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to tertiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                        error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to tertiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
 
                                         $crnrstn_phpmailer = $this->next_mail_protocol_option($crnrstn_phpmailer);
                                         if(!$crnrstn_phpmailer->Send()){
 
-                                            $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to quatiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                            error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to quatiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
+                                            $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to quatiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                            error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to quatiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
 
                                             $crnrstn_phpmailer = $this->next_mail_protocol_option($crnrstn_phpmailer);
                                             if(!$crnrstn_phpmailer->Send()){
 
-                                                $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to pentiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                                error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to pentiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
+                                                $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to pentiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                                error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Graceful degradation to pentiary email send protocol is commencing due to: '.$crnrstn_phpmailer->ErrorInfo);
 
                                                 $crnrstn_phpmailer = $this->next_mail_protocol_option($crnrstn_phpmailer);
                                                 if(!$crnrstn_phpmailer->Send()) {
@@ -6661,14 +7420,14 @@ class crnrstn_logging_oprofile{
                                                     // St. Petersburg State University,
                                                     // Dept. of Computational Mathematics
 
-                                                    $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . ' via ' . strtoupper($crnrstn_phpmailer->Mailer) . '. Attempting final graceful degradation...hexapolynomial in nature...albeit CRNRSTN :: has, at this point, already measured and found to be wanting the fifth (5th) and final email send use case of the four (4) official and available protocols for things of this nature per /crnrstn_PHPMailer/. TLDR; ...an empty string will now be sent as the mailer protocol, and the results for which what one would hope...could only be the best. ' . $crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                                    error_log(__LINE__ . 'An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . ' via ' . strtoupper($crnrstn_phpmailer->Mailer) . '. Attempting final graceful degradation...hexapolynomial in nature...albeit CRNRSTN :: has, at this point, already measured and found to be wanting the fifth (5th) and final email send use case of the four (4) official and available protocols for things of this nature per /crnrstn_PHPMailer/. TLDR; ...an empty string will now be sent as the mailer protocol, and the results for which what one would hope...could only be the best. ' . $crnrstn_phpmailer->ErrorInfo);
+                                                    $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . ' via ' . strtoupper($crnrstn_phpmailer->Mailer) . '. Attempting final graceful degradation...hexapolynomial in nature...albeit CRNRSTN :: has, at this point, already measured and found to be wanting the fifth (5th) and final email send use case of the four (4) official and available protocols for things of this nature per /crnrstn_PHPMailer/. TLDR; ...an empty string will now be sent as the mailer protocol, and the results for which what one would hope...could only be the best. ' . $crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                                    error_log(__LINE__ . 'An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . ' via ' . strtoupper($crnrstn_phpmailer->Mailer) . '. Attempting final graceful degradation...hexapolynomial in nature...albeit CRNRSTN :: has, at this point, already measured and found to be wanting the fifth (5th) and final email send use case of the four (4) official and available protocols for things of this nature per /crnrstn_PHPMailer/. TLDR; ...an empty string will now be sent as the mailer protocol, and the results for which what one would hope...could only be the best. ' . $crnrstn_phpmailer->ErrorInfo);
 
                                                     $crnrstn_phpmailer = $this->next_mail_protocol_option($crnrstn_phpmailer);
                                                     if (!$crnrstn_phpmailer->Send()) {
 
-                                                        $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . '. Abandoning email delivery efforts due to: ' . $crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                                        error_log(__LINE__ . ' - An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . '. Abandoning email delivery efforts due to: ' . $crnrstn_phpmailer->ErrorInfo);
+                                                        $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . '. Abandoning email delivery efforts due to: ' . $crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                                        error_log(__LINE__ . ' - An error was experienced while attempting to send an email to ' . $oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private') . '. Abandoning email delivery efforts due to: ' . $crnrstn_phpmailer->ErrorInfo);
 
                                                     }
 
@@ -6678,26 +7437,26 @@ class crnrstn_logging_oprofile{
 
                                         }else{
 
-                                            error_log(__LINE__.' - A SUCCESS was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'.');
+                                            error_log(__LINE__.' - A SUCCESS was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'.');
 
                                         }
 
                                     }else{
 
-                                        error_log(__LINE__.' - A SUCCESS was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'.');
+                                        error_log(__LINE__.' - A SUCCESS was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'.');
 
                                     }
 
                                 }else{
 
-                                    $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Abandoning email delivery efforts due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
-                                    error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Abandoning email delivery efforts due to: '.$crnrstn_phpmailer->ErrorInfo);
+                                    $oCRNRSTN_n->error_log('An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Abandoning email delivery efforts due to: '.$crnrstn_phpmailer->ErrorInfo, __LINE__, __METHOD__, __FILE__, CRNRSTN_GABRIEL);
+                                    error_log(__LINE__.' - An error was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'. Abandoning email delivery efforts due to: '.$crnrstn_phpmailer->ErrorInfo);
 
                                 }
 
                             }else{
 
-                                error_log(__LINE__.' - A SUCCESS was experienced while attempting to send an email to '.$oCRNRSTN_n->stringSanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'.');
+                                error_log(__LINE__.' - A SUCCESS was experienced while attempting to send an email to '.$oCRNRSTN_n->string_sanitize($tmp_RECIPIENT_EMAIL[$i], 'email_private').' via '.strtoupper($crnrstn_phpmailer->Mailer).'.');
 
                             }
 
@@ -6730,15 +7489,596 @@ class crnrstn_logging_oprofile{
 
     }
 
+    private function no_cars_go_FILE($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
+
+        $this->load_log_output_mgr($oCRNRSTN_n);
+
+        $tmp_LOCAL_DIR_FILEPATH = array();
+        $tmp_LOCAL_MKDIR_MODE = array();
+
+        //
+        // REMAIN STILL WHILE YOUR LIFE IS EXTRACTED
+        foreach($this->profile_endpoint_data_ARRAY as $config_version => $chunkArray0){
+
+            //error_log(__LINE__.' env - should be (more than one) '.$tmp_size.'...config_version='.$config_version);
+
+            foreach($chunkArray0 as $data_attribute => $chunkArray1){
+
+                foreach($chunkArray1 as $content_count => $oDDO){
+
+                    switch($data_attribute){
+                        case 'LOCAL_DIR_PATH':
+                        case 'LOCAL_DIR_FILEPATH':
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach LOCAL_DIR_FILEPATH cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_LOCAL_DIR_FILEPATH[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_LOCAL_DIR_FILEPATH[] =  $oDDO;
+
+                            }
+
+                        break;
+                        case 'LOCAL_MKDIR_MODE':
+
+                            if(is_object($oDDO)){
+                                error_log(__LINE__.' env die() preach LOCAL_DIR_FILEPATH cnt='.$oDDO->count($data_attribute));
+
+                                $tmp_LOCAL_MKDIR_MODE[] = $oDDO->preach('value', $data_attribute);
+
+                            }else{
+
+                                $tmp_LOCAL_MKDIR_MODE[] =  $oDDO;
+
+                            }
+
+                        break;
+
+                    }
+
+                    //error_log(__LINE__.' env - ['.$config_version.'] ['.$data_attribute.'] ['.$content_count.'] ['.$oDDO.']');
+
+                }
+
+            }
+
+        }
+
+        switch(get_class($oCRNRSTN_n)){
+            case 'crnrstn_user':
+            case 'crnrstn_environment':
+            case 'crnrstn':
+
+            //
+            // CONSTANTS
+            $tmp_php_trace_TEXT = $oCRNRSTN_n->return_PHPExceptionTracePretty($exception_obj->getTraceAsString(), 'TEXT');
+            $tmp_log_constant_TEXT = $oCRNRSTN_n->return_logPriorityPretty($syslog_constant);
+            $tmp_crnrstn_trace_TEXT = $this->oLog_output_manager->return_log_trace_output_str('FILE', 0);
+
+            //$tmp_config_version_cnt = sizeof($config_data_ARRAY);
+            //error_log(__LINE__.' env class to log to file is '.get_class($oCRNRSTN_n). ' and the logging object profile integer type is '.$this->logging_profile);
+
+            $tmp_log_output = $tmp_crnrstn_trace_TEXT.'
+'.$tmp_php_trace_TEXT.'
+';
+
+            //
+            // CHECK FILE SPECIFIC ARRAY AND PUSH TO ALL.
+            foreach ($tmp_LOCAL_DIR_FILEPATH as $key => $log_filepath){
+
+                if(isset($tmp_LOCAL_MKDIR_MODE[$key])){
+
+                    $this->output_to_local_file($oCRNRSTN_n, $tmp_log_output, $log_filepath, $tmp_LOCAL_MKDIR_MODE[$key]);
+
+                }else{
+
+                    $this->output_to_local_file($oCRNRSTN_n, $tmp_log_output, $log_filepath);
+
+                }
+
+            }
+
+            break;
+        }
+
+        return true;
+
+    }
+
+    private function no_cars_go_LOG_FILE_FTP($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
+
+        $this->load_log_output_mgr($oCRNRSTN_n);
+
+        $tmp_val_transport_ARRAY = array();
+
+        //
+        // REMAIN STILL WHILE YOUR LIFE IS EXTRACTED
+        foreach($this->profile_endpoint_data_ARRAY as $config_version => $chunkArray0){
+
+            //error_log(__LINE__.' env - should be (more than one) '.$tmp_size.'...config_version='.$config_version);
+
+            foreach($chunkArray0 as $data_attribute => $chunkArray1){
+
+                foreach($chunkArray1 as $content_count => $oDDO){
+
+                    switch($data_attribute){
+                        case 'FTP_SERVER':
+
+                            $tmp_FTP_SERVER = $oDDO->preach('value', $data_attribute);;
+
+                        break;
+                        case 'FTP_USERNAME':
+
+                            $tmp_FTP_USERNAME = $oDDO->preach('value', $data_attribute);;
+
+                        break;
+                        case 'FTP_PASSWORD':
+
+                            $tmp_FTP_PASSWORD = $oDDO->preach('value', $data_attribute);;
+
+                        break;
+                        case 'FTP_PORT':
+
+                            $tmp_FTP_PORT = $oDDO->preach('value', $data_attribute);;
+
+                        break;
+                        case 'FTP_TIMEOUT':
+
+                            $tmp_FTP_IS_SSL = $oDDO->preach('value', $data_attribute);
+
+                        break;
+                        case 'FTP_IS_SSL':
+
+                            $tmp_FTP_IS_SSL = $oDDO->preach('value', $data_attribute);
+
+                        break;
+                        case 'FTP_USE_PASV':
+
+                            $tmp_FTP_USE_PASV = $oDDO->preach('value', $data_attribute);
+
+                        break;
+                        case 'FTP_USE_PASV_ADDR':
+
+                            $tmp_FTP_USE_PASV_ADDR = $oDDO->preach('value', $data_attribute);
+
+                        break;
+                        case 'FTP_DISABLE_AUTOSEEK':
+
+                            $tmp_FTP_DISABLE_AUTOSEEK = $oDDO->preach('value', $data_attribute);
+
+                        break;
+                        case 'FTP_DIR_PATH':
+
+                            $tmp_FTP_DIR_PATH = $oDDO->preach('value', $data_attribute);
+
+                        break;
+                        case 'FTP_MKDIR_MODE':
+
+                            $tmp_FTP_MKDIR_MODE = $oDDO->preach('value', $data_attribute);
+
+                        break;
+
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+        //
+        // READY TO CREATE FILE AND SEND VIA CRNRSTN :: ELECTRUM
+
+        switch(get_class($oCRNRSTN_n)){
+            case 'crnrstn_user':
+            case 'crnrstn_environment':
+            case 'crnrstn':
+
+                //
+                // CONSTANTS
+                $tmp_php_trace_TEXT = $oCRNRSTN_n->return_PHPExceptionTracePretty($exception_obj->getTraceAsString(), 'TEXT');
+                $tmp_log_constant_TEXT = $oCRNRSTN_n->return_logPriorityPretty($syslog_constant);
+                $tmp_crnrstn_trace_TEXT = $this->oLog_output_manager->return_log_trace_output_str('FILE', 0);
+
+                //$tmp_config_version_cnt = sizeof($config_data_ARRAY);
+                error_log(__LINE__.' env class to log to FTP_FILE is '.get_class($oCRNRSTN_n). ' and the logging object profile integer type is '.$this->logging_profile);
+
+                $tmp_log_output = $tmp_crnrstn_trace_TEXT.'
+'.$tmp_php_trace_TEXT.'
+';
+
+                //
+                // CHECK FILE SPECIFIC ARRAY AND PUSH TO ALL.
+                foreach ($tmp_val_transport_ARRAY as $config_ver => $attribute_array){
+
+                    $this->output_to_file_ftp($oCRNRSTN_n, $tmp_log_output, $attribute_array);
+
+                }
+
+            break;
+
+        }
+
+        return true;
+
+    }
+
+    private function no_cars_go_SCREEN_HTML($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
+
+        $this->load_log_output_mgr($oCRNRSTN_n);
+
+        //
+        // CONSTANTS
+        $tmp_php_trace_TEXT = $oCRNRSTN_n->return_PHPExceptionTracePretty($exception_obj->getTraceAsString(), 'TEXT');
+        $tmp_log_constant_TEXT = $oCRNRSTN_n->return_logPriorityPretty($syslog_constant);
+        $tmp_crnrstn_trace_TEXT = $this->oLog_output_manager->return_log_trace_output_str('FILE', 0);
+
+        $tmp_log_output = $tmp_crnrstn_trace_TEXT.'
+'.$tmp_php_trace_TEXT.'
+';
+        error_log(__LINE__.' ['.get_class($oCRNRSTN_n).'] self class='.get_class(self::$oCRNRSTN_n));
+//die();
+        $oCRNRSTN_n->destruct_output .= $oCRNRSTN_n->print_r_str($tmp_log_output, $tmp_log_constant_TEXT, NULL, __LINE__, __METHOD__, __FILE__);
+
+        return true;
+
+    }
+
+    private function no_cars_go_SCREEN_TEXT($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
+
+        $this->load_log_output_mgr($oCRNRSTN_n);
+
+        //
+        // CONSTANTS
+        $tmp_php_trace_TEXT = $oCRNRSTN_n->return_PHPExceptionTracePretty($exception_obj->getTraceAsString(), 'TEXT');
+        $tmp_log_constant_TEXT = $oCRNRSTN_n->return_logPriorityPretty($syslog_constant);
+        $tmp_crnrstn_trace_TEXT = $this->oLog_output_manager->return_log_trace_output_str('SCREEN_TEXT', 74);
+
+        $tmp_log_output = $tmp_crnrstn_trace_TEXT.'
+'.$tmp_php_trace_TEXT.'
+';
+
+        $oCRNRSTN_n->destruct_output .=$tmp_log_output;
+
+        return true;
+
+    }
+
+    private function no_cars_go_SCREEN_HTML_HIDDEN($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
+
+        $this->load_log_output_mgr($oCRNRSTN_n);
+
+        switch(get_class($oCRNRSTN_n)){
+            case 'crnrstn_user':
+            case 'crnrstn_environment':
+            case 'crnrstn':
+
+                //
+                // CONSTANTS
+                $tmp_php_trace_TEXT = $oCRNRSTN_n->return_PHPExceptionTracePretty($exception_obj->getTraceAsString(), 'TEXT');
+                $tmp_log_constant_TEXT = $oCRNRSTN_n->return_logPriorityPretty($syslog_constant);
+                $tmp_crnrstn_trace_TEXT = $this->oLog_output_manager->return_log_trace_output_str('FILE', 0);
+
+                $tmp_log_output = $tmp_crnrstn_trace_TEXT.'
+'.$tmp_php_trace_TEXT.'
+';
+
+                $tmp_hidden_html = '<!--
+'.htmlentities($tmp_log_output).'
+-->
+';
+
+                $oCRNRSTN_n->destruct_output .=$tmp_hidden_html;
+
+            break;
+        }
+
+        return true;
+
+    }
+
+    private function no_cars_go_DEFAULT($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
+
+        $this->load_log_output_mgr($oCRNRSTN_n);
+
+        switch(get_class($oCRNRSTN_n)){
+            case 'crnrstn_user':
+            case 'crnrstn_environment':
+            case 'crnrstn':
+
+                //
+                // CONSTANTS
+                $tmp_php_trace_TEXT = $oCRNRSTN_n->return_PHPExceptionTracePretty($exception_obj->getTraceAsString(), 'TEXT');
+                $tmp_log_constant_TEXT = $oCRNRSTN_n->return_logPriorityPretty($syslog_constant);
+                $tmp_crnrstn_trace_TEXT = $this->oLog_output_manager->return_log_trace_output_str('ERROR_LOG', 0);
+
+                error_log($tmp_crnrstn_trace_TEXT);
+                error_log($tmp_php_trace_TEXT);
+
+                break;
+        }
+
+        return true;
+
+    }
+
+    private function output_to_file_ftp($oCRNRSTN_n, $tmp_log_output, $attribute_array){
+
+        //error_log(__LINE__.' env output_to_file_ftp ['.$tmp_log_output.']]');
+
+//        $tmp_FTP_SERVER = array();
+//        $tmp_FTP_USERNAME = array();
+//        $tmp_FTP_PASSWORD = array();
+//        $tmp_FTP_PORT = array();
+//        $tmp_FTP_TIMEOUT = array();
+//        $tmp_FTP_IS_SSL = array();
+//        $tmp_FTP_USE_PASV = array();
+//        $tmp_FTP_USE_PASV_ADDR = array();
+//        $tmp_FTP_DISABLE_AUTOSEEK = array();
+//        $tmp_FTP_DIR_PATH = array();
+//        $tmp_FTP_MKDIR_MODE = array();
+
+        foreach($this->profile_endpoint_criteria_ARRAY[CRNRSTN_LOG_FILE_FTP] as $key => $value){
+
+            //error_log(__LINE__.' env profile_endpoint_criteria_ARRAY ['.print_r($key,true).'] ['.print_r($value,true).']');
+
+            if(isset($attribute_array[$key])){
+
+                if(is_object($attribute_array[$key][0])){
+
+                    error_log(__LINE__.' env output_to_file_ftp ['.$key.'][OBJECT]');
+
+                }else{
+
+                    error_log(__LINE__.' env output_to_file_ftp ['.$key.']['.print_r($attribute_array[$key][0], true).']');
+
+                }
+
+
+            }else{
+
+                error_log(__LINE__.' env output_to_file_ftp  NO SET=['.$key.']['.print_r($attribute_array[$key], true).']');
+
+            }
+
+        }
+
+        // self::$crnrstn_tmp_dir
+
+        switch(get_class($oCRNRSTN_n)){
+            case 'crnrstn':
+
+                if($tmp_crnrstn_tmp_dir = $oCRNRSTN_n->return_tmp()){
+
+                    error_log(__LINE__.' env Ready to write to /tmp ....the error log file for FTP delivery (See wind_cloud_fire line 3088 area).');
+
+                    $file_source_path = $this->output_to_local_file($oCRNRSTN_n, $tmp_log_output, $tmp_crnrstn_tmp_dir);
+
+                    error_log(__LINE__.' env Completed write of file ['.$file_source_path.']['.$oCRNRSTN_n->formatBytes(filesize($file_source_path)).']');
+
+
+
+                }else{
+
+                    error_log(__LINE__.' env Unable to write /tmp error log file for FTP delivery due to missing embryonic /tmp dir.');
+
+                }
+
+            break;
+            default:
+
+                error_log(__LINE__.' env  DEFAULT!!!');
+
+            break;
+
+        }
+
+
+
+        $ftp_stream_target = NULL;
+
+
+//        if(self::$oCRNRSTN_n->file_local_send_by_ftp($ftp_stream_target, $file_source_path, $oEndpoint_serial_SOURCE, $oEndpoint_serial_DESTINATION, $oElectrum_STATS)){
+//
+//            //if($this->fileMove_DIR_DF($dest_ftp_stream, $dest_FTP_ROOT_DIR_PATH, $this->DESTINATION_FILE_PATH, $SOURCE_filePath)){
+//
+//            $this->is_transferred = true;
+//
+//            //self::$oCRNRSTN_USR->error_log('oWheel TMP file write TO FTP SUCCESS. REMOVE TMP FILE.', __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+//
+//        }else{
+//
+//            $error = error_get_last();
+//            self::$oCRNRSTN_n->error_log('oWheel fileMove_DF() ERROR :: '.$error['message'], __LINE__, __METHOD__, __FILE__, 'CRNRSTN_oELECTRUM_FILE_TRANSFER');
+//
+//        }
+
+        unlink($file_source_path);
+
+    }
+
+    private function output_to_local_file($oCRNRSTN_n, $str, $file_path, $mkdir_permissons_mode = 775){
+
+        if(is_dir($file_path)){
+
+            if($this->validate_DIR_Endpoint('DESTINATION', $file_path, $mkdir_permissons_mode)){
+
+                //
+                // WE HAVE A DIRECTORY PATH...NO FILE NAME PROVIDED; CREATE ONE.
+                $tmp_filename = 'crnrstn_errlog_'.$_SERVER['SERVER_NAME'];
+
+                $file_path = rtrim($file_path,DIRECTORY_SEPARATOR);
+
+                $file_path = $file_path.DIRECTORY_SEPARATOR.$tmp_filename.'.txt';
+
+            }else{
+
+                //
+                // CRNRSTN :: CANNOT WRITE LOG FILE DUE TO END POINT NOT VALID
+                self::$oCRNRSTN_n->error_log('Unable to write data to local directory file, '.$file_path.'.', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY_FILE);
+
+                return false;
+            }
+
+        }else{
+
+            //
+            // WE HAVE PROPER FILE PATH.
+            $tmp_sniffed_dir = dirname($file_path);
+
+            if(!$this->validate_DIR_Endpoint('DESTINATION', $tmp_sniffed_dir, $mkdir_permissons_mode)){
+
+                self::$oCRNRSTN_n->error_log('Unable to write data to local directory file, '.$file_path.'.', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY_FILE);
+
+                return false;
+
+            }
+
+        }
+
+        //
+        // VALIDATE FILE PATH ON FILE OPEN FOR APPEND
+        if($fp = fopen($file_path, 'a')){
+
+            fwrite($fp, $str);
+            fclose($fp);
+
+            return $file_path;
+
+        }else{
+
+            //
+            // MODIFY DIRECTORY PERMISSIONS
+            self::$oCRNRSTN_n->error_log('CRNRSTN :: Unable to locate the provided path and/or open/create file for write only (i.e. append) at filepath="'.$log_filepath.'".', __LINE__, __METHOD__, __FILE__, CRNRSTN_BARNEY_FILE);
+
+            return false;
+        }
+
+    }
+
+    private function validate_DIR_Endpoint($flow_type, $dir_path, $mkdir_mode = 775){
+
+        switch($flow_type) {
+            case 'SOURCE':
+
+                if(is_dir($dir_path)){
+
+                    //
+                    // SOURCE - LOCAL_DIR
+                    if(is_readable($dir_path)){
+
+                        return true;
+
+                    }else{
+
+                        //
+                        // HOOOSTON...VE HAF PROBLEM!
+                        self::$oCRNRSTN_n->error_log('CRNRSTN :: has experienced permissions related errors attempting to read from the source directory, '.$dir_path.'.');
+
+                    }
+
+                }else{
+
+                    //
+                    // HOOOSTON...VE HAF PROBLEM!
+                    self::$oCRNRSTN_n->error_log('CRNRSTN :: has experienced errors attempting to find the source directory, '.$dir_path.', within the local file system.');
+
+                }
+
+            break;
+            default:
+
+                //
+                // DESTINATION - LOCAL_DIR
+                if(is_dir($dir_path)){
+
+                    if(is_writable($dir_path)){
+
+                        //error_log(__LINE__.' '.__METHOD__.' env THE DIRECTORY IS WRITABLE!');
+
+                        return true;
+
+                    }else{
+
+                        error_log(__LINE__.' '.__METHOD__.' env THE DIRECTORY IS **NOT** WRITABLE!');
+
+                        //
+                        // ATTEMPT TO CHANGE PERMISSIONS AND CHECK AGAIN
+                        // BEFORE COMPLETELY GIVING UP
+                        $tmp_current_perms = substr(decoct( fileperms($dir_path) ), 2);
+                        $tmp_config_serial = self::$oCRNRSTN_n->configSerial;
+
+                        $_SESSION['CRNRSTN_'.crc32($tmp_config_serial)]['CRNRSTN_EXCEPTION_PREFIX'] = 'CRNRSTN :: has experienced permissions related error as the destination directory, '.$dir_path.' ('.$tmp_current_perms.'), is NOT writable to '.$mkdir_mode.', and furthermore ';
+                        if(chmod($dir_path, $mkdir_mode)){
+
+                            $_SESSION['CRNRSTN_'.crc32($tmp_config_serial)]['CRNRSTN_EXCEPTION_PREFIX'] = '';
+                            return true;
+
+                        }else{
+
+                            $tmp_current_perms = substr(decoct( fileperms($dir_path) ), 2);
+
+                            //
+                            // HOOOSTON...VE HAF PROBLEM!
+                            self::$oCRNRSTN_n->error_log('CRNRSTN :: has experienced permissions related error as the destination directory, '.$dir_path.', is NOT writable with current permissions as '.$tmp_current_perms.'.');
+
+                        }
+
+                    }
+
+                }else{
+
+                    //
+                    // ATTEMPT TO MAKE DIRECTORY
+                    // BEFORE COMPLETELY GIVING UP
+                    if (!self::$oCRNRSTN_n->mkdir_r($dir_path, $mkdir_mode)) {
+
+                        $mkdir_mode = octdec( str_pad($mkdir_mode,4,'0',STR_PAD_LEFT) );
+
+                        //
+                        // HOOOSTON...VE HAF PROBLEM!
+                        self::$oCRNRSTN_n->error_log('CRNRSTN :: has experienced error as the destination directory, '.$dir_path.', does NOT exist, and it could NOT be created as '.$mkdir_mode.'.');
+
+                    }else{
+
+                        return true;
+
+                    }
+
+                }
+
+            break;
+
+        }
+
+        return false;
+
+    }
+
     //
     // SOURCE :: https://www.youtube.com/watch?v=83KR_UBWdPI
     public function no_cars_tification_go($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj){
 
         switch($this->logging_profile){
-            case CRNRSTN_LOG_DEFAULT:
+            case CRNRSTN_LOG_SCREEN:
+            case CRNRSTN_LOG_SCREEN_HTML:
 
-                error_log(__LINE__.' env - Run DEFAULT...');
-                return true;
+                return $this->no_cars_go_SCREEN_HTML($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
+
+            break;
+            case CRNRSTN_LOG_SCREEN_TEXT:
+
+                return $this->no_cars_go_SCREEN_TEXT($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
+
+            break;
+            case CRNRSTN_LOG_SCREEN_HTML_HIDDEN:
+
+                return $this->no_cars_go_SCREEN_HTML_HIDDEN($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
 
             break;
             case CRNRSTN_LOG_EMAIL:
@@ -6752,8 +8092,6 @@ class crnrstn_logging_oprofile{
                 // *EMAIL_PENTIARY = UNAUTHENTICATED SMTP WITH CRNRSTN WCR CONFIGURATION
                 // *EMAIL_HEXAPOLYNOMIALLY = NULL MODE FIRE
                 // * UNTESTED
-
-                error_log(__LINE__.' ABOUT TO TRY TO no_cars_go_EMAIL()...');
 
                 return $this->no_cars_go_EMAIL($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
 
@@ -6818,46 +8156,22 @@ class crnrstn_logging_oprofile{
             break;
             case CRNRSTN_LOG_FILE:
 
-                error_log(__LINE__.' ABOUT TO TRY TO no_cars_go_CRNRSTN_LOG_FILE()...');
-
-                //
-                // REMAIN STILL WHILE YOUR LIFE IS EXTRACTED
-                foreach($this->profile_endpoint_data_ARRAY as $config_version => $chunkArray0){
-
-                    foreach($chunkArray0 as $data_attribute => $chunkArray1){
-
-                        foreach($chunkArray1 as $content_count => $attribute_content){
-
-                            error_log(__LINE__.' env - ['.$data_attribute.']['.$config_version.']['.$content_count.']['.$attribute_content.']');
-                            $config_data_ARRAY[$config_version][$data_attribute][$content_count] = $attribute_content;
-
-                        }
-
-                    }
-
-                }
-
-                return true;
+                return $this->no_cars_go_FILE($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
 
             break;
             case CRNRSTN_LOG_FILE_FTP:
 
+                return $this->no_cars_go_LOG_FILE_FTP($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
+
+            break;
+            case CRNRSTN_LOG_DEFAULT:
+            default:
+
+                error_log(__LINE__.' env ABOUT TO TRY TO no_cars_go_DEFAULT()...');
+
                 //
-                // REMAIN STILL WHILE YOUR LIFE IS EXTRACTED
-                foreach($this->profile_endpoint_data_ARRAY as $config_version => $chunkArray0){
-
-                    foreach($chunkArray0 as $data_attribute => $chunkArray1){
-
-                        foreach($chunkArray1 as $content_count => $attribute_content){
-
-                            error_log('2286 env - ['.$data_attribute.']['.$config_version.']['.$content_count.']['.$attribute_content.']');
-                            $config_data_ARRAY[$config_version][$data_attribute][$content_count] = $attribute_content;
-
-                        }
-
-                    }
-
-                }
+                // NATIVE PHP ERROR LOGGING
+                return $this->no_cars_go_DEFAULT($oCRNRSTN_n, $tmp_exception_output_str, $syslog_constant, $exception_method, $exception_runtime, $exception_systemtime, $exception_obj);
 
             break;
 
@@ -6956,7 +8270,7 @@ class crnrstn_logging_oprofile{
                 //error_log(__LINE__.' env - Found existence of '.$param_key.' data within config init oWCR, '.$WCR_key);
                 $tmp_wcr_data = $oWCR->get_attribute($WCR_key, $param_key);
 
-                if(isset($tmp_wcr_data)){
+                if(is_object($tmp_wcr_data)){
 
                     switch($param_key){
                         case 'RECIPIENTS_NAME_PIPED':
@@ -6969,9 +8283,13 @@ class crnrstn_logging_oprofile{
                             $tmp_name_array = array();
                             $tmp_name_data = $oWCR->get_attribute($WCR_key, 'RECIPIENTS_NAME_PIPED');
 
-                            if($tmp_name_data != ''){
+                            //preach('isset', key).  ..
+                            //preach('type')
+                            //preach('value')
 
-                                $tmp_name_array = explode('|', $tmp_name_data);
+                            if($tmp_name_data->preach('isset', $param_key)){
+
+                                $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                             }
 
@@ -6983,9 +8301,9 @@ class crnrstn_logging_oprofile{
                             $tmp_name_array = array();
                             $tmp_name_data = $oWCR->get_attribute($WCR_key, 'REPLYTO_NAME_PIPED');
 
-                            if($tmp_name_data != ''){
+                            if($tmp_name_data->preach('isset', $param_key)){
 
-                                $tmp_name_array = explode('|', $tmp_name_data);
+                                $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                             }
 
@@ -6996,10 +8314,10 @@ class crnrstn_logging_oprofile{
 
                             $tmp_name_array = array();
                             $tmp_name_data = $oWCR->get_attribute($WCR_key, 'CC_NAME_PIPED');
-                            //error_log(__LINE__.' env - CC_NAME_PIPED tmp_name_data='.$tmp_name_data);
-                            if($tmp_name_data != ''){
 
-                                $tmp_name_array = explode('|', $tmp_name_data);
+                            if($tmp_name_data->preach('isset', $param_key)){
+
+                                $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                             }
 
@@ -7011,9 +8329,9 @@ class crnrstn_logging_oprofile{
                             $tmp_name_array = array();
                             $tmp_name_data = $oWCR->get_attribute($WCR_key, 'BCC_NAME_PIPED');
 
-                            if($tmp_name_data != ''){
+                            if($tmp_name_data->preach('isset', $param_key)){
 
-                                $tmp_name_array = explode('|', $tmp_name_data);
+                                $tmp_name_array = explode('|', $tmp_name_data->preach('isset', $param_key));
 
                             }
 
@@ -7022,7 +8340,7 @@ class crnrstn_logging_oprofile{
                         break;
                         default:
 
-                            //error_log(__LINE__.' env - profile_endpoint_data_ARRAY storing['.$this->wcr_profiles_cnt.']['.$param_key.']['.$tmp_wcr_data.']');
+                            //error_log(__LINE__.' env - profile_endpoint_data_ARRAY storing['.$this->wcr_profiles_cnt.']['.$param_key.']['.get_class($tmp_wcr_data).']');
                             $this->profile_endpoint_data_ARRAY[$this->wcr_profiles_cnt][strtoupper($param_key)][] = $tmp_wcr_data;
                             $this->profile_endpoint_set_flag_ARRAY[$this->wcr_profiles_cnt][strtoupper($param_key)][] = 1;
 
@@ -7038,7 +8356,7 @@ class crnrstn_logging_oprofile{
 
     }
 
-    public function receive_profile_EMAIL($data, $param_key, $name_array = NULL){
+    public function receive_profile_EMAIL($oDDO, $param_key, $name_array = NULL){
 
         $this->isValid = true;
 
@@ -7046,8 +8364,16 @@ class crnrstn_logging_oprofile{
         // I AM EMAIL PROFILE. RECEIVE EMAIL DATA.
         #$oWCR->add_attribute('RECIPIENTS_EMAIL_PIPED', 'Jonathan J5 Harris c00000101@gmail.com|jharris@eVifweb.com');
         #$oWCR->add_attribute('RECIPIENTS_NAME_PIPED', '|Jonathan J5 Harris');
-        //error_log(__LINE__.' - I AM EMAIL PROFILE. RECEIVE EMAIL DATA. '.$data);
-        $tmp_email_name_ARRAY = $this->reformat_pipe_data(CRNRSTN_LOG_EMAIL, $data);
+        //error_log(__LINE__.' - I AM EMAIL PROFILE. RECEIVE EMAIL DATA. '.$oDDO);
+        if(is_object($oDDO)){
+
+            $tmp_email_name_ARRAY = $this->reformat_pipe_data(CRNRSTN_LOG_EMAIL, $oDDO->preach('value', $param_key));
+
+        }else{
+
+            $tmp_email_name_ARRAY = $this->reformat_pipe_data(CRNRSTN_LOG_EMAIL, $oDDO);
+
+        }
 
         #$tmp_email_name_ARRAY['email'][]
         #$tmp_email_name_ARRAY['name'][]
@@ -7058,7 +8384,7 @@ class crnrstn_logging_oprofile{
 
             switch($param_key){
                 case 'RECIPIENTS_EMAIL_PIPED':
-                    //error_log(__LINE__.' env - storing RECIPIENT_EMAIL ['.$this->wcr_profiles_cnt.']['.$param_key.']['.self::$oCRNRSTN_n->stringSanitize($tmp_email_name_ARRAY['email'][$i], 'email_private').']');
+                    //error_log(__LINE__.' env - storing RECIPIENT_EMAIL ['.$this->wcr_profiles_cnt.']['.$param_key.']['.self::$oCRNRSTN_n->string_sanitize($tmp_email_name_ARRAY['email'][$i], 'email_private').']');
                     $this->profile_endpoint_data_ARRAY[$this->wcr_profiles_cnt]['RECIPIENT_EMAIL'][] = $tmp_email_name_ARRAY['email'][$i];
                     $this->profile_endpoint_set_flag_ARRAY[$this->wcr_profiles_cnt]['RECIPIENT_EMAIL'][] = 1;
 
@@ -7111,7 +8437,7 @@ class crnrstn_logging_oprofile{
 
                 break;
                 case 'REPLYTO_EMAIL_PIPED':
-                    //error_log(__LINE__.' env - storing REPLYTO_EMAIL_PIPED ['.$this->wcr_profiles_cnt.']['.$param_key.']['.self::$oCRNRSTN_n->stringSanitize($tmp_email_name_ARRAY['email'][$i], 'email_private').']');
+                    //error_log(__LINE__.' env - storing REPLYTO_EMAIL_PIPED ['.$this->wcr_profiles_cnt.']['.$param_key.']['.self::$oCRNRSTN_n->string_sanitize($tmp_email_name_ARRAY['email'][$i], 'email_private').']');
                     $this->profile_endpoint_data_ARRAY[$this->wcr_profiles_cnt]['REPLYTO_EMAIL'][] = $tmp_email_name_ARRAY['email'][$i];
                     $this->profile_endpoint_set_flag_ARRAY[$this->wcr_profiles_cnt]['REPLYTO_EMAIL'][] = 1;
 
@@ -7158,7 +8484,6 @@ class crnrstn_logging_oprofile{
                             //error_log(__LINE__.' env - CC_EMAIL_PIPED name data['.$i.'] saved='.$name_array[$i]);
                             $this->profile_endpoint_data_ARRAY[$this->wcr_profiles_cnt]['CC_NAME'][] = $name_array[$i];
                             $this->profile_endpoint_set_flag_ARRAY[$this->wcr_profiles_cnt]['CC_NAME'][] = 1;
-
 
                         }else{
 
@@ -7256,9 +8581,9 @@ class crnrstn_logging_oprofile{
                         $tmp_name_array = array();
                         $tmp_name_data = $oWCR->get_attribute($WCR_key, 'RECIPIENTS_NAME_PIPED');
 
-                        if($tmp_name_data != ''){
+                        if($tmp_name_data->preach('isset', $param_key)){
 
-                            $tmp_name_array = explode('|', $tmp_name_data);
+                            $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                         }
 
@@ -7271,9 +8596,9 @@ class crnrstn_logging_oprofile{
                         $tmp_name_array = array();
                         $tmp_name_data = $oWCR->get_attribute($WCR_key, 'REPLYTO_NAME_PIPED');
 
-                        if($tmp_name_data != ''){
+                        if($tmp_name_data->preach('isset', $param_key)){
 
-                            $tmp_name_array = explode('|', $tmp_name_data);
+                            $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                         }
 
@@ -7286,9 +8611,9 @@ class crnrstn_logging_oprofile{
                         $tmp_name_array = array();
                         $tmp_name_data = $oWCR->get_attribute($WCR_key, 'CC_NAME_PIPED');
 
-                        if($tmp_name_data != ''){
+                        if($tmp_name_data->preach('isset', $param_key)){
 
-                            $tmp_name_array = explode('|', $tmp_name_data);
+                            $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                         }
 
@@ -7299,9 +8624,9 @@ class crnrstn_logging_oprofile{
 
                         $tmp_name_array = array();$tmp_name_data = $oWCR->get_attribute($WCR_key, 'BCC_NAME_PIPED');
 
-                        if($tmp_name_data != ''){
+                        if($tmp_name_data->preach('isset', $param_key)){
 
-                            $tmp_name_array = explode('|', $tmp_name_data);
+                            $tmp_name_array = explode('|', $tmp_name_data->preach('value', $param_key));
 
                         }
 
@@ -7330,18 +8655,20 @@ class crnrstn_logging_oprofile{
 
         //
         // I AM FTP PROFILE. RECEIVE FTP WCR DATA.
-        error_log('3343 - I AM FTP PROFILE. RECEIVE FTP WCR DATA. '.$WCR_key);
+        //error_log('3343 - I AM FTP PROFILE. RECEIVE FTP WCR DATA. '.$WCR_key);
         $this->wcr_profiles_cnt++;
 
         //
         // *ALL* POSSIBLE FTP WCR KEYS
         foreach($this->profile_endpoint_criteria_ARRAY[CRNRSTN_LOG_FILE_FTP] as $param_key => $value){
 
-            $tmp_wcr_data = $oWCR->get_attribute($WCR_key, $param_key);
+            if($oWCR->isset_WCR($WCR_key, $param_key)){
 
-            if($tmp_wcr_data != ''){
+                //
+                // WCR DATA CAN BE DDO_OBJECT, INT, DOUBLE, STRING
+                $tmp_wcr_data = $oWCR->get_attribute($WCR_key, $param_key);
 
-                error_log(__LINE__.' env - Data from WCR['.$WCR_key.'] @ ['.$param_key.']=['.$tmp_wcr_data.']');
+                //error_log(__LINE__.' '.__METHOD__.' env STORING OBJECT ['.$param_key.']='.print_r($tmp_wcr_data, true));
                 $this->profile_endpoint_data_ARRAY[$this->wcr_profiles_cnt][strtoupper($param_key)][] = $tmp_wcr_data;
                 $this->profile_endpoint_set_flag_ARRAY[$this->wcr_profiles_cnt][strtoupper($param_key)][] = 1;
 
@@ -7357,7 +8684,7 @@ class crnrstn_logging_oprofile{
 
         //
         // I AM FILE PROFILE. RECEIVE FILE WCR DATA.
-        error_log('3369 - I AM FILE[WCR] PROFILE. RECEIVE FILE WCR DATA. '.$WCR_key);
+        //error_log('3369 - I AM FILE[WCR] PROFILE. RECEIVE FILE WCR DATA. '.$WCR_key);
         $this->wcr_profiles_cnt++;
 
         //
@@ -7366,7 +8693,7 @@ class crnrstn_logging_oprofile{
 
             $tmp_wcr_data = $oWCR->get_attribute($WCR_key, $param_key);
 
-            if($tmp_wcr_data != ''){
+            if(is_object($tmp_wcr_data)){
 
                 //error_log('2174 env - Data from WCR['.$WCR_key.'] @ ['.$param_key.']=['.$tmp_wcr_data.']');
                 $this->profile_endpoint_data_ARRAY[$this->wcr_profiles_cnt][strtoupper($param_key)][] = $tmp_wcr_data;
@@ -7556,124 +8883,6 @@ class crnrstn_logging_oprofile{
         return $tmp_array;
 
     }
-
-    private function consume_pipe_aligned_values($key_array, $aligns_to_key_array, $key, $is_WCR_data=false){
-
-        if(isset($key_array)){
-
-            //error_log('1775 env - '.sizeof($key_array).' data');
-
-        }else{
-
-            //error_log('1775 env - no data['.sizeof($key_array).']');
-        }
-
-
-        $tmp_index_pos = 0;
-
-        try{
-
-            switch($key){
-                case CRNRSTN_LOG_DEFAULT:
-
-                break;
-                case CRNRSTN_LOG_EMAIL:
-                    $tmp_cnt = sizeof($key_array);
-                    for($i=0; $i<$tmp_cnt; $i++){
-
-                        if($key_array[$i]!=''){
-
-                            error_log('1794 env consume_pipe_aligned_values() - ['.$key_array.']');
-
-                        }else{
-
-                            error_log('1798 env consume_pipe_aligned_values() - ['.$key_array.'][size='.$tmp_cnt.']');
-
-                        }
-
-                    }
-
-                    error_log('die() @  HELLO APR 8, 2021['.$key.']');
-                    die();
-
-                break;
-                case 'EMAIL_PROXY':
-
-                break;
-                case 'FILE':
-
-                break;
-                case 'SCREEN_TEXT':
-
-                break;
-                case 'SCREEN':
-
-                break;
-                case 'SCREEN_HTML':
-
-                break;
-                case 'SCREEN_HTML_HIDDEN':
-
-                break;
-                default:
-
-                    //
-                    // HOOOSTON...VE HAF PROBLEM!
-                    throw new Exception('Unknown logging profile type of "'.$key.'" provided.');
-
-                break;
-
-            }
-
-        }catch( Exception $e ) {
-
-            $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
-
-            //
-            // RETURN FALSE
-            return false;
-
-        }
-
-    }
-
-    public function consume_logging_profile_pack($sys_logging_profile_pack = NULL){
-
-        if(isset($sys_logging_profile_pack['sys_logging_profile'])){
-
-            error_log(__LINE__.' env - we have sys_logging_profile_pack data...WHAT YOU DO HERE?');
-            die();
-
-            self::$sys_logging_profile_ARRAY = $sys_logging_profile_pack['sys_logging_profile'];
-            self::$sys_logging_endpoint_ARRAY = $sys_logging_profile_pack['sys_logging_endpoint'];
-            self::$sys_logging_wcr_ARRAY = $sys_logging_profile_pack['sys_logging_wcr'];
-
-            self::$sys_logging_update_profile_ARRAY = $sys_logging_profile_pack['sys_logging_update_profile'];
-            self::$sys_logging_update_endpoint_ARRAY = $sys_logging_profile_pack['sys_logging_update_endpoint'];
-
-            $this->consume_pipe_aligned_values(self::$sys_logging_profile_ARRAY, self::$sys_logging_endpoint_ARRAY, $this->logging_profile);
-            $this->consume_pipe_aligned_values(self::$sys_logging_profile_ARRAY, self::$sys_logging_wcr_ARRAY, $this->logging_profile, true);
-            $this->consume_pipe_aligned_values(self::$sys_logging_update_profile_ARRAY, self::$sys_logging_update_endpoint_ARRAY, $this->logging_profile);
-
-        }
-
-    }
-
-    /*
-    private function isWildCardResourceKey($str_content){
-
-        if(isset(self::$oCRNRSTN_n)){
-
-            return self::$oCRNRSTN_n->isset_WCR($str_content);
-
-        }else{
-
-            return false;
-
-        }
-
-    }
-    */
 
     public function load_CRNRSTN_ENV($oCRNRSTN_ENV){
 

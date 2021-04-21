@@ -193,7 +193,7 @@ class crnrstn_mysqli_conn_manager {
 		
 		//
 		// IF HASHED INPUT PARAMETERS MATCH WHAT HAS BEEN STORED IN SESSION, PREPARATION IS COMPLETE.
-		if($this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_CNFG') == md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd)){
+		if($this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_CNFG') == md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd)){
 			return true;
 		}
 		
@@ -204,7 +204,7 @@ class crnrstn_mysqli_conn_manager {
 			//
 			// IF NO PARAMS OR CACHE, LOCALLY CACHE FIRST SOLUTION FROM *MULTI-DEM ARRAY
 			// *CRNRSTN ENVIRONMENTAL DETECTION + VALUES FROM THE CONFIGURATION FILE		
-			if(!($this->oSESSION_MGR->issetSessionParam('_CRNRSTN_DB_HOST'))){
+			if(!($this->oSESSION_MGR->isset_session_param('_CRNRSTN_DB_HOST'))){
 				
 				if(isset(self::$db_host[crc32($this->crnrstnConfigSerial)])){
 					foreach (self::$db_host[crc32($this->crnrstnConfigSerial)][self::$appEnvKey] as $tmp_db_host=>$tmp_host_array) {
@@ -213,14 +213,14 @@ class crnrstn_mysqli_conn_manager {
 	
 								//
 								// INITIALIZE/REFRESH SESSION PARAMETERS
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_ENV', self::$appEnvKey);
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_HOST', $tmp_db_host);
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_DB', $tmp_db_db);
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_UN', $tmp_un);
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_ENV', self::$appEnvKey);
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_HOST', $tmp_db_host);
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_DB', $tmp_db_db);
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_UN', $tmp_un);
 								
 								//
 								// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 								
 								return true;
 							}
@@ -236,7 +236,7 @@ class crnrstn_mysqli_conn_manager {
 				
 				//
 				// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-				$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+				$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 							
 				//
 				// IF NO VALUES PASSED, BUT CACHE HAS BEEN SET...USE CACHE.
@@ -249,7 +249,7 @@ class crnrstn_mysqli_conn_manager {
 			//
 			//  $oCRNRSTN_ENV->oMYSQLI_CONN_MGR->returnConnection('host');
 			if($db==NULL){
-				if(!($this->oSESSION_MGR->issetSessionParam('_CRNRSTN_DB_DB'))){
+				if(!($this->oSESSION_MGR->isset_session_param('_CRNRSTN_DB_DB'))){
 					foreach (self::$db_host[self::$appEnvKey] as $tmp_db_host=>$tmp_host_array) {
 						if($tmp_db_host==crc32($host)){
 							foreach($tmp_host_array as $tmp_db_db=>$tmp_db_array){
@@ -257,14 +257,14 @@ class crnrstn_mysqli_conn_manager {
 							
 									//
 									// INITIALIZE/REFRESH SESSION PARAMETERS
-									$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_ENV', self::$appEnvKey);
-									$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_HOST', $tmp_db_host);
-									$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_DB', $tmp_db_db);
-									$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_UN', $tmp_un);
+									$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_ENV', self::$appEnvKey);
+									$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_HOST', $tmp_db_host);
+									$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_DB', $tmp_db_db);
+									$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_UN', $tmp_un);
 							
 									//
 									// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-									$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+									$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 							
 									return true;
 								}
@@ -275,11 +275,11 @@ class crnrstn_mysqli_conn_manager {
 					
 					//
 					// CHECK FOR CHANGES FROM SESSION IN HOST::DB
-					if($this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')==crc32($host)){
+					if($this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')==crc32($host)){
 						
 						//
 						// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-						$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+						$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 
 						//
 						// USE LOCAL OBJECT CACHE...SINCE IT HAS ALREADY BEEN SET
@@ -299,7 +299,7 @@ class crnrstn_mysqli_conn_manager {
 					
 					//
 					//  $oCRNRSTN_ENV->oMYSQLI_CONN_MGR->returnConnection('host', 'database');
-					if(!($this->oSESSION_MGR->issetSessionParam('_CRNRSTN_DB_UN'))){
+					if(!($this->oSESSION_MGR->isset_session_param('_CRNRSTN_DB_UN'))){
 						foreach (self::$db_host[self::$appEnvKey] as $tmp_db_host=>$tmp_host_array) {
 							if($tmp_db_host==crc32($host)){
 								foreach($tmp_host_array as $tmp_db_db=>$tmp_db_array){
@@ -308,14 +308,14 @@ class crnrstn_mysqli_conn_manager {
 											
 											//	
 											// INITIALIZE/REFRESH SESSION PARAMETERS
-											$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_ENV', self::$appEnvKey);
-											$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_HOST', $tmp_db_host);
-											$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_DB', $tmp_db_db);
-											$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_UN', $tmp_un);
+											$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_ENV', self::$appEnvKey);
+											$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_HOST', $tmp_db_host);
+											$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_DB', $tmp_db_db);
+											$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_UN', $tmp_un);
 											
 											//
 											// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-											$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));						
+											$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 				
 											return true;
 										}
@@ -327,11 +327,11 @@ class crnrstn_mysqli_conn_manager {
 						
 						//
 						// CHECK FOR CHANGES FROM SESSION IN HOST::DB
-						if($this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')==crc32($host) && $this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')==crc32($db)){
+						if($this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')==crc32($host) && $this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')==crc32($db)){
 							
 							//
 							// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-							$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+							$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 
 							//
 							// USE LOCAL OBJECT CACHE...SINCE IT HAS ALREADY BEEN SET
@@ -350,7 +350,7 @@ class crnrstn_mysqli_conn_manager {
 						
 						//
 						//  $oCRNRSTN_ENV->oMYSQLI_CONN_MGR->returnConnection('host', 'database', 'user');
-						if(crc32($un)!=$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')){
+						if(crc32($un)!=$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')){
 							foreach (self::$db_host[self::$appEnvKey] as $tmp_db_host=>$tmp_host_array) {
 								if($tmp_db_host==crc32($host)){
 									foreach($tmp_host_array as $tmp_db_db=>$tmp_db_array){
@@ -360,14 +360,14 @@ class crnrstn_mysqli_conn_manager {
 												
 													//
 													// INITIALIZE/REFRESH SESSION PARAMETERS
-													$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_ENV', self::$appEnvKey);
-													$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_HOST', $tmp_db_host);
-													$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_DB', $tmp_db_db);
-													$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_UN', $tmp_un);
+													$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_ENV', self::$appEnvKey);
+													$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_HOST', $tmp_db_host);
+													$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_DB', $tmp_db_db);
+													$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_UN', $tmp_un);
 												
 													//
 													// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-													$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+													$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 													
 													return true;
 												}
@@ -380,11 +380,11 @@ class crnrstn_mysqli_conn_manager {
 							
 							//
 							// CHECK FOR CHANGES FROM SESSION IN HOST::DB
-							if($this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')==crc32($host) && $this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')==crc32($db)){
+							if($this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')==crc32($host) && $this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')==crc32($db)){
 								
 								//
 								// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 	
 								//
 								// USE LOCAL OBJECT CACHE...SINCE IT HAS ALREADY BEEN SET
@@ -404,7 +404,7 @@ class crnrstn_mysqli_conn_manager {
 							//
 							// CRNRSTN ENVIRONMENTAL DETECTION + METHOD PARAMETERS + VALUES FROM THE CONFIGURATION FILE
 							// $oCRNRSTN_ENV->oMYSQLI_CONN_MGR->returnConnection('host', 'database', 'user', 'port');
-							if(crc32($un)!=$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')){
+							if(crc32($un)!=$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')){
 								foreach (self::$db_host[self::$appEnvKey] as $tmp_db_host=>$tmp_host_array) {
 									if($tmp_db_host==crc32($host)){
 										foreach($tmp_host_array as $tmp_db_db=>$tmp_db_array){
@@ -414,10 +414,10 @@ class crnrstn_mysqli_conn_manager {
 														
 														//
 														// INITIALIZE/REFRESH SESSION PARAMETERS
-														$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_ENV', self::$appEnvKey);
-														$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_HOST', $tmp_db_host);
-														$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_DB', $tmp_db_db);
-														$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_UN', $tmp_un);
+														$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_ENV', self::$appEnvKey);
+														$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_HOST', $tmp_db_host);
+														$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_DB', $tmp_db_db);
+														$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_UN', $tmp_un);
 														
 														//
 														// LOG NOTICE IF PORT FROM PARAMETER DIFFERS FROM CONFIG FILE. USE VALUE FROM PARAMETER
@@ -429,7 +429,7 @@ class crnrstn_mysqli_conn_manager {
 														
 														//
 														// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-														$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+														$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 							
 														return true;
 													}
@@ -442,7 +442,7 @@ class crnrstn_mysqli_conn_manager {
 								
 								//
 								// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-								$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+								$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 								
 								//
 								// USE LOCAL OBJECT CACHE...SINCE IT HAS ALREADY BEEN SET
@@ -453,10 +453,10 @@ class crnrstn_mysqli_conn_manager {
 							
 							//
 							// $oCRNRSTN_ENV->oMYSQLI_CONN_MGR->returnConnection('host', 'database', 'user', 'port', 'pwd');
-							$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_ENV', self::$appEnvKey);
-							$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_HOST', crc32($host));
-							$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_DB', crc32($db));
-							$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_UN', crc32($un));
+							$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_ENV', self::$appEnvKey);
+							$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_HOST', crc32($host));
+							$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_DB', crc32($db));
+							$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_UN', crc32($un));
 							
 							self::$db_host[self::$appEnvKey][crc32($host)][crc32($db)][crc32($un)] = $host;
 							self::$db_un[self::$appEnvKey][crc32($host)][crc32($db)][crc32($un)] = $un;
@@ -464,7 +464,7 @@ class crnrstn_mysqli_conn_manager {
 							
 							//
 							// INITIALIZE/REFRESH OPTIMIZATION HASH (IN SESSION) TO STREAMLINE PREPARATION OF DATABASE CONNECTION
-							$this->oSESSION_MGR->setSessionParam('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
+							$this->oSESSION_MGR->set_session_param('_CRNRSTN_DB_CNFG', md5($host.'::'.$db.'::'.$un.'::'.$port.'::'.$pwd));
 
 							return true;
 						}				
@@ -510,7 +510,7 @@ class crnrstn_mysqli_conn_manager {
 
 				}else{
 
-					self::$cache_db_port = self::$db_port[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')];
+					self::$cache_db_port = self::$db_port[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')];
 
 				}
 				
@@ -520,16 +520,16 @@ class crnrstn_mysqli_conn_manager {
 
 				}else{
 
-					self::$cache_db_pwd = self::$db_pwd[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')];
+					self::$cache_db_pwd = self::$db_pwd[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')];
 
 				}
 
 				//
 				// INSTANTIATE MYSQLI CONNECTION CLASS
-				$oMYSQLI = new crnrstn_mysqli_conn(self::$db_host[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')],
-											self::$db_un[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')],
+				$oMYSQLI = new crnrstn_mysqli_conn(self::$db_host[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')],
+											self::$db_un[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')],
 											self::$cache_db_pwd,
-											self::$db_db[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->getSessionParam('_CRNRSTN_DB_UN')],
+											self::$db_db[crc32($this->crnrstnConfigSerial)][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_ENV')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_HOST')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_DB')][$this->oSESSION_MGR->get_session_param('_CRNRSTN_DB_UN')],
 											self::$cache_db_port, self::$oCRNRSTN_USR);
 				
 				//

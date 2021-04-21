@@ -474,8 +474,38 @@ class crnrstn_chunk_restrictor {
 
                 }else{
 
-                    $newline = '
-';
+                    $newline = '';
+                    $fline_new = true;
+                    foreach($this->chunk_TEXT_line_out_ARRAY[$this->chunk_hash] as $key => $line){
+
+                        if($fline_new){
+
+                            $fline_new = false;
+
+                            $this->output_TEXT_str_ARRAY[$this->chunk_hash] .= $line;
+
+                        }else{
+
+                            $this->output_TEXT_str_ARRAY[$this->chunk_hash] .= $newline.$new_line_prefix.$line;
+
+                        }
+
+                    }
+
+                    return $this->output_TEXT_str_ARRAY[$this->chunk_hash];
+
+                }
+
+            break;
+            case 'SCREEN_TEXT':
+
+                if($this->output_TEXT_str_ARRAY[$this->chunk_hash] != ''){
+
+                    return $this->output_TEXT_str_ARRAY[$this->chunk_hash];
+
+                }else{
+
+                    $newline = '';
                     $fline_new = true;
                     foreach($this->chunk_TEXT_line_out_ARRAY[$this->chunk_hash] as $key => $line){
 
@@ -550,7 +580,7 @@ class crnrstn_chunk_restrictor {
             $this->chunk_line_out_ARRAY[$this->chunk_hash][] = $tmp_line;
             $this->chunk_HTML_line_out_ARRAY[$this->chunk_hash][] = '<br>...'.$tmp_line;
             $this->chunk_TEXT_line_out_ARRAY[$this->chunk_hash][] = '
-...'.$tmp_line;
+   '.$tmp_line;
 
         }
 
@@ -568,9 +598,11 @@ class crnrstn_chunk_restrictor {
 
             $tmp_line_ARRAY = $this->str_split_unicode($this->raw_content, $this->max_len);
 
-            foreach ($tmp_line_ARRAY as $key=> $line){
+            $tmp_cnt = count($tmp_line_ARRAY);
+            for($i=0; $i < $tmp_cnt; $i++){
 
-                $this->add_restricted_content_chunk($line, $isFirstline);
+                $this->add_restricted_content_chunk($tmp_line_ARRAY[$i], $isFirstline);
+
                 $isFirstline = false;
 
             }

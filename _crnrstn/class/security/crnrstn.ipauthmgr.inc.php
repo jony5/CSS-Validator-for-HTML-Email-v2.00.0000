@@ -377,7 +377,7 @@ class crnrstn_ip_auth_manager {
 
 		//
 		// IF ACCESS HAS ALREADY BEEN GRANTED TO THIS IP, USE CACHED SESSION AUTH
-		if(($this->oSESSION_MGR->issetSessionParam('CRNRSTN_ACCESS_AUTHORIZED')) && ($this->oSESSION_MGR->getSessionIp('SESSION_IP') == md5(self::$clientIpAddress))){
+		if(($this->oSESSION_MGR->isset_session_param('CRNRSTN_ACCESS_AUTHORIZED')) && ($this->oSESSION_MGR->getSessionIp('SESSION_IP') == md5(self::$clientIpAddress))){
 
 		    return true;
 
@@ -1470,8 +1470,8 @@ class crnrstn_ip_auth_manager {
 			
 			//
 			// STORE SUCCESSFUL IP ADDRESS AUTHORIZATION TO SESSION
-			$this->oSESSION_MGR->setSessionParam('CRNRSTN_ACCESS_AUTHORIZED', 1);
-			$this->oSESSION_MGR->setSessionParam('CRNRSTN_AUTHORIZED_IP', $ip);
+			$this->oSESSION_MGR->set_session_param('CRNRSTN_ACCESS_AUTHORIZED', 1);
+			$this->oSESSION_MGR->set_session_param('CRNRSTN_AUTHORIZED_IP', $ip);
 			$this->oSESSION_MGR->setSessionIp('SESSION_IP', md5($ip));
 			
 			return true;
@@ -1495,8 +1495,8 @@ class crnrstn_ip_auth_manager {
 						
 						//
 						// STORE SUCCESSFUL IP ADDRESS AUTHORIZATION TO SESSION
-						$this->oSESSION_MGR->setSessionParam('CRNRSTN_ACCESS_AUTHORIZED', 1);
-						$this->oSESSION_MGR->setSessionParam('CRNRSTN_AUTHORIZED_IP', $ip);
+						$this->oSESSION_MGR->set_session_param('CRNRSTN_ACCESS_AUTHORIZED', 1);
+						$this->oSESSION_MGR->set_session_param('CRNRSTN_AUTHORIZED_IP', $ip);
 						$this->oSESSION_MGR->setSessionIp('SESSION_IP', md5($ip));
 						
 						return true;
