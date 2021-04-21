@@ -19,11 +19,11 @@ $oAuth_single->IP_denyAccess('111.111.111.112');
 $oAuth_single->override_soap_encryption_config('AES-256-CTR', 'this-Is-the_soap-3ncrypti0n-key-for_an_outsider', 'ripemd256', OPENSSL_RAW_DATA);
 $oAuth_single->override_soap_encryption_config('AES-192-OFB', 'this-Is-the_soap-3ncrypti0n-key-for_an_outsider', 'sha256', OPENSSL_RAW_DATA);
 
-$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';0TN:nrtjkljl4334k4;2kl;k;k4j3o4ouotjkljlwuO~u}DI2FKP');
-$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';1TN:nn8Q{U0jkjkljjjrj<aJNBza?!#btjkljlLQf{wc$1k$;cs=fFO~u}DI2FKP', $oAuth_group);
-$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';TN:nn8Q{U0Pvbduy|D>4}z!2L-<aJNBza?!#bLtjkljlQf{wc$1k$;cs=fFO~u}DI2FKP', $oAuth_group);
-$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';3TN:nn8Q{eqwqweT34T43U0Ptjkljlvbduy|D>rrewwc$1k$;cs=fTT6FO~u}DI2FKP', $oAuth_group);
-$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';4TU3U4422jJLJoi9U8u99ji=fFO~utjkljl}DI2FKP', $oAuth_group);
+$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', '4k4;2kl;k;k4j3o4ouotjkl;0TN:nrtjkljl433jlwuO~u}DI2FKP');
+$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';1;0TN:nrtjkljl433Bza?!#btjkljlLQf{wc$1k$;cs=fFO~u}DI2FKP', $oAuth_group);
+$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';TN:nn8Q{U0P;0TN:nrtjkljl433ljlQf{wc$1k$;cs=fFO~u}DI2FKP', $oAuth_group);
+$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';3TN:nn8Q{eqwqweT34T43U0Ptjkljlvbduy|D>rre;0TN:nrtjkljl433', $oAuth_group);
+$oAuth_group = $oSOAP_access_manager->generate_SOAPAuthKeyInGroup('LOCALHOST_MACBOOKTERMINAL', ';4TU3U4422jJLJoi9U8u99ji=fFO;0TN:nrtjkljl433P', $oAuth_group);
 
 $oAuth_group->update_permissions('FTP|FILE|EMAIL|DEFAULT|ELECTRUM');
 //$oAuth_group->IP_exclusiveAccess($_SERVER['SERVER_ADDR']);

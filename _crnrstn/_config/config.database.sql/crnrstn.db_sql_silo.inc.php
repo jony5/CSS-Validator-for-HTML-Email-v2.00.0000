@@ -98,12 +98,12 @@ class crnrstn_database_sql_silo {
 
                     $ts = $oCRNRSTN_USR->return_queryDateTimeStamp();
 
-                    if(!$oCRNRSTN_USR->issetSessionParam('USER_ID')){
+                    if(!$oCRNRSTN_USR->isset_session_param('USER_ID')){
 
                         //
                         // THIS IS A NEW USER. GENERATE NEW USER_ID.
                         $tmp_userid = $oCRNRSTN_USR->generateNewKey(50);
-                        $oCRNRSTN_USR->setSessionParam('USER_ID', $tmp_userid);
+                        $oCRNRSTN_USR->set_session_param('USER_ID', $tmp_userid);
 
                         $query = 'INSERT INTO `sessions`
                         (`SESSIONID`,
@@ -126,7 +126,7 @@ class crnrstn_database_sql_silo {
 
                         //
                         // THIS USER SESSION IS ACTIVE. RETRIEVE USER_ID FROM SESSION.
-                        $tmp_userid = $oCRNRSTN_USR->getSessionParam('USER_ID');
+                        $tmp_userid = $oCRNRSTN_USR->get_session_param('USER_ID');
 
                         $query = 'UPDATE `sessions` SET `sessions`.`DATEMODIFIED`="'.$ts.'" 
                                 WHERE `sessions`.`SESSIONID`="'.$mysqli->real_escape_string(session_id()).'" AND 
