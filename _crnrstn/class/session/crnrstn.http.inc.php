@@ -54,6 +54,7 @@
 class crnrstn_http_manager {
 
 	public $http_headers_ARRAY;
+	public $http_headers_string;
 
     protected $oLogger;
 	protected $oCRNRSTN_USR;
@@ -81,8 +82,9 @@ class crnrstn_http_manager {
 
 	    //
         // LOAD CLIENT HEADERS
-	    $this->http_headers_ARRAY = $this->getHeaders('array');
-
+	    $this->http_headers_ARRAY = $this->getHeaders();
+        $this->http_headers_string = $this->getHeaders('string');
+        
 	    //
         // INITIALIZE CLIENT PROFILE
         $this->load_client_profile();
@@ -503,7 +505,7 @@ It took me quite a while to find out about the wrong protocol in the HTTP-header
 
                     //
                     // HANDLE TABLETS AS MOBILE
-                    if ($this->mobi_detect->isMobile($this->http_headers_ARRAY) || $this->mobi_detect->isTablet($this->http_headers_ARRAY)) {
+                    if ($this->mobi_detect->isMobile($this->http_headers_string) || $this->mobi_detect->isTablet($this->http_headers_string)) {
 
                         $this->isMobile = true;
 
@@ -517,7 +519,7 @@ It took me quite a while to find out about the wrong protocol in the HTTP-header
 
                     //
                     // EXCLUDE TABLETS FROM POSITIVE MOBILE IDENTIFICATION
-                    if ($this->mobi_detect->isMobile($this->http_headers_ARRAY) && !$this->mobi_detect->isTablet($this->http_headers_ARRAY)) {
+                    if ($this->mobi_detect->isMobile($this->http_headers_string) && !$this->mobi_detect->isTablet($this->http_headers_string)) {
 
                         $this->isMobile = true;
 
@@ -606,7 +608,7 @@ It took me quite a while to find out about the wrong protocol in the HTTP-header
                 }
 
                 if ($mobileIsTablet) {
-                    if ($this->mobi_detect->isMobile($this->http_headers_ARRAY) || $this->mobi_detect->isTablet($this->http_headers_ARRAY)) {
+                    if ($this->mobi_detect->isMobile($this->http_headers_string) || $this->mobi_detect->isTablet($this->http_headers_string)) {
 
                         $this->isTablet = true;
 
@@ -618,7 +620,7 @@ It took me quite a while to find out about the wrong protocol in the HTTP-header
 
                 } else {
 
-                    if (!$this->mobi_detect->isMobile($this->http_headers_ARRAY) && $this->mobi_detect->isTablet($this->http_headers_ARRAY)) {
+                    if (!$this->mobi_detect->isMobile($this->http_headers_string) && $this->mobi_detect->isTablet($this->http_headers_string)) {
 
                         $this->isTablet = true;
 
@@ -772,7 +774,7 @@ It took me quite a while to find out about the wrong protocol in the HTTP-header
 
                             if (!isset($this->customClientDevice['isMobile'])) {
 
-                                if ($this->oMOBI_DETECT->isMobile($this->http_headers_ARRAY)) {
+                                if ($this->oMOBI_DETECT->isMobile($this->http_headers_string)) {
 
                                     $this->customClientDevice['isMobile'] = true;
 
@@ -790,7 +792,7 @@ It took me quite a while to find out about the wrong protocol in the HTTP-header
 
                             if (!isset($this->customClientDevice['isTablet'])) {
 
-                                if ($this->oMOBI_DETECT->isTablet($this->http_headers_ARRAY)) {
+                                if ($this->oMOBI_DETECT->isTablet($this->http_headers_string)) {
 
                                     $this->customClientDevice['isTablet'] = true;
 

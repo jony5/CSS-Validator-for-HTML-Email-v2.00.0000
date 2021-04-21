@@ -1381,7 +1381,7 @@ class crnrstn_user{
 
                 return $this->injectInputSerialization($meta_profile_data);
 
-                break;
+            break;
             case CRNRSTN_UI_JS_JQUERY:
             case CRNRSTN_UI_JS_JQUERY_UI:
             case CRNRSTN_UI_JS_JQUERY_MOBILE:
@@ -1389,14 +1389,14 @@ class crnrstn_user{
 
                 return self::$oCRNRSTN_ENV->ui_content_module_out($integer_constant, $meta_profile_data);
 
-                break;
+            break;
             case CRNRSTN_UI_CSS_MAIN:
             case CRNRSTN_UI_TAG_ANALYTICS:
             case CRNRSTN_UI_TAG_ENGAGEMENT:
 
                 return '';
 
-                break;
+            break;
 
         }
 
