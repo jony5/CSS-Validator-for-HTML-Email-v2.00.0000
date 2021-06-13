@@ -4254,7 +4254,7 @@ class crnrstn_communications_css_standard{
 
         $tmp_array_encry = array();
         $tmp_array_clear = array();
-        $tmp_array_encry[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
+        $tmp_array_encry[] = 'crnrstn_l=' . $this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator');
         $tmp_array_mit_clear[] = 'crnrstn_mit=true';
         $tmp_array_alg_cear[] = 'crnrstn_css_valptrn=' . $this->oCRNRSTN_USR->generate_new_key(8, '01');
 
@@ -4514,7 +4514,7 @@ class crnrstn_communications_css_standard{
         $tmp_array_encry = array();
         $tmp_array_clear = array();
         $tmp_array_delete = array();
-        $tmp_array_encry[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
+        $tmp_array_encry[] = 'crnrstn_l=' . $this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator');
         $tmp_array_clear[] = 'crnrstn_css_valptrn=return_all';
         $tmp_array_delete[] = 'crnrstn_css_valptrn';
 
@@ -10457,7 +10457,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         $tmp_str = '';
         $tmp_array = array();
-        $tmp_array[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
+        $tmp_array[] = 'crnrstn_l=' . $this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator');
         $tmp_array[] = 'crnrstn_mit=true';
 
         $tmp_http_root = $this->oCRNRSTN_USR->append_url_param($tmp_array);
