@@ -517,7 +517,7 @@ class crnrstn_view_state_controller {
 
                                             //
                                             // RETURN CSS VALIDATION SCORE RESULTS PAGE
-                                            return $this->oCRNRSTN_USR->proper_response_return($tmp_validation_results, NULL, 'POST_REDIRECT');
+                                            return $this->oCRNRSTN_USR->proper_response_return($tmp_validation_results, NULL, 'RESPONSE_STICKY');
 
                                         }else{
 
