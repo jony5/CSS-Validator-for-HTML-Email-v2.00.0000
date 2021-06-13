@@ -257,7 +257,7 @@ class crnrstn_view_state_controller {
                     $tmp_packet_size = $tmp_validation_results['PACKET_BYTES_SIZE'];  //$this->oCRNRSTN_USR->get_session_param('PACKET_BYTES_SIZE');
                     $tmp_run_time = $tmp_validation_results['WALLTIME'];    //$this->oCRNRSTN_USR->get_session_param('WALLTIME');
 
-                    $tmp_array[] = 'crnrstn_l=css_validator';
+                    $tmp_array[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
                     $tmp_array[] = 'crnrstn_css_rtime=' . urlencode($tmp_run_time.' secs');
                     $tmp_array[] = 'bytes=' . urlencode($tmp_packet_size);
                     $tmp_array[] = 'score='.urlencode($tmp_score_numeric_raw);

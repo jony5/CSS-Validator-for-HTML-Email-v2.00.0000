@@ -109,10 +109,10 @@ switch($channel_constant[0]){
         $tmp_mit_lnk = $this->oCRNRSTN_USR->append_url_param($tmp_array);
 
         $tmp_array_encry = array();
-        $tmp_array_encry[] = 'crnrstn_l=config_wordpress';
+        $tmp_array_encry[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('config_wordpress'));
 
         $tmp_array_dash_encry = array();
-        $tmp_array_dash_encry[] = 'crnrstn_l=dashboard';
+        $tmp_array_dash_encry[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('dashboard'));
 
         $tmp_lnk_config_wordpress = $this->oCRNRSTN_USR->append_url_param($tmp_array_encry, true);
 
