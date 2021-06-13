@@ -406,7 +406,7 @@ class crnrstn_http_manager {
                     if($tunnel_encrypted){
 
                         error_log(__LINE__ . ' http RUN param_tunnel_decrypt['.$requestMethod[$name].']');
-                        return $this->oCRNRSTN_USR->param_tunnel_decrypt(trim($requestMethod[$name]), true);
+                        return $this->oCRNRSTN_USR->param_tunnel_decrypt(urldecode($requestMethod[$name]), true);
 
                     }else{
 
