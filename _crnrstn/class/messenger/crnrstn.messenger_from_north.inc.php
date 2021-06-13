@@ -4254,7 +4254,7 @@ class crnrstn_communications_css_standard{
 
         $tmp_array_encry = array();
         $tmp_array_clear = array();
-        $tmp_array_encry[] = 'crnrstn_l=css_validator';
+        $tmp_array_encry[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
         $tmp_array_mit_clear[] = 'crnrstn_mit=true';
         $tmp_array_alg_cear[] = 'crnrstn_css_valptrn=' . $this->oCRNRSTN_USR->generate_new_key(8, '01');
 
@@ -4514,7 +4514,7 @@ class crnrstn_communications_css_standard{
         $tmp_array_encry = array();
         $tmp_array_clear = array();
         $tmp_array_delete = array();
-        $tmp_array_encry[] = 'crnrstn_l=css_validator';
+        $tmp_array_encry[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
         $tmp_array_clear[] = 'crnrstn_css_valptrn=return_all';
         $tmp_array_delete[] = 'crnrstn_css_valptrn';
 
@@ -10457,7 +10457,7 @@ Formally, the display property sets an element\'s inner and outer display types.
 
         $tmp_str = '';
         $tmp_array = array();
-        $tmp_array[] = 'crnrstn_l=css_validator';
+        $tmp_array[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
         $tmp_array[] = 'crnrstn_mit=true';
 
         $tmp_http_root = $this->oCRNRSTN_USR->append_url_param($tmp_array);
@@ -10621,10 +10621,10 @@ Formally, the display property sets an element\'s inner and outer display types.
                                                             <td colspan="2">
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 17px; font-weight: bold; border-left: 10px solid #FFF;  border-top: 10px solid #FFF; border-bottom: 6px solid #FFF; color: #6885C3;\'>Validator Status ::</div>
                                                                 <div style=\'font-family:"Courier New", Courier, monospace; font-size: 13px; font-weight: normal; border-left: 10px solid #FFF; border-right: 10px solid #FFF; border-right: 10px solid #FFF; border-bottom: 10px solid #FFF; color: #6885C3; line-height:17px; \'><span style=\'font-family:"Courier New", Courier, monospace; font-size: 14px; font-weight: bold;\'>April 20, 2021 2055hrs.</span> Please scroll down for the CSS validation report details. This tool is currently under active development. 
-                                                                We just finished clearing many bugs in the <a href="./?crnrstn_l=css_validator&crnrstn_css_valptrn='.$this->oCRNRSTN_USR->generate_new_key(8, '01').'" style="color:#0066CC;">underlying rules</a> supporting the validation algorithm and also within exception handling. For now, there are still other 
+                                                                We just finished clearing many bugs in the <a href="./?crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator')) . '&crnrstn_css_valptrn='.$this->oCRNRSTN_USR->generate_new_key(8, '01').'" style="color:#0066CC;">underlying rules</a> supporting the validation algorithm and also within exception handling. For now, there are still other 
                                                                 bugs and incomplete core elements, so this tool remains in PRE-ALPHA. Once testing is complete, this brief status report will be updated to an 
                                                                 overview of the tool. <br><br>It would be nice to have share via 
-                                                                email/FTAF for this report. This project is <a href="'.$tmp_http_root.'" target="_blank">MIT Licensed</a>, and it has been pushed to <a href="'.$this->oCRNRSTN_USR->return_sticky_link('https://github.com/jony5/CSS-Validator-for-HTML-Email-v2.00.0000').'" target="_blank">GitHub</a>.</div>
+                                                                email/FTAF for this report. This project is <a href="' . $tmp_http_root . '" target="_blank">MIT Licensed</a>, and it has been pushed to <a href="'.$this->oCRNRSTN_USR->return_sticky_link('https://github.com/jony5/CSS-Validator-for-HTML-Email-v2.00.0000').'" target="_blank">GitHub</a>.</div>
                                                                 
                                                             </td>
                                                         </tr>
