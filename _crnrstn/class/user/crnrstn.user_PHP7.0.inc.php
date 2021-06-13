@@ -1737,11 +1737,11 @@ class crnrstn_user{
                         $pos_quest = strpos($tmp_post_uri, '?');
                         if ($pos_quest !== false) {
 
-                            $tmp_post_uri = $tmp_post_uri . '&crnrstn_l=' . urlencode($this->param_tunnel_encrypt('css_validator')) . '&crnrstn_css_rtime=' . urlencode($tmp_run_time) . '&bytes=' . urlencode($tmp_packet_size) . '&score=' . urlencode($tmp_score_numeric_raw);
+                            $tmp_post_uri = $tmp_post_uri . '&crnrstn_l=' . $this->param_tunnel_encrypt('css_validator') . '&crnrstn_css_rtime=' . urlencode($tmp_run_time) . '&bytes=' . urlencode($tmp_packet_size) . '&score=' . urlencode($tmp_score_numeric_raw);
 
                         } else {
 
-                            $tmp_post_uri = $tmp_post_uri . '?crnrstn_l=' . urlencode($this->param_tunnel_encrypt('css_validator')) . '&crnrstn_css_rtime=' . urlencode($tmp_run_time) . '&bytes=' . urlencode($tmp_packet_size) . '&score=' . urlencode($tmp_score_numeric_raw);
+                            $tmp_post_uri = $tmp_post_uri . '?crnrstn_l=' . $this->param_tunnel_encrypt('css_validator') . '&crnrstn_css_rtime=' . urlencode($tmp_run_time) . '&bytes=' . urlencode($tmp_packet_size) . '&score=' . urlencode($tmp_score_numeric_raw);
 
                         }
 
