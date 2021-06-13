@@ -392,7 +392,7 @@ class crnrstn_http_manager {
 
                     foreach($tmp_array as $key => $param_nom){
 
-                        //error_log(__LINE__.' http mgr check $name['.$name.'] ||  $param_nom='.$param_nom);
+                        error_log(__LINE__.' http mgr check $name['.$name.'] ||  $param_nom='.$param_nom.' val=' . $requestMethod[$name]);
                         if($param_nom == $name){
 
                             return $this->oCRNRSTN_USR->param_tunnel_decrypt($requestMethod[$name], true);
