@@ -257,7 +257,7 @@ class crnrstn_view_state_controller {
                     $tmp_packet_size = $tmp_validation_results['PACKET_BYTES_SIZE'];  //$this->oCRNRSTN_USR->get_session_param('PACKET_BYTES_SIZE');
                     $tmp_run_time = $tmp_validation_results['WALLTIME'];    //$this->oCRNRSTN_USR->get_session_param('WALLTIME');
 
-                    $tmp_array[] = 'crnrstn_l=' . urlencode($this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator'));
+                    $tmp_array[] = 'crnrstn_l=' . $this->oCRNRSTN_USR->param_tunnel_encrypt('css_validator');
                     $tmp_array[] = 'crnrstn_css_rtime=' . urlencode($tmp_run_time.' secs');
                     $tmp_array[] = 'bytes=' . urlencode($tmp_packet_size);
                     $tmp_array[] = 'score='.urlencode($tmp_score_numeric_raw);
@@ -470,7 +470,13 @@ class crnrstn_view_state_controller {
                         $tmp_mit = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_mit', 'GET');                 // GETS YOU LICENSE...ALWAYS
 
                         if($this->oCRNRSTN_USR->isset_HTTP_Param('crnrstn_r', 'GET')) {
+
                             $tmp_crnrstn_r = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_r', 'GET', true);       // INDICATION OF REDIRECT
+
+                        }else{
+
+                            $tmp_crnrstn_r = '';
+
                         }
 
                         $tmp_crnrstn_kivotos = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_kivotos');        // YOU ARE SECURELY IN THE BOX..? OR USE SESSION...
