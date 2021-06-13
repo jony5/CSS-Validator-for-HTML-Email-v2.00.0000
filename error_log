@@ -3984,3 +3984,23 @@ Stack trace:
 #3 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php(336): crnrstn_user->sync_device_detected()
 #4 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php(184): crnrstn_user->init_channel()
  in /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php on line 7094
+[13-Jun-2021 05:48:19 America/New_York] 9698 env ABOUT TO TRY TO no_cars_go_DEFAULT()...
+[13-Jun-2021 05:48:19 America/New_York] ** The CRNRSTN :: configuration file debug mode of "0" prevents aggregation of log trace data. **
+[13-Jun-2021 05:48:19 America/New_York] #0 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/environmentals/crnrstn.env.inc.php(202): crnrstn->getServerEnv()
+#1 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn.config.inc.php(1245): crnrstn_environment->__construct(Object(crnrstn))
+#2 /home2/jonyfivc/public_html/github.css.validate.jony5.com/index.php(6): include_once('/home2/jonyfivc...')
+#3 {main}
+[13-Jun-2021 05:48:19 America/New_York] 9698 env ABOUT TO TRY TO no_cars_go_DEFAULT()...
+[13-Jun-2021 05:48:19 America/New_York] ** The CRNRSTN :: configuration file debug mode of "0" prevents aggregation of log trace data. **
+[13-Jun-2021 05:48:19 America/New_York] #0 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn.config.inc.php(1245): crnrstn_environment->__construct(Object(crnrstn))
+#1 /home2/jonyfivc/public_html/github.css.validate.jony5.com/index.php(6): include_once('/home2/jonyfivc...')
+#2 {main}
+[13-Jun-2021 05:48:19 America/New_York] 1998 user run sync_device_detected()
+[13-Jun-2021 05:48:19 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function isset_session_param() on null in /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php:7094
+Stack trace:
+#0 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/session/crnrstn.http.inc.php(297): crnrstn_user->isset_session_param('CRNRSTN_DEVICE_...')
+#1 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/environmentals/crnrstn.env.inc.php(411): crnrstn_http_manager->sync_device_detected(Object(crnrstn_user))
+#2 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php(2000): crnrstn_environment->sync_device_detected(Object(crnrstn_user))
+#3 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php(336): crnrstn_user->sync_device_detected()
+#4 /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php(184): crnrstn_user->init_channel()
+ in /home2/jonyfivc/public_html/github.css.validate.jony5.com/_crnrstn/class/user/crnrstn.user_PHP7.0.inc.php on line 7094
