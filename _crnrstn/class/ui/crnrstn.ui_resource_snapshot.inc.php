@@ -468,7 +468,11 @@ class crnrstn_view_state_controller {
 
                         $tmp_req = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_l', 'GET', true);             // GETS YOU IN THE DOOR
                         $tmp_mit = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_mit', 'GET');                 // GETS YOU LICENSE...ALWAYS
-                        $tmp_crnrstn_r = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_r', 'GET', true);       // INDICATION OF REDIRECT
+
+                        if($this->oCRNRSTN_USR->isset_HTTP_Param('crnrstn_r', 'GET')) {
+                            $tmp_crnrstn_r = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_r', 'GET', true);       // INDICATION OF REDIRECT
+                        }
+
                         $tmp_crnrstn_kivotos = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_kivotos');        // YOU ARE SECURELY IN THE BOX..? OR USE SESSION...
                         $tmp_crnrstn_css_rtime = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_css_rtime');    // INDICATION OF CSS VALIDATOR RESULTS OUT
                         $tmp_crnrstn_css_valptrn = $this->oCRNRSTN_USR->extractData_HTTP('crnrstn_css_valptrn');// INDICATION OF CSS VALIDATOR ALGORITHM OUT
