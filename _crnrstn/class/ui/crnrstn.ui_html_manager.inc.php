@@ -82,7 +82,7 @@ class crnrstn_ui_html_manager {
 
             //
             // SET (OR RESET) THIS DATA. THERE SHOULD ALWAYS AND ONLY BE ONE.
-            $tmp_bit = $oCRNRSTN_USR->sync_device_detected($this);
+            $tmp_bit = $oCRNRSTN_USR->sync_device_detected();
             error_log(__LINE__ . ' ui html sync_device_detected() $tmp_bit=' . print_r($tmp_bit, true));
 
         }
