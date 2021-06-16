@@ -1171,7 +1171,8 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('BLUEHOST', 'CRNRSTN_PROXY_WSDL_ENDPOINT', 'http://css.validate.jony5.com/_crnrstn/soa/?wsdl');  //http://v2.crnrstn.evifweb.com/
     $oCRNRSTN->define_env_resource('BLUEHOST', 'PROXY_SEND_ENABLED', false);
 
-
+    //
+    // BEGIN CONFIG FOR NEXT ENVIRONMENT
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'DOMAIN', 'github.css.validate.jony5.com');
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'SERVER_NAME', 'github.css.validate.jony5.com');
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'SERVER_ADDR', '162.241.252.206');
@@ -1204,7 +1205,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'PROXY_SEND_ENABLED', false);
 
     //
-	// BEGIN CONFIG FOR NEXT ENVIRONMENT
+    // BEGIN CONFIG FOR NEXT ENVIRONMENT
 	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOMAIN', '172.16.195.132');
 	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_NAME', '172.16.195.132');
 	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_ADDR', '172.16.195.132');
