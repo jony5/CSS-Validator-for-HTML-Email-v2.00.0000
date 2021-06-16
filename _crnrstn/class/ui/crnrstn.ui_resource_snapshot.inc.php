@@ -193,13 +193,11 @@ class crnrstn_view_state_controller {
 
         }else{
 
-            $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
+            if(!isset($this->oCRNRSTN_AUTH)) {
 
-        }
+                $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
 
-        if(!isset($this->oCRNRSTN_AUTH)) {
-
-            $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
+            }
 
         }
 
