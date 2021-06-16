@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obs_overlay_profile>
+        <profile>
+            <pid>5555gaatXgJk4C5WuVwJOqvzaazwswaQR1he0alDvFsP8PU8KAAYuKDMWWjF8wLMUG1HXu</pid>
+            <lastmodified>10/02/2019 00:00:00</lastmodified>
+            <type>mini</type>
+            <master_overlay_visible_BOOL>false</master_overlay_visible_BOOL>
+            <timer_overlay_visible_BOOL>true</timer_overlay_visible_BOOL>
+            <overlay_mode>FULL</overlay_mode>
+            <timer_mode>RESET</timer_mode>
+            <height_mgmt_mode>DYNAMIC</height_mgmt_mode>
+            <timer_override_parameter>false</timer_override_parameter>
+            <timer_override_transaction_hash>false</timer_override_transaction_hash>
+            <mini_full_ai_sleep_time>10000</mini_full_ai_sleep_time>
+            <mini_full_ai_lang_pack_iteration_cnt>1</mini_full_ai_lang_pack_iteration_cnt>
+
+            <mini_scrl_ai_sleep_time>30000</mini_scrl_ai_sleep_time>
+            <mini_scrl_ai_lang_pack_iteration_cnt>1</mini_scrl_ai_lang_pack_iteration_cnt>
+
+            <mini_ai_alternate_overlay_mode>EQUAL</mini_ai_alternate_overlay_mode>
+
+            <mdtmr_bgwidth>175</mdtmr_bgwidth>
+            <mdtmr_bgheight>75</mdtmr_bgheight>
+            <mdtmr_bgopacity>0.7</mdtmr_bgopacity>
+            <mdtmr_bgcolor>#FFFFFF</mdtmr_bgcolor>
+            <mdtmr_bgbrdrcolor>#9499A6</mdtmr_bgbrdrcolor>
+            <mdtmr_pxfromtop>550</mdtmr_pxfromtop>
+            <mdtmr_pxfromleft>0</mdtmr_pxfromleft>
+            <mdtmr_brdrleftwidth>0</mdtmr_brdrleftwidth>
+            <mdtmr_brdrtopwidth>3</mdtmr_brdrtopwidth>
+            <mdtmr_brdrrightwidth>3</mdtmr_brdrrightwidth>
+            <mdtmr_brdrbttmwidth>3</mdtmr_brdrbttmwidth>
+            <mdtmr_copy_time_padleft>20</mdtmr_copy_time_padleft>
+            <mdtmr_copy_time_padright>0</mdtmr_copy_time_padright>
+
+            <mdscrl_bgwidth>575</mdscrl_bgwidth>
+            <mdscrl_bgheight>75</mdscrl_bgheight>
+            <mdscrl_bgopacity>1.0</mdscrl_bgopacity>
+            <mdscrl_bgcolor>#FFFFFF</mdscrl_bgcolor>
+            <mdscrl_bgbrdrcolor>#9499A6</mdscrl_bgbrdrcolor>
+            <mdscrl_pxfromtop>550</mdscrl_pxfromtop>
+            <mdscrl_pxfromleft>0</mdscrl_pxfromleft>
+            <mdscrl_brdrleftwidth>0</mdscrl_brdrleftwidth>
+            <mdscrl_brdrtopwidth>3</mdscrl_brdrtopwidth>
+            <mdscrl_brdrrightwidth>3</mdscrl_brdrrightwidth>
+            <mdscrl_brdrbttmwidth>3</mdscrl_brdrbttmwidth>
+            <mdscrl_copy_time_padleft>20</mdscrl_copy_time_padleft>
+            <mdscrl_copy_time_padright>0</mdscrl_copy_time_padright>
+
+            <mdfull_bgwidth>340</mdfull_bgwidth>
+            <mdfull_bgheight>200</mdfull_bgheight>
+            <mdfull_bgopacity>0.7</mdfull_bgopacity>
+            <mdfull_bgcolor>#FFFFFF</mdfull_bgcolor>
+            <mdfull_bgbrdrcolor>#9499A6</mdfull_bgbrdrcolor>
+            <mdfull_pxfromtop>425</mdfull_pxfromtop>
+            <mdfull_pxfromleft>0</mdfull_pxfromleft>
+            <mdfull_brdrleftwidth>0</mdfull_brdrleftwidth>
+            <mdfull_brdrtopwidth>3</mdfull_brdrtopwidth>
+            <mdfull_brdrrightwidth>3</mdfull_brdrrightwidth>
+            <mdfull_brdrbttmwidth>3</mdfull_brdrbttmwidth>
+            <mdfull_copy_time_padleft>20</mdfull_copy_time_padleft>
+            <mdfull_copy_time_padright>0</mdfull_copy_time_padright>
+
+            <mdfull_lang_rotate_interval>42</mdfull_lang_rotate_interval>
+            <mdfull_sub_copy_rotate_interval>12</mdfull_sub_copy_rotate_interval>
+            <mdscrl_scroll_speed>5</mdscrl_scroll_speed>
+            <mdscrl_lang_rotate_interval>42</mdscrl_lang_rotate_interval>
+            <mdfull_copy_sect_a_color>#262626</mdfull_copy_sect_a_color>
+            <mdfull_copy_sect_b_color>#1A182D</mdfull_copy_sect_b_color>
+            <mdfull_hr_color>#757B8D</mdfull_hr_color>
+            <mdtmr_copy_time_color>#1A182D</mdtmr_copy_time_color>
+            <mdfull_copy_time_color>#1A182D</mdfull_copy_time_color>
+            <mdscrl_copy_time_color>#1A182D</mdscrl_copy_time_color>
+            <mdtmr_copy_time_size_px>36</mdtmr_copy_time_size_px>
+            <mdscrl_copy_time_size_px>36</mdscrl_copy_time_size_px>
+            <mdfull_copy_time_size_px>36</mdfull_copy_time_size_px>
+            <mdfull_copy_sect_a_size_px>24</mdfull_copy_sect_a_size_px>
+            <mdfull_copy_sect_b_size_px>24</mdfull_copy_sect_b_size_px>
+            <name>SE Blend Conf - Msg 1</name>
+            <lang_pack_translations>
+                <lang_pack>
+                    <lang_id>en</lang_id>
+                    <copy_m_title><![CDATA[The Ultimate Revelation of Jesus Christ and the Vision of the Enthroned Christ as the Administrator in God's Universal Government]]></copy_m_title>
+                    <copy_m_message><![CDATA[Message 1:]]></copy_m_message>
+                    <copy_m_conference><![CDATA[Southeast Blending Conference April 6-8, 2019 Atlanta, Georgia]]></copy_m_conference>
+                    <copy_m_date><![CDATA[Friday April 6, 2019]]></copy_m_date>
+                    <copy_m_scroll_speed>50</copy_m_scroll_speed>
+                    <copy_m_scroll_direction>right_to_left</copy_m_scroll_direction>
+                    <copy_m_font_size_percentage>120</copy_m_font_size_percentage>
+                    <copy_m_font_color_hex>#1A182D</copy_m_font_color_hex>
+                    <copy_m_padding_top_px>14</copy_m_padding_top_px>
+                    <content_shell_padding_top>0</content_shell_padding_top>
+                    <timer_m_font_size_percentage>140</timer_m_font_size_percentage>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=mini&amp;amp;lang_id=en</cleartext_endpoint>
+                    <copy_hash>aazwswaegwgewfewfgwgwernxOwlDvfwfeFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>es</lang_id>
+                    <copy_m_title><![CDATA[La última revelación de Jesucristo y la visión de Cristo entronizado como el administrador de Dios Gobierno universal]]></copy_m_title>
+                    <copy_m_message><![CDATA[Mensaje 1:]]></copy_m_message>
+                    <copy_m_conference><![CDATA[Conferencia de mezcla del sudeste Abril 6-8, 2019 Atlanta, Georgia]]></copy_m_conference>
+                    <copy_m_date><![CDATA[Viernes Abril 6, 2019]]></copy_m_date>
+                    <copy_m_scroll_speed>50</copy_m_scroll_speed>
+                    <copy_m_scroll_direction>right_to_left</copy_m_scroll_direction>
+                    <copy_m_font_size_percentage>120</copy_m_font_size_percentage>
+                    <copy_m_font_color_hex>#1A182D</copy_m_font_color_hex>
+                    <copy_m_padding_top_px>14</copy_m_padding_top_px>
+                    <content_shell_padding_top>0</content_shell_padding_top>
+                    <timer_m_font_size_percentage>140</timer_m_font_size_percentage>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=mini&amp;amp;lang_id=es</cleartext_endpoint>
+                    <copy_hash>aazwswaQRzgwegffwfewfwfewfeggOwlDvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>ko</lang_id>
+                    <copy_m_title><![CDATA[예수 그리스도의 궁극적 인 계시와 비전 하나님의 행정관으로서의 그리스도의 말씀 보편적 정부]]></copy_m_title>
+                    <copy_m_message><![CDATA[메시지 1:]]></copy_m_message>
+                    <copy_m_conference><![CDATA[남동 혼합 회의 4월 6-8, 2019 Atlanta, Georgia]]></copy_m_conference>
+                    <copy_m_date><![CDATA[금요일 4월 6, 2019]]></copy_m_date>
+                    <copy_m_scroll_speed>50</copy_m_scroll_speed>
+                    <copy_m_scroll_direction>right_to_left</copy_m_scroll_direction>
+                    <copy_m_font_size_percentage>140</copy_m_font_size_percentage>
+                    <copy_m_font_color_hex>#1A182D</copy_m_font_color_hex>
+                    <copy_m_padding_top_px>11</copy_m_padding_top_px>
+                    <content_shell_padding_top>1</content_shell_padding_top>
+                    <timer_m_font_size_percentage>140</timer_m_font_size_percentage>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=&amp;amp;type=mini&amp;amp;lang_id=ko</cleartext_endpoint>
+                    <copy_hash>aazfwfwfwswaQRejwrirOwlDfewfvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>zh</lang_id>
+                    <copy_m_title><![CDATA[耶穌基督的終極啟示與異象 作為上帝的管理者，登基的基督 普遍政府]]></copy_m_title>
+                    <copy_m_message><![CDATA[消息1:]]></copy_m_message>
+                    <copy_m_conference><![CDATA[東南混合會議 四月 6-8, 2019 Atlanta, Georgia]]></copy_m_conference>
+                    <copy_m_date><![CDATA[星期五 四月 6, 2019]]></copy_m_date>
+                    <copy_m_scroll_speed>50</copy_m_scroll_speed>
+                    <copy_m_scroll_direction>right_to_left</copy_m_scroll_direction>
+                    <copy_m_font_size_percentage>140</copy_m_font_size_percentage>
+                    <copy_m_font_color_hex>#1A182D</copy_m_font_color_hex>
+                    <copy_m_padding_top_px>11</copy_m_padding_top_px>
+                    <content_shell_padding_top>5</content_shell_padding_top>
+                    <timer_m_font_size_percentage>140</timer_m_font_size_percentage>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=&amp;amp;type=mini&amp;amp;lang_id=zh</cleartext_endpoint>
+                    <copy_hash>aazwswaQRrffewfwhjhjkfwfewrewjojwwOwlDvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>my</lang_id>
+                    <copy_m_title><![CDATA[ယေရှုခရစ်၏ Ultimate ဗြာနှငျ့ဘုရားသခငျရဲ့ Universal အစိုးရအတွက်အုပ်ချုပ်ရေးမှူးအဖြစ်နနျးတငျခရစ်တော်၏မျှော်မှန်းချက်]]></copy_m_title>
+                    <copy_m_message><![CDATA[မက်ဆေ့ခ်ျကို 1:]]></copy_m_message>
+                    <copy_m_conference><![CDATA[အရှေ့တောင် Blending ညီလာခံ ဧပြီလ 6-8, 2019 အတ္တလန်တာ, ဂျော်ဂျီယာ]]></copy_m_conference>
+                    <copy_m_date><![CDATA[သောကြာနေ့ဧပြီလ 6, 2019]]></copy_m_date>
+                    <copy_m_scroll_speed>50</copy_m_scroll_speed>
+                    <copy_m_scroll_direction>right_to_left</copy_m_scroll_direction>
+                    <copy_m_font_size_percentage>140</copy_m_font_size_percentage>
+                    <copy_m_font_color_hex>#1A182D</copy_m_font_color_hex>
+                    <copy_m_padding_top_px>11</copy_m_padding_top_px>
+                    <content_shell_padding_top>8</content_shell_padding_top>
+                    <timer_m_font_size_percentage>140</timer_m_font_size_percentage>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=&amp;amp;type=mini&amp;amp;lang_id=zh</cleartext_endpoint>
+                    <copy_hash>aazwswaQRrwhjhjkfwwrewjojwwOwlDvFsP</copy_hash>
+                </lang_pack>
+            </lang_pack_translations>
+
+            <config_hash>aazwjDffhhjkFsP</config_hash>
+        </profile>
+
+</obs_overlay_profile>

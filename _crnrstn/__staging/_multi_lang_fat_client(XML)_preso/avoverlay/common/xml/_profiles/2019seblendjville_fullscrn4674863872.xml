@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obs_overlay_profile>
+        <profile>
+            <pid>xuTLgaatXgJk4C5WuVwJOqvzaazwswaQRznxOwlDvFsP8PU8KAAYuKDMWWjF8wLMUG1HXu</pid>
+            <lastmodified>10/02/2019 00:00:00</lastmodified>
+            <type>full</type>
+            <master_overlay_visible_BOOL>true</master_overlay_visible_BOOL>
+            <copy_overlay_visible_BOOL>true</copy_overlay_visible_BOOL>
+            <height_mgmt_mode>DYNAMIC</height_mgmt_mode>
+
+            <master_overlay_display_area_width_in_px>4000</master_overlay_display_area_width_in_px>
+            <master_overlay_display_area_height_in_px>2000</master_overlay_display_area_height_in_px>
+            <copy_display_area_width_in_px>700</copy_display_area_width_in_px>
+            <copy_display_area_height_in_px>600</copy_display_area_height_in_px>
+
+            <master_overlay_bgcolor>#F9F6F9</master_overlay_bgcolor>
+            <master_overlay_bgopacity>0.9</master_overlay_bgopacity>
+            <overlay_copy_color>#1A182D</overlay_copy_color>
+
+            <lang_pack_rotation_interval_secs>25</lang_pack_rotation_interval_secs>
+            <subcopy_rotation_interval_secs>12</subcopy_rotation_interval_secs>
+
+            <name>SE Blend Conf - Schedule</name>
+            <lang_pack_translations>
+                <lang_pack>
+                    <lang_id>en</lang_id>
+                    <copy_fullscrn_header><![CDATA[Southeast Blending Conference</br>April 6-8, 2019</br>Atlanta, Georgia]]></copy_fullscrn_header>
+                    <copy_fullscrn_title><![CDATA[Conference Schedule]]></copy_fullscrn_title>
+                    <copy00_fullscrn_body><![CDATA[<div class="cb_20"></div><div class="schedule_day_title">Friday, April 6</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">7:30 p.m.</div>
+    <div class="schedule_element_activity"><strong>First Conference Meeting</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">Saturday, April 7</div>
+
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 a.m.</div>
+    <div class="schedule_element_activity"><strong>Second Conference Meeting</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">12:30 p.m.</div>
+    <div class="schedule_element_activity">Corporate Lunch at the Meeting Hall</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 p.m.</div>
+    <div class="schedule_element_activity">Responsible brothers' Meeting</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 p.m.</div>
+    <div class="schedule_element_activity">Young People's Meeting - College Age, HS, Jr. High</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">5:00 p.m.</div>
+    <div class="schedule_element_activity">Cookout for YP - College Age, HS, Jr. High</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">7:30 p.m.</div>
+    <div class="schedule_element_activity"><strong>Third Conference Meeting</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">Lord's Day, April 8</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">9:30 a.m.</div>
+    <div class="schedule_element_activity">Lord's Table</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 a.m.</div>
+    <div class="schedule_element_activity"><strong>Fourth Conference Meeting</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="cb"></div>
+]]></copy00_fullscrn_body>
+                    <copy01_fullscrn_body>0</copy01_fullscrn_body>
+                    <copy02_fullscrn_body>0</copy02_fullscrn_body>
+                    <copy03_fullscrn_body>0</copy03_fullscrn_body>
+                    <copy04_fullscrn_body>0</copy04_fullscrn_body>
+                    <copy_fullscrn_font_size_percentage>120</copy_fullscrn_font_size_percentage>
+                    <copy_fullscrn_font_color_hex>#1A182D</copy_fullscrn_font_color_hex>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=full&amp;amp;lang_id=en</cleartext_endpoint>
+                    <copy_hash>aazwswaQRznxOwlDvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>es</lang_id>
+                    <copy_fullscrn_header><![CDATA[Conferencia de mezcla del sudeste</br>Abril 6-8, 2019</br>Atlanta, Georgia]]></copy_fullscrn_header>
+                    <copy_fullscrn_title><![CDATA[Horario de conferencia]]></copy_fullscrn_title>
+                    <copy00_fullscrn_body><![CDATA[<div class="cb_20"></div><div class="schedule_day_title">Viernes 6 de abril</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">7:30 p.m.</div>
+    <div class="schedule_element_activity"><strong>Primera reunión de la conferencia</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">Saturday, April 7</div>
+
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 a.m.</div>
+    <div class="schedule_element_activity"><strong>Segunda reunión de la conferencia</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">12:30 p.m.</div>
+    <div class="schedule_element_activity">Almuerzo corporativo en la sala de reuniones</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 p.m.</div>
+    <div class="schedule_element_activity">Encuentro de hermanos responsables</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 p.m.</div>
+    <div class="schedule_element_activity">Encuentro de jóvenes -<br/>Edad universitaria, bachillerato, secundaria</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">5:00 p.m.</div>
+    <div class="schedule_element_activity">Comida al aire libre para jóvenes -<br/>Edad universitaria, bachillerato, secundaria</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">7:30 p.m.</div>
+    <div class="schedule_element_activity"><strong>Tercera reunión de la conferencia</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">Día del Señor, 8 de abril.</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">9:30 a.m.</div>
+    <div class="schedule_element_activity">La mesa del señor</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 a.m.</div>
+    <div class="schedule_element_activity"><strong>Cuarta reunión de la conferencia</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="cb"></div>
+]]></copy00_fullscrn_body>
+                    <copy01_fullscrn_body>0</copy01_fullscrn_body>
+                    <copy02_fullscrn_body>0</copy02_fullscrn_body>
+                    <copy03_fullscrn_body>0</copy03_fullscrn_body>
+                    <copy04_fullscrn_body>0</copy04_fullscrn_body>
+                    <copy_fullscrn_font_size_percentage>120</copy_fullscrn_font_size_percentage>
+                    <copy_fullscrn_font_color_hex>#1A182D</copy_fullscrn_font_color_hex>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=full&amp;amp;lang_id=es</cleartext_endpoint>
+                    <copy_hash>aazwswaQRznxOwlDvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>ko</lang_id>
+                    <copy_fullscrn_header><![CDATA[남동 혼합 회의</br>4월 6-8, 2019</br>Atlanta, Georgia]]></copy_fullscrn_header>
+                    <copy_fullscrn_title><![CDATA[회의 일정]]></copy_fullscrn_title>
+                    <copy00_fullscrn_body><![CDATA[<div class="cb_20"></div><div class="schedule_day_title">4 월 6 일 금요일</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오후 7시 30 분.</div>
+    <div class="schedule_element_activity"><strong>첫 회의 모임</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">4 월 7 일 토요일</div>
+
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오전 10시.</div>
+    <div class="schedule_element_activity"><strong>제 2 차 회의</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오후 12시 30 분</div>
+    <div class="schedule_element_activity">회의실에서 기업 점심</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오후 3시</div>
+    <div class="schedule_element_activity">책임있는 형제 모임</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오후 3시</div>
+    <div class="schedule_element_activity">청소년 회의 - 대학 나이, 고등학교, 중학교</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오후 5시.</div>
+    <div class="schedule_element_activity">젊은이들을위한 요리 - 대학 나이, 고등학교, 중학교</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오후 7시 30 분.</div>
+    <div class="schedule_element_activity"><strong>제 3 차 회의</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">4 월 8 일 주일</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오전 9:30</div>
+    <div class="schedule_element_activity">주님의 테이블</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">오전 10시.</div>
+    <div class="schedule_element_activity"><strong>제 4 차 회의</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="cb"></div>
+]]></copy00_fullscrn_body>
+                    <copy01_fullscrn_body>0</copy01_fullscrn_body>
+                    <copy02_fullscrn_body>0</copy02_fullscrn_body>
+                    <copy03_fullscrn_body>0</copy03_fullscrn_body>
+                    <copy04_fullscrn_body>0</copy04_fullscrn_body>
+                    <copy_fullscrn_font_size_percentage>150</copy_fullscrn_font_size_percentage>
+                    <copy_fullscrn_font_color_hex>#1A182D</copy_fullscrn_font_color_hex>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=full&amp;amp;lang_id=ko</cleartext_endpoint>
+                    <copy_hash>aazwswaQRznxOwlDvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>zh</lang_id>
+                    <copy_fullscrn_header><![CDATA[東南混合會議</br>四月 6-8, 2019</br>Atlanta, Georgia]]></copy_fullscrn_header>
+                    <copy_fullscrn_title><![CDATA[會議日程]]></copy_fullscrn_title>
+                    <copy00_fullscrn_body><![CDATA[<div class="cb_20"></div><div class="schedule_day_title">4月6日，星期五</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">晚上7:30</div>
+    <div class="schedule_element_activity"><strong>第一次會議</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">4月7日，星期六</div>
+
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 AM。</div>
+    <div class="schedule_element_activity"><strong>第二屆會議</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">下午12:30</div>
+    <div class="schedule_element_activity">會議廳的公司午餐</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 PM。</div>
+    <div class="schedule_element_activity">負責兄弟會</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 PM。</div>
+    <div class="schedule_element_activity">青年會議 - 大學年齡，高中，初中</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">5:00 PM。</div>
+    <div class="schedule_element_activity">年輕人的野炊 - 大學年齡，高中，初中</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">晚上7:30</div>
+    <div class="schedule_element_activity"><strong>第三屆會議</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">4月8日主日</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">上午9:30</div>
+    <div class="schedule_element_activity">主桌</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 AM。</div>
+    <div class="schedule_element_activity"><strong>第四次會議</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="cb"></div>
+]]></copy00_fullscrn_body>
+                    <copy01_fullscrn_body>0</copy01_fullscrn_body>
+                    <copy02_fullscrn_body>0</copy02_fullscrn_body>
+                    <copy03_fullscrn_body>0</copy03_fullscrn_body>
+                    <copy04_fullscrn_body>0</copy04_fullscrn_body>
+                    <copy_fullscrn_font_size_percentage>150</copy_fullscrn_font_size_percentage>
+                    <copy_fullscrn_font_color_hex>#1A182D</copy_fullscrn_font_color_hex>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=full&amp;amp;lang_id=zh</cleartext_endpoint>
+                    <copy_hash>aazwswaQRznxOwlDvFsP</copy_hash>
+                </lang_pack>
+                <lang_pack>
+                    <lang_id>my</lang_id>
+                    <copy_fullscrn_header><![CDATA[အရှေ့တောင် Blending ညီလာခံ<br/>ဧပြီလ 6-8, 2019<br/>အတ္တလန်တာ, ဂျော်ဂျီယာ]]></copy_fullscrn_header>
+                    <copy_fullscrn_title><![CDATA[ညီလာခံဇယား]]></copy_fullscrn_title>
+                    <copy00_fullscrn_body><![CDATA[<div class="cb_20"></div><div class="schedule_day_title">သောကြာနေ့, ဧပြီ 6</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">7:30 p.m.</div>
+    <div class="schedule_element_activity"><strong>ပထမဦးစွာညီလာခံအစည်းအဝေး</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">စနေနေ့, ဧပြီ 7</div>
+
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 a.m.</div>
+    <div class="schedule_element_activity"><strong>ဒုတိယအညီလာခံအစည်းအဝေး</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">12:30 p.m.</div>
+    <div class="schedule_element_activity">အဆိုပါအစည်းအဝေးခန်းမ၌ corporate နေ့လည်စာ</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 p.m.</div>
+    <div class="schedule_element_activity">တာဝန်ရှိညီအစ်ကိုတွေ အစည်းအဝေး</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">3:00 p.m.</div>
+    <div class="schedule_element_activity">လူငယျမြားရဲ့အစည်းအဝေး -<br/>ကောလိပ်ခေတ်, အထက်တန်းကျောင်း, အငယ်တန်းအမြင့်</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">5:00 p.m.</div>
+    <div class="schedule_element_activity">လူငယ်များအဘို့အထွက်ချက်ပြုတ် -<br/>ကောလိပ်ခေတ်, အထက်တန်းကျောင်း, အငယ်တန်းအမြင့်</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">7:30 p.m.</div>
+    <div class="schedule_element_activity"><strong>တတိယညီလာခံအစည်းအဝေး</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_day_title">သခင်ဘုရား၏နေ့, ဧပြီ 8</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">9:30 a.m.</div>
+    <div class="schedule_element_activity">သခင်ဘုရား၏ဇယား</div>
+    <div class="cb"></div>
+</div>
+<div class="schedule_element_wrapper">
+    <div class="schedule_element_time">10:00 a.m.</div>
+    <div class="schedule_element_activity"><strong>စတုတ္ထညီလာခံအစည်းအဝေး</strong></div>
+    <div class="cb"></div>
+</div>
+<div class="cb"></div>
+]]></copy00_fullscrn_body>
+                    <copy01_fullscrn_body>0</copy01_fullscrn_body>
+                    <copy02_fullscrn_body>0</copy02_fullscrn_body>
+                    <copy03_fullscrn_body>0</copy03_fullscrn_body>
+                    <copy04_fullscrn_body>0</copy04_fullscrn_body>
+                    <copy_fullscrn_font_size_percentage>140</copy_fullscrn_font_size_percentage>
+                    <copy_fullscrn_font_color_hex>#1A182D</copy_fullscrn_font_color_hex>
+                    <cleartext_endpoint>http://172.16.225.128/jony5/social/fellowship/avsvc_overlay/_lib/xml/_cleartext/?pid=123&amp;amp;type=full&amp;amp;lang_id=zh</cleartext_endpoint>
+                    <copy_hash>aazwswaQRznxOwlDvFsP</copy_hash>
+                </lang_pack>
+            </lang_pack_translations>
+
+            <config_hash>aazwswaQRznjkjjwlDvFsP</config_hash>
+        </profile>
+
+</obs_overlay_profile>

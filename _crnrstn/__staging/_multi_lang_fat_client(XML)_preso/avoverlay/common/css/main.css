@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/*
+// J5
+// Code is Poetry */
+
+*									{ border:0px; padding:0px; margin:0px; font-family:Arial, Helvetica, sans-serif;}
+body 								{ background-color: transparent; padding:0px; margin:0px; width:700px;}
+p									{ padding-top:5px; padding-bottom:5px; font-size:16px; line-height:23px;}
+blockquote							{ padding-left:15px; font-size:13px;}
+li									{ margin-left:20px;}
+a                                   { text-decoration: none; color:#0066CC;}
+input, textarea, select                     { background-color: #D0D0E0; border: 1px solid #6B5555; height: 35px; font-size:16px; color:#1A182D; padding:5px 0 5px 8px;}
+
+.admin_lnk                          { font-size:15px; font-weight: normal;}
+
+.main_content_wrapper               { padding: 20px;}
+.overlay_mgmt_title                 { font-size:25px; font-weight: bold; padding-bottom: 10px;}
+.admin_section_title                { font-weight: bold; font-size: 22px; padding: 20px 0 10px 0;}
+
+.global_header_wrapper              { width:100%; padding: 0 0 10px 0; text-align: left;}
+.mini_realtime_status_wrapper       {color:#97A4B7; font-size: 26px; font-weight: bold;}
+.fullscrn_realtime_status_wrapper   {color:#97A4B7; font-size: 26px; font-weight: bold;}
+
+.hdr_hr                             { width:100%; text-align: center; margin: 0px auto; clear:both; border-bottom: 2px solid #E6E6E6;}
+.hdr_hr2                             { width:100%; text-align: center; margin: 0px auto; clear:both; border-bottom: 2px solid #CCC;}
+
+.admin_nav_wrap                     { width:100%; padding: 15px; background-color: #000;}
+.admin_nav_lnk a                    { font-size:25px; float:left; padding-right:30px; text-decoration: none; color: #E6E6E6;}
+
+.sub_section_elem_wrapper           { padding: 0 0 10px 20px;}
+.sub_sect_elem                      { float:left; width:220px;}
+.sub_sect_profile_elem              { float:left; width:180px;}
+.sub_sect_elem_state                {float:left;}
+
+.sub_sub_section_elem_wrapper       { padding: 0 0 10px 40px; font-size: 80%;}
+
+.state_superscript                  { float: left; color:#FF3333; font-weight: bold; position: relative; top: -0.5em; font-size: 80%;}
+.super_able_elem                    { float: left;}
+.sel                                { font-weight: bold; color:#FF3333;}
+
+.sub_sect_elem_admin_lnk            { float: left; width:30px; padding:0 10px 0 10px;}
+.sub_sect_elem_mod                  { float:left; font-size:13px; padding-top:2px; padding-left: 40px;}
+.elem_curr_profile                  { font-style: italic;}
+
+/*FORM*/
+.form_element_label                 { padding:0 0 5px 0;}
+.input_validation_copy              { color:#FF3333; font-weight: bold; padding-top:3px;}
+.form_submit_btn                    { padding:10px; background-color:#1e6abc; color:#FFF; border:1px solid #0000cc; cursor: pointer;}
+.form_cancel_btn                    { padding:10px; background-color:#8E141A; color:#FFF; border:1px solid #0000cc; cursor: pointer; }
+
+.mgmt_lnk_btn                       {font-size: 19px; background-color: #0084FF; border: solid 2px #0000FF; padding:20px 15px 20px 25px; margin:20px 0 20px 0; color:#FFF; font-weight: bold; cursor:pointer;}
+
+
+
+/*UTILITY*/
+.hidden								{ width:0px; height:0px; position:absolute; left:-2000px; overflow:hidden;}
+.cb 								{ display:block; clear:both; height:0px; line-height:0px; overflow:hidden; width:100%; font-size:1px;}
+.cb_5	 							{ display:block; clear:both; height:5px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_10	 							{ display:block; clear:both; height:10px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_15	 							{ display:block; clear:both; height:15px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_20								{ display:block; clear:both; height:20px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_30								{ display:block; clear:both; height:30px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_40								{ display:block; clear:both; height:40px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_50	 							{ display:block; clear:both; height:50px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_75								{ display:block; clear:both; height:75px;  line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_100 							{ display:block; clear:both; height:100px; line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
+.cb_200								{ display:block; clear:both; height:200px; line-height:1px; overflow:hidden; border:0px; padding:0px; margin:0px; font-size:1px;}
