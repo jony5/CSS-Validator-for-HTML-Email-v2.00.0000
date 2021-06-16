@@ -288,7 +288,7 @@ class crnrstn_wind_cloud_fire {
         $tmp_runtime = self::$oCRNRSTN_USR->wall_time();
         $tmp_microsecs_explode = explode(".", $tmp_runtime);
 
-        $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #FF0000;">R</span>NRSTN :: Electrum process has completed successfully.</span>';
+        $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #F90000;">R</span>NRSTN :: Electrum process has completed successfully.</span>';
         $TEXT_process_state_message = 'The CRNRSTN :: Electrum process has completed successfully.';
 
         $transfer_count = 0;
@@ -400,7 +400,7 @@ class crnrstn_wind_cloud_fire {
 
             }
 
-            $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #FF0000;">R</span>NRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection '.$tmp_evfc.' and '.$transfer_err_count.' file transfer '.$tmp_tec.' experienced.</span>';
+            $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #F90000;">R</span>NRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection '.$tmp_evfc.' and '.$transfer_err_count.' file transfer '.$tmp_tec.' experienced.</span>';
             $TEXT_process_state_message = 'The CRNRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection '.$tmp_evfc.' and '.$transfer_err_count.' file transfer '.$tmp_tec.' experienced.';
 
         }else{
@@ -409,13 +409,13 @@ class crnrstn_wind_cloud_fire {
 
                 if($transfer_err_count==1){
 
-                    $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #FF0000;">R</span>NRSTN :: Electrum process has completed successfully, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($transfer_err_count).' file transfer error was experienced.</span>';
+                    $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #F90000;">R</span>NRSTN :: Electrum process has completed successfully, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($transfer_err_count).' file transfer error was experienced.</span>';
                     $TEXT_process_state_message = 'The CRNRSTN :: Electrum process has completed successfully, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($transfer_err_count).' file transfer error was experienced.';
 
 
                 }else{
 
-                    $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #FF0000;">R</span>NRSTN :: Electrum process has completed successfully, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($transfer_err_count).' file transfer errors were experienced.</span>';
+                    $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #F90000;">R</span>NRSTN :: Electrum process has completed successfully, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($transfer_err_count).' file transfer errors were experienced.</span>';
                     $TEXT_process_state_message = 'The CRNRSTN :: Electrum process has completed successfully, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($transfer_err_count).' file transfer errors were experienced.';
 
                 }
@@ -426,12 +426,12 @@ class crnrstn_wind_cloud_fire {
 
                     if($endpoint_validation_fail_count==1){
 
-                        $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #FF0000;">R</span>NRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection error was experienced.</span>';
+                        $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #F90000;">R</span>NRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection error was experienced.</span>';
                         $TEXT_process_state_message = 'The CRNRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection error was experienced.';
 
                     }else{
 
-                        $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #FF0000;">R</span>NRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection errors were experienced.</span>';
+                        $HTML_process_state_message = 'The <span style="font-weight: normal;">C<span style="color: #F90000;">R</span>NRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection errors were experienced.</span>';
                         $TEXT_process_state_message = 'The CRNRSTN :: Electrum process has completed, however, '.self::$oCRNRSTN_USR->number_format_keep_precision($endpoint_validation_fail_count).' endpoint connection errors were experienced.';
 
                     }
@@ -470,7 +470,7 @@ class crnrstn_wind_cloud_fire {
                 'WORDWRAP' => self::$oCRNRSTN_USR->param_tunnel_encrypt('72', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
                 'PRIORITY' => self::$oCRNRSTN_USR->param_tunnel_encrypt('3', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
                 'IS_HTML' => self::$oCRNRSTN_USR->param_tunnel_encrypt('true', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
-                'SYS_MESSAGE_TITLE_HTML' => self::$oCRNRSTN_USR->param_tunnel_encrypt('C<span style="color: #FF0000;">R</span>NRSTN :: Electrum Performance Notification', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
+                'SYS_MESSAGE_TITLE_HTML' => self::$oCRNRSTN_USR->param_tunnel_encrypt('C<span style="color: #F90000;">R</span>NRSTN :: Electrum Performance Notification', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
                 'SYS_MESSAGE_TITLE_TEXT' => self::$oCRNRSTN_USR->param_tunnel_encrypt('CRNRSTN :: Electrum Performance Notification', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
                 'SYS_LOG_INTEGER_CONSTANT' => self::$oCRNRSTN_USR->param_tunnel_encrypt('LOG_INFO', $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
                 'SYS_MESSAGE_HTML' => self::$oCRNRSTN_USR->param_tunnel_encrypt($HTML_process_state_message, $this->cipher_override, $this->secret_key_override, $this->hmac_algorithm_override, $this->options_bitwise_override),
@@ -5138,7 +5138,7 @@ class crnrstn_wind_cloud_fire {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3" style="border-top: 1px dashed #FF0000;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:10px; line-height: 3px; border-top: 0px solid #FFF; width:100%;">&nbsp;</div></td>
+                                                    <td colspan="3" style="border-top: 1px dashed #F90000;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:10px; line-height: 3px; border-top: 0px solid #FFF; width:100%;">&nbsp;</div></td>
                                                 </tr>
                                                 {FILE_EXCLUSION_SOURCE_DIR_SECTION_HTML}
                                             </table>

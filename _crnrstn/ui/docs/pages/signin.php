@@ -281,7 +281,7 @@ switch($channel_constant[0]){
                                             <div class="crnrstn_signin_module_stats_ip_wrapper">'.$this->oCRNRSTN_USR->get_lang_copy('COPY_YOUR_IP').' :: <span class="crnrstn_signin_module_stats_ip">' . $this->oCRNRSTN_USR->return_client_ip() . '</span></div>
                                             <div class="crnrstn_signin_module_stats_attempts">'.$this->oCRNRSTN_USR->get_lang_copy('COPY_LOGIN_ATTEMPTS').' :: ' . $this->oCRNRSTN_USR->account_max_login_attempts() . '</div>
                                             <div class="crnrstn_signin_module_stats_remaining">'.$this->oCRNRSTN_USR->get_lang_copy('COPY_ATTEMPTS_REMAINING').' :: <span id="crnrstn_signin_module_stats_remaining_cnt" class="crnrstn_signin_module_stats_remaining_cnt">' . $this->oCRNRSTN_USR->account_remaining_login_attempts() . '</span></div>
-                                            <!--<div style="text-align:right; color: #000; font-size:10px; font-family: Courier, monospace">Access denied :: <span style="color: #FF0000;">30 min</span></div>-->
+                                            <!--<div style="text-align:right; color: #000; font-size:10px; font-family: Courier, monospace">Access denied :: <span style="color: #F90000;">30 min</span></div>-->
     
                                         </div>
                                         

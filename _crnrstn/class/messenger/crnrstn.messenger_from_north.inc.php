@@ -3040,7 +3040,7 @@ class crnrstn_messenger_from_north {
 
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="border:2px solid #FF0000;" valign="top">
+                                        <td colspan="2" style="border:2px solid #F90000;" valign="top">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                 <tr>
                                                     <td align="left" style="text-align: left;">
@@ -3243,7 +3243,7 @@ class crnrstn_messenger_from_north {
                                                         <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
                                                             <tr>
                                                                 <td align="right" style="text-align: right;">
-                                                                <div style="border-top:15px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:25px; text-align:right;font-weight: bold;">C<span style="font-family:Arial, Helvetica, sans-serif; font-size:25px; color:#FF0000;">R</span>NRSTN :: Exception Notification</div>
+                                                                <div style="border-top:15px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:25px; text-align:right;font-weight: bold;">C<span style="font-family:Arial, Helvetica, sans-serif; font-size:25px; color:#F90000;">R</span>NRSTN :: Exception Notification</div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -3264,7 +3264,7 @@ class crnrstn_messenger_from_north {
 
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="border:2px solid #FF0000;" valign="top">
+                                        <td colspan="2" style="border:2px solid #F90000;" valign="top">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                 <tr>
                                                     <td align="left" style="text-align: left;">
@@ -3295,7 +3295,7 @@ class crnrstn_messenger_from_north {
                                                     <td align="left" style="text-align: left;">
                                                         <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; border-top:10px solid #FFF; border-bottom:10px solid #FFF; border-left:12px solid #FFF; border-right:10px solid #FFF; line-height:18px;">
                                                             &nbsp;<br>
-                                                            <span style="color: #FF0000; font-weight: bold;">LOG TRACE</span><br><br>
+                                                            <span style="color: #F90000; font-weight: bold;">LOG TRACE</span><br><br>
                                                             <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:22px;">
                                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                             {LOG_TRACE}
@@ -3409,7 +3409,7 @@ class crnrstn_messenger_from_north {
                                                         <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
                                                             <tr>
                                                                 <td align="right" style="text-align: right;">
-                                                                <div style="border-top:15px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:25px; text-align:right;font-weight: bold;">C<span style="font-family:Arial, Helvetica, sans-serif; font-size:25px; color:#FF0000;">R</span>NRSTN :: Exception Notification</div>
+                                                                <div style="border-top:15px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:25px; text-align:right;font-weight: bold;">C<span style="font-family:Arial, Helvetica, sans-serif; font-size:25px; color:#F90000;">R</span>NRSTN :: Exception Notification</div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -3430,7 +3430,7 @@ class crnrstn_messenger_from_north {
 
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="border:2px solid #FF0000;" valign="top">
+                                        <td colspan="2" style="border:2px solid #F90000;" valign="top">
                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                 <tr>
                                                     <td align="left" style="text-align: left;">
@@ -3461,7 +3461,7 @@ class crnrstn_messenger_from_north {
                                                     <td align="left" style="text-align: left;">
                                                         <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; border-top:10px solid #FFF; border-bottom:10px solid #FFF; border-left:12px solid #FFF; border-right:10px solid #FFF; line-height:18px;">
                                                             &nbsp;<br>
-                                                            <span style="color: #FF0000; font-weight: bold;">LOG TRACE</span><br><br>
+                                                            <span style="color: #F90000; font-weight: bold;">LOG TRACE</span><br><br>
                                                             <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:22px;">
                                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                             {LOG_TRACE}
@@ -4313,7 +4313,7 @@ class crnrstn_communications_css_standard{
                                 <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>
 
                                 <div style="float:right; text-align:left; padding:5px 70px 0 0;">
-                                    <div id="ugc_html_content_err" style=\'float:right; text-align:right; padding: 8px 5px 0px 0; line-height: 19px; color:#FF0000; font-weight:bold; font-size: 14px; display: none; font-family: "Courier New", Courier, monospace;\'>Please paste HTML&nbsp;<br>code into the form.</div>
+                                    <div id="ugc_html_content_err" style=\'float:right; text-align:right; padding: 8px 5px 0px 0; line-height: 19px; color:#F90000; font-weight:bold; font-size: 14px; display: none; font-family: "Courier New", Courier, monospace;\'>Please paste HTML&nbsp;<br>code into the form.</div>
                                 </div>
 
                                 <div style="height:40px; width:100%; clear:both; display: block; overflow: hidden;"></div>
@@ -4364,7 +4364,7 @@ class crnrstn_communications_css_standard{
                                     }else{
 
                                         document.getElementById("ugc_html_content_err").style.display = \'inline\';
-                                        document.getElementById("crnrstn_validate_submit").style.borderColor = "#FF0000";
+                                        document.getElementById("crnrstn_validate_submit").style.borderColor = "#F90000";
 
                                         return false;
 
@@ -9622,7 +9622,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                 <div style="position: relative; height:14px; overflow: visible;">
                                     <div style="position: absolute; z-index:1; font-size: 35px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; left:24px; color: #FFF; top:-5px; ">@</div>
                                     <div style="position: absolute; z-index:2; left:0; top:-2px; width:40px; height: 23px; overflow:hidden;font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #FFF; font-size: 18px;">
-                                        <div style="float:left; color:#FF0000; font-size: 21px; line-height: 14px; font-weight:bold; padding-top: 1px;">&lt;</div>
+                                        <div style="float:left; color:#F90000; font-size: 21px; line-height: 14px; font-weight:bold; padding-top: 1px;">&lt;</div>
                                         <div style=\'float:left; width:15px; font-family: "Courier New", Courier, monospace;  color: #6986C3;\'>HTML</div>
                                     </div>
                                 </div>
@@ -9789,7 +9789,7 @@ Formally, the display property sets an element\'s inner and outer display types.
                                 <div style="position: relative; height:14px; overflow: visible;">
                                     <div style="position: absolute; z-index:1; font-size: 35px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; left:24px; color: #FFF; top:-5px; ">@</div>
                                     <div style="position: absolute; z-index:2; left:0; top:-2px; width:40px; height: 23px; overflow:hidden;font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #FFF; font-size: 18px;">
-                                        <div style="float:left; color:#FF0000; font-size: 21px; line-height: 14px; font-weight:bold; padding-top: 1px;">&lt;</div>
+                                        <div style="float:left; color:#F90000; font-size: 21px; line-height: 14px; font-weight:bold; padding-top: 1px;">&lt;</div>
                                         <div style=\'float:left; width:15px; font-family: "Courier New", Courier, monospace;  color: #6986C3;\'>HTML</div>
                                     </div>
                                 </div>

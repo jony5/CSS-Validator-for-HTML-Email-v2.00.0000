@@ -294,9 +294,9 @@ class crnrstn_http_manager {
 
         $this->oCRNRSTN_USR = $oCRNRSTN_USR;
 
-        if($oCRNRSTN_USR->isset_session_param('CRNRSTN_DEVICE_DETECTED')){
+        if($this->oCRNRSTN_USR->isset_session_param('CRNRSTN_DEVICE_DETECTED')){
 
-            $tmp_channel_constant = (int) $oCRNRSTN_USR->get_session_param('CRNRSTN_DEVICE_DETECTED');
+            $tmp_channel_constant = (int) $this->oCRNRSTN_USR->get_session_param('CRNRSTN_DEVICE_DETECTED');
 
             error_log(__LINE__. ' http CRNRSTN_DEVICE_DETECTED ['.$tmp_channel_constant.']');
 

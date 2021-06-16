@@ -3,7 +3,7 @@
 // J5
 // Code is Poetry */
 
-.the_R_in_crnrstn                           { color:#F00; }
+.the_R_in_crnrstn                           { color:#F90000; }
 .crnrstn_body_wrapper                       { width:100%; text-align:center; margin:0 auto; font-family:Arial, Helvetica, sans-serif; background-color: #FFF;}
 
 /*HEAD SECTION::SIGNIN FORM*/
@@ -34,35 +34,35 @@
 .crnrstn_err_wrap                           { visibility:hidden;}
 .crnrstn_err_wrap_outter_email              { border-radius: 8px; width: 327px; margin:50px 5px 0 0; padding:5px 0 5px 0; text-align: right; font-size: 11px; font-weight: bold;}
 .crnrstn_err_wrap_inner_email               { float:right; }
-.crnrstn_err_wrap_email                     { float:right; width: 287px; background-color: #FF0000; background-repeat: no-repeat; color: #FFF; border-radius: 8px; border-bottom-left-radius: 0; border-top-left-radius: 0; padding: 5px 0 5px 0; background-position:-155px -160px; }
+.crnrstn_err_wrap_email                     { float:right; width: 287px; background-color: #F90000; background-repeat: no-repeat; color: #FFF; border-radius: 8px; border-bottom-left-radius: 0; border-top-left-radius: 0; padding: 5px 0 5px 0; background-position:-155px -160px; }
 .crnrstn_err_wrap_copy                      { padding-right: 10px; max-width: 270px;}
 
 .crnrstn_err_wrap_outter_password           { border-radius: 8px; width: 327px; margin:0 5px 0 0; padding:0 0 5px 0; text-align: right; font-size: 11px; font-weight: bold; }
 .crnrstn_err_wrap_inner_password            { float:right;}
-.crnrstn_err_wrap_password                  { float:right; width: 287px; background-color: #FF0000; background-repeat: no-repeat; color: #FFF; border-radius: 8px; border-bottom-left-radius: 0; border-top-left-radius: 0; padding: 5px 0 5px 0; margin: 15px 0 0 0; background-position:-155px -160px; }
+.crnrstn_err_wrap_password                  { float:right; width: 287px; background-color: #F90000; background-repeat: no-repeat; color: #FFF; border-radius: 8px; border-bottom-left-radius: 0; border-top-left-radius: 0; padding: 5px 0 5px 0; margin: 15px 0 0 0; background-position:-155px -160px; }
 
-.crnrstn_bdr_input_err                      { /*border: 5px solid #FF0000;*/ padding:5px; margin:0px 20px 0px 40px; width:242px; float:left;}
+.crnrstn_bdr_input_err                      { /*border: 5px solid #F90000;*/ padding:5px; margin:0px 20px 0px 40px; width:242px; float:left;}
 .crnrstn_bdr_input_err_gapper               { border: 2px solid #FFF; width: 234px; height: 46px;}
 .crnrstn_input_outter_wrapper               { border: 2px solid #333; width: 234px; height: 42px;}
 .crnrstn_input_inner_wrapper                { text-align: left; border: 2px solid #CCC; width: 230px; height: 38px; background-color: #FFF;}
 .crnrstn_input_inner_wrapper input          { width: 213px; height: 30px; border: 0; margin: 4px 8px 0 8px; font-size: 18px; color: #333;}
 
 .crnrstn_form_input_label.signin            { float:left; font-size: 20px; margin: 0; padding-top: 11px; font-weight:bold;}
-.crnrstn_form_input_label_req_star          { color: #FF0000; font-weight: bold; visibility:hidden;}
+.crnrstn_form_input_label_req_star          { color: #F90000; font-weight: bold; visibility:hidden;}
 
 .crnrstn_signin_module_wrapper              { width:450px;}
 .crnrstn_signin_button_wrapper              { float:right; padding:10px 70px 0 0;}
-.crnrstn_signin_button_wrapper button       { padding: 8px 20px 8px 20px; margin-top: 25px; text-align: center; cursor: pointer; color: #FFF; font-weight: bold; border: 2px solid #333; background-color: #FF0000;}
+.crnrstn_signin_button_wrapper button       { padding: 8px 20px 8px 20px; margin-top: 25px; text-align: center; cursor: pointer; color: #FFF; font-weight: bold; border: 2px solid #333; background-color: #F90000;}
 
 .crnrstn_signin_create_account_copy         { float: left; text-align: left; padding:30px 10px 0 0; line-height: 22px;}
 .crnrstn_signin_create_account_copy a       { text-decoration:none; color: #0066CC; text-decoration:underline;}
 
 .crnrstn_signin_module_stats_wrapper        { float:right; padding:5px 70px 0 0; font-size:10px; font-family: Courier, monospace; color: #000;}
 .crnrstn_signin_module_stats_ip_wrapper     { text-align:right; }
-.crnrstn_signin_module_stats_ip             { text-align:right; color: #FF0000;}
+.crnrstn_signin_module_stats_ip             { text-align:right; color: #F90000;}
 .crnrstn_signin_module_stats_attempts       { text-align:right;}
 .crnrstn_signin_module_stats_remaining      { text-align:right;}
-.crnrstn_signin_module_stats_remaining_cnt  { color: #FF0000;}
+.crnrstn_signin_module_stats_remaining_cnt  { color: #F90000;}
 
 .crnrstn_signin_reflection_wrapper          { width:578px; text-align: center; margin:0 auto; height:55px;}
 .crnrstn_signin_reflection_wrapper_rel      { position: relative; width:722px; height:55px; overflow: hidden;}

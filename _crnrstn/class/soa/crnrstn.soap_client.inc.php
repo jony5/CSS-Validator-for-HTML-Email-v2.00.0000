@@ -259,7 +259,7 @@ class crnrstn_soap_client_manager {
         //if ($client->fault) {
         if($oUSER->returnSoapFault()){
             echo '<h2 class="the_R">SOAP Fault ::</h2>';
-            echo '<div class="content_results_subtitle_divider"></div><p><pre style="font-size:10px;border-bottom:2px solid #FF0000;padding-bottom:10px;">';
+            echo '<div class="content_results_subtitle_divider"></div><p><pre style="font-size:10px;border-bottom:2px solid #F90000;padding-bottom:10px;">';
             print_r($result);
             echo '</pre></p>';
 
@@ -271,7 +271,7 @@ class crnrstn_soap_client_manager {
             if ($err) {
                 //
                 // DISPLAY THE ERROR
-                echo '<h2 class="the_R">SOAP Error</h2><pre style="border-bottom:2px solid #FF0000;padding-bottom:10px;">' . $err . '</pre>';
+                echo '<h2 class="the_R">SOAP Error</h2><pre style="border-bottom:2px solid #F90000;padding-bottom:10px;">' . $err . '</pre>';
 
             } else {
                 //

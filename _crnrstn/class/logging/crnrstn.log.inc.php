@@ -2252,7 +2252,7 @@ class crnrstn_log_output_manager {
                 // ADD OBJECT DATA TO OUTPUT STR
                 $tmp_log_str_ARRAY[] = '<tr>
                                 <td align="left" style="text-align: left;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; border-top: 2px solid #FFF;"><span style="color: #000; font-weight: bold;">'.$tmp_transactionTime.'</span></div></td>
-                                <td align="left" style="text-align: left;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:18px; border-bottom: 0px solid #FFF;"><span style="color: #FF0000; line-height: 20px;">'.$tmp_runTime.'</span></div></td>
+                                <td align="left" style="text-align: left;"><div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:18px; border-bottom: 0px solid #FFF;"><span style="color: #F90000; line-height: 20px;">'.$tmp_runTime.'</span></div></td>
                                 <td align="left" style="text-align: left;"><div style="text-align: left; font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:18px; border-bottom: 0px solid #FFF;"><span style="line-height: 20px;">'.$tmp_HTML_chunk_output_ARRAY[0].'</span></div></td>
                             </tr>
                             <tr>
@@ -2267,21 +2267,21 @@ class crnrstn_log_output_manager {
 
             if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
+                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#F90000;">R</span>NRSTN :: trace output activity to NULL';
 
             } else {
 
-                $tmp_condition = ' but, there appears to be no C<span style="color:#FF0000;">R</span>NRSTN :: trace output log data activity';
+                $tmp_condition = ' but, there appears to be no C<span style="color:#F90000;">R</span>NRSTN :: trace output log data activity';
 
             }
 
             if (self::$oCRNRSTN_n->CRNRSTN_debugMode < 2) {
 
-                $tmp_msg = '** The C<span style="color:#FF0000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" prevents aggregation of log trace data. **';
+                $tmp_msg = '** The C<span style="color:#F90000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" prevents aggregation of log trace data. **';
 
             } else {
 
-                $tmp_msg = '** The C<span style="color:#FF0000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **';
+                $tmp_msg = '** The C<span style="color:#F90000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **';
 
             }
 
@@ -2481,11 +2481,11 @@ class crnrstn_log_output_manager {
 
                 if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
+                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#F90000;">R</span>NRSTN :: trace output activity to NULL';
 
                 } else {
 
-                    $tmp_condition = ' but, there appears to be no C<span style="color:#FF0000;">R</span>NRSTN :: trace output log data activity';
+                    $tmp_condition = ' but, there appears to be no C<span style="color:#F90000;">R</span>NRSTN :: trace output log data activity';
 
                 }
 
@@ -2537,22 +2537,22 @@ class crnrstn_log_output_manager {
 
                 if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
+                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#F90000;">R</span>NRSTN :: trace output activity to NULL';
 
                 } else {
 
-                    $tmp_condition = ' but, there appears to be no C<span style="color:#FF0000;">R</span>NRSTN :: trace output log data activity';
+                    $tmp_condition = ' but, there appears to be no C<span style="color:#F90000;">R</span>NRSTN :: trace output log data activity';
 
                 }
 
                 if (self::$oCRNRSTN_n->CRNRSTN_debugMode < 2) {
 
-                    $tmp_msg = '** The C<span style="color:#FF0000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" prevents aggregation of log trace data. **
+                    $tmp_msg = '** The C<span style="color:#F90000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" prevents aggregation of log trace data. **
 ';
 
                 } else {
 
-                    $tmp_msg = '** The C<span style="color:#FF0000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **
+                    $tmp_msg = '** The C<span style="color:#F90000;">R</span>NRSTN :: configuration file debug mode of "' . self::$oCRNRSTN_n->CRNRSTN_debugMode . '" allows aggregation of log trace data' . $tmp_condition . '. **
 ';
                 }
 
@@ -2601,11 +2601,11 @@ class crnrstn_log_output_manager {
 
             if (isset(self::$oCRNRSTN_n->log_silo_profile)) {
 
-                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
+                $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#F90000;">R</span>NRSTN :: trace output activity to NULL';
 
             } else {
 
-                $tmp_condition = ' but, there appears to be no C<span style="color:#FF0000;">R</span>NRSTN :: trace output log data activity';
+                $tmp_condition = ' but, there appears to be no C<span style="color:#F90000;">R</span>NRSTN :: trace output log data activity';
 
             }
 
@@ -2749,17 +2749,17 @@ class crnrstn_log_output_manager {
 //                    // STRIP TRAILING AND
 //                    $tmp_silo_str = rtrim($tmp_silo_str, ' and ');
 //
-//                    $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
+//                    $tmp_condition = ' but, the restriction of log recording to the silos of ' . $tmp_silo_str . ' seems to have reduced C<span style="color:#F90000;">R</span>NRSTN :: trace output activity to NULL';
 //
 //                } else {
 
-                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#FF0000;">R</span>NRSTN :: trace output activity to NULL';
+                    $tmp_condition = ' but, the restriction of log recording to the silo profile, (int) ' . self::$oCRNRSTN_n->log_silo_profile . ', seems to have reduced C<span style="color:#F90000;">R</span>NRSTN :: trace output activity to NULL';
 
                 //}
 
             } else {
 
-                $tmp_condition = ' but, there appears to be no C<span style="color:#FF0000;">R</span>NRSTN :: trace output log data activity';
+                $tmp_condition = ' but, there appears to be no C<span style="color:#F90000;">R</span>NRSTN :: trace output log data activity';
 
             }
 
