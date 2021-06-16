@@ -155,7 +155,7 @@ switch($channel_constant[0]){
                                 <div class="crnrstn_cb_10"></div>
                                 <li><div class="crnrstn_left_nav_li_btn_shell">C<span class="the_R_in_crnrstn">R</span>NRSTN :: Configuration</div></li>
                                 <div class="crnrstn_cb_10"></div>
-                                <li onclick="load_page(\'' . $tmp_lnk_config_wordpress . '\');"><div class="crnrstn_left_nav_li_btn_shell">WordPress<span style="crnrstn_wp_btn_reg_mrk">&reg;</span> Configuration</li>
+                                <li onclick="load_page(\'' . $tmp_lnk_config_wordpress . '\');"><div class="crnrstn_left_nav_li_btn_shell crnrstn_nav_active">WordPress<span style="crnrstn_wp_btn_reg_mrk">&reg;</span> Configuration</li>
                                 <div class="crnrstn_cb_10"></div>
                                 <li><div class="crnrstn_left_nav_li_btn_shell">PHP Configuration</li>
                                 <div class="crnrstn_cb_10"></div>
