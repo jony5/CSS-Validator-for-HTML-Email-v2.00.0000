@@ -1166,10 +1166,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('BLUEHOST', 'DOCUMENT_ROOT_DIR', '');
     $oCRNRSTN->define_env_resource('BLUEHOST', 'ROOT_PATH_CLIENT_HTTP', 'http://css.validate.jony5.com/');
     $oCRNRSTN->define_env_resource('BLUEHOST', 'ROOT_PATH_CLIENT_HTTP_DIR', '');
-    $oCRNRSTN->define_env_resource('BLUEHOST', 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-    $oCRNRSTN->define_env_resource('BLUEHOST', 'APP_NAME', 'jony5_BASE');
     $oCRNRSTN->define_env_resource('BLUEHOST', 'CRNRSTN_PROXY_WSDL_ENDPOINT', 'http://css.validate.jony5.com/_crnrstn/soa/?wsdl');  //http://v2.crnrstn.evifweb.com/
-    $oCRNRSTN->define_env_resource('BLUEHOST', 'PROXY_SEND_ENABLED', false);
 
     //
     // BEGIN CONFIG FOR NEXT ENVIRONMENT
@@ -1183,10 +1180,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'DOCUMENT_ROOT_DIR', '');
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'ROOT_PATH_CLIENT_HTTP', 'http://github.css.validate.jony5.com/');
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'ROOT_PATH_CLIENT_HTTP_DIR', '');
-    $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-    $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'APP_NAME', 'jony5_BASE');
     $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'CRNRSTN_PROXY_WSDL_ENDPOINT', 'http://github.css.validate.jony5.com/_crnrstn/soa/?wsdl');  //http://v2.crnrstn.evifweb.com/
-    $oCRNRSTN->define_env_resource('BLUEHOST_GITHUB', 'PROXY_SEND_ENABLED', false);
 
     //
     // BEGIN CONFIG FOR NEXT ENVIRONMENT
@@ -1200,9 +1194,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'DOCUMENT_ROOT_DIR', '/css.validate.jony5.com');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'ROOT_PATH_CLIENT_HTTP', 'http://172.16.195.132/');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'ROOT_PATH_CLIENT_HTTP_DIR', 'css.validate.jony5.com/');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'APP_NAME', 'jony5_BASE');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'PROXY_SEND_ENABLED', false);
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL', 'CRNRSTN_PROXY_WSDL_ENDPOINT', 'http://172.16.195.132/css.validate.jony5.com/_crnrstn/soa/?wsdl');  //http://v2.crnrstn.evifweb.com/
 
     //
     // BEGIN CONFIG FOR NEXT ENVIRONMENT
@@ -1216,9 +1208,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOCUMENT_ROOT_DIR', '/css.validate.jony5.com');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'ROOT_PATH_CLIENT_HTTP', 'http://172.16.195.132/');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'ROOT_PATH_CLIENT_HTTP_DIR', 'css.validate.jony5.com/');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'APP_NAME', 'jony5_BASE');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'PROXY_SEND_ENABLED', false);
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'CRNRSTN_PROXY_WSDL_ENDPOINT', 'http://172.16.195.132/css.validate.jony5.com/_crnrstn/soa/?wsdl');  //http://v2.crnrstn.evifweb.com/
 
     //
     // BEGIN CONFIG FOR NEXT ENVIRONMENT
@@ -1232,14 +1222,13 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'DOCUMENT_ROOT_DIR', '/css.validate.jony5.com');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'ROOT_PATH_CLIENT_HTTP', 'http://172.16.225.128/');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'ROOT_PATH_CLIENT_HTTP_DIR', 'css.validate.jony5.com/');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'APP_NAME', 'jony5_BASE');
-    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'PROXY_SEND_ENABLED', false);
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKPRO', 'CRNRSTN_PROXY_WSDL_ENDPOINT', 'http://172.16.225.128/css.validate.jony5.com/_crnrstn/soa/?wsdl');  //http://v2.crnrstn.evifweb.com/
 
     //
-    // FOR ALL ENVIRONMENTS :: AS DESIGNATED BY PASSING '*' AS ENV KEY PARAMETER
+    // FOR ALL ENVIRONMENTS :: AS DESIGNATED BY PASSING CRNRSTN_RESOURCE_ALL OR '*' AS ENV KEY PARAMETER
     //$oCRNRSTN->define_env_resource(CRNRSTN_RESOURCE_ALL,'WSDL_CACHE_TTL','80');	# REQUIRED BY SOAP CONNECTION MANAGER
     $oCRNRSTN->define_env_resource(CRNRSTN_RESOURCE_ALL,'TEST_INT_CONVERSION', 'hello world');	# REQUIRED BY SOAP CONNECTION MANAGER
+    $oCRNRSTN->define_env_resource(CRNRSTN_RESOURCE_ALL, 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
 
     //
     // INSTANTIATE ENVIRONMENTAL CLASS BASED ON ABOVE DEFINED CRNRSTN :: CONFIGURATION
