@@ -1206,16 +1206,16 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
 
     //
     // BEGIN CONFIG FOR NEXT ENVIRONMENT
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOMAIN', '172.16.195.132');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_NAME', '172.16.195.132');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_ADDR', '172.16.195.132');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_PORT', '80');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_PROTOCOL', 'HTTP/1.1');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SSL_ENABLED', false);
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOCUMENT_ROOT', '/var/www/html'); # VALUE FOR YOUR SERVER['DOCUMENT_ROOT']
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOCUMENT_ROOT_DIR', '/css.validate.jony5.com');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'ROOT_PATH_CLIENT_HTTP', 'http://172.16.195.132/');
-	$oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'ROOT_PATH_CLIENT_HTTP_DIR', 'css.validate.jony5.com/');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOMAIN', '172.16.195.132');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_NAME', '172.16.195.132');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_ADDR', '172.16.195.132');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_PORT', '80');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SERVER_PROTOCOL', 'HTTP/1.1');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SSL_ENABLED', false);
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOCUMENT_ROOT', '/var/www/html'); # VALUE FOR YOUR SERVER['DOCUMENT_ROOT']
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'DOCUMENT_ROOT_DIR', '/css.validate.jony5.com');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'ROOT_PATH_CLIENT_HTTP', 'http://172.16.195.132/');
+    $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'ROOT_PATH_CLIENT_HTTP_DIR', 'css.validate.jony5.com/');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'APP_NAME', 'jony5_BASE');
     $oCRNRSTN->define_env_resource('LOCALHOST_MACBOOKTERMINAL_8', 'PROXY_SEND_ENABLED', false);
