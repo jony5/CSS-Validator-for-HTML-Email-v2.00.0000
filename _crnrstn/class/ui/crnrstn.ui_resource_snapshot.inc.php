@@ -186,22 +186,23 @@ class crnrstn_view_state_controller {
 //
 //        }
 
-//        if(!isset($this->oCRNRSTN_AUTH)) {
-//
-//            $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
-//
-//        }
 
-//        if($this->oCRNRSTN_USR->isset_session_param('CRNRSTN_AUTHORIZED_ACCOUNT')) {
-//
-//            $this->oCRNRSTN_AUTH = $this->oCRNRSTN_USR->get_session_param('CRNRSTN_AUTHORIZED_ACCOUNT');
-//
-//        }else{
-//
-//            $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
-//
-//        }
-        
+        if($this->oCRNRSTN_USR->isset_session_param('CRNRSTN_AUTHORIZED_ACCOUNT')) {
+
+            $this->oCRNRSTN_AUTH = $this->oCRNRSTN_USR->get_session_param('CRNRSTN_AUTHORIZED_ACCOUNT');
+
+        }else{
+
+            $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
+
+        }
+
+        if(!isset($this->oCRNRSTN_AUTH)) {
+
+            $this->oCRNRSTN_AUTH = new crnrstn_user_auth($this->oCRNRSTN_USR);
+
+        }
+
         if(!isset($form_handle)){
 
             //
