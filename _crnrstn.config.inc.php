@@ -1077,7 +1077,7 @@ if(!$oCRNRSTN_ENV->is_configured($oCRNRSTN)){
      * (see $oCRNRSTN->define_env_resource()) first in the CRNRSTN Suite :: configuration file...and that your
      * localhost environment resources be defined last.
      */
-    $oCRNRSTN->required_detection_matches(1);
+    $oCRNRSTN->required_detection_matches(4);
 
 	//
 	// FOR EACH ENVIRONMENT ABOVE, DEFINE RELEVANT CORE SERVER CONFIG SETTINGS + ADD ANY CUSTOM KEYS/VALUES OF YOUR OWN
