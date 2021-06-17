@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="'.self::$oCRNRSTN_USR->getEnvResource('ROOT_PATH_CLIENT_HTTP').self::$oCRNRSTN_USR->getEnvResource('ROOT_PATH_CLIENT_HTTP_DIR').'favicon.ico?v=420" />
+    <title>CRNRSTN ::</title>
+</head>
+
+<body style="background-color: #FFF; width:100%; text-align: center; margin:0px auto;">
+<table cellpadding="0" cellspacing="0" border="0" width="810" style="width:810px; text-align: center; margin:0px auto;">
+    <tr>
+        <td><div style="line-height:13px; font-size:12px;">&nbsp;<br>&nbsp;</div></td>
+    </tr>
+    <tr>
+        <td>
+
+            <table cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px; background-color: #FFF; text-align: center; margin:0px auto;">
+                <tr><td style="text-align: left;"><div style="border-top: 10px solid #FFF;border-left: 15px solid #FFF;border-bottom: 10px solid #FFF;">{SYS_LOG_INTEGER_CONSTANT}</div></td></tr>
+                <tr><td>
+
+                    <table cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px; border:2px solid #D2D2D2;">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;"><img src="http://v2.crnrstn.evifweb.com/common/imgs/email/logo_wht_medium.gif" width="160" height="100" alt="CRNRSTN ::" title="CRNRSTN ::" /></div></td>
+                                                    <td valign="top" align="right" style="text-align:right;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
+                                                            <tr>
+                                                                <td align="right" style="text-align: right;">
+                                                                    <div style="border-top:15px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:25px; text-align:right;font-weight: bold;">{SYS_MESSAGE_TITLE_HTML}</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" style="text-align: right;">
+                                                                    <div style="border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px;text-align:right; font-weight: bold;">Sending IP Address<br><div style="font-weight: normal; border-top: 4px solid #FFF;">{SYS_REMOTE_ADDR} (<a href="http://{SYS_SERVER_NAME}" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">{SYS_SERVER_NAME}</a>)</div></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" style="text-align: right;">
+                                                                    <div style="border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; text-align:right; font-weight: bold;">System Timestamp / Process Runtime<br><div style="font-weight: normal; border-top: 4px solid #FFF;">{SYS_SYSTEM_TIME} / {PROCESS_RUN_TIME} seconds</div></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="border:2px solid #FF0000;" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="left" style="text-align: left;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:19px; border-top:10px solid #FFF; border-bottom:10px solid #FFF; border-left:15px solid #FFF; border-right:15px solid #FFF; line-height:30px;">
+                                                            {SYS_MESSAGE_HTML}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #F0F0F0;">
+                                            <div style="border-left:15px solid #F0F0F0; border-top:15px solid #F0F0F0; border-bottom:15px solid #F0F0F0; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size:23px; text-align:left;">Electrum - Performance Overview</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Start Time :: {START_TIME}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">End Time :: {END_TIME}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Total Run Time :: {PRETTY_RUN_TIME}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Number of files transferred :: {TOTAL_COUNT_FILES_TRANSFERRED}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Number of files skipped :: {TOTAL_COUNT_FILES_SKIPPED}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Total file size of transferred data :: {TOTAL_FILESIZE_FILES_TRANSFERRED}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Number of file transfer errors experienced :: {TOTAL_ERRORS_FILES_TRANSFERRED}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Number of endpoint connection errors experienced :: {TOTAL_COUNT_ENDPOINT_CONNECTION_ERROR}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="border-left:15px solid #FFF; border-top:10px solid #FFF; border-bottom:10px solid #FFF; font-family: Arial, Helvetica, sans-serif; font-size:16px; text-align:left;">Percentage of files successfully transferred :: {PERCENTAGE_FILES_SUCCESSFUL_TRANSFERRED}</div>
+                                        </td>
+                                    </tr>
+                                    <tr><td><div style="font-size: 12px; line-height: 14px;">&nbsp;</div></td></tr>
+                                    <tr>
+                                        <td style="background-color: #F0F0F0;">
+                                            <div style="border-left:15px solid #F0F0F0; border-top:15px solid #F0F0F0; border-bottom:15px solid #F0F0F0;  font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size:23px; text-align:left;">Data Sources</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {ELECTRUM_DATA_SOURCE_HTML}
+                                        </td>
+                                    </tr>
+                                    <tr><td><div style="font-size: 12px; line-height: 14px;">&nbsp;</div></td></tr>
+                                    <tr>
+                                        <td style="background-color: #F0F0F0">
+                                            <div style="border-left:15px solid #F0F0F0; border-top:15px solid #F0F0F0; border-bottom:15px solid #F0F0F0; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size:23px; text-align:left;">Data Destinations</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {ELECTRUM_DATA_DESTINATION_HTML}
+                                        </td>
+                                    </tr>
+                                    <tr><td><div style="font-size: 12px; line-height: 14px;">&nbsp;</div></td></tr>
+                                    <tr>
+                                        <td style="background-color: #F0F0F0;">
+                                            <div style="border-left:15px solid #F0F0F0; border-top:15px solid #F0F0F0; border-bottom:15px solid #F0F0F0;  font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size:23px; text-align:left;">Electrum - Data Handling Profile </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {ELECTRUM_DATA_HANDLING_PROFILE_HTML}
+                                        </td>
+                                    </tr>
+                                    {ELECTRUM_ERRORS_TRACE_HTML}
+                                    <tr>
+                                        <td><span style="font-size: 5px; line-height: 8px;">&nbsp;</span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center; border-top:2px solid #D2D2D2; border-bottom:2px solid #D2D2D2;">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; 2020 Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" align="left" style="text-align: left; width: 600px;">
+
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td style="text-align: left; border-left:20px solid #FFF; border-top:30px solid #FFF;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may<br>
+                                                            not have been saved anywhere. For this reason, it<br>
+                                                            may be good to maintain a copy of this email.</div>
+
+                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
+
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">This email was sent to {EMAIL}.<br>
+                                                            If you wish to unsubscribe from future<br>
+                                                            system notifications, please contact the<br>
+                                                            website administrator.</div>
+
+                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
+
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><a href="http://jony5.com" target="_blank"><img src="http://v2.crnrstn.evifweb.com/common/imgs/email/5.gif" width="16" height="16" alt="5" title="5" border="0"></a></div>
+
+                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                        <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><img src="http://v2.crnrstn.evifweb.com/common/imgs/email/j5_wolf_pup.jpg" width="167" height="200" alt="J5 wolf pup" title="J5 wolf pup" /></td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </td></tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+
+        <td><div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br></div></td>
+    </tr>
+</table>
+</body>
+</html>

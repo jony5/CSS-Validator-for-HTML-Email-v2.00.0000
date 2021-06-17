@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="'.self::$oCRNRSTN_USR->getEnvResource('ROOT_PATH_CLIENT_HTTP').self::$oCRNRSTN_USR->getEnvResource('ROOT_PATH_CLIENT_HTTP_DIR').'favicon.ico?v=420" />
+    <title>CRNRSTN ::</title>
+</head>
+
+<body style="background-color: #FFF; width:100%; text-align: center; margin:0px auto;">
+<table cellpadding="0" cellspacing="0" border="0" width="810" style="width:810px; text-align: center; margin:0px auto;">
+    <tr>
+        <td><div style="line-height:13px; font-size:12px;">&nbsp;<br>&nbsp;</div></td>
+    </tr>
+    <tr>
+        <td>
+
+            <table cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px; background-color: #FFF; text-align: center; margin:0px auto;">
+                <tr><td style="text-align: left;"><div style="border-top: 10px solid #FFF;border-left: 15px solid #FFF;border-bottom: 10px solid #FFF;">{SYSTEM_LOG_INTEGER_CONSTANT}</div></td></tr>
+                <tr><td>
+
+                    <table cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px; border:2px solid #D2D2D2;">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td style="width:180px;"><div style="border-top: 10px solid #FFF;border-left: 10px solid #FFF;"><img src="http://v2.crnrstn.evifweb.com/common/imgs/email/logo_wht_medium.gif" width="160" height="100" alt="CRNRSTN ::" title="CRNRSTN ::" /></div></td>
+                                                    <td valign="top" align="right" style="text-align:right;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="610" style="border-bottom:10px solid #FFF; border-right: 10px solid #FFF; text-align: right;">
+                                                            <tr>
+                                                                <td align="right" style="text-align: right;">
+                                                                    <div style="border-top:15px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:25px; text-align:right;font-weight: bold;">C<span style="font-family:Arial, Helvetica, sans-serif; font-size:25px; color:#FF0000;">R</span>NRSTN :: Exception Notification</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" style="text-align: right;">
+                                                                    <div style="border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px;text-align:right; font-weight: bold;">Sending IP Address<br><div style="font-weight: normal; border-top: 4px solid #FFF;">'.$_SERVER['REMOTE_ADDR'].' (<a href="http://'.$_SERVER['SERVER_NAME'].'" target="_blank" style="text-decoration: none; color:#0066CC; text-decoration: underline;">'.$_SERVER['SERVER_NAME'].'</a>)</div></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" style="text-align: right;">
+                                                                    <div style="border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; text-align:right; font-weight: bold;">System Timestamp / Process Runtime<br><div style="font-weight: normal; border-top: 4px solid #FFF;">{SYSTEM_TIME} / {PROCESS_RUN_TIME} seconds</div></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="border:2px solid #FF0000;" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="left" style="text-align: left;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:19px; border-top:10px solid #FFF; border-bottom:10px solid #FFF; border-left:15px solid #FFF; border-right:15px solid #FFF; line-height:30px;">
+                                                            {MESSAGE}
+
+                                                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:10px; border-bottom: 3px solid #A7C2E6; width:100%;"><br></div>
+                                                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:16px; border-top:10px solid #FFF;"><strong>Class::Method (or file):</strong></div>
+                                                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:16px;">{METHOD}</div>
+
+                                                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:16px; border-top:10px solid #FFF;"><strong>Line Number:</strong></div>
+                                                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:16px;">{LINE_NUM}</div>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="border-left:5px solid #FFF; border-right:5px solid #FFF;">
+
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td align="left" style="text-align: left;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; border-top:10px solid #FFF; border-bottom:10px solid #FFF; border-left:15px solid #FFF; border-right:15px solid #FFF; line-height:18px;">
+                                                            &nbsp;<br>
+                                                            <span style="color: #FF0000; font-weight: bold;">LOG TRACE</span><br><br>
+                                                            <div style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:22px;">
+                                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                    {LOG_TRACE}
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><span style="font-size: 5px; line-height: 8px;">&nbsp;</span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center; border-top:2px solid #D2D2D2; border-bottom:2px solid #D2D2D2;">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td align="center"><div style="font-family:Arial, Helvetica, sans-serif; color:#333; font-size:12px; text-align:center; margin:0px auto; line-height: 18px; border-top:10px solid #FFF; border-bottom:10px solid #FFF;">&copy; 2020 Jonathan J5 Harris,<br><em>All Rights Reserved in accordance with the most recent version of the MIT License.</em></div></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" align="left" style="text-align: left; width: 600px;">
+
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+                                                    <td style="text-align: left; border-left:20px solid #FFF; border-top:30px solid #FFF;">
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">Please note that this information may<br>
+                                                            not have been saved anywhere. For this reason, it<br>
+                                                            may be good to maintain a copy of this email.</div>
+
+                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
+
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal; line-height: 20px;">This email was sent to {EMAIL}.<br>
+                                                            If you wish to unsubscribe from future<br>
+                                                            system notifications, please contact the<br>
+                                                            website administrator.</div>
+
+                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br></div>
+
+                                                        <div style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><a href="http://jony5.com" target="_blank"><img src="http://v2.crnrstn.evifweb.com/common/imgs/email/5.gif" width="16" height="16" alt="5" title="5" border="0"></a></div>
+
+                                                        <div style="font-size:14px; line-height: 16px;">&nbsp;<br></div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                        <td align="right" style="text-align:right; border-top:10px solid #FFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: normal;"><img src="http://v2.crnrstn.evifweb.com/common/imgs/email/j5_wolf_pup.jpg" width="167" height="200" alt="J5 wolf pup" title="J5 wolf pup" /></td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </td></tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+
+        <td><div style="font-size:14px; line-height: 16px;">&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br></div></td>
+    </tr>
+</table>
+</body>
+</html>

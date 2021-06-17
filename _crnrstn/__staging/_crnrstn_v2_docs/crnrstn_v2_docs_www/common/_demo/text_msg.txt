@@ -1,0 +1,50 @@
+CRNRSTN :: Exception Notification
+= = = = = = = = = = = = = = = = = = = = = = = = =
+LOG_EMERG :: system is unusable.
+
+SYSTEM MESSAGE ::
+Error building page within section [Suite Methods by Purpose/Configuration File] from provided key [PAGE].
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Sending IP Address ::
+73.54.221.217 (crnrstn.v2.jony5.com)
+
+System Timestamp ::
+2020-08-29 04:20:00.00007
+
+Process Runtime ::
+0.00509093 seconds
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+(c) 2020 Jonathan J5 Harris,
+All Rights Reserved in accordance with the most
+recent version of the MIT License.
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Please note that this information may
+not have been saved anywhere. For this reason, it
+may be good to maintain a copy of this email.
+
+
+This email was sent to j5@jony5.com.
+If you wish to unsubscribe from future
+system notifications, please contact the
+website administrator.
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+LOG TRACE
+
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+2020-08-29 19:11:12.640388 [runtime 0.00209093 secs] [method crnrstn_environmentals::__construct] [linenum 226] __construct() performing simple config check prior to loading of defineEnvResource() in the CRNRSTN config file.
+
+
+
+

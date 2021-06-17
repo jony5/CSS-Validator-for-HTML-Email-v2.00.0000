@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/*
+// J5
+// Code is Poetry */
+
+body                                { border: 0; padding:0; margin:0;}
+h1                                  { font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
+p                                   { font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height: 20px;}
+.the_R                              { color:#F00;}
+.crnrstn_example_title_wrapper      { font-family: Arial, Helvetica, sans-serif; padding: 10px 0 10px 15px; max-width: 650px;}
+.crnrstn_example_title              { font-weight: bold; font-size:16px;}
+.crnrstn_example_description        { font-size:14px; padding:10px 0 0 0;}
+.crnrstn_example_output_title       { font-weight: bold; font-size:16px; font-family: Arial, Helvetica, sans-serif; padding: 10px 0 10px 15px; max-width: 650px; }
+
+.crnrstn_footer_wrapper             { width: 100%; background-color: #0F0F0F; height:400px; border-top:3px solid #4D4B4B;}
+.crnrstn_footer_copy_wrapper	    { max-width:950px; text-align:right; margin:40px 0 50px 0; font-family: Arial, Helvetica, sans-serif;}
+.crnrstn_footer_copyright			{ float:left; font-size:11px; color:#666; margin-left:130px;}
+.crnrstn_5_footer					{ float:right;}
+
+#header_wrapper                     { background-color:#E6E6E6; margin:0; border-top:5px solid #2C2C2C; border-bottom:3px solid #FFF; width:100%;}
+.crnrstn_hdr_logo                   { float: left; padding: 15px 0 0 40px;}
+.crnrstn_hdr_logo a:hover           { padding: 15px 0 0 0;}
+
+.tnav_lnk_wrapper                   { float: right; width:500px; padding-right: 25px;}
+.tnav_ul                            { padding: 10px 0 0 0; text-align: left; font-size:17px; }
+.tnav_lnk                           { float:right; text-decoration: none; padding-left: 35px; color:#0066CC; font-weight:normal; font-family: Arial, Helvetica, sans-serif; font-size:17px; }
+
+.tnav_site_title                    { font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; padding:75px 30px 0 0; text-align: right; float:right; width:450px;}
+
+.tnav_hr_red                        { border-top:3px solid #FF0000; border-bottom:3px solid #FFF;  width:100%;}
+
+#body_shell                         { width:100%; min-width:970px;}
+#body_content_area                  { float: left; width:570px; padding:5px 0 0 10px;}
+.body_content_title                 { font-size:29px; font-weight:bold; font-family: Arial, Helvetica, sans-serif; }
+
+#left_nav_section_wrapper_outter    { z-index: 7; float: left; background-color: #FC0D1B; border-right: 3px solid #D8D8D8; width:287px;}
+#left_nav_section_wrapper_inner     { z-index: 8; background-color: #ADB5CB; width:270px; float: left;}
+.sidenav_ul                         { list-style: none; margin: 0; padding: 0; text-align: left;}
+.sidenav_li                         { text-align: left; font-family: Arial, Helvetica, sans-serif;}
+.sidenav_li a, a:visited, a:hover   { padding-left:10px; text-decoration: none; color:#333; font-weight:bold; font-size:16px; margin-top:5px; margin-bottom:5px; /*padding:10px 10px 5px 10px;*/  }
+.sidenav_li a:hover                 { font-size:16px; }
+.sidenav_sub_ul                     { float: left; padding: 0 0 5px 0; margin:10px 0 10px 0; list-style: none; background-color: #E3E5EE; width:270px;}
+.sidenav_sub_li                     { text-align: left; border-top: 2px dashed #ADB5CB; font-family: Arial, Helvetica, sans-serif; padding:5px 0 5px 20px; margin-top:0;}
+.sidenav_sub_li a, a:visited, a:hover { height: 20px; text-decoration: none; color:#333; font-weight:bold; font-size:13px;  }
+.sidenav_sub_li a:hover             { height: 20px; font-size:13px; }
+.last_elem                          { padding-bottom:2px; }
+.first_elem                         { border-top:0; }
+li .subnav_active                   { background-color: #FF0000; border-top: 2px dashed #FFF; border-bottom:5px solid #FF0000; color:#FFF; border-right: 3px solid #FF0000; }
+li .subnav_active a                 { color:#FFF; }
+
+.content_results_subtitle			{ font-weight:bold; color:#333; font-size:15px; font-family:Arial, Helvetica, sans-serif; margin-top:15px;}
+.content_results_subtitle_divider	{ width:100%; background-color:#FFF; height:2px; margin:5px 0 5px 0; border-bottom:1px dashed #BFBFBF;}
+
+#activity_log                       { position: absolute;  z-index:35; opacity: 0;}
+.log_output_wrapper                 { background-color: #000; border:3px solid #9F9393; padding:30px; margin:20px; margin-top:10px; padding-top:10px; width:1350px; height:140px; overflow:scroll;}
+.log_output                         { width:100%;}
+.log_entry                          { display:block; clear:both; text-align: left; color:#34E02A; font-size:11px; font-family: "Courier New", Courier, monospace;}
+
+/*CODE*/
+/*
+.code_wrapper						{ position:relative; background-color:#000; color:#DEDECB; width:605px; padding:0; margin-top:0; border:3px solid #CC9900; overflow:scroll;font-size:11px;}
+.code_shell							{ background-color:#000; color:#DEDECB; width:1920px; padding:10px; margin-top:0; padding-left:35px;}
+.code_comment						{ color:#FFCC00; font-family:"Courier New", Courier, monospace;}
+.code_system_constants				{ color:#FF3333; font-family:"Courier New", Courier, monospace; cursor:pointer;}
+.code_str_qtd						{ color:#FF6666; font-family:"Courier New", Courier, monospace;}
+.code_log_exp						{ color:#8FE28F; font-family:"Courier New", Courier, monospace; cursor:pointer;}
+.code_function_name					{ color:#DEDECB; font-family:"Courier New", Courier, monospace; cursor:pointer;}
+.code_sysfunc_call					{ position:relative; color:#7CB7F1; font-family:"Courier New", Courier, monospace; cursor:pointer;}
+.code_tt_space						{ width:3px; margin-right:10px;}
+.code_tab_shell						{ margin-left:10px; font-family:"Courier New", Courier, monospace;}
+.code_html_string_quote				{ color:#0099FF; font-family:"Courier New", Courier, monospace;}
+.code_html_dom_tag					{ color:#E3DE5F; font-family:"Courier New", Courier, monospace;}
+.code_html_doc_type_tag				{ color:#00FFFF; font-family:"Courier New", Courier, monospace; cursor:pointer;}
+.code_html_style_tag				{ color:#FFCCFF; font-family:"Courier New", Courier, monospace;}
+.code_html_style_tag_attrib			{ color:#99FF33; font-family:"Courier New", Courier, monospace;}
+.code_html_css_tag					{ color:#33CCFF; font-family:"Courier New", Courier, monospace;}
+.code_html_code_comment				{ color:#666; background-color:#242424; font-family:"Courier New", Courier, monospace;}
+.code_html_js_tag					{ color:#993333; font-family:"Courier New", Courier, monospace;}
+.l_num								{ position:absolute; width:25px; font-size:11px; font-family:"Courier New", Courier, monospace; color:#00FF00; border-right:1px solid #333333; background-color:#161616; padding-top:10px; padding-left:4px;}
+*/
+
+/*UTILITY*/
+.hidden								{ width:0; height:0; position:absolute; left:-2000px; overflow:hidden;}
+.cb 								{ display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;}
+.cb_3                               { display:block; clear:both; height:3px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_5	 							{ display:block; clear:both; height:5px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_10	 							{ display:block; clear:both; height:10px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_15	 							{ display:block; clear:both; height:15px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_20								{ display:block; clear:both; height:20px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_30								{ display:block; clear:both; height:30px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_40								{ display:block; clear:both; height:40px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_50	 							{ display:block; clear:both; height:50px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_75								{ display:block; clear:both; height:75px;  line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_100 							{ display:block; clear:both; height:100px; line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}
+.cb_200								{ display:block; clear:both; height:200px; line-height:1px; overflow:hidden; border:0; padding:0; margin:0; font-size:1px;}

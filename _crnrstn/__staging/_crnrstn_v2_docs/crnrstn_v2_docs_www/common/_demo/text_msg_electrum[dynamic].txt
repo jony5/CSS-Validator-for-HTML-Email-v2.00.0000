@@ -1,0 +1,58 @@
+{SYS_MESSAGE_TITLE_TEXT}
+= = = = = = = = = = = = = = = = = = = = = = = = =
+{SYS_LOG_INTEGER_CONSTANT}
+
+SYSTEM MESSAGE ::
+{SYS_MESSAGE_TEXT}
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Sending IP Address ::
+{SYS_REMOTE_ADDR} ({SYS_SERVER_NAME})
+
+System Timestamp ::
+{SYS_SYSTEM_TIME}
+
+Process Runtime ::
+{PROCESS_RUN_TIME} seconds
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Electrum - Performance Overview
+Start Time :: {START_TIME}
+End Time :: {END_TIME}
+Total Run Time :: {PRETTY_RUN_TIME}
+Number of files transferred :: {TOTAL_COUNT_FILES_TRANSFERRED}
+Number of files skipped :: {TOTAL_COUNT_FILES_SKIPPED}
+Total file size of transferred data :: {TOTAL_FILESIZE_FILES_TRANSFERRED}
+Number of file transfer errors experienced :: {TOTAL_ERRORS_FILES_TRANSFERRED}
+Number of endpoint connection errors experienced :: {TOTAL_COUNT_ENDPOINT_CONNECTION_ERROR}
+Percentage of files successfully transferred :: {PERCENTAGE_FILES_SUCCESSFUL_TRANSFERRED}
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Data Sources
+{ELECTRUM_DATA_SOURCE_TEXT}
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Data Destinations
+{ELECTRUM_DATA_DESTINATION_TEXT}
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Electrum - Data Handling Profile
+{ELECTRUM_DATA_HANDLING_PROFILE_TEXT}
+
+{ELECTRUM_ERRORS_TRACE_TITLE_TEXT}
+{ELECTRUM_ERRORS_TRACE_TEXT}
+= = = = = = = = = = = = = = = = = = = = = = = = =
+(c) 2020 Jonathan J5 Harris,
+All Rights Reserved in accordance with the most
+recent version of the MIT License.
+
+= = = = = = = = = = = = = = = = = = = = = = = = =
+Please note that this information may
+not have been saved anywhere. For this reason, it
+may be good to maintain a copy of this email.
+
+
+This email was sent to {EMAIL}.
+If you wish to unsubscribe from future
+system notifications, please contact the
+website administrator.
