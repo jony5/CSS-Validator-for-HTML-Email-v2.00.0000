@@ -103,7 +103,7 @@ body.crnrstn-disable-scrolling              { overflow: hidden;}
 .crnrstn_wp_btn_reg_mrk                     { font-size: 70%; line-height: 13px; font-weight: normal; font-variant-position: super;}
 
 .crnrstn_right_section_abs_out_wrapper      { position:absolute; z-index: 6; border: 2px solid #F5F7FB; width:55%; min-width: 465px; left: 310px; margin-top: 12px;}
-.crnrstn_right_section_abs_wrapper          { position:relative; text-align:left; border: 1px solid #A5B9D8; background-color: #FFF; color: #6885C3; overflow: scroll; overflow-x: scroll;}
+.crnrstn_right_section_abs_wrapper          { position:relative; text-align:left; border: 1px solid #A5B9D8; background-color: #FFF; color: #333; overflow: scroll; overflow-x: scroll;}
 .crnrstn_right_section_rel_wrapper          { position:relative; height: 590px; padding-left: 10px;}
 
 .crnrstn_right_section_rel_wrapper code     { font-size: 21px;}
