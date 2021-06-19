@@ -4368,9 +4368,9 @@ class crnrstn_environment {
 
     public function return_component_branding_creative($strip_formatting = false, $output_mode = NULL){
 
-        $tmp_cnt = sizeof(self::$weighted_elements_keys_ARRAY);
-        $tmp_cnt--;
-        $tmp_int = rand(0, $tmp_cnt);
+        //$tmp_cnt = sizeof(self::$weighted_elements_keys_ARRAY);
+        //$tmp_cnt--;
+        $tmp_int = rand(0, sizeof(self::$weighted_elements_keys_ARRAY) - 1);
 
         if($strip_formatting){
 
