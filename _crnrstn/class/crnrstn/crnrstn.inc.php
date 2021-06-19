@@ -314,7 +314,7 @@ class crnrstn {
 
             for($ii = 0; $ii < $output_ratio_ARRAY[$i]; $ii++){
 
-                $this->weighted_elements_keys_ARRAY[] = self::$creativeElementsKeys[$i];
+                $this->weighted_elements_keys_ARRAY[] = $this->creativeElementsKeys[$i];
 
             }
 
