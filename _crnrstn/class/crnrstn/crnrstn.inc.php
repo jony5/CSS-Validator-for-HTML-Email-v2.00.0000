@@ -130,6 +130,7 @@ class crnrstn {
     public $system_output_profile_constants = array();
     public $system_output_channel_constants = array();
     public $creativeElementsKeys = array();
+    public $weighted_elements_keys_ARRAY = array();
     private static $system_creative_http_path_ARRAY = array();
     private static $crnrstn_tmp_dir;
     private static $m_starttime = array();
@@ -191,6 +192,7 @@ class crnrstn {
         $this->system_output_channel_constants = array(CRNRSTN_UI_DESKTOP, CRNRSTN_UI_TABLET, CRNRSTN_UI_MOBILE);
 
         $this->creativeElementsKeys = array('CRNRSTN ::', 'LINUX_PENGUIN', 'REDHAT_BAR', 'REDHAT_CIRCLE', 'APACHE_POWER_VERSION', 'CRNRSTN_R', '5', 'REDHAT_POWER', 'MYSQL_DOLPHIN', 'PHP_ELLIPSE', 'CRNRSTN_R_WALL', 'POW_BY_PHP', 'ZEND_LOGO', 'ZEND_FRAMEWORK', 'ZEND_FRAMEWORK_3');
+        $this->generate_weighted_elements_keys(count($this->creativeElementsKeys));
 
         $this->response_header_attribute_ARRAY['log'] = '';
         $this->initialize_apache_profile();
@@ -245,9 +247,6 @@ class crnrstn {
         $this->error_log('TODO :: EXPOSE $this->lscpu_output FROM BITWISE MANAGER TO oCRNRSTN_USR [CPU MHz, Vendor ID, Byte Order...] 5/19/2021 1613hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
 
         //
-
-
-        //
         // LOGGING PROFILE MANAGER
         $sys_logging_profile_pack = $this->return_sys_logging_init_profile_pack();
         self::$oLog_ProfileManager = new crnrstn_logging_oprofile_manager($sys_logging_profile_pack, $this);
@@ -292,6 +291,32 @@ class crnrstn {
             //
             // LET CRNRSTN :: HANDLE THIS PER THE LOGGING PROFILE CONFIGURATION FOR THIS SERVER 
             $this->catchException($e, LOG_ERR, __METHOD__, __NAMESPACE__);
+
+        }
+
+    }
+
+    private function generate_weighted_elements_keys($cnt){
+
+        // $this->creativeElementsKeys =
+        // array('CRNRSTN ::', 'LINUX_PENGUIN', 'REDHAT_BAR', 'REDHAT_CIRCLE', 'APACHE_POWER_VERSION',
+        // 'CRNRSTN_R', '5', 'REDHAT_POWER', 'MYSQL_DOLPHIN', 'PHP_ELLIPSE', 'CRNRSTN_R_WALL',
+        // 'POW_BY_PHP', 'ZEND_LOGO', 'ZEND_FRAMEWORK', 'ZEND_FRAMEWORK_3');
+        $output_ratio_ARRAY = array(1, 10, 2, 6, 5, 3, 1, 8, 7, 7, 6, 7, 5, 5, 5);
+
+        for($i = 0; $i < $cnt; $i++){
+
+            if(!isset($output_ratio_ARRAY[$i])){
+
+                $output_ratio_ARRAY[$i] = 1;
+
+            }
+
+            for($ii = 0; $ii < $output_ratio_ARRAY[$i]; $ii++){
+
+                $this->weighted_elements_keys_ARRAY[] = self::$creativeElementsKeys[$i];
+
+            }
 
         }
 

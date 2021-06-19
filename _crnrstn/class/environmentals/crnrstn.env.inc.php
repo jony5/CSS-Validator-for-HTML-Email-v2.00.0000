@@ -85,6 +85,7 @@ class crnrstn_environment {
     public $system_output_profile_constants = array();
     public $system_output_channel_constants = array();
     private static $creativeElementsKeys = array();
+    private static $weighted_elements_keys_ARRAY = array();
     public $soap_permissions_file_path_ARRAY = array();
     public $response_header_attribute_ARRAY = array();
     
@@ -150,6 +151,7 @@ class crnrstn_environment {
         $this->system_output_channel_constants = $oCRNRSTN->system_output_channel_constants;
 
         self::$creativeElementsKeys = $oCRNRSTN->creativeElementsKeys;
+        self::$weighted_elements_keys_ARRAY = $oCRNRSTN->weighted_elements_keys_ARRAY;
 
         //
         // INITIALIZE MULTI-LANGAUGE SUPPORT
@@ -4366,38 +4368,7 @@ class crnrstn_environment {
 
     public function return_component_branding_creative($strip_formatting = false, $output_mode = NULL){
 
-        /*
-
-        'CRNRSTN ::', 1
-        'LINUX_PENGUIN', 10
-        'REDHAT_BAR', 2
-        'REDHAT_CIRCLE', 6
-        'APACHE_POWER_2.0', 3
-        'APACHE_POWER', 2
-        'CRNRSTN_R', 3
-        '5', 1
-        'REDHAT_POWER', 8
-        'MYSQL_DOLPHIN', 7
-        'PHP_ELLIPSE', 7
-        */
-
-        $tmp_weighted_elements_keys_ARRAY = array();
-
-        $output_ratio_ARRAY = array(1, 10, 2, 6, 5, 3, 1, 8, 7, 7, 6, 7, 5, 5, 5);
-
-        $tmp_ratio_cnt = sizeof($output_ratio_ARRAY);
-
-        for($i = 0; $i < $tmp_ratio_cnt; $i++){
-
-            for($ii = 0; $ii < $output_ratio_ARRAY[$i]; $ii++){
-
-                $tmp_weighted_elements_keys_ARRAY[] = self::$creativeElementsKeys[$i];
-
-            }
-
-        }
-
-        $tmp_cnt = sizeof($tmp_weighted_elements_keys_ARRAY);
+        $tmp_cnt = sizeof(self::$weighted_elements_keys_ARRAY);
         $tmp_cnt--;
         $tmp_int = rand(0, $tmp_cnt);
 
@@ -4409,7 +4380,7 @@ class crnrstn_environment {
 
             }else{
 
-                $creative = '<span style="font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_creative($tmp_weighted_elements_keys_ARRAY[$tmp_int]).'</span>';
+                $creative = '<span style="font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_creative(self::$weighted_elements_keys_ARRAY[$tmp_int]).'</span>';
 
             }
 
@@ -4421,7 +4392,7 @@ class crnrstn_environment {
 
             }else{
 
-                $creative = '<div style="float:left; padding:4px 0 5px 5px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_creative($tmp_weighted_elements_keys_ARRAY[$tmp_int]).'</div>';
+                $creative = '<div style="float:left; padding:4px 0 5px 5px; text-align:left; font-family: Courier New, Courier, monospace; font-size:11px;">'.$this->return_creative(self::$weighted_elements_keys_ARRAY[$tmp_int]).'</div>';
 
             }
 
