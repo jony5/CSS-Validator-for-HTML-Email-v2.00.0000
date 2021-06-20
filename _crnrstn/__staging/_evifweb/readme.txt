@@ -1,7 +1,8 @@
 See database and files for eVifweb company website and extranet.
 
 
-Why is this here? DEMONSTRATION OF requirements to support: 
+Why is this here? DEMONSTRATION OF requirements to support:
+    ~ CRNRSTN :: CAN OWN THE EXTRANET FUNCTIONALITY.
 	~ **FILE HANDLING
 	~ MESSAGING
 	~ SEARCH 

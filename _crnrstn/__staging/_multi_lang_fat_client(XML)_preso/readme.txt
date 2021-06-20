@@ -1,7 +1,8 @@
 See database and files for avoverlay.
 
 
-Why is this here? DEMONSTRATION OF requirements to support: 
+Why is this here? DEMONSTRATION OF requirements to support:
+    ~ CRNRSTN :: CAN DO THIS.
 	~ IP ADDRESS STORAGE IN DATABASE
 	~ MULTI-LANGUAGE/TRANSLATION INPUT (for OUTPUT, see _crnrstn/__staging/_evifweb)
 	~ AUTO-SAVE TO DRAFT ON TRANSLATION INPUT
