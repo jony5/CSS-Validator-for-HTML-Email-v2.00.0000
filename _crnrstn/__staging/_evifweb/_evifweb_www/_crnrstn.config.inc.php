@@ -417,5 +417,3 @@ require($CRNRSTN_ROOT.'/common/classes/phpmailer/class.smtp.php');
 //
 // INSTANTIATE USER CLASS OBJECT
 $oUSER = new user($oCRNRSTN_ENV);
-
-?>
