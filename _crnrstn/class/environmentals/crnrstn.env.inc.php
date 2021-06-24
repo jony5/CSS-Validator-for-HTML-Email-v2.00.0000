@@ -855,14 +855,6 @@ class crnrstn_environment {
 <script src="'.$this->oCRNRSTN_USR->crnrstn_resources_http_path . 'ui/js/crnrstn.main_mobi.js?v=420.00.'. $tmp_cache_ver .'"></script>
 ';
                     break;
-                    case CRNRSTN_UI_JS_JQUERY_1_11_1:
-
-                        $tmp_cache_ver = $this->oCRNRSTN_USR->resource_filecache_version(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js');
-                        $tmp_str_array[] = '<!-- jquery 3.6.0 -->
-<script src="'.$this->oCRNRSTN_USR->crnrstn_resources_http_path . 'ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js?v=420.00.' . $tmp_cache_ver . '"></script>
-';
-
-                    break;
                     case CRNRSTN_UI_JS_JQUERY:
 
                         $tmp_cache_ver = $this->oCRNRSTN_USR->resource_filecache_version(CRNRSTN_ROOT . '/_crnrstn/ui/js/_lib/frameworks/jquery/3.6.0/jquery-3.6.0.min.js');

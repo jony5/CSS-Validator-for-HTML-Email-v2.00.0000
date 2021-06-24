@@ -4301,29 +4301,40 @@ class crnrstn_bitflip_manager {
 
     private function initialize_cpu_profile(){
 
-        $this->lscpu_output = shell_exec("lscpu");
-        $this->uname_output = shell_exec("uname -m");
-        $this->getconf_output = (int) shell_exec("getconf LONG_BIT");
-        //$this->getconf_output = 128;
+        if(substr(PHP_OS, 0, 3) == "WIN"){
 
-        if(is_numeric($this->getconf_output)){
+            // I DO NOT HAVE WINDOWS COMMANDS YET.
+            //exec('for %I in ("'.$file.'") do @echo %~zI', $output);
+            //$return = $output[0];
+            $this->os_bit_size = (int)64;
 
-            $this->os_bit_size = (int) $this->getconf_output;
-            //error_log(__LINE__.' '.__METHOD__.' os_bit_size='.$this->os_bit_size);
+        }else {
 
-        }else{
+            $this->lscpu_output = shell_exec("lscpu");
+            $this->uname_output = shell_exec("uname -m");
+            $this->getconf_output = (int)shell_exec("getconf LONG_BIT");
+            //$this->getconf_output = 128;
 
-            $pos_64 = strpos($this->uname_output,'64');
+            if (is_numeric($this->getconf_output)) {
 
-            if($pos_64 !== false){
-
-                $this->os_bit_size = (int) 64;
+                $this->os_bit_size = (int)$this->getconf_output;
                 //error_log(__LINE__.' '.__METHOD__.' os_bit_size='.$this->os_bit_size);
 
-            }else{
+            } else {
 
-                $this->os_bit_size = (int) 32;
-                //error_log(__LINE__.' '.__METHOD__.' os_bit_size='.$this->os_bit_size);
+                $pos_64 = strpos($this->uname_output, '64');
+
+                if ($pos_64 !== false) {
+
+                    $this->os_bit_size = (int)64;
+                    //error_log(__LINE__.' '.__METHOD__.' os_bit_size='.$this->os_bit_size);
+
+                } else {
+
+                    $this->os_bit_size = (int)32;
+                    //error_log(__LINE__.' '.__METHOD__.' os_bit_size='.$this->os_bit_size);
+
+                }
 
             }
 
