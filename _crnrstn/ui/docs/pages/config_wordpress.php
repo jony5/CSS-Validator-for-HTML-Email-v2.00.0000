@@ -127,8 +127,7 @@ switch($channel_constant[0]){
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         ' . $this->oCRNRSTN_USR->return_creative('CRNRSTN_FAVICON') . '
-        ' . $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY) .
-            $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY_UI) .
+        ' . $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_JS_JQUERY_UI) .
             $this->oCRNRSTN_USR->ui_content_module_out(CRNRSTN_UI_CSS_MAIN_DESKTOP & CRNRSTN_UI_JS_MAIN_DESKTOP) . '
     </head>
     <body class="crnrstn-disable-scrolling">
