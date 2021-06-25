@@ -7,6 +7,7 @@ Why is this here? DEMONSTRATION OF requirements to support:
 	~ MESSAGING
 	~ SEARCH 
 	~ MULTI-LANGUAGE OUTPUT (for INPUT...see _crnrstn/__staging/_multi_lang_fat_client(XML)_preso/)
+	~ USE-CASES REQUIRING RECURSIVE DATABASE INTEGRATIONS
 
 
 **ROBUST ASSET HANDLING USE-CASES SUPPORTED

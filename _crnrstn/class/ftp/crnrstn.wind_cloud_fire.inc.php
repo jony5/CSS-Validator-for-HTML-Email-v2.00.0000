@@ -715,8 +715,8 @@ class crnrstn_wind_cloud_fire {
 
                     switch ($exclusion_type) {
                         case 'DIRECTORY':
-                            #['DIRECTORY']['NOMINATION'][] = $WCRkey_or_DIRPATH;
-                            #['DIRECTORY']['NOMINATION'][] = $qualification_pattern;
+                            //#['DIRECTORY']['NOMINATION'][] = $WCRkey_or_DIRPATH;
+                            //#['DIRECTORY']['NOMINATION'][] = $qualification_pattern;
 
                             //
                             // USED FOR DIRECTORY CHECK IN ELECTRUM v1.0.0
@@ -742,7 +742,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'FILE':
-                            #['FILE']['NOMINATION'][] = $qualification_pattern;
+                            //#['FILE']['NOMINATION'][] = $qualification_pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -766,7 +766,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'OWNER_GROUP':
-                            #['OWNER_GROUP']['GROUP_ID'][] = $pattern;
+                            //#['OWNER_GROUP']['GROUP_ID'][] = $pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -797,7 +797,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'OWNER_USER':
-                            #['OWNER_USER']['USER_ID'][] = $pattern;
+                            //#['OWNER_USER']['USER_ID'][] = $pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -827,7 +827,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'MODIFIED_NT':
-                            #['MODIFIED_NT']['NEWER_THAN'][] = $pattern;
+                            //#['MODIFIED_NT']['NEWER_THAN'][] = $pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -857,7 +857,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'MODIFIED_OT':
-                            #['MODIFIED_OT']['OLDER_THAN'][] = $pattern;
+                            //#['MODIFIED_OT']['OLDER_THAN'][] = $pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -887,7 +887,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'ACCESSED_NT':
-                            #['ACCESSED_NT']['NEWER_THAN'][] = $pattern;
+                            //#['ACCESSED_NT']['NEWER_THAN'][] = $pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -916,7 +916,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'ACCESSED_OT':
-                            #['ACCESSED_OT']['OLDER_THAN'][] = $pattern;
+                            //#['ACCESSED_OT']['OLDER_THAN'][] = $pattern;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -945,7 +945,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'FILE_SIZE_GT':
-                            #['FILE_SIZE_GT']['GREATER_THAN'][] = $bytes;
+                            //#['FILE_SIZE_GT']['GREATER_THAN'][] = $bytes;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -978,7 +978,7 @@ class crnrstn_wind_cloud_fire {
 
                         break;
                         case 'FILE_SIZE_LT':
-                            #['FILE_SIZE_LT']['LESS_THAN'][] = $bytes;
+                            //#['FILE_SIZE_LT']['LESS_THAN'][] = $bytes;
 
                             if($all_excludes_open || $exclusion_profile_exclude_ARRAY[$exclusion_serial][$exclusion_type][$qualification_pattern]){
 
@@ -1017,6 +1017,7 @@ class crnrstn_wind_cloud_fire {
                             throw new Exception('The CRNRSTN :: Electrum exclusion type,"' . $exclusion_type . '", has not yet been configured to be applied to any asset.');
 
                         break;
+
                     }
 
                 }
