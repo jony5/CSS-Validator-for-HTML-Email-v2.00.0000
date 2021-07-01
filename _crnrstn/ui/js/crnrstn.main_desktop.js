@@ -55,7 +55,16 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
           ANY ACCOUNT) WHICH HONORS ALL OF THE ABOVE.
 
  */
-
+// # # C # R # N # R # S # T # N # : : # # ##
+// #
+// #  CLASS :: CRNRSTN_JS
+// #  VERSION :: 1.00.0000
+// #  DATE :: July 1, 2021 @ 0352hrs
+// #  AUTHOR :: Jonathan 'J5' Harris, jharris@eVifweb.com
+// #  URI ::
+// #  DESCRIPTION :: CRNRSTN :: Main Javascript Support [DESKTOP VARIANT].
+// #  LICENSE :: MIT | http://crnrstn.evifweb.com/licensing/
+// #
 // Uses Node, AMD or browser globals to create a module.
 (function (root, factory) {
 
@@ -120,10 +129,17 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
         sanitizeTitle: false
     };
 
-    CRNRSTN_JS.prototype.hello_world = function(elem) {
+    CRNRSTN_JS.prototype.crnrstn_signin = function(elem) {
 
         //$.extend(this.options, options);
         alert('hello {CRNRSTN_JS} world!');
+
+        //
+        /*
+        AJAX FORM SUBMISSION (SDT) TO PRODUCE CRNRSTN :: SIGN-IN "SITUATION"
+
+
+        * */
 
     };
 
@@ -168,7 +184,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
         $('body').on('click', 'a[rel^=crnrstn_signin], area[rel^=crnrstn_signin], a[data-crnrstn_signin], area[data-crnrstn_signin]', function(event) {
 
-            self.hello_world();
+            self.crnrstn_signin();
             return false;
 
         });

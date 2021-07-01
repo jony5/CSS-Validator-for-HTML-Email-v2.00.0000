@@ -1071,35 +1071,6 @@ class crnrstn_user{
 
     }
 
-    public function return_login_link($form_type = 'flagship'){
-
-
-        // <a href="" target="_blank" style=\'font-family:"Courier New", Courier, monospace; text-decoration:none; font-size: 11px; color: #6885C3; text-decoration:underline;\'>login</a>
-
-        switch($form_type){
-            case 'flagship':
-
-                $tmp_login_param_ARRAY[] = 'crnrstn_l=signin';
-
-                $tmp_lnk = $this->append_url_param($tmp_login_param_ARRAY, true);
-
-            break;
-            case 'wireframe':
-
-            break;
-            case 'minimal':
-
-            break;
-            case 'custom':
-
-            break;
-
-        }
-
-        return $tmp_lnk;
-
-    }
-
     // SOURCE :: https://www.php.net/manual/en/function.parse-url.php
     // AUTHOR :: ivijan dot stefan at gmail dot com :: https://www.php.net/manual/en/function.parse-url.php#114704
     public function return_youtube_embed($url, $width = 560, $height = 315, $fullscreen = true){
