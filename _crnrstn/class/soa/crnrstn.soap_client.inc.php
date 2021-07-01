@@ -359,3 +359,37 @@ class crnrstn_soap_client_manager {
 
 	}
 }
+
+
+# # C # R # N # R # S # T # N # : : # # ##
+#
+#  CLASS :: crnrstn_soap_data_transport_packet
+#  VERSION :: 2.00.0000
+#  DATE :: July 1, 2021 @ 0120hrs
+#  AUTHOR :: Jonathan 'J5' Harris, jharris@eVifweb.com
+#  URI ::
+#  DESCRIPTION :: CRNRSTN :: SOAP Client request data to support browser AJAX communications to CRNRSTN :: through
+#  the data encrypted CRNRSTN :: SOAP Services Layer.
+#  LICENSE :: MIT | http://crnrstn.evifweb.com/licensing/
+#
+class crnrstn_soap_data_transport_packet {
+
+    protected $oLogger;
+    protected $oCRNRSTN_USR;
+
+    public function __construct($oCRNRSTN_USR) {
+
+        $this->oCRNRSTN_USR = $oCRNRSTN_USR;
+        //
+        // INSTANTIATE LOGGER
+        $this->oLogger = new crnrstn_logging($this->oCRNRSTN_USR->CRNRSTN_debugMode, __CLASS__, $this->oCRNRSTN_USR->log_silo_profile, $this->oCRNRSTN_USR);
+
+
+    }
+
+    public function __destruct() {
+
+
+
+    }
+}

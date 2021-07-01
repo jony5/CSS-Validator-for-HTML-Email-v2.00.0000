@@ -99,7 +99,7 @@ require( CRNRSTN_ROOT . '/_crnrstn/_crnrstn.classdefinitions.inc.php' );
  *
  * @var int
 */
-$CRNRSTN_debugMode = CRNRSTN_DEBUG_OFF;
+$CRNRSTN_debugMode = CRNRSTN_DEBUG_NATIVE_ERR_LOG;
 
 /**
  * $PHPMAILER_debugMode
