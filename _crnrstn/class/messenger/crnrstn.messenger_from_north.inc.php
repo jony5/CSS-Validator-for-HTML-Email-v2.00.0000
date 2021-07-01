@@ -4190,43 +4190,43 @@ class crnrstn_communications_css_standard{
 
                         $this->css_validate_STYLE_IN_HEAD($css_string_nomination, $key_css_species);
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_LINK_IN_HEAD:
 
                         $this->css_validate_LINK_IN_HEAD($css_string_nomination, $key_css_species);
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_STYLE_IN_BODY:
 
                         $this->css_validate_STYLE_IN_BODY($css_string_nomination, $key_css_species);
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_LINK_IN_BODY;
 
                         $this->css_validate_LINK_IN_BODY($css_string_nomination, $key_css_species);
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_STANDARD_USE:
 
                         $this->css_validate_STANDARD($css_string_nomination, $key_css_species);
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_RGB:
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_RGBA:
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_HSLA:
 
-                        break;
+                    break;
                     case CRNRSTN_CSS_VALIDATE_CURRENTCOLOR:
 
-                        break;
+                    break;
                     default:
                         //
                         // CRNRSTN_CSS_VALIDATE_NONE
-                        break;
+                    break;
 
                 }
 

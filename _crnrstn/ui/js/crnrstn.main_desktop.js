@@ -84,7 +84,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
         // Browser globals (root is window)
         // root.lightbox = factory(root.jQuery);
-        root.CRNRSTN_JS = factory(root.jQuery);
+        root.oCRNRSTN_JS = factory(root.jQuery);
 
     }
 
@@ -129,17 +129,49 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
         sanitizeTitle: false
     };
 
-    CRNRSTN_JS.prototype.crnrstn_signin = function(elem) {
+    CRNRSTN_JS.prototype.crnrstn_init = function(elem) {
 
-        //$.extend(this.options, options);
-        alert('hello {CRNRSTN_JS} world!');
+        alert('hello crnrstn_init {CRNRSTN_JS} world!');
 
         //
         /*
         AJAX FORM SUBMISSION (SDT) TO PRODUCE CRNRSTN :: SIGN-IN "SITUATION"
+        // 1) AJAX REQUEST TO SERVER WITH META ON ALL "SDT INTEGRATIONS SUPPORTED" FUNCTIONALITY
 
 
-        * */
+        */
+
+        if ($('#crnrstn').length > 0) {
+
+            return;
+
+        }
+
+        // this.$oCRNRSTN_JS       = $('#crnrstn');
+        //
+        // this.$lightbox.find('.lb-pr').on('click', function() {
+        //
+        //     if (self.currentImageIndex === 0) {
+        //
+        //         self.changeImage(self.album.length - 1);
+        //
+        //     } else {
+        //
+        //         self.changeImage(self.currentImageIndex - 1);
+        //
+        //     }
+        //
+        //     return false;
+        //
+        // });
+
+
+    };
+
+    CRNRSTN_JS.prototype.crnrstn_signin = function(elem) {
+
+        //$.extend(this.options, options);
+        alert('hello crnrstn_signin {CRNRSTN_JS} world!');
 
     };
 
@@ -164,6 +196,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
             self.enable();
             self.build();
+            self.crnrstn_init();
 
         });
 
