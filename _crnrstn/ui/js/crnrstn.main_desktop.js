@@ -24,6 +24,7 @@ RECEIVE COMPLETE DATA RESPONSE FROM SERVER ::
     ~ HTML (injection WITH CSS)
     ~ HTML (injection WITH CSS - WIRE-FRAME ONLY)
     ~ SOAP RESPONSE (XML)
+    ~ CARRIER PIGEON
 
 SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMENT CONSIDERATIONS IMPACTING UI/UX ::
     ~ NEW ALERTS
@@ -67,11 +68,13 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
         module.exports = factory(require('jquery'));
     } else {
         // Browser globals (root is window)
-        root.lightbox = factory(root.jQuery);
+        // root.lightbox = factory(root.jQuery);
+        root.CRNRSTN_JS = factory(root.jQuery);
     }
 }(this, function ($) {
 
-    function Lightbox(options) {
+    //function Lightbox(options) {
+    function CRNRSTN_JS(options) {
         this.album = [];
         this.currentImageIndex = void 0;
         this.init();
@@ -83,7 +86,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
     // Descriptions of all options available on the demo site:
     // http://lokeshdhakar.com/projects/lightbox2/index.html#options
-    Lightbox.defaults = {
+    CRNRSTN_JS.defaults = {
         albumLabel: 'Image %1 of %2',
         alwaysShowNavOnTouchDevices: false,
         fadeDuration: 600,
@@ -107,15 +110,17 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
         sanitizeTitle: false
     };
 
-    Lightbox.prototype.option = function(options) {
+    CRNRSTN_JS.prototype.option = function(options) {
+
         $.extend(this.options, options);
+
     };
 
-    Lightbox.prototype.imageCountLabel = function(currentImageNum, totalImages) {
+    CRNRSTN_JS.prototype.imageCountLabel = function(currentImageNum, totalImages) {
         return this.options.albumLabel.replace(/%1/g, currentImageNum).replace(/%2/g, totalImages);
     };
 
-    Lightbox.prototype.init = function() {
+    CRNRSTN_JS.prototype.init = function() {
         var self = this;
         // Both enable and build methods require the body tag to be in the DOM.
         $(document).ready(function() {
@@ -126,7 +131,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
     // Loop through anchors and areamaps looking for either data-lightbox attributes or rel attributes
     // that contain 'lightbox'. When these are clicked, start lightbox.
-    Lightbox.prototype.enable = function() {
+    CRNRSTN_JS.prototype.enable = function() {
         var self = this;
         $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox], a[data-lightbox], area[data-lightbox]', function(event) {
             self.start($(event.currentTarget));
@@ -136,7 +141,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
     // Build html for the lightbox and the overlay.
     // Attach event handlers to the new DOM elements. click click click
-    Lightbox.prototype.build = function() {
+    CRNRSTN_JS.prototype.build = function() {
         if ($('#lightbox').length > 0) {
             return;
         }
@@ -249,7 +254,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
-    Lightbox.prototype.start = function($link) {
+    CRNRSTN_JS.prototype.start = function($link) {
         var self    = this;
         var $window = $(window);
 
@@ -313,7 +318,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
-    Lightbox.prototype.changeImage = function(imageNumber) {
+    CRNRSTN_JS.prototype.changeImage = function(imageNumber) {
         var self = this;
         var filename = this.album[imageNumber].link;
         var filetype = filename.split('.').slice(-1)[0];
@@ -406,7 +411,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Stretch overlay to fit the viewport
-    Lightbox.prototype.sizeOverlay = function() {
+    CRNRSTN_JS.prototype.sizeOverlay = function() {
         var self = this;
         /*
         We use a setTimeout 0 to pause JS execution and let the rendering catch-up.
@@ -425,7 +430,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
 
     // Animate the size of the lightbox to fit the image we are showing
     // This method also shows the the image.
-    Lightbox.prototype.sizeContainer = function(imageWidth, imageHeight) {
+    CRNRSTN_JS.prototype.sizeContainer = function(imageWidth, imageHeight) {
         var self = this;
 
         var oldWidth  = this.$outerContainer.outerWidth();
@@ -457,7 +462,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Display the image and its details and begin preload neighboring images.
-    Lightbox.prototype.showImage = function() {
+    CRNRSTN_JS.prototype.showImage = function() {
         this.$lightbox.find('.lb-loader').stop(true).hide();
         this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
 
@@ -468,7 +473,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Display previous and next navigation if appropriate.
-    Lightbox.prototype.updateNav = function() {
+    CRNRSTN_JS.prototype.updateNav = function() {
         // Check to see if the browser supports touch events. If so, we take the conservative approach
         // and assume that mouse hover events are not supported and always show prev/next navigation
         // arrows in image sets.
@@ -504,7 +509,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Display caption, image number, and closing button.
-    Lightbox.prototype.updateDetails = function() {
+    CRNRSTN_JS.prototype.updateDetails = function() {
         var self = this;
 
         // Enable anchor clicks in the injected caption html.
@@ -535,7 +540,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Preload previous and next images in set.
-    Lightbox.prototype.preloadNeighboringImages = function() {
+    CRNRSTN_JS.prototype.preloadNeighboringImages = function() {
         if (this.album.length > this.currentImageIndex + 1) {
             var preloadNext = new Image();
             preloadNext.src = this.album[this.currentImageIndex + 1].link;
@@ -546,17 +551,17 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
         }
     };
 
-    Lightbox.prototype.enableKeyboardNav = function() {
+    CRNRSTN_JS.prototype.enableKeyboardNav = function() {
         this.$lightbox.on('keyup.keyboard', $.proxy(this.keyboardAction, this));
         this.$overlay.on('keyup.keyboard', $.proxy(this.keyboardAction, this));
     };
 
-    Lightbox.prototype.disableKeyboardNav = function() {
+    CRNRSTN_JS.prototype.disableKeyboardNav = function() {
         this.$lightbox.off('.keyboard');
         this.$overlay.off('.keyboard');
     };
 
-    Lightbox.prototype.keyboardAction = function(event) {
+    CRNRSTN_JS.prototype.keyboardAction = function(event) {
         var KEYCODE_ESC        = 27;
         var KEYCODE_LEFTARROW  = 37;
         var KEYCODE_RIGHTARROW = 39;
@@ -582,7 +587,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
     };
 
     // Closing time. :-(
-    Lightbox.prototype.end = function() {
+    CRNRSTN_JS.prototype.end = function() {
         this.disableKeyboardNav();
         $(window).off('resize', this.sizeOverlay);
         this.$lightbox.fadeOut(this.options.fadeDuration);
@@ -593,7 +598,7 @@ SERVER DRIVEN VARIABLE INITIALIZATION AND STATE MANAGEMENT - REAL-TIME MANAGEMEN
         }
     };
 
-    return new Lightbox();
+    return new CRNRSTN_JS();
 }));
 
 //

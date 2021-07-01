@@ -4307,7 +4307,7 @@ class crnrstn_communications_css_standard{
                                     <a href="'.$this->oCRNRSTN_USR->return_sticky_link('https://github.com/jony5/CSS-Validator-for-HTML-Email-v2.00.0000').'" target="_blank" style=\'font-family:"Courier New", Courier, monospace; text-decoration:none; font-size: 11px; color: #6885C3; text-decoration:underline;\'>download</a>
                                 </div>
                                 <div style="float: left; text-align: left; padding:0 0 0 0; line-height: 15px;">
-                                    <a href="'.$this->oCRNRSTN_USR->return_login_link().'" target="_blank" style=\'font-family:"Courier New", Courier, monospace; text-decoration:none; font-size: 11px; color: #6885C3; text-decoration:underline;\'>login</a>
+                                    <a href="#" target="_blank" onclick="crnrstn_signin();" style=\'font-family:"Courier New", Courier, monospace; text-decoration:none; font-size: 11px; color: #6885C3; text-decoration:underline;\'>login</a>
                                 </div>
                                 
                                 <div style="height:0; width:100%; clear:both; display: block; overflow: hidden;"></div>

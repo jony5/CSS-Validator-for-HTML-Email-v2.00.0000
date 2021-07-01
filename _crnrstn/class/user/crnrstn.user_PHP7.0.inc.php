@@ -1073,6 +1073,9 @@ class crnrstn_user{
 
     public function return_login_link($form_type = 'flagship'){
 
+
+        // <a href="" target="_blank" style=\'font-family:"Courier New", Courier, monospace; text-decoration:none; font-size: 11px; color: #6885C3; text-decoration:underline;\'>login</a>
+
         switch($form_type){
             case 'flagship':
 
