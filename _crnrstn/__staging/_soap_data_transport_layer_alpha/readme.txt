@@ -6,7 +6,7 @@ This is the site code for a current and active redesign of http://jony5.com wher
 the browser is being turned into a SOAP (UN/PWD authenticated) client for all AJAX
 requests to SERVER. These SDT R&D project implementation learnings will be used
 as the foundation for the CRNRSTN :: User Authentication Services (read as user
-log-in) layer.
+log-in) Layer.
 
 CRNRSTN :: SOAP Data Transport (SDT) Layer Alpha prototype development.
 
