@@ -62,9 +62,9 @@ class crnrstn_user{
     private static $oSqlSilo;
     private static $oPaginator;
     private static $oCommRichMediaProvider;
-    protected $oSoapClient;
+    private static $oSoapClient;
     private static $oCRNRSTN_CSS_VALIDATOR;
-    //public $oCRNRSTN_BITFLIP_MGR;
+    public $oCRNRSTN_BITFLIP_MGR;
     protected $ini_set_ARRAY = array();
 
     public $configSerial;
@@ -99,15 +99,13 @@ class crnrstn_user{
     public $log_silo_profile;
     public $env_cleartext_name;
     public $tmp_wcr_config_envKey;
-    public $system_resource_constants;
     public $sys_notices_creative_mode;
     public $sys_notice_creative_http_path;
 
     protected $oMessenger_ARRAY = array();
     private static $bitwise_serialization_cnt = 0;
-    protected $is_soap_data_tunnel_endpoint = false;
     public $destruct_output = '';
-    public $soap_data_tunnel_output = '';
+    public $colorScheme;
 
     private static $lang_content_ARRAY = array();
     public $version_crnrstn;
@@ -115,7 +113,6 @@ class crnrstn_user{
     public $version_apache_sysimg;
     public $version_php;
     public $version_mysqli;
-    public $version_soap;
 
     public function __construct($oCRNRSTN_ENV){
 
@@ -124,13 +121,14 @@ class crnrstn_user{
         self::$oCRNRSTN_ENV = $oCRNRSTN_ENV;
 
         $this->configSerial = self::$oCRNRSTN_ENV->configSerial;
-        //$this->oCRNRSTN_BITFLIP_MGR = self::$oCRNRSTN_ENV->oCRNRSTN_BITFLIP_MGR;
+        $this->oCRNRSTN_BITFLIP_MGR = self::$oCRNRSTN_ENV->oCRNRSTN_BITFLIP_MGR;
         self::$resourceKey = self::$oCRNRSTN_ENV->return_resource_key();
         $this->oLog_output_ARRAY = $oCRNRSTN_ENV->oLog_output_ARRAY;
         $this->destruct_output = $oCRNRSTN_ENV->destruct_output;
         $this->starttime = $oCRNRSTN_ENV->starttime;
         $this->CRNRSTN_debugMode = $oCRNRSTN_ENV->CRNRSTN_debugMode;
         $this->PHPMAILER_debugMode = $oCRNRSTN_ENV->PHPMAILER_debugMode;
+        $this->colorScheme = $oCRNRSTN_ENV->colorScheme;
         $this->version_crnrstn = $oCRNRSTN_ENV->version_crnrstn;
         $this->version_apache = $oCRNRSTN_ENV->version_apache;
         $this->version_apache_sysimg = $oCRNRSTN_ENV->version_apache_sysimg;
@@ -138,7 +136,6 @@ class crnrstn_user{
 
         $this->log_silo_profile = $oCRNRSTN_ENV->log_silo_profile;
         $this->tmp_wcr_config_envKey = $this->env_cleartext_name = $oCRNRSTN_ENV->env_cleartext_name;
-        $this->system_resource_constants = $oCRNRSTN_ENV->system_resource_constants;
         $this->sys_notices_creative_mode = $oCRNRSTN_ENV->sys_notices_creative_mode;
         $this->sys_notice_creative_http_path = $oCRNRSTN_ENV->sys_notice_creative_http_path;
         self::$oLog_ProfileManager = $oCRNRSTN_ENV->return_oLog_ProfileManager();
@@ -221,31 +218,6 @@ class crnrstn_user{
         //die();
     }
 
-    public function return_serialized_bit_nom($bit_family){
-
-        //
-        // $bit_family = CLIENT_REQUESTED_PERMISSIONS, SERVER_AUTH_CONN_PERMISSIONS, SERVER_AUTH_CLIENT_PERMISSIONS
-        return self::$oCRNRSTN_ENV->return_serialized_bit_nom($bit_family);
-
-    }
-
-    public function is_soap_data_tunnel_endpoint($set_value = NULL){
-
-        if(isset($set_value)){
-
-            $this->is_soap_data_tunnel_endpoint = $set_value;
-            self::$oCRNRSTN_ENV->is_soap_data_tunnel_endpoint($set_value);
-
-            return true;
-
-        }else{
-
-            return $this->is_soap_data_tunnel_endpoint;
-
-        }
-
-    }
-
     public function return_active_log_silo_keys($output_type = 'string'){
 
         $output_type = trim(strtolower($output_type));
@@ -300,10 +272,6 @@ class crnrstn_user{
         self::$oCRNRSTN_ENV->oHTTP_MGR->initialize_oCRNRSTN_USR($this);
 
         //
-        // CRNRSTN :: SOAP DATA TUNNEL
-        $this->soap_data_tunnel_output = $this->SOAP_client_request_listener();
-
-        //
         // BASE64 IMAGE HELPER where, crnrstn_to_base64=imgs/png/j5_wolf_pup_lil_5_pts.png
         if($tmp_html = $this->base64_asset_path_listener()){
 
@@ -335,184 +303,6 @@ class crnrstn_user{
     public function client_agent_is($key, $userAgent = null, $httpHeaders = null){
 
         return self::$oCRNRSTN_ENV->client_agent_is($key, $userAgent, $httpHeaders);
-
-    }
-
-    public function SOAP_client_request_listener($output_type = 'print_r'){
-
-        $output_type = strtolower($output_type);
-
-        //
-        // IF SOAP CLIENT IS INITIALIZED
-        if($this->SOAP_isset_soap_client()){
-
-            $tmp_oNUSOAP_BASE = new nusoap_base();
-
-            $this->version_soap = $tmp_oNUSOAP_BASE->title;             //'NuSOAP';
-            $this->version_soap .= $tmp_oNUSOAP_BASE->version;          //' v0.9.5';
-            $this->version_soap .= $tmp_oNUSOAP_BASE->revision;         //' $Revision: 1.123 $';
-
-            $tmp_revision_soap = $this->properReplace('Revision:','', $tmp_oNUSOAP_BASE->revision);
-            $tmp_revision_soap .= $this->properReplace('$','', $tmp_revision_soap);
-            $tmp_revision_soap .= trim($tmp_revision_soap);
-
-            $tmp_user_agent = 'User-Agent: '.$tmp_oNUSOAP_BASE->title.'/'.$tmp_oNUSOAP_BASE->version.' ('.$tmp_revision_soap.') CRNRSTN :: v'.$this->version_crnrstn;
-
-            //
-            // TEXTAREA OUTPUT IN FORM WITH SUBMIT BUTTON
-            $tmp_crnrstn_soap_data_tunnel_output = $this->SOAP_return_client_request();
-            $tmp_content_length = strlen($tmp_crnrstn_soap_data_tunnel_output);
-            $tmp_content_length = 'Content-Length: '.$tmp_content_length;
-
-            $tmp_config_wsdl = $this->get_resource('WSDL_URI', 'CRNRSTN::INTEGRATIONS');
-
-            if(!(strlen($tmp_config_wsdl) > 0)){
-
-                //
-                // SOMETHING FOR NOW
-                $tmp_config_wsdl = 'http://jony5.com/_crnrstn/soa/?wsdl';
-
-            }
-
-            switch($output_type){
-                case 'form_integrations':
-                    // <?xml version="1.0" encoding="iso-8859-1"
-
-                    $tmp_crnrstn_soap_data_tunnel_output = 'HELLO WORLD!';
-                    $tmp_html = '<!DOCTYPE html>';
-//                    $tmp_html = '<!DOCTYPE html>
-//<html lang="en">
-//<head>
-//    <style>
-//        body                        { text-align: center; margin:0px auto;}
-//        p                           { padding:10px 0 0 20px; font-size: 18px;}
-//	    .debug_output				{ font-size:10px; height:400px;overflow:scroll;border-bottom:2px solid #333;padding:10px 0 0 20px;}
-//    </style>
-//</head>
-//<body>
-//<div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div>
-//<form action="'.$tmp_config_wsdl.'" method="post">
-//<div style="padding-bottom: 20px;"><textarea name="crnrstn_soap_data_tunnel" cols="30" rows="50"></textarea></div>
-//<button type="submit" style="width:150px; height:30px; text-align: center; font-weight: bold;">SUBMIT</button>
-//</form><br><br>
-//'.$tmp_crnrstn_soap_data_tunnel_output.'
-//<pre class="debug_output">'.$this->return_CRNRSTN_ASCII_ART(0).'</pre>
-//
-//<br>
-//
-//
-//</body>
-//</html>';
-
-
-                    break;
-                case 'alpha_testing':
-
-                    $this->initFormHandling('crnrstn_soap_data_tunnel_frm');
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_data', true);
-
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_soap_action', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_layer_wsdl', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_content_length', true);
-
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_layer_user_agent', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_layer_host', true);
-
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_stime', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_rtime', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_wethrbug', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_bassdrive_stats', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_bassdrive_show', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_truth_timer', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_banner_rotate_desktop', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_banner_rotate_tablet', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_ttl_banner_rotate_mobile', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_transport_protocol_version', true);
-                    $this->addFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_srvc_encoding', true);
-
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_data', 'crnrstn_soap_data_tunnel_data', true, $tmp_crnrstn_soap_data_tunnel_output);
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_soap_action', 'crnrstn_soap_data_tunnel_soap_action', true, 'urn:returnCRNRSTN_UI_GLOBAL_SYNCwsdl#returnCRNRSTN_UI_GLOBAL_SYNC');
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_content_type', 'crnrstn_soap_data_tunnel_content_type', true, 'text/xml; charset='.$tmp_oNUSOAP_BASE->soap_defencoding);
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_content_length', 'crnrstn_soap_data_tunnel_content_length', true, $tmp_content_length);
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_user_agent', 'crnrstn_soap_data_tunnel_user_agent', true, $tmp_user_agent);
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_host', 'crnrstn_soap_data_tunnel_host', true, $_SERVER['SERVER_ADDR']);
-                    $this->addHiddenFormInputParamListener('crnrstn_soap_data_tunnel_frm', 'crnrstn_soap_data_tunnel_host', 'crnrstn_soap_data_tunnel_encoding', true, $tmp_oNUSOAP_BASE->soap_defencoding);
-
-
-
-                    $tmp_html = '<form action="'.$this->sys_notice_creative_http_path.'soa/tunnel/" method="post" id="crnrstn_sdt_frm" name="crnrstn_sdt_frm" enctype="multipart/form-data" >
-<div style="padding-bottom: 20px;"><textarea id="crnrstn_soap_srvc_data" name="crnrstn_soap_srvc_data" cols="130" rows="5">'.$tmp_crnrstn_soap_data_tunnel_output.'</textarea></div>
-<button type="submit" style="width:150px; height:30px; text-align: center; font-weight: bold;">SUBMIT</button>
-<input type="hidden" name="crnrstn_soap_srvc_soap_action" value="urn:returnCRNRSTN_UI_GLOBAL_SYNCwsdl#returnCRNRSTN_UI_GLOBAL_SYNC">
-<input type="hidden" name="crnrstn_soap_srvc_layer_wsdl" value="'.$tmp_config_wsdl.'">
-<input type="hidden" name="crnrstn_soap_srvc_content_length" value="'.$tmp_content_length.'">
-<input type="hidden" name="crnrstn_soap_srvc_layer_user_agent" value="'.$tmp_user_agent.'">
-<input type="hidden" name="crnrstn_soap_srvc_layer_host" value="'.$_SERVER['SERVER_ADDR'].'">
-
-<input type="hidden" name="crnrstn_soap_srvc_stime" value="'.$this->starttime.'">
-<input type="hidden" name="crnrstn_soap_srvc_rtime" value="'.$this->wallTime().'">
-
-<input type="hidden" name="crnrstn_soap_srvc_ttl_wethrbug" value="110">
-<input type="hidden" name="crnrstn_soap_srvc_ttl_bassdrive_stats" value="20">
-<input type="hidden" name="crnrstn_soap_srvc_ttl_bassdrive_show" value="45">
-<input type="hidden" name="crnrstn_soap_srvc_ttl_truth_timer" value="30">
-<input type="hidden" name="crnrstn_soap_srvc_ttl_banner_rotate_desktop" value="15">
-<input type="hidden" name="crnrstn_soap_srvc_ttl_banner_rotate_tablet" value="7">
-<input type="hidden" name="crnrstn_soap_srvc_ttl_banner_rotate_mobile" value="7">
-<input type="hidden" name="crnrstn_soap_srvc_device_type" value="">
-<input type="hidden" name="crnrstn_soap_srvc_transport_protocol_version" value="'.$this->version_soap.'">
-<input type="hidden" name="crnrstn_soap_srvc_encoding" value="'.$tmp_oNUSOAP_BASE->soap_defencoding.'">
-<input type="hidden" name="crnrstn_soap_srvc_response_format" value="soap-SOAP, soap;q=0.9, xml;0.7, json;0.1, csv;0, carrier_pigeon;-0.9">
-
-
-'.$this->ui_content_module_out(CRNRSTN_UI_FORM_INTEGRATION_PACKET, 'crnrstn_soap_data_tunnel_frm').'
-</form>
-<pre class="debug_output">'.$this->return_CRNRSTN_ASCII_ART(0).'</pre>
-';
-
-                    break;
-
-                // case 'json':
-                //                case 'xml':
-                default:
-
-                    //
-                    // print_r
-                    $tmp_crnrstn_soap_data_tunnel_output = $this->print_r_str($this->SOAP_return_client_request());
-
-                    break;
-
-            }
-
-//            $tmp_html = '<!DOCTYPE html>
-//<html lang="en">
-//<head>
-//    <style>
-//        body                        { text-align: center; margin:0px auto;}
-//        p                           { padding:10px 0 0 20px; font-size: 18px;}
-//	    .debug_output				{ font-size:10px; height:400px;overflow:scroll;border-bottom:2px solid #333;padding:10px 0 0 20px;}
-//    </style>
-//</head>
-//<body>
-//<div style="height:20px; width:100%; clear:both; display: block; overflow: hidden;"></div>
-//<form action="'.$tmp_config_wsdl.'" method="post">
-//<div style="padding-bottom: 20px;"><textarea name="crnrstn_soap_data_tunnel" cols="30" rows="50"></textarea></div>
-//<button type="submit" style="width:150px; height:30px; text-align: center; font-weight: bold;">SUBMIT</button>
-//</form><br><br>
-//'.$tmp_crnrstn_soap_data_tunnel_output.'
-//<pre class="debug_output">'.$this->return_CRNRSTN_ASCII_ART(0).'</pre>
-//
-//<br>
-//
-//
-//</body>
-//</html>';
-
-            return $tmp_html;
-
-        }
-
-        return '';
 
     }
 
@@ -900,11 +690,11 @@ class crnrstn_user{
 
     }
 
-    public function client_send_CRNRSTN_SOAP_REQUEST($SOAP_method, $SOAP_request, $SOAP_endpoint = NULL){
+    public function client_send_CRNRSTN_SOAP_REQUEST($SOAP_method, $SOAP_request, $SOAP_endpoint=NULL){
 
         if(!isset($SOAP_endpoint)){
 
-            $SOAP_endpoint = $this->get_resource('WSDL_URI', 'CRNRSTN::INTEGRATIONS');
+            $SOAP_endpoint = $this->get_resource('WSDL_URI');
 
         }
 
@@ -914,7 +704,7 @@ class crnrstn_user{
 
         }else{
 
-            $WSDL_cache_ttl = $this->get_resource('WSDL_CACHE_TTL', 'CRNRSTN::INTEGRATIONS');
+            $WSDL_cache_ttl = $this->get_resource('WSDL_CACHE_TTL');
 
         }
 
@@ -924,17 +714,13 @@ class crnrstn_user{
 
         }else{
 
-            $nusoap_useCURL = $this->get_resource('NUSOAP_USECURL', 'CRNRSTN::INTEGRATIONS');
+            $nusoap_useCURL = $this->get_resource('NUSOAP_USECURL');
 
         }
-
-        $this->print_r('['.$SOAP_endpoint.']['.$WSDL_cache_ttl.']['.$nusoap_useCURL.']', 'SEND CLIENT REQUEST', NULL,  __LINE__, __METHOD__, __FILE__);
 
         //
         // INSTANTIATE SOAP CLIENT
         $this->oSoapClient = new crnrstn_soap_client_manager($this, $SOAP_endpoint, $WSDL_cache_ttl, $nusoap_useCURL);
-        $this->print_r('['.gettype($this->oSoapClient).']['.get_class($this->oSoapClient).'] ['.$SOAP_method.']['.print_r($SOAP_request, true).']', 'SEND CLIENT REQUEST', NULL,  __LINE__, __METHOD__, __FILE__);
-        //$this->print_r('['.$SOAP_method.']['.print_r($SOAP_request, true).']', 'SEND CLIENT REQUEST', NULL,  __LINE__, __METHOD__, __FILE__);
 
         return $this->oSoapClient->sendRequest_SOAP($SOAP_method, $SOAP_request);
 
@@ -1400,20 +1186,6 @@ class crnrstn_user{
 
     }
 
-    public function SOAP_isset_soap_client(){
-
-        if(isset($this->oSoapClient)){
-
-            return $this->oSoapClient->isset_soap_client();
-
-        }else{
-
-            return false;
-
-        }
-
-    }
-
     public function SOAP_return_client_request(){
 
         try{
@@ -1614,7 +1386,6 @@ class crnrstn_user{
             case CRNRSTN_UI_JS_JQUERY_UI:
             case CRNRSTN_UI_JS_JQUERY_MOBILE:
             case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS:
-            case CRNRSTN_UI_JS_LIGHTBOX_DOT_JS_PLUS_JQUERY:
 
                 return self::$oCRNRSTN_ENV->ui_content_module_out($integer_constant, $meta_profile_data);
 
@@ -2883,7 +2654,7 @@ class crnrstn_user{
 
                 //
                 // HOOOSTON...VE HAF PROBLEM!
-                throw new Exception('CRNRSTN :: Serialization configuration error :: encrypt_hidden_input_data is a required BOOLEAN parameter.');
+                throw new Exception('oCRNRSTN_USR->injectInputSerialization() configuration error :: CRNRSTN :: encrypt_hidden_input_data is a required BOOLEAN parameter.');
 
             }
 
@@ -2891,7 +2662,7 @@ class crnrstn_user{
 
                 //
                 // HOOOSTON...VE HAF PROBLEM!
-                throw new Exception('CRNRSTN :: Serialization configuration error :: form handle is a required parameter.');
+                throw new Exception('oCRNRSTN_USR->injectInputSerialization() configuration error :: CRNRSTN :: form handle is a required parameter.');
 
             } else {
 
@@ -2919,7 +2690,7 @@ class crnrstn_user{
 
                                         //
                                         // HOOOSTON...VE HAF PROBLEM!
-                                        throw new Exception('CRNRSTN :: Serialization configuration error :: A default value is required for the hidden input ' . $inputName_key . ' on the form with handle ' . $zeroKey . '.');
+                                        throw new Exception('CRNRSTN_USR->injectInputSerialization() configuration error :: CRNRSTN :: A default value is required for the hidden input ' . $inputName_key . ' on the form with handle ' . $zeroKey . '.');
 
                                     }
                                 }
@@ -2943,7 +2714,7 @@ class crnrstn_user{
 
                         //
                         // HOOOSTON...VE HAF PROBLEM!
-                        throw new Exception('CRNRSTN :: Serialization configuration error :: It has been requested that hidden input fields be tunnel encrypted, however the current configuration of CRNRSTN Suite :: v2.0.0 has failed to successfully execute encrypt/decrypt. Please reconfigure and try again, or pass a second parameter...FALSE...to injectInputSerialization().');
+                        throw new Exception('CRNRSTN_USR->injectInputSerialization() configuration error :: CRNRSTN :: It has been requested that hidden input fields be tunnel encrypted, however the current configuration of CRNRSTN Suite :: v2.0.0 has failed to successfully execute encrypt/decrypt. Please reconfigure and try again, or pass a second parameter...FALSE...to injectInputSerialization().');
 
                     }
 
@@ -3267,12 +3038,6 @@ class crnrstn_user{
 
     }
 
-    public function return_param_tunnel_encrypt_settings($data = NULL, $cipher_override = NULL, $secret_key_override = NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
-
-        return self::$oCRNRSTN_ENV->return_param_tunnel_encrypt_settings($data, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override);
-
-    }
-
     public function openssl_get_cipher_methods(){
 
         return self::$oCRNRSTN_ENV->openssl_get_cipher_methods();
@@ -3292,12 +3057,6 @@ class crnrstn_user{
     public function param_tunnel_decrypt($data = NULL, $uri_passthrough = false, $cipher_override = NULL, $secret_key_override = NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
 
         return self::$oCRNRSTN_ENV->param_tunnel_decrypt($data, $uri_passthrough, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override);
-
-    }
-
-    public function return_param_tunnel_decrypt_settings($data = NULL, $uri_passthrough = false, $cipher_override = NULL, $secret_key_override = NULL, $hmac_algorithm_override=NULL, $options_bitwise_override=NULL){
-
-        return self::$oCRNRSTN_ENV->return_param_tunnel_decrypt_settings($data, $uri_passthrough, $cipher_override, $secret_key_override, $hmac_algorithm_override, $options_bitwise_override);
 
     }
 
@@ -3328,7 +3087,6 @@ class crnrstn_user{
             return false;
 
         }
-
     }
 
     private function compileFormIntegrationPacket($crnrstn_form_handle, $html_dom_form_input_name, $encryption_status = TRUE, $server_side_validation = NULL){
@@ -3438,21 +3196,7 @@ class crnrstn_user{
         $tmp_html_out = rtrim($tmp_html_out, '[CRNRSTN::2.0.0]');
         if (self::$formIntegrationPacket_ARRAY[$crnrstn_form_handle]['packet_encryption_status'] == 'true') {
 
-            $tmp_array_outer = array();
             $tmp_html_out = $this->param_tunnel_encrypt($tmp_html_out);
-            $tmp_array = $this->return_param_tunnel_encrypt_settings($tmp_html_out);
-
-            if(!$this->isset_session_param('ENCRYPT_PARAMS')){
-                $tmp_array_outer[] = $tmp_array;
-                $this->set_session_param('ENCRYPT_PARAMS', $tmp_array_outer);
-
-            }else{
-
-                $tmp_array_outer_sess = $this->get_session_param('ENCRYPT_PARAMS');
-                $tmp_array_outer_sess[] = $tmp_array;
-                $this->set_session_param('ENCRYPT_PARAMS', $tmp_array_outer_sess);
-
-            }
 
             if ($tmp_html_out != "") {
 
@@ -3484,7 +3228,6 @@ class crnrstn_user{
             //
             // CHECK FOR PRESENCE OF FORM INTEGRATION PACKET DATA
             if (self::$oCRNRSTN_ENV->oHTTP_MGR->issetParam($_POST, 'CRNRSTN_INTEGRATION_PACKET')) {
-
                 $tmp_has_getpost_data = true;
 
                 $tmp_isEncrypted = '';
@@ -3526,7 +3269,7 @@ class crnrstn_user{
 
                     if ($tmp_isEncrypted == 'true') {
 
-                        $this->consumeFormIntegrationPacket($this->param_tunnel_decrypt(self::$oCRNRSTN_ENV->oHTTP_MGR->extractData($_GET, 'CRNRSTN_INTEGRATION_PACKET'), true, $cipher_override, $secret_key_override), 'GET');
+                        $this->consumeFormIntegrationPacket($this->param_tunnel_decrypt(self::$oCRNRSTN_ENV->oHTTP_MGR->extractData($_GET, 'CRNRSTN_INTEGRATION_PACKET'), false, $cipher_override, $secret_key_override), 'GET');
 
                     } else {
 
@@ -5839,10 +5582,11 @@ class crnrstn_user{
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function highlightText($text, $theme_style = CRNRSTN_PHPNIGHT)   // [EDIT] CRNRSTN :: v2.0.0 FOR PHPNIGHT :: J5
+    public function highlightText($text, $colorScheme = CRNRSTN_PHPNIGHT)   // [EDIT] CRNRSTN v2.0.0 FOR PHPNIGHT :: J5
     {
+        //$colorScheme = trim(strtolower($colorScheme));              // [EDIT] CRNRSTN v2.0.0 :: J5
 
-        if ($theme_style == CRNRSTN_UI_PHP) {
+        if ($colorScheme == CRNRSTN_UI_PHP) {
 
             ini_set('highlight.comment', '#008000');
             ini_set('highlight.default', '#000');
@@ -5850,7 +5594,7 @@ class crnrstn_user{
             ini_set('highlight.keyword', '#00B; font-weight: bold');
             ini_set('highlight.string', '#D00');
 
-        } else if ($theme_style == CRNRSTN_UI_HTML) {
+        } else if ($colorScheme == CRNRSTN_UI_HTML) {
 
             ini_set('highlight.comment', 'green');
             ini_set('highlight.default', '#C00');
@@ -5858,7 +5602,7 @@ class crnrstn_user{
             ini_set('highlight.keyword', 'black; font-weight: bold');
             ini_set('highlight.string', '#00F');
 
-        } else if ($theme_style == CRNRSTN_UI_PHPNIGHT)                        // [EDIT] CRNRSTN :: v2.0.0 :: J5
+        } else if ($colorScheme == CRNRSTN_UI_PHPNIGHT)                        // [EDIT] CRNRSTN v2.0.0 :: J5
         {
             ini_set('highlight.comment', '#FC0');
             ini_set('highlight.default', '#DEDECB');
@@ -5894,21 +5638,23 @@ class crnrstn_user{
      * @return string|null|mixed The value of the header.
      * @access   private
      */
-    public function highlightCode($filepath, $theme_style = CRNRSTN_PHPNIGHT){
+    public function highlightCode($filepath, $colorScheme = CRNRSTN_PHPNIGHT){
 
-        if ($theme_style == CRNRSTN_UI_PHP) {
+        //$colorScheme = trim(strtolower($colorScheme));
+
+        if ($colorScheme == CRNRSTN_UI_PHP) {
             ini_set('highlight.comment', '#008000');
             ini_set('highlight.default', '#000000');
             ini_set('highlight.html', '#808080');
             ini_set('highlight.keyword', '#0000BB; font-weight: bold');
             ini_set('highlight.string', '#DD0000');
-        } else if ($theme_style == CRNRSTN_UI_HTML) {
+        } else if ($colorScheme == CRNRSTN_UI_HTML) {
             ini_set('highlight.comment', 'green');
             ini_set('highlight.default', '#CC0000');
             ini_set('highlight.html', '#000000');
             ini_set('highlight.keyword', 'black; font-weight: bold');
             ini_set('highlight.string', '#0000FF');
-        } else if ($theme_style == CRNRSTN_UI_PHPNIGHT)                        // [EDIT] CRNRSTN v2.0.0 :: J5
+        } else if ($colorScheme == CRNRSTN_UI_PHPNIGHT)                        // [EDIT] CRNRSTN v2.0.0 :: J5
         {
             ini_set('highlight.comment', '#FFCC00');
             ini_set('highlight.default', '#DEDECB');
@@ -6604,11 +6350,12 @@ class crnrstn_user{
 
     }
 
-    public function return_set_serialized_bits($const_nom, $integer_constants_array){
-
-        return self::$oCRNRSTN_ENV->return_set_serialized_bits($const_nom, $integer_constants_array);
-
-    }
+// TODO: DO WE NEED SOMETHING LIKE THIS?
+//    public function return_set_serialized_bit($const_nom, $integer_constants_array){
+//
+//        return self::$oCRNRSTN_ENV->return_set_bits($integer_constants_array);
+//
+//    }
 
     public function print_r_str($expression, $title=NULL, $theme_style = NULL, $line_num = NULL, $method = NULL, $file = NULL){
 
@@ -6736,12 +6483,6 @@ class crnrstn_user{
 
         }
 
-        if($tmp_str_out == '<span style="color: #000"></span>'){
-
-            $tmp_str_out = '<span style="color: #000">&nbsp;</span>';
-
-        }
-
         $tmp_str_out .= '<pre>';
         $tmp_str_out .=  print_r($output, true);
         $tmp_str_out .= '</pre>';
@@ -6758,7 +6499,7 @@ class crnrstn_user{
                 
             <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
         </div>
-        </div></div></div>';
+        </div></div>';
 
         $tmp_str_out .= '<div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
 ';
@@ -6893,12 +6634,6 @@ class crnrstn_user{
 
         }
 
-        if($output == '<span style="color: #000"></span>'){
-
-            $output = '<span style="color: #000">&nbsp;</span>';
-
-        }
-
         echo '<pre>';
         print_r($output);
         echo '</pre>';
@@ -6915,7 +6650,7 @@ class crnrstn_user{
                 
             <div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>
         </div>
-        </div></div></div>';
+        </div></div>';
 
         echo '<div style="display:block; clear:both; height:0; line-height:0; overflow:hidden; width:100%; font-size:1px;"></div>';
 
@@ -7051,41 +6786,9 @@ class crnrstn_user{
 
     }
 
-    public function serialized_bit_stringin($const_nom, $int_string){
-
-        self::$oCRNRSTN_ENV->serialized_bit_stringin($const_nom, $int_string);
-
-        return true;
-
-    }
-
-    public function serialized_bit_stringout($const_nom){
-
-        return self::$oCRNRSTN_ENV->serialized_bit_stringout($const_nom);
-
-    }
-
     public function serialized_is_bit_set($const_nom, $integer_const){
 
         return self::$oCRNRSTN_ENV->serialized_is_bit_set($const_nom, $integer_const);
-
-    }
-
-    public function is_bit_set($const){
-
-        return self::$oCRNRSTN_ENV->is_bit_set($const);
-
-    }
-
-    public function bit_stringin($int_string){
-
-        return self::$oCRNRSTN_ENV->bit_stringin($int_string);
-
-    }
-
-    public function bit_stringout(){
-
-        return self::$oCRNRSTN_ENV->bit_stringout();
 
     }
 
@@ -7131,6 +6834,12 @@ class crnrstn_user{
 
     }
 
+    public function is_bit_set($const){
+
+        return self::$oCRNRSTN_ENV->is_bit_set($const);
+
+    }
+
     public function catchException($exception_obj, $syslog_constant = LOG_DEBUG, $method = NULL, $namespace = NULL, $output_profile = NULL, $output_profile_override_meta = NULL, $wcr_override_pipe = NULL){
 
         $tmp_err_trace_str = $this->return_PHPExceptionTracePretty($exception_obj->getTraceAsString());
@@ -7148,43 +6857,6 @@ class crnrstn_user{
         if(is_array($tmp_return)){
 
             return $tmp_return;
-
-        }
-
-    }
-
-    public function proper_version($system = 'CRNRSTN'){
-
-        error_log(__LINE__.' user $system='.$system);
-
-        $system = trim(strtoupper($system));
-
-        switch($system){
-            case 'APACHE':
-
-                return 'Apache v' . $this->version_apache;
-
-                break;
-            case 'MYSQLI':
-
-                return 'MySQLi v' . $this->version_crnrstn;
-
-                break;
-            case 'PHP':
-
-                return 'php v' . $this->version_php;
-
-                break;
-            case 'SOAP':
-
-                return 'SOAP v' . $this->version_soap;
-
-                break;
-            default:
-
-                return 'CRNRSTN :: v' . $this->version_crnrstn;
-
-                break;
 
         }
 
@@ -7388,14 +7060,6 @@ C:::::C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
             print_r($this->destruct_output);
 
         }
-
-    }
-
-    public function resource_filecache_version($file_path){
-
-        $file_cache_version_str = filesize($file_path) . '.' . filemtime($file_path).'.0';
-
-        return $file_cache_version_str;
 
     }
 

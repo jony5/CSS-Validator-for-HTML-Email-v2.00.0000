@@ -17,7 +17,6 @@ switch($this->env_cleartext_name){
         $oWCR->add_attribute('CRNRSTN_SOAP_SVC_USERNAME', '0364087231749672543475966333893875');
         $oWCR->add_attribute('CRNRSTN_SOAP_SVC_PASSWORD', '83g#k487fg5hY%@i4fs84jfmdld8!~lf;|Qkeiur84');
         $oWCR->add_attribute('WSDL_URI', 'http://alpha.jony5.com/_crnrstn/soa/?wsdl');
-
         $oWCR->add_attribute('SOA_NAMESPACE', 'http://www.w3.org/2003/05/soap-encoding');
         $oWCR->add_attribute('WSDL_CACHE_TTL', 80);
         $oWCR->add_attribute('NUSOAP_USECURL', true);

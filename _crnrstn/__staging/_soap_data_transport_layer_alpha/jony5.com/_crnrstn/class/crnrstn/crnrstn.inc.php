@@ -232,7 +232,7 @@ class crnrstn {
         $this->error_log('TODO :: WRAP NUSOAP PHP SERVER ENDPOINT IN CRNRSTN_USR...AND PREPARE TO SUPPORT DYNAMIC WSDL ENDPOINTS ::. 11/14/2020 2114hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: PREFIX NUSOAP PHP SERVER WSDL ENDPOINT WITH --> CONFIGURABLE ALLOW/DENY IP ADDRESS CHECK. 11/15/2020 0705hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: TEST NULL PASSTHROUGH FROM CLIENT TO SERVER. 11/23/2020 1120hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
-        $this->error_log('TODO :: DECOUPLE SOAP ENDPOINT VERSION DIRECTORY NAME (E.G. /2.0.0/) FROM ACTUAL SERVICE INVOKATION. 1/15/20201 @ 1400hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
+        $this->error_log('TODO :: DECOUPLE SOAP ENDPOINT VERSION DIRECTORY NAME (E.G. /2.0.0/) FROM ACTUAL SERVICE INVOKATION. 1/15/2021 @ 1400hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: TTL FUNCTIONALITY ADDED TO ELECTRUM DESTINATION FTP/DIR PROFILE TO SUPPORT ROTATION. 1/25/2021 1228hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: FACILITATE GRACEFUL ROTATION OF ENCRYPTION PROFILES. 1/27/2021 1145hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
         $this->error_log('TODO :: ENSURE GRANULAR APPLICATION OF METHOD FALSE PATHWAY :: $oCRNRSTN_USR->electrum_deleteSourceData_OnSuccess(). 2/4/2021 @1636hrs', __LINE__, __METHOD__, __FILE__, CRNRSTN_SETTINGS_CRNRSTN);
@@ -2935,8 +2935,6 @@ class crnrstn {
 
     public function proper_version($system = 'CRNRSTN'){
 
-        error_log(__LINE__.' user $system='.$system);
-
         $system = trim(strtoupper($system));
 
         switch($system){
@@ -2944,27 +2942,27 @@ class crnrstn {
 
                 return 'Apache v' . $this->version_apache;
 
-                break;
+            break;
             case 'MYSQLI':
 
                 return 'MySQLi v' . $this->version_crnrstn;
 
-                break;
+            break;
             case 'PHP':
 
                 return 'php v' . $this->version_php;
 
-                break;
+            break;
             case 'SOAP':
 
                 return 'SOAP v' . $this->version_soap;
 
-                break;
+            break;
             default:
 
                 return 'CRNRSTN :: v' . $this->version_crnrstn;
 
-                break;
+            break;
 
         }
 
@@ -3759,7 +3757,15 @@ class crnrstn {
 
         //
         // POWERED BY APACHE IMAGE DRIVER
-        $this->version_apache_sysimg = (double) $version[0].'.'.$version[1];
+        if(isset($version[1])){
+
+            $this->version_apache_sysimg = (double) $version[0].'.'.$version[1];
+
+        }else{
+
+            $this->version_apache_sysimg = (double) $version[0];
+
+        }
 
         $patch = '';
         $tmp_array = str_split($version[2]);

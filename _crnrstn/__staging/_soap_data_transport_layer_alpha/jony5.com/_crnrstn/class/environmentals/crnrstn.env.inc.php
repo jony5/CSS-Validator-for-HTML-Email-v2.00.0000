@@ -382,7 +382,8 @@ class crnrstn_environment {
         //    - CRNRSTN_ASSET_MODE_JPEG
         //    - CRNRSTN_ASSET_MODE_BASE64  <CONTENT EMBED MODE>
         //
-        if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_PNG)){
+        //if($this->oCRNRSTN_BITFLIP_MGR->oCRNRSTN_BITWISE->read(CRNRSTN_ASSET_MODE_PNG)){
+        if($this->oCRNRSTN_BITFLIP_MGR->is_bit_set(CRNRSTN_ASSET_MODE_PNG)){
 
             $asset_mode = 'PNG';
 
@@ -5734,11 +5735,19 @@ class crnrstn_decoupled_data_object {
 
                 }
 
-                break;
+            break;
 
         }
 
-        return $SOAP_request_ARRAY;
+        if(!isset($SOAP_request_ARRAY)){
+
+            return NULL;
+
+        }else{
+
+            return $SOAP_request_ARRAY;
+
+        }
 
     }
 
@@ -10368,7 +10377,7 @@ class crnrstn_soap_services_access_manager{
     protected $encryptOptions;
     protected $hmac_alg;
     public $CRNRSTN_NUSOAP_SVC_debugMode;
-    public $ISACTIVE = false;
+    protected $ISACTIVE = false;
 
     protected $SOAP_oAuth_ARRAY = array();
     protected $SOAP_oClient_ARRAY = array();
@@ -10385,7 +10394,7 @@ class crnrstn_soap_services_access_manager{
 
             $this->serial = self::$oCRNRSTN_ENV->generate_new_key(50);
 
-            error_log(__LINE__.' '.$envKey.' crnrstn_soap_services_access_manager (env) construct()  is active.');
+            error_log(__LINE__.' '.$envKey.' crnrstn_soap_services_access_manager (env) construct() is active.');
             $this->ISACTIVE = true;
 
             $this->CRNRSTN_NUSOAP_SVC_debugMode = $CRNRSTN_NUSOAP_SVC_debugMode;
@@ -10628,6 +10637,9 @@ class crnrstn_soap_services_access_manager{
 
         error_log(__LINE__.' SERVER env - checking oClient ['.$USERNAME.']['.$PASSWORD.']['.$CRNRSTN_SOAP_SVC_REQUESTED_RESOURCES.']['.$CRNRSTN_SOAP_SVC_METHOD_REQUESTED.']['.$CRNRSTN_SOAP_ACTION_TYPE.']');
 
+        error_log(__LINE__.' SERVER env Resource(s) requested from client = ' . $CRNRSTN_SOAP_SVC_REQUESTED_RESOURCES);
+        die();
+
         //
         // CONVERT STRING BACK INTO BITWISE
         self::$oCRNRSTN_ENV->serialized_bit_stringin('CRNRSTN_CLIENT_SOAP_PERMS_REQUESTED', $CRNRSTN_SOAP_SVC_REQUESTED_RESOURCES);
@@ -10774,7 +10786,7 @@ class crnrstn_soap_services_access_manager{
 
                                                 if($SOAP_resource == $method_req){
 
-                                                    //error_log(__LINE__.' env - soap_services_auth_key GRANT RESOURCE ACCESS = TRUE for '.$SOAP_resource);
+                                                    error_log(__LINE__.' env - soap_services_auth_key GRANT RESOURCE ACCESS = TRUE for '.$SOAP_resource);
                                                     $tmp_SOAP_resource = true;
 
                                                 }
