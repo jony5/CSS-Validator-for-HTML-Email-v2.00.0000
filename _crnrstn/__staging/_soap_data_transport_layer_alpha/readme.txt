@@ -16,8 +16,14 @@ Until documentation or complete SDT Layer implementation within CRNRSTN ::, plea
 I left the CRNRSTN :: SOAP authorization configuration meta basically unchanged from my dev and prod...so in theory this should work if you simply edit...by UNCOMMENTING the use of $oCRNRSTN->init_SOAP_permissions()...the following ::
 [_crnrstn/__staging/_soap_data_transport_layer_alpha/jony5.com/_crnrstn.config.inc.php file .
 
-Pro Tip: Maybe at least change the SOAP account usernames, passwords, and keys first [_crnrstn/__staging/_soap_data_transport_layer_alpha/jony5.com/_crnrstn/_config/config.soap.secure/_crnrstn.soap.config.inc.php]!!
+Pro Tip: Consider changing the SOAP account usernames, passwords, and keys from their default at the locations below ::
 (I know, right! This should, like totally be managed within a database!)
+
+    SOAP SERVER CONFIGURATION AND SOAP CLIENT AUTHORIZATION
+    [_crnrstn/__staging/_soap_data_transport_layer_alpha/jony5.com/_crnrstn/_config/config.soap.secure/_crnrstn.soap.config.inc.php]
+
+    SOAP CLIENT SERVER CONFIGURATION
+    [_crnrstn/__staging/_soap_data_transport_layer_alpha/jony5.com/_crnrstn/_config/config.resource_wildcards.secure/_crnrstn.resource_wildcards.inc.php]
 
 Thx!
 J5
